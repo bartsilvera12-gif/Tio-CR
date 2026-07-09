@@ -31,7 +31,7 @@ body {
   15%, 100% { stroke-dashoffset: 0; }
 }
 .animate-draw-mouse {
-  animation: drawMouse 3.6s ease-in-out infinite;
+  animation: drawMouse 5s ease-in-out infinite;
 }
 
 @keyframes wheelBounce {
@@ -39,19 +39,19 @@ body {
   0%, 14% { transform: translateY(0); opacity: 0; }
   /* 4 downward drops: reappear at top and slide down, 4 times */
   15% { transform: translateY(0); opacity: 1; }
-  33% { transform: translateY(10px); opacity: 0; }
+  33% { transform: translateY(22px); opacity: 0; }
   34% { transform: translateY(0); opacity: 1; }
-  52% { transform: translateY(10px); opacity: 0; }
+  52% { transform: translateY(22px); opacity: 0; }
   53% { transform: translateY(0); opacity: 1; }
-  71% { transform: translateY(10px); opacity: 0; }
+  71% { transform: translateY(22px); opacity: 0; }
   72% { transform: translateY(0); opacity: 1; }
-  89% { transform: translateY(10px); opacity: 0; }
+  89% { transform: translateY(22px); opacity: 0; }
   100% { transform: translateY(0); opacity: 0; }
 }
 .animate-wheel-down {
   transform-origin: center;
   transform-box: fill-box;
-  animation: wheelBounce 3.6s ease-in-out infinite;
+  animation: wheelBounce 5s ease-in-out infinite;
 }
 
 @layer components {
