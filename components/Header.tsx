@@ -7,6 +7,7 @@ const links = [
   { href: '#servicios', label: 'Servicios' },
   { href: '#cobertura', label: 'Cobertura' },
   { href: '#galeria', label: 'Galería' },
+  { href: '#contacto', label: 'Contacto' },
 ]
 
 export default function Header() {
@@ -80,7 +81,7 @@ export default function Header() {
 
         <div className="hidden md:block">
           <a href="#contacto" className="btn-cyan uppercase tracking-widest">
-            Contacto
+            Solicitar presupuesto
           </a>
         </div>
 
@@ -118,7 +119,7 @@ export default function Header() {
               onClick={() => setOpen(false)}
               className="btn-cyan mt-2 justify-center uppercase tracking-widest"
             >
-              Contacto
+              Solicitar presupuesto
             </a>
           </div>
         </div>
