@@ -48,10 +48,9 @@ export default function Header() {
         {/* Logo real con blend-mode para eliminar fondo del JPEG */}
         <a href="#inicio" className="flex items-center">
           <img
-            src="/logo-mark.jpg"
+            src="/logo.png"
             alt="TIOCR"
             className="h-10 md:h-12"
-            style={{ mixBlendMode: 'screen' }}
           />
         </a>
 

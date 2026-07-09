@@ -16,38 +16,20 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40" />
       </div>
 
-      {/* Logo hero con blend-mode para eliminar el fondo del JPEG */}
-      <div className="relative z-10 flex flex-col items-center px-6 text-center">
+      {/* Solo el logo, sin texto */}
+      <div className="relative z-10 px-6">
         <img
-          src="/logo-mark.jpg"
+          src="/logo.png"
           alt="TIOCR - Marketing y Servicios Publicitarios"
-          className="w-[min(90vw,780px)] animate-fade-in"
-          style={{ mixBlendMode: 'screen' }}
+          className="w-[min(90vw,860px)] animate-fade-in"
         />
-
-        <p className="mt-10 max-w-xl text-base text-white/70 md:text-lg">
-          Cartelería rutera, pantallas LED y campañas de gran formato en las
-          principales rutas y ciudades del interior del Paraguay.
-        </p>
-
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <a href="#contacto" className="btn-cyan uppercase tracking-widest">
-            Solicitar presupuesto
-          </a>
-          <a
-            href="#servicios"
-            className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold uppercase tracking-widest text-white transition hover:border-white hover:bg-white/10"
-          >
-            Ver servicios
-          </a>
-        </div>
       </div>
 
       {/* Scroll indicator estilo OPL */}
       <a
         href="#servicios"
         aria-label="Scroll"
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+        className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2"
       >
         <svg
           width="30"
