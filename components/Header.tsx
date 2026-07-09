@@ -18,7 +18,6 @@ export default function Header() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 40)
-      // scroll spy
       const sections = ['#inicio', '#servicios', '#cobertura', '#galeria', '#contacto']
       const y = window.scrollY + 120
       for (const id of sections) {
@@ -34,25 +33,26 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const textColor = scrolled ? 'text-brand-ink' : 'text-white'
-  const mutedColor = scrolled ? 'text-brand-ink/60' : 'text-white/70'
-
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/90 backdrop-blur border-b border-brand-ink/10'
-          : 'bg-transparent'
+          ? 'border-b border-white/10 backdrop-blur'
+          : ''
       }`}
+      style={{
+        backgroundColor: scrolled ? 'rgba(5, 14, 31, 0.85)' : 'transparent',
+      }}
     >
       <div className="container flex h-20 items-center justify-between">
-        <a href="#inicio" className={`flex items-center gap-2 font-display text-2xl font-bold tracking-tight transition ${textColor}`}>
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-brand-cyan">
-            <span className="h-2.5 w-2.5 rounded-full bg-brand-cyan" />
-          </span>
-          <span>
-            TIO<span className="text-brand-cyan">CR</span>
-          </span>
+        {/* Logo real con blend-mode para eliminar fondo del JPEG */}
+        <a href="#inicio" className="flex items-center">
+          <img
+            src="/logo-mark.jpg"
+            alt="TIOCR"
+            className="h-10 md:h-12"
+            style={{ mixBlendMode: 'screen' }}
+          />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -63,12 +63,8 @@ export default function Header() {
                 key={l.href}
                 href={l.href}
                 className={`relative py-2 text-sm font-semibold uppercase tracking-widest transition ${
-                  isActive
-                    ? scrolled
-                      ? 'text-brand-ink'
-                      : 'text-white'
-                    : mutedColor
-                } hover:${scrolled ? 'text-brand-ink' : 'text-white'}`}
+                  isActive ? 'text-white' : 'text-white/60 hover:text-white'
+                }`}
               >
                 {l.label}
                 {isActive && (
@@ -87,7 +83,7 @@ export default function Header() {
 
         <button
           onClick={() => setOpen((v) => !v)}
-          className={`md:hidden ${textColor}`}
+          className="text-white md:hidden"
           aria-label="Abrir menú"
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
@@ -102,14 +98,14 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-brand-ink/10 bg-white md:hidden">
+        <div className="border-t border-white/10 md:hidden" style={{ backgroundColor: 'rgba(5, 14, 31, 0.95)' }}>
           <div className="container flex flex-col py-4">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="py-3 text-sm font-semibold uppercase tracking-widest text-brand-ink"
+                className="py-3 text-sm font-semibold uppercase tracking-widest text-white"
               >
                 {l.label}
               </a>
