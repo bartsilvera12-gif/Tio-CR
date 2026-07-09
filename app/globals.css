@@ -37,15 +37,26 @@ body {
 @keyframes wheelBounce {
   /* wait while the mouse is being drawn */
   0%, 14% { transform: translateY(0); opacity: 0; }
-  /* 4 downward drops: reappear at top and slide down, 4 times */
+
+  /* drop 1 */
   15% { transform: translateY(0); opacity: 1; }
-  33% { transform: translateY(22px); opacity: 0; }
+  32% { transform: translateY(22px); opacity: 0; }
+  33% { transform: translateY(0); opacity: 0; }   /* invisible snap to top */
+
+  /* drop 2 */
   34% { transform: translateY(0); opacity: 1; }
-  52% { transform: translateY(22px); opacity: 0; }
+  51% { transform: translateY(22px); opacity: 0; }
+  52% { transform: translateY(0); opacity: 0; }
+
+  /* drop 3 */
   53% { transform: translateY(0); opacity: 1; }
-  71% { transform: translateY(22px); opacity: 0; }
+  70% { transform: translateY(22px); opacity: 0; }
+  71% { transform: translateY(0); opacity: 0; }
+
+  /* drop 4 */
   72% { transform: translateY(0); opacity: 1; }
   89% { transform: translateY(22px); opacity: 0; }
+
   100% { transform: translateY(0); opacity: 0; }
 }
 .animate-wheel-down {
