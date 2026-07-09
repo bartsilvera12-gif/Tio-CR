@@ -28,22 +28,31 @@ body {
 
 @keyframes drawMouse {
   0% { stroke-dashoffset: 150; }
-  60%, 100% { stroke-dashoffset: 0; }
+  15%, 100% { stroke-dashoffset: 0; }
 }
 .animate-draw-mouse {
-  animation: drawMouse 2.4s ease-in-out infinite;
+  animation: drawMouse 2.6s ease-in-out infinite;
 }
 
-@keyframes wheelDown {
-  0%, 30% { transform: translateY(0); opacity: 0; }
-  40% { opacity: 1; }
-  70% { transform: translateY(10px); opacity: 1; }
-  100% { transform: translateY(10px); opacity: 0; }
+@keyframes wheelBounce {
+  /* wait while the mouse is being drawn */
+  0%, 14% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 1; }
+  /* 4 down-up cycles between 15% and 92% */
+  24% { transform: translateY(10px); }
+  33% { transform: translateY(0); }
+  43% { transform: translateY(10px); }
+  52% { transform: translateY(0); }
+  62% { transform: translateY(10px); }
+  71% { transform: translateY(0); }
+  81% { transform: translateY(10px); }
+  90% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0; }
 }
 .animate-wheel-down {
   transform-origin: center;
   transform-box: fill-box;
-  animation: wheelDown 2.4s ease-in-out infinite;
+  animation: wheelBounce 2.6s ease-in-out infinite;
 }
 
 @layer components {
