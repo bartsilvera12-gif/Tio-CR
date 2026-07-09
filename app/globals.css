@@ -39,22 +39,26 @@ body {
   0%, 14% { transform: translateY(0); opacity: 0; }
 
   /* drop 1 */
-  15% { transform: translateY(0); opacity: 1; }
-  32% { transform: translateY(22px); opacity: 0; }
+  15% { transform: translateY(0); opacity: 1; }   /* appear */
+  22% { transform: translateY(0); opacity: 1; }   /* hold at top */
+  32% { transform: translateY(22px); opacity: 0; }/* drop */
   33% { transform: translateY(0); opacity: 0; }   /* invisible snap to top */
 
   /* drop 2 */
   34% { transform: translateY(0); opacity: 1; }
+  41% { transform: translateY(0); opacity: 1; }
   51% { transform: translateY(22px); opacity: 0; }
   52% { transform: translateY(0); opacity: 0; }
 
   /* drop 3 */
   53% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(0); opacity: 1; }
   70% { transform: translateY(22px); opacity: 0; }
   71% { transform: translateY(0); opacity: 0; }
 
   /* drop 4 */
   72% { transform: translateY(0); opacity: 1; }
+  79% { transform: translateY(0); opacity: 1; }
   89% { transform: translateY(22px); opacity: 0; }
 
   100% { transform: translateY(0); opacity: 0; }
