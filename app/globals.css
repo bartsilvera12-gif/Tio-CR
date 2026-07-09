@@ -31,7 +31,7 @@ body {
   15%, 100% { stroke-dashoffset: 0; }
 }
 .animate-draw-mouse {
-  animation: drawMouse 5s ease-in-out infinite;
+  animation: drawMouse 7s ease-in-out infinite;
 }
 
 @keyframes wheelBounce {
@@ -51,7 +51,7 @@ body {
 .animate-wheel-down {
   transform-origin: center;
   transform-box: fill-box;
-  animation: wheelBounce 5s ease-in-out infinite;
+  animation: wheelBounce 7s ease-in-out infinite;
 }
 
 @layer components {
