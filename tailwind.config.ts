@@ -1,0 +1,29 @@
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
+  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          cyan: '#00C9F7',
+          cyanDark: '#00A8D1',
+          ink: '#202020',
+          soft: '#F6F6F6',
+        },
+      },
+      fontFamily: {
+        display: ['var(--font-manrope)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
+      container: {
+        center: true,
+        padding: '1.5rem',
+        screens: { '2xl': '1240px' },
+      },
+    },
+  },
+  plugins: [],
+}
+
+export default config
