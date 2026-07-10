@@ -70,7 +70,7 @@ function DualIcon({
 
 export default function Servicios() {
   return (
-    <section id="servicios" className="section relative overflow-hidden bg-white text-brand-ink">
+    <section id="servicios" className="relative overflow-hidden bg-white py-16 text-brand-ink md:py-20">
       {/* Blob principal: grande, visible y animado */}
       <GlowBlob
         className="right-[-8%] top-[5%] h-[700px] w-[920px]"
@@ -94,13 +94,13 @@ export default function Servicios() {
           <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-brand-ink md:text-5xl">
             Todo lo que necesitás para estar en la calle.
           </h2>
-          <p className="mt-5 text-lg text-brand-ink/70">
+          <p className="mt-4 text-lg text-brand-ink/70">
             De la producción al montaje: cubrimos cada etapa de tu campaña de
             publicidad exterior.
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
           {servicios.map((s, i) => (
             <Reveal key={s.titulo} delay={i * 150} as="article" className="h-full" direction="below">
               {/* Zona de hover estable (no rota) */}
@@ -108,7 +108,7 @@ export default function Servicios() {
                 <div className="card-flip3d">
                   {/* ---- Cara frontal: vidrio azul ---- */}
                   <div
-                    className="card-face relative flex h-full flex-col overflow-hidden rounded-2xl p-8 text-white"
+                    className="card-face relative flex h-full flex-col overflow-hidden rounded-2xl p-7 text-white"
                     style={{
                       background:
                         'linear-gradient(150deg, rgba(14,34,71,0.72) 0%, rgba(6,20,40,0.78) 100%)',
@@ -121,7 +121,7 @@ export default function Servicios() {
                   >
                     {/* Ícono grande mitad blanco / mitad cian, en círculo */}
                     <div
-                      className="mb-6 inline-flex h-24 w-24 items-center justify-center rounded-full"
+                      className="mb-5 inline-flex h-[88px] w-[88px] items-center justify-center rounded-full"
                       style={{
                         background:
                           'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.12))',

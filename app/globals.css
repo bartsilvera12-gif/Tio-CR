@@ -12,6 +12,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Al navegar por anclas, dejar espacio para el header fijo */
+section[id] {
+  scroll-margin-top: 84px;
+}
+
 body {
   color: #ffffff;
   background: #061428;
