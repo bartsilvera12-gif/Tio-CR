@@ -61,7 +61,7 @@ export default function Header() {
                 key={l.href}
                 href={l.href}
                 className={`group relative py-2 text-sm font-semibold uppercase tracking-widest transition-colors duration-300 active:scale-95 ${
-                  isActive ? 'text-white' : 'text-white/60 hover:text-white'
+                  isActive ? 'text-white' : 'text-white/85 hover:text-white'
                 }`}
               >
                 {l.label}
