@@ -27,8 +27,8 @@ export default function Contacto() {
   return (
     <section id="contacto" className="section relative overflow-hidden bg-brand-navyDeep text-white">
       <GlowBlob
-        className="left-[30%] top-[-8%] h-[340px] w-[520px]"
-        opacity={0.1}
+        className="left-[32%] top-[25%] h-[340px] w-[520px]"
+        opacity={0.08}
         rotate={-8}
         radius="55% 45% 60% 40% / 48% 62% 38% 52%"
       />

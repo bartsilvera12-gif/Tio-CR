@@ -6,8 +6,8 @@ export default function Cobertura() {
   return (
     <section id="cobertura" className="section relative overflow-hidden bg-brand-navyDeep text-white">
       <GlowBlob
-        className="left-[-10%] bottom-[10%] h-[400px] w-[520px]"
-        opacity={0.11}
+        className="left-[2%] bottom-[30%] h-[400px] w-[520px]"
+        opacity={0.09}
         rotate={-24}
         radius="62% 38% 50% 50% / 42% 58% 45% 55%"
       />

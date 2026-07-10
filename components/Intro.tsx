@@ -9,8 +9,8 @@ export default function Intro() {
       {/* Blobs cian difuminados en el fondo */}
       <GlowBlob className="left-[5%] top-[28%] h-[420px] w-[560px]" opacity={0.16} />
       <GlowBlob
-        className="right-[-8%] top-[8%] h-[320px] w-[420px]"
-        opacity={0.1}
+        className="right-[2%] top-[30%] h-[320px] w-[420px]"
+        opacity={0.09}
         rotate={22}
         radius="42% 58% 38% 62% / 60% 42% 58% 40%"
       />

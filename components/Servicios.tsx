@@ -36,8 +36,8 @@ export default function Servicios() {
   return (
     <section id="servicios" className="section relative overflow-hidden bg-brand-navy text-white">
       <GlowBlob
-        className="right-[2%] top-[15%] h-[380px] w-[500px]"
-        opacity={0.12}
+        className="right-[5%] top-[38%] h-[380px] w-[500px]"
+        opacity={0.1}
         rotate={18}
         radius="45% 55% 62% 38% / 55% 40% 60% 45%"
       />
