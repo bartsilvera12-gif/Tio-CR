@@ -17,17 +17,21 @@ export default function Intro() {
           </Reveal>
 
           <Reveal delay={120}>
-            <span className="eyebrow">Nuestra propuesta</span>
+            <span className="eyebrow">
+              <span className="mr-2 inline-block h-2 w-2 animate-pulse rounded-full bg-brand-cyan align-middle" />
+              Nuestra propuesta
+            </span>
             <h2 className="mt-5 font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-5xl lg:text-[3.5rem]">
               <span className="intro-title-cyan bg-gradient-to-r from-brand-cyan via-sky-300 to-brand-cyan bg-clip-text text-transparent">
                 Cartelería gigante
               </span>
               <br />
-              <span className="text-white">
+              <span className="intro-title-white">
                 y publicidad exterior en rutas e interior del Paraguay.
               </span>
             </h2>
-            <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/70 intro-body">
+            <div className="intro-accent-bar mt-6" />
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70 intro-body">
               Llevamos tu marca más lejos. Impacto masivo, presencia estratégica
               y visibilidad real donde tu público está.
             </p>
@@ -48,7 +52,8 @@ function Billboard() {
       {/* Halo cian muy sutil */}
       <div className="pointer-events-none absolute -inset-16 -z-10 bg-[radial-gradient(circle,rgba(0,201,247,0.1),transparent_70%)] blur-3xl" />
 
-      {/* Estructura vertical con perspectiva 3D como la referencia (vista desde abajo-izquierda) */}
+      {/* Estructura vertical con perspectiva 3D + flotación suave (wrapper separado para no pisar transforms) */}
+      <div className="billboard-float">
       <div
         className="relative"
         style={{
@@ -105,6 +110,9 @@ function Billboard() {
 
               {/* Tinte cian LED sutil global */}
               <div className="pointer-events-none absolute inset-0 bg-brand-cyan/[0.03]" />
+
+              {/* Reflejo que barre la pantalla */}
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 screen-sheen bg-gradient-to-r from-transparent via-white/25 to-transparent" />
             </div>
           </div>
 
@@ -114,14 +122,14 @@ function Billboard() {
             {spots.map((left, i) => (
               <div
                 key={i}
-                className="absolute top-0 h-full w-[90px] -translate-x-1/2"
+                className="absolute top-0 h-full w-[110px] -translate-x-1/2"
                 style={{
                   left: `${left}%`,
                   background:
-                    'linear-gradient(to bottom, rgba(220,245,255,0.85) 0%, rgba(160,225,250,0.4) 45%, rgba(160,225,250,0.06) 85%, transparent 100%)',
-                  clipPath: 'polygon(42% 0, 58% 0, 100% 100%, 0% 100%)',
+                    'linear-gradient(to bottom, rgba(220,245,255,0.6) 0%, rgba(160,225,250,0.28) 45%, rgba(160,225,250,0.04) 85%, transparent 100%)',
+                  clipPath: 'polygon(40% 0, 60% 0, 100% 100%, 0% 100%)',
                   mixBlendMode: 'screen',
-                  filter: 'blur(3px)',
+                  filter: 'blur(9px)',
                   animation: `beamPulse ${3 + i * 0.3}s ease-in-out infinite`,
                 }}
               />
@@ -138,9 +146,12 @@ function Billboard() {
           <div className="absolute inset-x-[10%] top-3 h-[20px] rounded-[50%] bg-black/50 blur-md" />
           {/* Anillo exterior sutil */}
           <div className="absolute inset-x-0 top-2 h-[26px] rounded-[50%] border border-brand-cyan/40" />
+          {/* Anillo que pulsa expandiéndose */}
+          <div className="ring-pulse absolute inset-x-0 top-2 h-[26px] rounded-[50%] border border-brand-cyan/50" />
           {/* Anillo interior */}
           <div className="absolute inset-x-[25%] top-4 h-[16px] rounded-[50%] border border-brand-cyan/25" />
         </div>
+      </div>
       </div>
     </div>
   )

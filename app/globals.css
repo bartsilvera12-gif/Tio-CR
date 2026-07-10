@@ -45,8 +45,63 @@ body {
 
 /* Pulso de los rayos de luz del cartel */
 @keyframes beamPulse {
-  0%, 100% { opacity: 0.85; }
-  50% { opacity: 1; }
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 0.95; }
+}
+
+/* Flotación suave del cartel (efecto holograma) */
+@keyframes billboardFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.billboard-float {
+  animation: billboardFloat 7s ease-in-out infinite;
+}
+
+/* Reflejo que barre la pantalla cada tanto */
+@keyframes screenSheen {
+  0%, 78% { transform: translateX(-160%) skewX(-18deg); opacity: 0; }
+  80% { opacity: 1; }
+  96%, 100% { transform: translateX(240%) skewX(-18deg); opacity: 0; }
+}
+.screen-sheen {
+  animation: screenSheen 9s ease-in-out infinite;
+}
+
+/* Anillos de la base pulsando (expanden y desvanecen) */
+@keyframes ringPulse {
+  0% { transform: scale(0.85); opacity: 0.7; }
+  70% { transform: scale(1.12); opacity: 0; }
+  100% { transform: scale(0.85); opacity: 0; }
+}
+.ring-pulse {
+  animation: ringPulse 3.2s ease-out infinite;
+}
+
+/* Shimmer plateado muy sutil para el texto blanco del título */
+@keyframes whiteShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.intro-title-white {
+  background: linear-gradient(100deg, #ffffff 30%, #bfe9ff 50%, #ffffff 70%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: whiteShimmer 7s ease-in-out infinite;
+}
+
+/* Barra de acento que respira bajo el título */
+@keyframes accentGrow {
+  0%, 100% { width: 72px; opacity: 0.7; }
+  50% { width: 110px; opacity: 1; }
+}
+.intro-accent-bar {
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #00C9F7, rgba(0,201,247,0.15));
+  animation: accentGrow 5s ease-in-out infinite;
 }
 
 /* Glow del anillo de la base */
