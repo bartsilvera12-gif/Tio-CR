@@ -42,7 +42,7 @@ export default function Contacto() {
                 href={`https://wa.me/${contacto.whatsapp}`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-4 rounded-2xl border border-brand-ink/10 bg-white p-5 transition hover:border-brand-cyan"
+                className="group flex items-center gap-4 rounded-2xl border border-brand-ink/10 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-cyan hover:shadow-md"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366]">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
@@ -54,14 +54,54 @@ export default function Contacto() {
                     WhatsApp
                   </div>
                   <div className="font-semibold text-brand-ink">
-                    +595 981 234 567
+                    {contacto.whatsappDisplay}
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href={`https://wa.me/${contacto.whatsapp2}`}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center gap-4 rounded-2xl border border-brand-ink/10 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-cyan hover:shadow-md"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366]">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                    <path d="M20.5 3.5A11.9 11.9 0 0012 0C5.4 0 0 5.4 0 12c0 2.1.5 4.2 1.6 6L0 24l6.2-1.6c1.7.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.5-8.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.4-1.5-5.2 0-5.4 4.4-9.8 9.8-9.8s9.8 4.4 9.8 9.8-4.4 9.8-9.8 9.8z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-widest text-brand-ink/50">
+                    WhatsApp
+                  </div>
+                  <div className="font-semibold text-brand-ink">
+                    {contacto.whatsapp2Display}
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href={`tel:${contacto.phone}`}
+                className="group flex items-center gap-4 rounded-2xl border border-brand-ink/10 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-cyan hover:shadow-md"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-cyan/10 text-brand-cyanDark">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.9.35 1.79.66 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.23a2 2 0 0 1 2.11-.45c.86.3 1.75.53 2.65.65A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-widest text-brand-ink/50">
+                    Línea fija
+                  </div>
+                  <div className="font-semibold text-brand-ink">
+                    {contacto.phoneDisplay}
                   </div>
                 </div>
               </a>
 
               <a
                 href={`mailto:${contacto.email}`}
-                className="flex items-center gap-4 rounded-2xl border border-brand-ink/10 bg-white p-5 transition hover:border-brand-cyan"
+                className="group flex items-center gap-4 rounded-2xl border border-brand-ink/10 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-cyan hover:shadow-md"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-cyan/10 text-brand-cyanDark">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

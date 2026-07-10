@@ -55,6 +55,11 @@ export const galeria = [
 ]
 
 export const contacto = {
-  whatsapp: '595981234567',
-  email: 'contacto@tiocr.com.py',
+  whatsapp: '595991888888',
+  whatsappDisplay: '+595 991 888 888',
+  whatsapp2: '595971201799',
+  whatsapp2Display: '+595 971 201 799',
+  phone: '021205568',
+  phoneDisplay: '021 205 568',
+  email: 'carlosraulpy@gmail.com',
 }

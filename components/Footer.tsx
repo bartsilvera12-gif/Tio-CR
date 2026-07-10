@@ -6,12 +6,10 @@ export default function Footer() {
       <div className="container py-16">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <div className="font-display text-2xl font-bold">
-              TIO<span className="text-brand-cyan">CR</span>
-            </div>
-            <p className="mt-4 max-w-xs text-sm text-white/60">
-              Marketing y servicios publicitarios. Presencia en rutas y ciudades
-              del interior del Paraguay.
+            <img src="/logo.png" alt="TIOCR" className="h-9" />
+            <p className="mt-5 max-w-xs text-sm text-white/60">
+              Marketing y servicios publicitarios. Cartelería gigante y
+              publicidad exterior en rutas e interior del Paraguay.
             </p>
           </div>
           <div>
@@ -31,9 +29,43 @@ export default function Footer() {
               Contacto
             </div>
             <ul className="mt-4 space-y-2 text-sm text-white/70">
-              <li>WhatsApp: +595 981 234 567</li>
-              <li>{contacto.email}</li>
-              <li>Paraguay · Cobertura nacional</li>
+              <li>
+                <a
+                  href={`https://wa.me/${contacto.whatsapp}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transition hover:text-brand-cyan"
+                >
+                  WhatsApp · {contacto.whatsappDisplay}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`https://wa.me/${contacto.whatsapp2}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transition hover:text-brand-cyan"
+                >
+                  WhatsApp · {contacto.whatsapp2Display}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${contacto.phone}`}
+                  className="transition hover:text-brand-cyan"
+                >
+                  Línea fija · {contacto.phoneDisplay}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${contacto.email}`}
+                  className="transition hover:text-brand-cyan"
+                >
+                  {contacto.email}
+                </a>
+              </li>
+              <li className="text-white/50">Paraguay · Cobertura nacional</li>
             </ul>
           </div>
         </div>
@@ -43,7 +75,7 @@ export default function Footer() {
           Caballero · Salto del Guairá · Caacupé · Quiindy · Villa Florida ·
           Corpus Christi.
           <div className="mt-2">
-            © {new Date().getFullYear()} TIOCR — Marketing y Servicios
+            © {new Date().getFullYear()} Tíos R — Marketing y Servicios
             Publicitarios.
           </div>
         </div>
