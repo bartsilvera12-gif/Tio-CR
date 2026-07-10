@@ -23,12 +23,12 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,201,247,0.12),transparent_65%)]" />
       </div>
 
-      {/* Solo el logo, sin texto */}
-      <div className="relative z-10 px-6">
+      {/* Solo el logo, sin texto — wrapper anima fade-in, img anima hover */}
+      <div className="relative z-10 animate-fade-in px-6">
         <img
           src="/logo-hero.png"
           alt="TIOCR - Marketing y Servicios Publicitarios"
-          className="w-[min(90vw,860px)] cursor-pointer animate-fade-in transition-transform duration-300 ease-out hover:scale-105"
+          className="w-[min(90vw,860px)] cursor-pointer transition-transform duration-300 ease-out hover:scale-105"
         />
       </div>
 
