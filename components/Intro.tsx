@@ -188,9 +188,22 @@ function Billboard() {
         {/* ---- Poste vertical ---- */}
         <div className="relative mx-auto h-[100px] w-[14px] rounded-b-md bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 shadow-[0_2px_10px_rgba(0,0,0,0.5)]" />
 
-        {/* ---- Base (sombra simple, sin neón) ---- */}
-        <div className="relative mx-auto h-[40px] w-[240px]">
-          <div className="absolute inset-x-[10%] top-3 h-[20px] rounded-[50%] bg-black/55 blur-md" />
+        {/* ---- Base: pedestal metálico con placa, acorde a la página ---- */}
+        <div className="relative mx-auto h-[46px] w-[240px]">
+          {/* Sombra en el piso */}
+          <div className="absolute inset-x-[8%] top-6 h-[18px] rounded-[50%] bg-black/60 blur-md" />
+          {/* Placa elíptica metálica (misma familia que el bezel) */}
+          <div
+            className="absolute inset-x-[15%] top-1 h-[22px] rounded-[50%]"
+            style={{
+              background:
+                'linear-gradient(180deg, #334155 0%, #1e293b 45%, #0f172a 100%)',
+              boxShadow:
+                'inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 10px rgba(0,0,0,0.5)',
+            }}
+          />
+          {/* Detalle superior de la placa (aro interior sutil, gris) */}
+          <div className="absolute inset-x-[24%] top-[7px] h-[10px] rounded-[50%] border border-white/10" />
         </div>
       </div>
       </div>
