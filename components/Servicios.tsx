@@ -42,80 +42,97 @@ export default function Servicios() {
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {servicios.map((s, i) => (
             <Reveal key={s.titulo} delay={i * 150} as="article" className="h-full" direction="below">
-              {/* Zona de hover estable: no rota, así el giro nunca se corta a mitad */}
+              {/* Zona de hover estable (no rota) */}
               <div className="card-spin-zone group h-full">
-              <div className="glass card-inner relative flex h-full flex-col overflow-hidden rounded-2xl p-8 group-hover:!border-brand-cyan/50 group-hover:!bg-white/[0.09] group-hover:shadow-[0_28px_60px_-18px_rgba(0,201,247,0.45)]">
-                {/* Glow interno que aparece en hover */}
-                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(ellipse_at_top,rgba(0,201,247,0.12),transparent_60%)]" />
-
-                {/* Ícono */}
-                <div className="relative mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-brand-cyan/15 text-brand-cyan transition-all duration-500 group-hover:scale-110 group-hover:bg-brand-cyan/25">
-                  <svg
-                    width="26"
-                    height="26"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    {iconos[s.icono]}
-                  </svg>
-                </div>
-
-                <h3 className="relative font-display text-2xl font-bold text-white">
-                  {s.titulo}
-                </h3>
-                <p className="relative mt-3 text-white/70">{s.descripcion}</p>
-
-                {/* Detalles */}
-                <ul className="relative mt-6 space-y-2.5">
-                  {s.detalles.map((d) => (
-                    <li key={d} className="flex items-center gap-2.5 text-sm text-white/70 transition-colors duration-300 group-hover:text-white/90">
+                <div className="card-flip3d">
+                  {/* ---- Cara frontal ---- */}
+                  <div className="card-face glass relative flex h-full flex-col overflow-hidden rounded-2xl p-8">
+                    <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-brand-cyan/15 text-brand-cyan">
                       <svg
-                        className="shrink-0 text-brand-cyan"
-                        width="14"
-                        height="14"
+                        width="26"
+                        height="26"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="3"
+                        strokeWidth="1.8"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       >
-                        <path d="M5 12l5 5L20 7" />
+                        {iconos[s.icono]}
                       </svg>
-                      {d}
-                    </li>
-                  ))}
-                </ul>
+                    </div>
 
-                {/* CTA que aparece en hover */}
-                <div className="relative mt-auto pt-8">
-                  <a
-                    href="#contacto"
-                    className="inline-flex translate-y-2 items-center gap-2 text-sm font-semibold uppercase tracking-widest text-brand-cyan opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100"
-                  >
-                    Consultar este servicio
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                  </a>
+                    <h3 className="font-display text-2xl font-bold text-white">
+                      {s.titulo}
+                    </h3>
+                    <p className="mt-3 text-white/70">{s.descripcion}</p>
+
+                    <ul className="mt-6 space-y-2.5">
+                      {s.detalles.map((d) => (
+                        <li key={d} className="flex items-center gap-2.5 text-sm text-white/70">
+                          <svg
+                            className="shrink-0 text-brand-cyan"
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="3"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M5 12l5 5L20 7" />
+                          </svg>
+                          {d}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* ---- Cara trasera (revelada al girar) ---- */}
+                  <div className="card-face card-face-back glass flex flex-col items-center justify-center gap-6 overflow-hidden rounded-2xl border-brand-cyan/40 p-8 text-center">
+                    {/* Glow de fondo */}
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,201,247,0.15),transparent_65%)]" />
+
+                    {/* Loguito grande */}
+                    <div className="relative inline-flex h-24 w-24 items-center justify-center rounded-2xl bg-brand-cyan/15 text-brand-cyan">
+                      <svg
+                        width="48"
+                        height="48"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        {iconos[s.icono]}
+                      </svg>
+                    </div>
+
+                    <h3 className="relative font-display text-2xl font-bold text-white">
+                      {s.titulo}
+                    </h3>
+
+                    {/* CTA con el mismo formato que Solicitar presupuesto */}
+                    <a href="#contacto" className="btn-cta uppercase tracking-widest">
+                      <span>Consultar este servicio</span>
+                      <svg
+                        className="cta-arrow"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
-
-                {/* Línea de acento inferior que crece en hover */}
-                <span className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-gradient-to-r from-brand-cyan to-transparent transition-transform duration-500 group-hover:scale-x-100" />
-              </div>
               </div>
             </Reveal>
           ))}

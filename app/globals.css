@@ -207,17 +207,29 @@ body {
   filter: blur(0);
 }
 
-/* Giro vertical de la card al hacer hover.
-   El hover se detecta en la zona externa (que NO rota) — así el giro nunca
-   pierde el hover a mitad de vuelta y no se buguea. Al salir, desanda el giro. */
-.card-spin-zone .card-inner {
-  transform: perspective(1000px) rotateX(0deg);
-  transition-property: transform, border-color, background-color, box-shadow;
-  transition-duration: 0.9s, 0.5s, 0.5s, 0.5s;
-  transition-timing-function: cubic-bezier(0.45, 0, 0.2, 1);
+/* Flip card 3D: media vuelta vertical que revela el reverso.
+   El hover se detecta en la zona externa (que no rota) — nunca se corta el giro. */
+.card-spin-zone {
+  perspective: 1300px;
 }
-.card-spin-zone:hover .card-inner {
-  transform: perspective(1000px) rotateX(360deg);
+.card-flip3d {
+  position: relative;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg);
+  transition: transform 0.85s cubic-bezier(0.45, 0, 0.2, 1);
+}
+.card-spin-zone:hover .card-flip3d {
+  transform: rotateX(180deg);
+}
+.card-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.card-face-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateX(180deg);
 }
 
 
