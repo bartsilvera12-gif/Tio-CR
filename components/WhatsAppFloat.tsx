@@ -63,7 +63,17 @@ export default function WhatsAppFloat() {
             : 'pointer-events-none scale-95 opacity-0'
         }`}
       >
-        <div className="glass-dark rounded-2xl p-2 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.5)]">
+        {/* Fondo sólido con look de vidrio (sin backdrop-filter: evita el "pop" del blur al aparecer) */}
+        <div
+          className="rounded-2xl p-2 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.55)]"
+          style={{
+            background:
+              'linear-gradient(160deg, rgba(16,32,58,0.98) 0%, rgba(7,18,38,0.98) 100%)',
+            border: '1px solid rgba(255,255,255,0.12)',
+            boxShadow:
+              'inset 0 1px 0 rgba(255,255,255,0.1), 0 16px 40px -12px rgba(0,0,0,0.55)',
+          }}
+        >
           <div className="px-3 py-2 text-xs font-semibold uppercase tracking-widest text-white/50">
             Elegí un número
           </div>
@@ -93,16 +103,24 @@ export default function WhatsAppFloat() {
         aria-label="Contactar por WhatsApp"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
+        className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-full shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
         style={{
-          background: 'rgba(37, 211, 102, 0.35)',
-          WebkitBackdropFilter: 'blur(20px) saturate(160%)',
-          backdropFilter: 'blur(20px) saturate(160%)',
-          border: '1px solid rgba(255, 255, 255, 0.25)',
+          background: 'rgba(37, 211, 102, 0.22)',
+          WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+          backdropFilter: 'blur(24px) saturate(180%)',
+          border: '1px solid rgba(255, 255, 255, 0.4)',
           boxShadow:
-            'inset 0 1px 0 rgba(255,255,255,0.25), 0 8px 28px rgba(0,0,0,0.4)',
+            'inset 0 2px 3px rgba(255,255,255,0.35), inset 0 -2px 4px rgba(0,0,0,0.25), 0 8px 28px rgba(0,0,0,0.45)',
         }}
       >
+        {/* Brillo superior de cristal */}
+        <span
+          className="pointer-events-none absolute inset-x-1 top-0.5 h-[45%] rounded-full"
+          style={{
+            background:
+              'linear-gradient(to bottom, rgba(255,255,255,0.35), transparent)',
+          }}
+        />
         <div
           className={`transition-transform duration-300 ${
             open ? 'rotate-45' : 'rotate-0'
