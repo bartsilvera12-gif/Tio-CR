@@ -1,18 +1,18 @@
 import Reveal from './Reveal'
+import GlowBlob from './GlowBlob'
 
 export default function Intro() {
   return (
     <section className="relative overflow-hidden bg-brand-navy py-24 text-white md:py-32">
       {/* Fade desde el negro del hero */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent" />
-      {/* Blob cian difuminado y deformado en el fondo de la sección */}
-      <div
-        className="pointer-events-none absolute left-[5%] top-[28%] h-[420px] w-[560px] blur-[110px]"
-        style={{
-          background: 'rgba(0, 201, 247, 0.16)',
-          borderRadius: '58% 42% 65% 35% / 45% 60% 40% 55%',
-          transform: 'rotate(-14deg)',
-        }}
+      {/* Blobs cian difuminados en el fondo */}
+      <GlowBlob className="left-[5%] top-[28%] h-[420px] w-[560px]" opacity={0.16} />
+      <GlowBlob
+        className="right-[-8%] top-[8%] h-[320px] w-[420px]"
+        opacity={0.1}
+        rotate={22}
+        radius="42% 58% 38% 62% / 60% 42% 58% 40%"
       />
 
       <div className="container relative">

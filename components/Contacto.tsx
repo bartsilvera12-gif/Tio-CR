@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { contacto } from '@/lib/data'
 import Reveal from './Reveal'
+import GlowBlob from './GlowBlob'
 
 export default function Contacto() {
   const [form, setForm] = useState({
@@ -24,8 +25,14 @@ export default function Contacto() {
   }
 
   return (
-    <section id="contacto" className="section bg-brand-navyDeep text-white">
-      <div className="container">
+    <section id="contacto" className="section relative overflow-hidden bg-brand-navyDeep text-white">
+      <GlowBlob
+        className="left-[30%] top-[-8%] h-[340px] w-[520px]"
+        opacity={0.1}
+        rotate={-8}
+        radius="55% 45% 60% 40% / 48% 62% 38% 52%"
+      />
+      <div className="container relative">
         <div className="grid gap-14 lg:grid-cols-[0.95fr_1.05fr]">
           <Reveal>
             <span className="eyebrow">Contacto</span>

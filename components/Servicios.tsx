@@ -1,5 +1,6 @@
 import { servicios } from '@/lib/data'
 import Reveal from './Reveal'
+import GlowBlob from './GlowBlob'
 
 const iconos: Record<string, React.ReactNode> = {
   ruta: <path d="M6 20L10 4h4l4 16M9 12h6" />,
@@ -33,8 +34,14 @@ const iconos: Record<string, React.ReactNode> = {
 
 export default function Servicios() {
   return (
-    <section id="servicios" className="section bg-brand-navy text-white">
-      <div className="container">
+    <section id="servicios" className="section relative overflow-hidden bg-brand-navy text-white">
+      <GlowBlob
+        className="right-[2%] top-[15%] h-[380px] w-[500px]"
+        opacity={0.12}
+        rotate={18}
+        radius="45% 55% 62% 38% / 55% 40% 60% 45%"
+      />
+      <div className="container relative">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">Qué hacemos</span>
           <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-white md:text-5xl">

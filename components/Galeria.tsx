@@ -1,10 +1,17 @@
 import { galeria } from '@/lib/data'
 import Reveal from './Reveal'
+import GlowBlob from './GlowBlob'
 
 export default function Galeria() {
   return (
-    <section id="galeria" className="section bg-brand-navy text-white">
-      <div className="container">
+    <section id="galeria" className="section relative overflow-hidden bg-brand-navy text-white">
+      <GlowBlob
+        className="right-[-6%] bottom-[5%] h-[360px] w-[480px]"
+        opacity={0.12}
+        rotate={30}
+        radius="48% 52% 40% 60% / 58% 44% 56% 42%"
+      />
+      <div className="container relative">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-xl">
