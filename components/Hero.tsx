@@ -39,11 +39,11 @@ export default function Hero() {
         className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2"
       >
         <svg
-          width="30"
-          height="46"
+          width="26"
+          height="40"
           viewBox="0 0 30 46"
           fill="none"
-          className="text-white/80"
+          className="text-white/50"
         >
           <rect
             x="1.5"
@@ -52,7 +52,7 @@ export default function Hero() {
             height="43"
             rx="13.5"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="1.5"
             strokeLinecap="round"
             className="animate-draw-mouse"
             style={{ strokeDasharray: 150, strokeDashoffset: 150 }}
@@ -60,7 +60,7 @@ export default function Hero() {
           <circle
             cx="15"
             cy="14"
-            r="2.5"
+            r="2"
             fill="currentColor"
             className="animate-wheel-down"
           />
