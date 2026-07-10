@@ -103,24 +103,8 @@ export default function WhatsAppFloat() {
         aria-label="Contactar por WhatsApp"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-full shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
-        style={{
-          background: 'rgba(37, 211, 102, 0.22)',
-          WebkitBackdropFilter: 'blur(24px) saturate(180%)',
-          backdropFilter: 'blur(24px) saturate(180%)',
-          border: '1px solid rgba(255, 255, 255, 0.4)',
-          boxShadow:
-            'inset 0 2px 3px rgba(255,255,255,0.35), inset 0 -2px 4px rgba(0,0,0,0.25), 0 8px 28px rgba(0,0,0,0.45)',
-        }}
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
       >
-        {/* Brillo superior de cristal */}
-        <span
-          className="pointer-events-none absolute inset-x-1 top-0.5 h-[45%] rounded-full"
-          style={{
-            background:
-              'linear-gradient(to bottom, rgba(255,255,255,0.35), transparent)',
-          }}
-        />
         <div
           className={`transition-transform duration-300 ${
             open ? 'rotate-45' : 'rotate-0'
