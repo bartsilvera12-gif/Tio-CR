@@ -270,6 +270,22 @@ body {
   will-change: transform, border-radius;
 }
 
+/* Pins del mapa de cobertura: crecen al hover, anclados a su punta */
+.map-pin {
+  cursor: pointer;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.5, 1);
+}
+.map-pin:hover {
+  transform: scale(1.35);
+}
+
+/* Línea punteada del mapa en movimiento */
+@keyframes mapDash {
+  to { stroke-dashoffset: -170; }
+}
+
 /* Vidrio esmerilado — mismo lenguaje que el header al scrollear */
 .glass {
   background: rgba(255, 255, 255, 0.06);
