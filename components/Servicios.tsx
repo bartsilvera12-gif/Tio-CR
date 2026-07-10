@@ -41,13 +41,13 @@ export default function Servicios() {
 
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {servicios.map((s, i) => (
-            <Reveal key={s.titulo} delay={i * 150} as="article" className="h-full" direction="right">
-              <div className="glass group relative flex h-full flex-col overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 hover:!border-brand-cyan/50 hover:!bg-white/[0.09] hover:shadow-[0_28px_60px_-18px_rgba(0,201,247,0.45)]">
+            <Reveal key={s.titulo} delay={i * 150} as="article" className="h-full" direction="below">
+              <div className="glass card-flip group relative flex h-full flex-col overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:!border-brand-cyan/50 hover:!bg-white/[0.09] hover:shadow-[0_28px_60px_-18px_rgba(0,201,247,0.45)]">
                 {/* Glow interno que aparece en hover */}
                 <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(ellipse_at_top,rgba(0,201,247,0.12),transparent_60%)]" />
 
                 {/* Ícono */}
-                <div className="relative mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-brand-cyan/15 text-brand-cyan transition-all duration-500 group-hover:rotate-[-6deg] group-hover:scale-110 group-hover:bg-brand-cyan group-hover:text-brand-navy">
+                <div className="relative mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-brand-cyan/15 text-brand-cyan transition-all duration-500 group-hover:scale-110 group-hover:bg-brand-cyan/25">
                   <svg
                     width="26"
                     height="26"
@@ -70,7 +70,7 @@ export default function Servicios() {
                 {/* Detalles */}
                 <ul className="relative mt-6 space-y-2.5">
                   {s.detalles.map((d) => (
-                    <li key={d} className="flex items-center gap-2.5 text-sm text-white/60 transition-colors duration-300 group-hover:text-white/80">
+                    <li key={d} className="flex items-center gap-2.5 text-sm text-white/70 transition-colors duration-300 group-hover:text-white/90">
                       <svg
                         className="shrink-0 text-brand-cyan"
                         width="14"
