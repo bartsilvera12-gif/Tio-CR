@@ -35,10 +35,8 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'border-b border-white/10 backdrop-blur'
-          : ''
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        scrolled ? 'backdrop-blur' : ''
       }`}
       style={{
         backgroundColor: scrolled ? 'rgba(5, 14, 31, 0.85)' : 'transparent',
