@@ -103,33 +103,29 @@ function Billboard() {
                 <source src="/intro.mp4" type="video/mp4" />
               </video>
 
-              {/* Rayos de luz cian entrando DESDE los reflectores hacia la pantalla */}
-              {spots.map((left, i) => (
-                <div
-                  key={i}
-                  className="pointer-events-none absolute top-0 h-full"
-                  style={{
-                    left: `calc(${left}% - 40px)`,
-                    width: '80px',
-                    background:
-                      'linear-gradient(to bottom, rgba(0,229,255,0.75) 0%, rgba(0,201,247,0.35) 40%, rgba(0,201,247,0.05) 90%, transparent 100%)',
-                    clipPath: 'polygon(40% 0, 60% 0, 100% 100%, 0% 100%)',
-                    mixBlendMode: 'screen',
-                    filter: 'blur(4px)',
-                  }}
-                >
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      animation: `beamPulse ${3 + i * 0.3}s ease-in-out infinite`,
-                    }}
-                  />
-                </div>
-              ))}
-
               {/* Tinte cian LED sutil global */}
               <div className="pointer-events-none absolute inset-0 bg-brand-cyan/[0.03]" />
             </div>
+          </div>
+
+          {/* Rayos de luz — mismo sistema de coordenadas que los reflectores,
+              por encima del video (z-30), nacen justo bajo cada lámpara */}
+          <div className="pointer-events-none absolute inset-0 z-30 overflow-hidden rounded-[22px]">
+            {spots.map((left, i) => (
+              <div
+                key={i}
+                className="absolute top-0 h-full w-[90px] -translate-x-1/2"
+                style={{
+                  left: `${left}%`,
+                  background:
+                    'linear-gradient(to bottom, rgba(220,245,255,0.85) 0%, rgba(160,225,250,0.4) 45%, rgba(160,225,250,0.06) 85%, transparent 100%)',
+                  clipPath: 'polygon(42% 0, 58% 0, 100% 100%, 0% 100%)',
+                  mixBlendMode: 'screen',
+                  filter: 'blur(3px)',
+                  animation: `beamPulse ${3 + i * 0.3}s ease-in-out infinite`,
+                }}
+              />
+            ))}
           </div>
         </div>
 
