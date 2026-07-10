@@ -17,9 +17,9 @@ export default function Hero() {
         >
           <source src="/hero.mp4" type="video/mp4" />
         </video>
-        {/* Overlay oscuro para legibilidad + degradado fuerte hacia abajo (estilo OPL) */}
+        {/* Overlay oscuro para legibilidad + degradado corto abajo (estilo OPL) */}
         <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black via-black/60 to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,201,247,0.12),transparent_65%)]" />
       </div>
 
@@ -28,7 +28,7 @@ export default function Hero() {
         <img
           src="/logo-hero.png"
           alt="TIOCR - Marketing y Servicios Publicitarios"
-          className="w-[min(90vw,860px)] animate-fade-in"
+          className="w-[min(90vw,860px)] cursor-pointer animate-fade-in transition-all duration-500 ease-out hover:scale-[1.03] hover:drop-shadow-[0_0_40px_rgba(0,201,247,0.55)]"
         />
       </div>
 
