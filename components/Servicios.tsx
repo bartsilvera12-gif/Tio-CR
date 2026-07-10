@@ -43,6 +43,9 @@ export default function Servicios() {
           {servicios.map((s, i) => (
             <Reveal key={s.titulo} delay={i * 150} as="article" className="h-full" direction="right">
               <div className="glass group relative flex h-full flex-col overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 hover:!border-brand-cyan/50 hover:!bg-white/[0.09] hover:shadow-[0_28px_60px_-18px_rgba(0,201,247,0.45)]">
+                {/* Barrido de luz al asentarse la card */}
+                <span className="card-sheen" />
+
                 {/* Glow interno que aparece en hover */}
                 <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(ellipse_at_top,rgba(0,201,247,0.12),transparent_60%)]" />
 

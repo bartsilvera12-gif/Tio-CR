@@ -191,14 +191,41 @@ body {
   transform: translateY(0);
 }
 
-/* Variante: entra desde la derecha y se acomoda con un leve rebote */
+/* Variante fancy: entra desde la derecha en 3D, desenfocada,
+   y se acomoda con rebote + barrido de luz al asentarse */
 .reveal.from-right {
-  transform: translateX(70px);
-  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.9s cubic-bezier(0.34, 1.4, 0.5, 1);
+  opacity: 0;
+  transform: perspective(1100px) translateX(130px) rotateY(-16deg) scale(0.9);
+  filter: blur(12px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1.05s cubic-bezier(0.34, 1.45, 0.55, 1),
+              filter 0.85s ease-out;
+  will-change: opacity, transform, filter;
 }
 .reveal.from-right.is-visible {
-  transform: translateX(0);
+  opacity: 1;
+  transform: perspective(1100px) translateX(0) rotateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* Barrido de luz que cruza la card una vez, al terminar de acomodarse */
+@keyframes cardSheen {
+  0% { transform: translateX(-180%) skewX(-18deg); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translateX(320%) skewX(-18deg); opacity: 0; }
+}
+.card-sheen {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 45%;
+  background: linear-gradient(90deg, transparent, rgba(180, 235, 255, 0.22), transparent);
+  pointer-events: none;
+  opacity: 0;
+}
+.reveal.from-right.is-visible .card-sheen {
+  animation: cardSheen 1.2s ease-out 0.75s both;
 }
 
 /* ——— CTA glow pulse ——— */
