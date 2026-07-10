@@ -17,9 +17,9 @@ export default function Hero() {
         >
           <source src="/hero.mp4" type="video/mp4" />
         </video>
-        {/* Overlay oscuro para legibilidad + degradado corto abajo (estilo OPL) */}
+        {/* Overlay oscuro para legibilidad + degradado corto abajo que funde con el navy de las secciones */}
         <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black via-black/60 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-brand-navy via-brand-navy/70 to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,201,247,0.12),transparent_65%)]" />
       </div>
 

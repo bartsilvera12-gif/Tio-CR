@@ -13,8 +13,8 @@ html {
 }
 
 body {
-  color: var(--brand-ink);
-  background: #ffffff;
+  color: #ffffff;
+  background: #0B1E3F;
   -webkit-font-smoothing: antialiased;
 }
 

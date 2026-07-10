@@ -10,6 +10,9 @@ const config: Config = {
           cyanDark: '#00A8D1',
           ink: '#202020',
           soft: '#F6F6F6',
+          navy: '#0B1E3F',
+          navyDeep: '#071634',
+          navyLight: '#143163',
         },
       },
       fontFamily: {

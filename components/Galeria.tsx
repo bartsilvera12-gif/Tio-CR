@@ -3,17 +3,17 @@ import Reveal from './Reveal'
 
 export default function Galeria() {
   return (
-    <section id="galeria" className="section bg-brand-soft">
+    <section id="galeria" className="section bg-brand-navy text-white">
       <div className="container">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-xl">
               <span className="eyebrow">Nuestro trabajo</span>
-              <h2 className="h-display mt-4 text-4xl md:text-5xl">
+              <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
                 Campañas reales, en la ruta.
               </h2>
             </div>
-            <p className="max-w-md text-brand-ink/70">
+            <p className="max-w-md text-white/70">
               Una muestra de los formatos que producimos: cartelería, pantallas
               y vehículos.
             </p>
@@ -24,11 +24,11 @@ export default function Galeria() {
           {galeria.map((g, i) => (
             <Reveal key={i} delay={i * 80}>
               <div
-                className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-ink/90 to-brand-ink transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_-20px_rgba(0,201,247,0.5)] ${
+                className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-brand-navyLight to-brand-navyDeep transition-all duration-500 hover:-translate-y-1 hover:border-brand-cyan/50 hover:shadow-[0_24px_60px_-20px_rgba(0,201,247,0.5)] ${
                   i === 0 ? 'lg:col-span-2 lg:row-span-2 aspect-square' : 'aspect-[4/3]'
                 }`}
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,201,247,0.25),transparent_60%)] transition-opacity duration-500 group-hover:opacity-70" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,201,247,0.28),transparent_60%)] transition-opacity duration-500 group-hover:opacity-80" />
                 <div className="absolute inset-0 flex flex-col justify-end p-6">
                   <span className="text-xs font-semibold uppercase tracking-widest text-brand-cyan transition-transform duration-500 group-hover:-translate-y-1">
                     {g.categoria}
