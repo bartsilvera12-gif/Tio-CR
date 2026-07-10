@@ -70,7 +70,7 @@ function DualIcon({
 
 export default function Servicios() {
   return (
-    <section id="servicios" className="relative overflow-hidden bg-white py-16 text-brand-ink md:py-20">
+    <section id="servicios" className="relative overflow-hidden bg-white pt-8 pb-16 text-brand-ink md:pt-10 md:pb-20">
       {/* Blob principal: grande, visible y animado */}
       <GlowBlob
         className="right-[-8%] top-[5%] h-[700px] w-[920px]"
@@ -91,16 +91,16 @@ export default function Servicios() {
             <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-brand-cyan" />
             Qué hacemos
           </span>
-          <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-brand-ink md:text-5xl">
+          <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-brand-ink md:text-5xl">
             Todo lo que necesitás para estar en la calle.
           </h2>
-          <p className="mt-4 text-lg text-brand-ink/70">
+          <p className="mt-3 text-lg text-brand-ink/70">
             De la producción al montaje: cubrimos cada etapa de tu campaña de
             publicidad exterior.
           </p>
         </Reveal>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
           {servicios.map((s, i) => (
             <Reveal key={s.titulo} delay={i * 150} as="article" className="h-full" direction="below">
               {/* Zona de hover estable (no rota) */}
@@ -108,7 +108,7 @@ export default function Servicios() {
                 <div className="card-flip3d">
                   {/* ---- Cara frontal: vidrio azul ---- */}
                   <div
-                    className="card-face relative flex h-full flex-col overflow-hidden rounded-2xl p-7 text-white"
+                    className="card-face relative flex h-full flex-col overflow-hidden rounded-2xl p-6 text-white"
                     style={{
                       background:
                         'linear-gradient(150deg, rgba(14,34,71,0.72) 0%, rgba(6,20,40,0.78) 100%)',
@@ -121,7 +121,7 @@ export default function Servicios() {
                   >
                     {/* Ícono grande mitad blanco / mitad cian, en círculo */}
                     <div
-                      className="mb-5 inline-flex h-[88px] w-[88px] items-center justify-center rounded-full"
+                      className="mb-4 inline-flex h-20 w-20 items-center justify-center rounded-full"
                       style={{
                         background:
                           'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.12))',
@@ -129,7 +129,7 @@ export default function Servicios() {
                         boxShadow: '0 8px 24px -8px rgba(0,201,247,0.35)',
                       }}
                     >
-                      <DualIcon icono={s.icono} size={48} id={`grad-f-${s.icono}`} />
+                      <DualIcon icono={s.icono} size={44} id={`grad-f-${s.icono}`} />
                     </div>
 
                     <h3 className="font-display text-2xl font-bold text-white">
@@ -137,7 +137,7 @@ export default function Servicios() {
                     </h3>
                     <p className="mt-3 text-white/70">{s.descripcion}</p>
 
-                    <ul className="mt-6 space-y-2.5">
+                    <ul className="mt-5 space-y-2.5">
                       {s.detalles.map((d) => (
                         <li key={d} className="flex items-center gap-2.5 text-sm text-white/70">
                           <svg
