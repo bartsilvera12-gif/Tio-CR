@@ -45,8 +45,8 @@ function Billboard() {
 
   return (
     <div className="relative w-full max-w-[600px]" style={{ perspective: '1400px' }}>
-      {/* Halo cian general */}
-      <div className="pointer-events-none absolute -inset-16 -z-10 bg-[radial-gradient(circle,rgba(0,201,247,0.28),transparent_70%)] blur-3xl" />
+      {/* Halo cian muy sutil */}
+      <div className="pointer-events-none absolute -inset-16 -z-10 bg-[radial-gradient(circle,rgba(0,201,247,0.1),transparent_70%)] blur-3xl" />
 
       {/* Estructura vertical con perspectiva 3D como la referencia (vista desde abajo-izquierda) */}
       <div
@@ -56,15 +56,19 @@ function Billboard() {
           transformStyle: 'preserve-3d',
         }}
       >
-        {/* ---- Reflectores montados sobre el borde superior ---- */}
-        <div className="relative z-20 -mb-[6px] mx-[8%] flex items-end justify-between">
-          {spots.map((_, i) => (
-            <div key={i} className="relative" style={{ transform: 'rotateX(-12deg)' }}>
-              {/* Cabeza del reflector (con lente cian brillante) */}
+        {/* ---- Reflectores alineados con los rayos de luz ---- */}
+        <div className="relative z-20 -mb-[6px] h-[38px]">
+          {spots.map((left, i) => (
+            <div
+              key={i}
+              className="absolute bottom-0 -translate-x-1/2"
+              style={{ left: `${left}%` }}
+            >
+              {/* Cabeza del reflector */}
               <div className="relative z-10 h-[16px] w-[52px] rounded-[4px] bg-gradient-to-b from-slate-500 via-slate-700 to-slate-900 shadow-[0_3px_8px_rgba(0,0,0,0.7)]">
-                <div className="absolute inset-x-1 bottom-[2px] h-[4px] rounded-sm bg-brand-cyan shadow-[0_0_12px_rgba(0,229,255,1)]" />
+                <div className="absolute inset-x-1 bottom-[2px] h-[4px] rounded-sm bg-sky-200/80" />
               </div>
-              {/* Brazo del reflector inclinado hacia el cartel */}
+              {/* Brazo */}
               <div className="mx-auto h-[22px] w-[4px] bg-gradient-to-b from-slate-600 to-slate-800" />
             </div>
           ))}
@@ -82,17 +86,11 @@ function Billboard() {
               background:
                 'linear-gradient(145deg, #334155 0%, #1e293b 40%, #0f172a 100%)',
               boxShadow:
-                '0 0 40px rgba(0,201,247,0.35), inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.4)',
+                '0 20px 50px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.4)',
             }}
           >
-            {/* Marco neón interno */}
-            <div
-              className="relative h-full w-full overflow-hidden rounded-[14px] border-2 border-brand-cyan"
-              style={{
-                boxShadow:
-                  'inset 0 0 30px rgba(0,201,247,0.35), 0 0 12px rgba(0,229,255,0.6)',
-              }}
-            >
+            {/* Pantalla */}
+            <div className="relative h-full w-full overflow-hidden rounded-[14px]">
               {/* Video */}
               <video
                 autoPlay
@@ -138,21 +136,14 @@ function Billboard() {
         {/* ---- Poste vertical ---- */}
         <div className="relative mx-auto h-[100px] w-[14px] rounded-b-md bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 shadow-[0_2px_10px_rgba(0,0,0,0.5)]" />
 
-        {/* ---- Base holográfica ---- */}
+        {/* ---- Base ---- */}
         <div className="relative mx-auto h-[40px] w-[240px]">
-          {/* Glow radial base */}
-          <div className="absolute inset-x-[-30px] top-2 h-full rounded-[50%] bg-[radial-gradient(ellipse,rgba(0,229,255,0.5),transparent_65%)] blur-md" />
-          {/* Anillo exterior */}
-          <div
-            className="absolute inset-x-0 top-2 h-[26px] rounded-[50%] border-2 border-brand-cyan"
-            style={{
-              boxShadow:
-                '0 0 20px rgba(0,229,255,0.7), inset 0 0 12px rgba(0,229,255,0.4)',
-              animation: 'baseGlow 2.5s ease-in-out infinite',
-            }}
-          />
+          {/* Sombra en el piso */}
+          <div className="absolute inset-x-[10%] top-3 h-[20px] rounded-[50%] bg-black/50 blur-md" />
+          {/* Anillo exterior sutil */}
+          <div className="absolute inset-x-0 top-2 h-[26px] rounded-[50%] border border-brand-cyan/40" />
           {/* Anillo interior */}
-          <div className="absolute inset-x-[25%] top-4 h-[16px] rounded-[50%] border border-brand-cyan/60" />
+          <div className="absolute inset-x-[25%] top-4 h-[16px] rounded-[50%] border border-brand-cyan/25" />
         </div>
       </div>
     </div>
