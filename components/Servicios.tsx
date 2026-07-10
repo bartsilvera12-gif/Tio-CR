@@ -3,17 +3,26 @@ import Reveal from './Reveal'
 import GlowBlob from './GlowBlob'
 
 const iconos: Record<string, React.ReactNode> = {
-  ruta: <path d="M6 20L10 4h4l4 16M9 12h6" />,
-  led: (
+  // Cartel de ruta: pantalla sobre poste con patas
+  ruta: (
     <>
-      <rect x="3" y="5" width="18" height="12" rx="2" />
-      <path d="M8 21h8M12 17v4" />
+      <rect x="3" y="3.5" width="18" height="10.5" rx="2" />
+      <path d="M9 14l-2 6.5M15 14l2 6.5M6.2 18.5h11.6" />
     </>
   ),
+  // Pantalla LED: monitor con play (contenido dinámico)
+  led: (
+    <>
+      <rect x="2.5" y="4.5" width="19" height="12.5" rx="2" />
+      <path d="M10.2 8.2l4.8 2.55-4.8 2.55z" />
+      <path d="M12 17v3.5M8.5 20.5h7" />
+    </>
+  ),
+  // Campañas: megáfono
   campana: (
     <>
-      <path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
-      <circle cx="12" cy="12" r="4" />
+      <path d="M3 10.8L21 5v13.5L3 13.6v-2.8z" />
+      <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
     </>
   ),
 }
@@ -55,8 +64,8 @@ export default function Servicios() {
     <section id="servicios" className="section relative overflow-hidden bg-white text-brand-ink">
       {/* Blob principal: grande, visible y animado */}
       <GlowBlob
-        className="right-[-5%] top-[15%] h-[560px] w-[720px]"
-        opacity={0.24}
+        className="right-[-8%] top-[5%] h-[700px] w-[920px]"
+        opacity={0.32}
         radius="45% 55% 62% 38% / 55% 40% 60% 45%"
         animated
       />
@@ -90,17 +99,24 @@ export default function Servicios() {
                     className="card-face relative flex h-full flex-col overflow-hidden rounded-2xl p-8 text-white"
                     style={{
                       background:
-                        'linear-gradient(150deg, rgba(14,34,71,0.94) 0%, rgba(6,20,40,0.96) 100%)',
-                      border: '1px solid rgba(255,255,255,0.14)',
+                        'linear-gradient(150deg, rgba(14,34,71,0.72) 0%, rgba(6,20,40,0.78) 100%)',
+                      border: '1px solid rgba(255,255,255,0.16)',
                       boxShadow:
-                        'inset 0 1px 0 rgba(255,255,255,0.12), 0 22px 50px -18px rgba(6,20,40,0.5)',
-                      backdropFilter: 'blur(20px) saturate(150%)',
-                      WebkitBackdropFilter: 'blur(20px) saturate(150%)',
+                        'inset 0 1px 0 rgba(255,255,255,0.14), 0 22px 50px -18px rgba(6,20,40,0.45)',
+                      backdropFilter: 'blur(22px) saturate(150%)',
+                      WebkitBackdropFilter: 'blur(22px) saturate(150%)',
                     }}
                   >
-                    {/* Ícono grande mitad blanco / mitad cian */}
-                    <div className="mb-6 inline-flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-white/10">
-                      <DualIcon icono={s.icono} size={38} id={`grad-f-${s.icono}`} />
+                    {/* Ícono grande mitad blanco / mitad cian, en círculo */}
+                    <div
+                      className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-full"
+                      style={{
+                        background:
+                          'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.12))',
+                        border: '1px solid rgba(255,255,255,0.18)',
+                      }}
+                    >
+                      <DualIcon icono={s.icono} size={42} id={`grad-f-${s.icono}`} />
                     </div>
 
                     <h3 className="font-display text-2xl font-bold text-white">
@@ -135,18 +151,27 @@ export default function Servicios() {
                     className="card-face card-face-back flex flex-col items-center justify-center gap-6 overflow-hidden rounded-2xl p-8 text-center"
                     style={{
                       background:
-                        'linear-gradient(150deg, rgba(14,34,71,0.97) 0%, rgba(3,10,26,0.98) 100%)',
+                        'linear-gradient(150deg, rgba(14,34,71,0.85) 0%, rgba(3,10,26,0.9) 100%)',
                       border: '1px solid rgba(0,201,247,0.4)',
                       boxShadow:
-                        'inset 0 1px 0 rgba(255,255,255,0.1), 0 22px 50px -18px rgba(6,20,40,0.55)',
+                        'inset 0 1px 0 rgba(255,255,255,0.1), 0 22px 50px -18px rgba(6,20,40,0.5)',
+                      backdropFilter: 'blur(22px) saturate(150%)',
+                      WebkitBackdropFilter: 'blur(22px) saturate(150%)',
                     }}
                   >
                     {/* Glow de fondo */}
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,201,247,0.18),transparent_65%)]" />
 
-                    {/* Loguito grande */}
-                    <div className="relative inline-flex h-24 w-24 items-center justify-center rounded-2xl bg-white/10">
-                      <DualIcon icono={s.icono} size={48} id={`grad-b-${s.icono}`} />
+                    {/* Loguito grande en círculo */}
+                    <div
+                      className="relative inline-flex h-28 w-28 items-center justify-center rounded-full"
+                      style={{
+                        background:
+                          'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.14))',
+                        border: '1px solid rgba(255,255,255,0.2)',
+                      }}
+                    >
+                      <DualIcon icono={s.icono} size={56} id={`grad-b-${s.icono}`} />
                     </div>
 
                     <h3 className="relative font-display text-2xl font-bold text-white">
