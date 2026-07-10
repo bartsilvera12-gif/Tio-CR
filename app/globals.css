@@ -22,6 +22,26 @@ body {
   from { opacity: 0; transform: translateY(20px) scale(0.98); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
+
+/* Título cian con shimmer sutil */
+@keyframes cyanShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.intro-title-cyan {
+  background-size: 200% 100%;
+  animation: cyanShimmer 5s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(0, 201, 247, 0.35));
+}
+
+/* Cuerpo del intro con breathing sutil */
+@keyframes softBreathe {
+  0%, 100% { opacity: 0.75; }
+  50% { opacity: 0.9; }
+}
+.intro-body {
+  animation: softBreathe 6s ease-in-out infinite;
+}
 .animate-fade-in {
   animation: fadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
