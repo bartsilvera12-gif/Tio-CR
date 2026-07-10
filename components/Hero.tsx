@@ -8,7 +8,7 @@ export default function Hero() {
       {/* YouTube background video */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <iframe
-          src="https://www.youtube-nocookie.com/embed/FNX3ebKiuqc?autoplay=1&mute=1&loop=1&playlist=FNX3ebKiuqc&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&playsinline=1&start=1278"
+          src="https://www.youtube.com/embed/FNX3ebKiuqc?autoplay=1&mute=1&loop=1&playlist=FNX3ebKiuqc&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&playsinline=1"
           title="Hero background"
           allow="autoplay; encrypted-media"
           className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
