@@ -137,16 +137,19 @@ function Billboard() {
         {/* ---- Pantalla (screen) con marco y luces entrando ---- */}
         <div className="relative aspect-[16/9]">
           {/* Sombra atrás del bezel */}
-          <div className="absolute -inset-2 rounded-[26px] bg-black/50 blur-lg" />
+          <div className="absolute -inset-2 rounded-[26px] bg-black/40 blur-lg" />
 
-          {/* Bezel externo metálico */}
+          {/* Bezel de vidrio translúcido (mismo lenguaje que las cards) */}
           <div
             className="relative h-full w-full overflow-hidden rounded-[22px] p-[10px]"
             style={{
               background:
-                'linear-gradient(145deg, #334155 0%, #1e293b 40%, #0f172a 100%)',
+                'linear-gradient(150deg, rgba(51,65,85,0.45) 0%, rgba(15,23,42,0.55) 100%)',
+              border: '1px solid rgba(255,255,255,0.18)',
               boxShadow:
-                '0 20px 50px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.4)',
+                '0 20px 50px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.16), inset 0 -1px 0 rgba(0,0,0,0.3)',
+              backdropFilter: 'blur(22px) saturate(150%)',
+              WebkitBackdropFilter: 'blur(22px) saturate(150%)',
             }}
           >
             {/* Pantalla */}
