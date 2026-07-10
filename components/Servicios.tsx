@@ -164,17 +164,14 @@ export default function Servicios() {
                     className="card-face card-face-back flex flex-col items-center justify-center gap-6 overflow-hidden rounded-2xl p-8 text-center"
                     style={{
                       background:
-                        'linear-gradient(150deg, rgba(14,34,71,0.85) 0%, rgba(3,10,26,0.9) 100%)',
-                      border: '1px solid rgba(0,201,247,0.4)',
+                        'linear-gradient(150deg, rgba(14,34,71,0.72) 0%, rgba(6,20,40,0.78) 100%)',
+                      border: '1px solid rgba(255,255,255,0.16)',
                       boxShadow:
                         'inset 0 1px 0 rgba(255,255,255,0.1), 0 22px 50px -18px rgba(6,20,40,0.5)',
                       backdropFilter: 'blur(22px) saturate(150%)',
                       WebkitBackdropFilter: 'blur(22px) saturate(150%)',
                     }}
                   >
-                    {/* Glow de fondo */}
-                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,201,247,0.18),transparent_65%)]" />
-
                     {/* Loguito grande en círculo */}
                     <div
                       className="relative inline-flex h-32 w-32 items-center justify-center rounded-full"
