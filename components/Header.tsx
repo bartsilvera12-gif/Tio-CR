@@ -45,13 +45,12 @@ export default function Header() {
       }}
     >
       <div className="container flex h-20 items-center justify-between">
-        {/* Logo real con blend-mode para eliminar fondo del JPEG */}
-        <a href="#inicio" className="flex items-center">
-          <img
-            src="/logo.png"
-            alt="TIOCR"
-            className="h-10 md:h-12"
-          />
+        {/* Logo con hover scale */}
+        <a
+          href="#inicio"
+          className="group flex items-center transition-transform duration-300 hover:scale-105 active:scale-95"
+        >
+          <img src="/logo.png" alt="TIOCR" className="h-10 md:h-12" />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -61,22 +60,40 @@ export default function Header() {
               <a
                 key={l.href}
                 href={l.href}
-                className={`relative py-2 text-sm font-semibold uppercase tracking-widest transition ${
+                className={`group relative py-2 text-sm font-semibold uppercase tracking-widest transition-colors duration-300 active:scale-95 ${
                   isActive ? 'text-white' : 'text-white/60 hover:text-white'
                 }`}
               >
                 {l.label}
-                {isActive && (
-                  <span className="absolute inset-x-0 -bottom-0.5 h-0.5 rounded-full bg-brand-cyan" />
-                )}
+                {/* underline: sólido cuando activo, slide-in en hover cuando no */}
+                <span
+                  className={`absolute inset-x-0 -bottom-0.5 h-0.5 rounded-full bg-brand-cyan transition-transform duration-300 ease-out ${
+                    isActive
+                      ? 'scale-x-100'
+                      : 'origin-left scale-x-0 group-hover:scale-x-100'
+                  }`}
+                />
               </a>
             )
           })}
         </nav>
 
         <div className="hidden md:block">
-          <a href="#contacto" className="btn-cyan uppercase tracking-widest">
-            Solicitar presupuesto
+          <a href="#contacto" className="btn-cta uppercase tracking-widest">
+            <span>Solicitar presupuesto</span>
+            <svg
+              className="cta-arrow"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
           </a>
         </div>
 
@@ -112,9 +129,22 @@ export default function Header() {
             <a
               href="#contacto"
               onClick={() => setOpen(false)}
-              className="btn-cyan mt-2 justify-center uppercase tracking-widest"
+              className="btn-cta mt-2 justify-center uppercase tracking-widest"
             >
-              Solicitar presupuesto
+              <span>Solicitar presupuesto</span>
+              <svg
+                className="cta-arrow"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
             </a>
           </div>
         </div>

@@ -73,12 +73,57 @@ body {
   animation: wheelBounce 7s ease-in-out infinite;
 }
 
+/* ——— reveal on scroll ——— */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ——— CTA glow pulse ——— */
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 201, 247, 0.55), 0 8px 24px rgba(0, 201, 247, 0.25); }
+  50% { box-shadow: 0 0 0 12px rgba(0, 201, 247, 0), 0 12px 32px rgba(0, 201, 247, 0.35); }
+}
+
+/* ——— CTA shimmer sweep ——— */
+@keyframes ctaShimmer {
+  0% { transform: translateX(-120%) skewX(-20deg); }
+  100% { transform: translateX(220%) skewX(-20deg); }
+}
+
 @layer components {
   .btn-primary {
     @apply inline-flex items-center gap-2 rounded-full bg-brand-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-black;
   }
   .btn-cyan {
-    @apply inline-flex items-center gap-2 rounded-full bg-brand-cyan px-6 py-3 text-sm font-semibold text-brand-ink transition hover:bg-brand-cyanDark;
+    @apply inline-flex items-center gap-2 rounded-full bg-brand-cyan px-6 py-3 text-sm font-semibold text-brand-ink transition-all duration-300 hover:bg-brand-cyanDark active:scale-95;
+  }
+  .btn-cta {
+    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-brand-cyan px-7 py-3.5 text-sm font-bold text-brand-ink transition-all duration-300 hover:-translate-y-0.5 active:scale-95;
+    animation: ctaPulse 2.6s ease-in-out infinite;
+  }
+  .btn-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%);
+    width: 60%;
+    animation: ctaShimmer 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .btn-cta > * { position: relative; z-index: 1; }
+  .btn-cta .cta-arrow {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-cta:hover .cta-arrow {
+    transform: translateX(4px);
   }
   .btn-ghost {
     @apply inline-flex items-center gap-2 rounded-full border border-brand-ink/15 px-6 py-3 text-sm font-semibold text-brand-ink transition hover:border-brand-ink/40;

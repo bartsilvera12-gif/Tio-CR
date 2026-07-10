@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { contacto } from '@/lib/data'
+import Reveal from './Reveal'
 
 export default function Contacto() {
   const [form, setForm] = useState({
@@ -26,7 +27,7 @@ export default function Contacto() {
     <section id="contacto" className="section">
       <div className="container">
         <div className="grid gap-14 lg:grid-cols-[0.95fr_1.05fr]">
-          <div>
+          <Reveal>
             <span className="eyebrow">Contacto</span>
             <h2 className="h-display mt-4 text-4xl md:text-5xl">
               Llevemos tu marca a la ruta.
@@ -78,8 +79,9 @@ export default function Contacto() {
                 </div>
               </a>
             </div>
-          </div>
+          </Reveal>
 
+          <Reveal delay={120} as="div">
           <form
             onSubmit={submit}
             className="rounded-3xl border border-brand-ink/10 bg-brand-soft p-8"
@@ -125,6 +127,7 @@ export default function Contacto() {
               Al enviar, abrimos WhatsApp con tu mensaje pre-armado.
             </p>
           </form>
+          </Reveal>
         </div>
       </div>
     </section>

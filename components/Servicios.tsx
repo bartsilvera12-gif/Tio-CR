@@ -1,9 +1,8 @@
 import { servicios } from '@/lib/data'
+import Reveal from './Reveal'
 
 const iconos: Record<string, React.ReactNode> = {
-  ruta: (
-    <path d="M6 20L10 4h4l4 16M9 12h6" />
-  ),
+  ruta: <path d="M6 20L10 4h4l4 16M9 12h6" />,
   led: (
     <>
       <rect x="3" y="5" width="18" height="12" rx="2" />
@@ -36,7 +35,7 @@ export default function Servicios() {
   return (
     <section id="servicios" className="section bg-brand-soft">
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">Qué hacemos</span>
           <h2 className="h-display mt-4 text-4xl md:text-5xl">
             Todo lo que necesitás para estar en la calle.
@@ -45,31 +44,30 @@ export default function Servicios() {
             De la producción al montaje: cubrimos cada etapa de tu campaña de
             publicidad exterior.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {servicios.map((s) => (
-            <article
-              key={s.titulo}
-              className="group relative rounded-2xl border border-brand-ink/10 bg-white p-8 transition hover:border-brand-cyan hover:shadow-lg"
-            >
-              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-cyan/10 text-brand-cyanDark transition group-hover:bg-brand-cyan group-hover:text-white">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  {iconos[s.icono]}
-                </svg>
+          {servicios.map((s, i) => (
+            <Reveal key={s.titulo} delay={i * 90} as="article">
+              <div className="group relative h-full rounded-2xl border border-brand-ink/10 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-cyan hover:shadow-[0_20px_50px_-15px_rgba(0,201,247,0.35)]">
+                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-cyan/10 text-brand-cyanDark transition-all duration-300 group-hover:scale-110 group-hover:bg-brand-cyan group-hover:text-white">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    {iconos[s.icono]}
+                  </svg>
+                </div>
+                <h3 className="h-display text-xl">{s.titulo}</h3>
+                <p className="mt-3 text-brand-ink/70">{s.descripcion}</p>
               </div>
-              <h3 className="h-display text-xl">{s.titulo}</h3>
-              <p className="mt-3 text-brand-ink/70">{s.descripcion}</p>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

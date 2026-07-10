@@ -1,11 +1,12 @@
 import { rutas, ciudadesCobertura } from '@/lib/data'
+import Reveal from './Reveal'
 
 export default function Cobertura() {
   return (
     <section id="cobertura" className="section">
       <div className="container">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr]">
-          <div>
+          <Reveal>
             <span className="eyebrow">Cobertura</span>
             <h2 className="h-display mt-4 text-4xl md:text-5xl">
               Presentes en las rutas que conectan al Paraguay.
@@ -16,28 +17,30 @@ export default function Cobertura() {
               centros urbanos.
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
-              {rutas.map((r) => (
+              {rutas.map((r, i) => (
                 <span
                   key={r}
-                  className="rounded-full border border-brand-ink/15 bg-white px-4 py-2 text-sm font-semibold text-brand-ink"
+                  className="rounded-full border border-brand-ink/15 bg-white px-4 py-2 text-sm font-semibold text-brand-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-cyan hover:text-brand-cyanDark"
+                  style={{ transitionDelay: `${i * 30}ms` }}
                 >
                   {r}
                 </span>
               ))}
             </div>
-          </div>
+          </Reveal>
 
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {ciudadesCobertura.map((c) => (
-              <div
-                key={c.nombre}
-                className="rounded-xl border border-brand-ink/10 bg-white p-5 transition hover:border-brand-cyan"
-              >
-                <div className="h-display text-lg">{c.nombre}</div>
-                <div className="mt-1 text-sm text-brand-ink/60">
-                  {c.departamento} · {c.ruta}
+            {ciudadesCobertura.map((c, i) => (
+              <Reveal key={c.nombre} delay={i * 60}>
+                <div className="group h-full cursor-default rounded-xl border border-brand-ink/10 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brand-cyan hover:shadow-[0_16px_36px_-16px_rgba(0,201,247,0.4)]">
+                  <div className="h-display text-lg transition-colors group-hover:text-brand-cyanDark">
+                    {c.nombre}
+                  </div>
+                  <div className="mt-1 text-sm text-brand-ink/60">
+                    {c.departamento} · {c.ruta}
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
