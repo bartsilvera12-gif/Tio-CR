@@ -10,20 +10,6 @@ const iconos: Record<string, React.ReactNode> = {
       <path d="M8 21h8M12 17v4" />
     </>
   ),
-  lona: (
-    <>
-      <rect x="4" y="4" width="16" height="16" rx="1" />
-      <path d="M4 9h16M9 4v16" />
-    </>
-  ),
-  bus: (
-    <>
-      <rect x="4" y="6" width="16" height="11" rx="2" />
-      <path d="M4 12h16M8 17v2M16 17v2" />
-      <circle cx="8" cy="14" r="1" />
-      <circle cx="16" cy="14" r="1" />
-    </>
-  ),
   campana: (
     <>
       <path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
@@ -53,14 +39,23 @@ export default function Servicios() {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
           {servicios.map((s, i) => (
-            <Reveal key={s.titulo} delay={i * 90} as="article">
-              <div className="glass group relative h-full rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:!border-brand-cyan/50 hover:!bg-white/[0.09] hover:shadow-[0_20px_50px_-15px_rgba(0,201,247,0.4)]">
-                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-cyan/15 text-brand-cyan transition-all duration-300 group-hover:scale-110 group-hover:bg-brand-cyan group-hover:text-brand-navy">
+            <Reveal key={s.titulo} delay={i * 120} as="article" className="h-full">
+              <div className="glass group relative flex h-full flex-col overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 hover:!border-brand-cyan/50 hover:!bg-white/[0.09] hover:shadow-[0_28px_60px_-18px_rgba(0,201,247,0.45)]">
+                {/* Número fantasma de fondo */}
+                <span className="pointer-events-none absolute -right-3 -top-6 font-display text-[110px] font-bold leading-none text-white/[0.04] transition-all duration-500 group-hover:text-brand-cyan/10 group-hover:-translate-y-1">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+
+                {/* Glow interno que aparece en hover */}
+                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(ellipse_at_top,rgba(0,201,247,0.12),transparent_60%)]" />
+
+                {/* Ícono */}
+                <div className="relative mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-brand-cyan/15 text-brand-cyan transition-all duration-500 group-hover:rotate-[-6deg] group-hover:scale-110 group-hover:bg-brand-cyan group-hover:text-brand-navy">
                   <svg
-                    width="24"
-                    height="24"
+                    width="26"
+                    height="26"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -71,10 +66,58 @@ export default function Servicios() {
                     {iconos[s.icono]}
                   </svg>
                 </div>
-                <h3 className="font-display text-xl font-bold text-white">
+
+                <h3 className="relative font-display text-2xl font-bold text-white">
                   {s.titulo}
                 </h3>
-                <p className="mt-3 text-white/70">{s.descripcion}</p>
+                <p className="relative mt-3 text-white/70">{s.descripcion}</p>
+
+                {/* Detalles */}
+                <ul className="relative mt-6 space-y-2.5">
+                  {s.detalles.map((d) => (
+                    <li key={d} className="flex items-center gap-2.5 text-sm text-white/60 transition-colors duration-300 group-hover:text-white/80">
+                      <svg
+                        className="shrink-0 text-brand-cyan"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M5 12l5 5L20 7" />
+                      </svg>
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA que aparece en hover */}
+                <div className="relative mt-auto pt-8">
+                  <a
+                    href="#contacto"
+                    className="inline-flex translate-y-2 items-center gap-2 text-sm font-semibold uppercase tracking-widest text-brand-cyan opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100"
+                  >
+                    Consultar este servicio
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                  </a>
+                </div>
+
+                {/* Línea de acento inferior que crece en hover */}
+                <span className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-gradient-to-r from-brand-cyan to-transparent transition-transform duration-500 group-hover:scale-x-100" />
               </div>
             </Reveal>
           ))}

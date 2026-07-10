@@ -19,8 +19,6 @@ export default function Footer() {
             <ul className="mt-4 space-y-2 text-sm text-white/70">
               <li>Cartelería de ruta</li>
               <li>Pantallas LED</li>
-              <li>Gigantografías</li>
-              <li>Ploteado de buses</li>
               <li>Campañas en el interior</li>
             </ul>
           </div>

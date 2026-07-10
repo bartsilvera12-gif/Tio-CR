@@ -4,30 +4,21 @@ export const servicios = [
     descripcion:
       'Carteles gigantes en los principales accesos y cruces de las rutas nacionales del Paraguay.',
     icono: 'ruta',
+    detalles: ['Formatos hasta 12×6 m', 'Doble faz disponible', 'Impresión de lona incluida'],
   },
   {
     titulo: 'Pantallas LED',
     descripcion:
       'Pantallas de alta resolución para campañas dinámicas en ciudades del interior.',
     icono: 'led',
-  },
-  {
-    titulo: 'Gigantografías',
-    descripcion:
-      'Impresión y montaje de lonas de gran formato con estructura y logística incluidas.',
-    icono: 'lona',
-  },
-  {
-    titulo: 'Ploteado de buses',
-    descripcion:
-      'Wrap publicitario en flotas de transporte urbano e interdepartamental.',
-    icono: 'bus',
+    detalles: ['Alta luminosidad día y noche', 'Contenido dinámico', 'Ubicaciones céntricas'],
   },
   {
     titulo: 'Campañas en el interior',
     descripcion:
       'Planificación integral de campañas en las ciudades más transitadas del país.',
     icono: 'campana',
+    detalles: ['Cobertura en 8 departamentos', 'Estrategia de ubicaciones', 'Gestión completa'],
   },
 ] as const
 
