@@ -19,7 +19,7 @@ export default function Hero() {
       {/* Solo el logo, sin texto */}
       <div className="relative z-10 px-6">
         <img
-          src="/logo.png"
+          src="/logo-hero.png"
           alt="TIOCR - Marketing y Servicios Publicitarios"
           className="w-[min(90vw,860px)] animate-fade-in"
         />
