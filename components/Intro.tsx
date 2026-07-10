@@ -39,7 +39,7 @@ export default function Intro() {
             <div className="mt-10 flex flex-wrap gap-4">
               <a
                 href="#contacto"
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-brand-cyan px-7 py-3.5 text-sm font-bold uppercase tracking-widest text-brand-navyDeep transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_40px_-8px_rgba(0,201,247,0.65)] active:scale-95"
+                className="btn-idle-glow group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-brand-cyan px-7 py-3.5 text-sm font-bold uppercase tracking-widest text-brand-navyDeep transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_40px_-8px_rgba(0,201,247,0.65)] active:scale-95"
               >
                 <span className="relative z-10">Solicitar presupuesto</span>
                 <svg
@@ -61,7 +61,7 @@ export default function Intro() {
 
               <a
                 href="#cobertura"
-                className="group inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:-translate-y-1 hover:border-brand-cyan hover:bg-brand-cyan/10 hover:text-brand-cyan active:scale-95"
+                className="btn-idle-border group inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:-translate-y-1 hover:border-brand-cyan hover:bg-brand-cyan/10 hover:text-brand-cyan active:scale-95"
               >
                 <svg
                   className="transition-transform duration-300 group-hover:scale-110"
@@ -188,16 +188,9 @@ function Billboard() {
         {/* ---- Poste vertical ---- */}
         <div className="relative mx-auto h-[100px] w-[14px] rounded-b-md bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 shadow-[0_2px_10px_rgba(0,0,0,0.5)]" />
 
-        {/* ---- Base ---- */}
+        {/* ---- Base (sombra simple, sin neón) ---- */}
         <div className="relative mx-auto h-[40px] w-[240px]">
-          {/* Sombra en el piso */}
-          <div className="absolute inset-x-[10%] top-3 h-[20px] rounded-[50%] bg-black/50 blur-md" />
-          {/* Anillo exterior sutil */}
-          <div className="absolute inset-x-0 top-2 h-[26px] rounded-[50%] border border-brand-cyan/40" />
-          {/* Anillo que pulsa expandiéndose */}
-          <div className="ring-pulse absolute inset-x-0 top-2 h-[26px] rounded-[50%] border border-brand-cyan/50" />
-          {/* Anillo interior */}
-          <div className="absolute inset-x-[25%] top-4 h-[16px] rounded-[50%] border border-brand-cyan/25" />
+          <div className="absolute inset-x-[10%] top-3 h-[20px] rounded-[50%] bg-black/55 blur-md" />
         </div>
       </div>
       </div>
