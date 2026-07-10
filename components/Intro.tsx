@@ -35,6 +35,51 @@ export default function Intro() {
               Llevamos tu marca más lejos. Impacto masivo, presencia estratégica
               y visibilidad real donde tu público está.
             </p>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href="#contacto"
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-brand-cyan px-7 py-3.5 text-sm font-bold uppercase tracking-widest text-brand-navyDeep transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_40px_-8px_rgba(0,201,247,0.65)] active:scale-95"
+              >
+                <span className="relative z-10">Solicitar presupuesto</span>
+                <svg
+                  className="relative z-10 transition-transform duration-300 group-hover:translate-x-1"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+                {/* brillo que cruza en hover */}
+                <span className="absolute inset-y-0 left-0 w-1/3 -translate-x-[150%] skew-x-[-18deg] bg-white/40 transition-transform duration-700 group-hover:translate-x-[350%]" />
+              </a>
+
+              <a
+                href="#cobertura"
+                className="group inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:-translate-y-1 hover:border-brand-cyan hover:bg-brand-cyan/10 hover:text-brand-cyan active:scale-95"
+              >
+                <svg
+                  className="transition-transform duration-300 group-hover:scale-110"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z" />
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg>
+                Ver cobertura
+              </a>
+            </div>
           </Reveal>
         </div>
       </div>
@@ -48,9 +93,12 @@ function Billboard() {
   const spots = [17, 39, 61, 83]
 
   return (
-    <div className="relative w-full max-w-[600px]" style={{ perspective: '1400px' }}>
-      {/* Halo cian muy sutil */}
-      <div className="pointer-events-none absolute -inset-16 -z-10 bg-[radial-gradient(circle,rgba(0,201,247,0.1),transparent_70%)] blur-3xl" />
+    <div
+      className="group/billboard relative w-full max-w-[600px] cursor-pointer transition-transform duration-500 ease-out hover:scale-[1.03]"
+      style={{ perspective: '1400px' }}
+    >
+      {/* Halo cian muy sutil (se intensifica al hacer hover sobre el cartel) */}
+      <div className="pointer-events-none absolute -inset-16 -z-10 bg-[radial-gradient(circle,rgba(0,201,247,0.1),transparent_70%)] blur-3xl transition-opacity duration-500 group-hover/billboard:opacity-[2]" />
 
       {/* Estructura vertical con perspectiva 3D + flotación suave (wrapper separado para no pisar transforms) */}
       <div className="billboard-float">
