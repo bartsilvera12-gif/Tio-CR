@@ -28,7 +28,7 @@ export default function Hero() {
         <img
           src="/logo-hero.png"
           alt="TIOCR - Marketing y Servicios Publicitarios"
-          className="w-[min(90vw,860px)] cursor-pointer animate-fade-in transition-all duration-500 ease-out hover:scale-[1.03] hover:drop-shadow-[0_0_40px_rgba(0,201,247,0.55)]"
+          className="w-[min(90vw,860px)] cursor-pointer animate-fade-in transition-transform duration-300 ease-out hover:scale-105"
         />
       </div>
 

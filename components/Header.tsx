@@ -50,7 +50,7 @@ export default function Header() {
           href="#inicio"
           className="group flex items-center transition-transform duration-300 hover:scale-105 active:scale-95"
         >
-          <img src="/logo.png" alt="TIOCR" className="h-10 md:h-12" />
+          <img src="/logo.png" alt="TIOCR" className="h-8 md:h-10" />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
