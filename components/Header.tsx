@@ -60,7 +60,7 @@ export default function Header() {
               <a
                 key={l.href}
                 href={l.href}
-                className="group relative py-2 text-sm font-semibold uppercase tracking-widest text-white transition-transform duration-300 active:scale-95"
+                className="group relative py-2 text-sm font-semibold uppercase tracking-widest text-sky-50 transition-transform duration-300 active:scale-95"
               >
                 {l.label}
                 {/* underline: sólido cuando activo, slide-in en hover cuando no */}
