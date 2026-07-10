@@ -42,6 +42,18 @@ body {
 .intro-body {
   animation: softBreathe 6s ease-in-out infinite;
 }
+
+/* Pulso de los rayos de luz del cartel */
+@keyframes beamPulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+/* Glow del anillo de la base */
+@keyframes baseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0,229,255,0.7), inset 0 0 12px rgba(0,229,255,0.4); }
+  50% { box-shadow: 0 0 30px rgba(0,229,255,0.9), inset 0 0 18px rgba(0,229,255,0.6); }
+}
 .animate-fade-in {
   animation: fadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
