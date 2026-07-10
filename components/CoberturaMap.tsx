@@ -23,7 +23,7 @@ export default function CoberturaMap() {
 
       <svg
         viewBox={`0 0 ${W} ${H}`}
-        className="w-full"
+        className="w-full overflow-visible"
         role="img"
         aria-label="Mapa de cobertura de Paraguay"
       >
@@ -68,21 +68,18 @@ export default function CoberturaMap() {
 
         {/* Pins */}
         {pins.map((p) => (
-          <g
-            key={p.city}
-            transform={`translate(${p.x} ${p.y})`}
-            className="map-pin"
-            filter="url(#pinGlow)"
-          >
-            <title>{`${p.city} — ${p.info}`}</title>
-            {/* Teardrop */}
-            <path
-              d="M0 0 C -7 -11 -15 -18 -15 -29 A 15 15 0 1 1 15 -29 C 15 -18 7 -11 0 0 Z"
-              fill="#061428"
-              stroke="#00E5FF"
-              strokeWidth="2.5"
-            />
-            <circle cx="0" cy="-29" r="6" fill="#00E5FF" />
+          <g key={p.city} transform={`translate(${p.x} ${p.y})`}>
+            {/* Grupo interno: el hover escala acá, sin pisar el translate */}
+            <g className="map-pin" filter="url(#pinGlow)">
+              <title>{`${p.city} — ${p.info}`}</title>
+              <path
+                d="M0 0 C -7 -11 -15 -18 -15 -29 A 15 15 0 1 1 15 -29 C 15 -18 7 -11 0 0 Z"
+                fill="#061428"
+                stroke="#00E5FF"
+                strokeWidth="2.5"
+              />
+              <circle cx="0" cy="-29" r="6" fill="#00E5FF" />
+            </g>
           </g>
         ))}
       </svg>
