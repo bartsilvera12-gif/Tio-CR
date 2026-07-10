@@ -19,7 +19,7 @@ export default function Hero() {
         </video>
         {/* Overlay oscuro + degradado: transparente → negro → navy (funde con la próxima sección) */}
         <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-brand-navy via-black via-[20%] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black via-black via-[20%] to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,201,247,0.12),transparent_65%)]" />
       </div>
 

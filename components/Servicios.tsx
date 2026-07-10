@@ -33,7 +33,9 @@ const iconos: Record<string, React.ReactNode> = {
 
 export default function Servicios() {
   return (
-    <section id="servicios" className="section bg-brand-navy text-white">
+    <section id="servicios" className="section relative bg-brand-navy text-white">
+      {/* Transición suave desde el negro del hero hacia el navy */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent" />
       <div className="container">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">Qué hacemos</span>
