@@ -3,19 +3,20 @@ import Reveal from './Reveal'
 import GlowBlob from './GlowBlob'
 
 const iconos: Record<string, React.ReactNode> = {
-  // Cartel de ruta: pantalla sobre poste con patas
+  // Cartel de ruta: pantalla limpia sobre poste central
   ruta: (
     <>
-      <rect x="3" y="3.5" width="18" height="10.5" rx="2" />
-      <path d="M9 14l-2 6.5M15 14l2 6.5M6.2 18.5h11.6" />
+      <rect x="3.5" y="4" width="17" height="10" rx="1.8" />
+      <path d="M12 14v5.5" />
+      <path d="M8 19.5h8" />
     </>
   ),
-  // Pantalla LED: monitor con play (contenido dinámico)
+  // Pantalla LED: monitor con play centrado
   led: (
     <>
-      <rect x="2.5" y="4.5" width="19" height="12.5" rx="2" />
-      <path d="M10.2 8.2l4.8 2.55-4.8 2.55z" />
-      <path d="M12 17v3.5M8.5 20.5h7" />
+      <rect x="3" y="4.5" width="18" height="12" rx="2" />
+      <path d="M10.3 8.3l4.6 2.45-4.6 2.45z" strokeLinejoin="round" />
+      <path d="M12 16.5v3M9 19.5h6" />
     </>
   ),
   // Campañas: megáfono
@@ -27,7 +28,8 @@ const iconos: Record<string, React.ReactNode> = {
   ),
 }
 
-/** Ícono con stroke mitad blanco / mitad cian */
+/** Ícono con stroke mitad blanco (arriba) / mitad cian (abajo),
+    corte único a mitad del ícono completo (userSpaceOnUse) */
 function DualIcon({
   icono,
   size,
@@ -44,14 +46,21 @@ function DualIcon({
       viewBox="0 0 24 24"
       fill="none"
       stroke={`url(#${id})`}
-      strokeWidth="1.7"
+      strokeWidth="1.6"
       strokeLinecap="round"
       strokeLinejoin="round"
     >
       <defs>
-        <linearGradient id={id} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0.5" stopColor="#FFFFFF" />
-          <stop offset="0.5" stopColor="#00C9F7" />
+        <linearGradient
+          id={id}
+          gradientUnits="userSpaceOnUse"
+          x1="0"
+          y1="0"
+          x2="0"
+          y2="24"
+        >
+          <stop offset="0.48" stopColor="#FFFFFF" />
+          <stop offset="0.52" stopColor="#00C9F7" />
         </linearGradient>
       </defs>
       {iconos[icono]}
@@ -78,7 +87,10 @@ export default function Servicios() {
 
       <div className="container relative">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="eyebrow">Qué hacemos</span>
+          <span className="inline-flex items-center gap-2.5 rounded-full border border-brand-cyan/40 bg-brand-cyan/10 px-6 py-2.5 text-base font-bold uppercase tracking-[0.25em] text-brand-cyanDark shadow-[0_4px_18px_-6px_rgba(0,201,247,0.4)]">
+            <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-brand-cyan" />
+            Qué hacemos
+          </span>
           <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-brand-ink md:text-5xl">
             Todo lo que necesitás para estar en la calle.
           </h2>
@@ -109,14 +121,15 @@ export default function Servicios() {
                   >
                     {/* Ícono grande mitad blanco / mitad cian, en círculo */}
                     <div
-                      className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-full"
+                      className="mb-6 inline-flex h-24 w-24 items-center justify-center rounded-full"
                       style={{
                         background:
                           'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.12))',
                         border: '1px solid rgba(255,255,255,0.18)',
+                        boxShadow: '0 8px 24px -8px rgba(0,201,247,0.35)',
                       }}
                     >
-                      <DualIcon icono={s.icono} size={42} id={`grad-f-${s.icono}`} />
+                      <DualIcon icono={s.icono} size={48} id={`grad-f-${s.icono}`} />
                     </div>
 
                     <h3 className="font-display text-2xl font-bold text-white">
@@ -164,14 +177,15 @@ export default function Servicios() {
 
                     {/* Loguito grande en círculo */}
                     <div
-                      className="relative inline-flex h-28 w-28 items-center justify-center rounded-full"
+                      className="relative inline-flex h-32 w-32 items-center justify-center rounded-full"
                       style={{
                         background:
                           'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.14))',
                         border: '1px solid rgba(255,255,255,0.2)',
+                        boxShadow: '0 10px 30px -10px rgba(0,201,247,0.45)',
                       }}
                     >
-                      <DualIcon icono={s.icono} size={56} id={`grad-b-${s.icono}`} />
+                      <DualIcon icono={s.icono} size={64} id={`grad-b-${s.icono}`} />
                     </div>
 
                     <h3 className="relative font-display text-2xl font-bold text-white">
