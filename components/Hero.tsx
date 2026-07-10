@@ -5,20 +5,19 @@ export default function Hero() {
       className="relative flex h-screen min-h-[720px] w-full items-center justify-center overflow-hidden text-white"
       style={{ backgroundColor: '#050e1f' }}
     >
-      {/* YouTube background video */}
+      {/* Video de fondo self-hosted */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <iframe
-          src="https://www.youtube.com/embed/FNX3ebKiuqc?autoplay=1&mute=1&loop=1&playlist=FNX3ebKiuqc&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&playsinline=1"
-          title="Hero background"
-          allow="autoplay; encrypted-media"
-          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-          style={{
-            width: '177.78vh',
-            height: '56.25vw',
-            minWidth: '100%',
-            minHeight: '100%',
-          }}
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="/logo-hero.png"
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+        </video>
         {/* Overlay oscuro sobre el video para que el logo se lea */}
         <div className="absolute inset-0 bg-black/55" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,201,247,0.12),transparent_65%)]" />
