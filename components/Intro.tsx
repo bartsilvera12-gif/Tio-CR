@@ -5,8 +5,15 @@ export default function Intro() {
     <section className="relative overflow-hidden bg-brand-navy py-24 text-white md:py-32">
       {/* Fade desde el negro del hero */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent" />
-      {/* Halo cian de fondo (sutil, sin grid) */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_50%,rgba(0,201,247,0.15),transparent_55%)]" />
+      {/* Blob cian difuminado y deformado en el fondo de la sección */}
+      <div
+        className="pointer-events-none absolute left-[5%] top-[28%] h-[420px] w-[560px] blur-[110px]"
+        style={{
+          background: 'rgba(0, 201, 247, 0.16)',
+          borderRadius: '58% 42% 65% 35% / 45% 60% 40% 55%',
+          transform: 'rotate(-14deg)',
+        }}
+      />
 
       <div className="container relative">
         <div className="grid items-center gap-16 lg:grid-cols-2">
@@ -190,8 +197,6 @@ function Billboard() {
 
         {/* ---- Base: 3 anillos blancos concéntricos + halo cian difuso ---- */}
         <div className="relative mx-auto h-[46px] w-[240px]">
-          {/* Halo cian muy difuminado detrás de los anillos */}
-          <div className="absolute -inset-x-[20%] -top-3 h-[52px] rounded-[50%] bg-[radial-gradient(ellipse,rgba(0,201,247,0.3),transparent_65%)] blur-xl" />
           {/* Sombra en el piso */}
           <div className="absolute inset-x-[8%] top-5 h-[18px] rounded-[50%] bg-black/50 blur-md" />
           {/* Anillo exterior */}
