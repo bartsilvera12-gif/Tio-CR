@@ -56,7 +56,7 @@ export default function Servicios() {
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {servicios.map((s, i) => (
             <Reveal key={s.titulo} delay={i * 90} as="article">
-              <div className="group relative h-full rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-cyan/50 hover:bg-white/[0.08] hover:shadow-[0_20px_50px_-15px_rgba(0,201,247,0.4)]">
+              <div className="glass group relative h-full rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:!border-brand-cyan/50 hover:!bg-white/[0.09] hover:shadow-[0_20px_50px_-15px_rgba(0,201,247,0.4)]">
                 <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-cyan/15 text-brand-cyan transition-all duration-300 group-hover:scale-110 group-hover:bg-brand-cyan group-hover:text-brand-navy">
                   <svg
                     width="24"

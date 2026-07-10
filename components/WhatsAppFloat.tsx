@@ -63,8 +63,8 @@ export default function WhatsAppFloat() {
             : 'pointer-events-none scale-95 opacity-0'
         }`}
       >
-        <div className="rounded-2xl border border-brand-ink/10 bg-white p-2 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.25)]">
-          <div className="px-3 py-2 text-xs font-semibold uppercase tracking-widest text-brand-ink/50">
+        <div className="glass-dark rounded-2xl p-2 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.5)]">
+          <div className="px-3 py-2 text-xs font-semibold uppercase tracking-widest text-white/50">
             Elegí un número
           </div>
           {options.map((o) => (
@@ -74,12 +74,12 @@ export default function WhatsAppFloat() {
               target="_blank"
               rel="noreferrer"
               onClick={() => setOpen(false)}
-              className="flex items-center gap-3 rounded-xl px-3 py-2.5 transition hover:bg-brand-cyan/10"
+              className="flex items-center gap-3 rounded-xl px-3 py-2.5 transition hover:bg-brand-cyan/15"
             >
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366]">
                 <WaIcon size={16} />
               </span>
-              <span className="text-sm font-semibold text-brand-ink">
+              <span className="text-sm font-semibold text-white">
                 {o.label}
               </span>
             </a>
