@@ -7,6 +7,7 @@ type Props = {
   delay?: number
   className?: string
   as?: 'div' | 'section' | 'article' | 'span'
+  direction?: 'up' | 'right'
 }
 
 export default function Reveal({
@@ -14,6 +15,7 @@ export default function Reveal({
   delay = 0,
   className = '',
   as: Tag = 'div',
+  direction = 'up',
 }: Props) {
   const ref = useRef<HTMLElement>(null)
   const [visible, setVisible] = useState(false)
@@ -38,7 +40,7 @@ export default function Reveal({
     <Tag
       ref={ref as never}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`reveal ${visible ? 'is-visible' : ''} ${className}`}
+      className={`reveal ${direction === 'right' ? 'from-right' : ''} ${visible ? 'is-visible' : ''} ${className}`}
     >
       {children}
     </Tag>
