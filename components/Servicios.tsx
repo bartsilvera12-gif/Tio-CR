@@ -18,19 +18,51 @@ const iconos: Record<string, React.ReactNode> = {
   ),
 }
 
+/** Ícono con stroke mitad blanco / mitad cian */
+function DualIcon({
+  icono,
+  size,
+  id,
+}: {
+  icono: string
+  size: number
+  id: string
+}) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={`url(#${id})`}
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <defs>
+        <linearGradient id={id} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0.5" stopColor="#FFFFFF" />
+          <stop offset="0.5" stopColor="#00C9F7" />
+        </linearGradient>
+      </defs>
+      {iconos[icono]}
+    </svg>
+  )
+}
+
 export default function Servicios() {
   return (
     <section id="servicios" className="section relative overflow-hidden bg-white text-brand-ink">
-      {/* Blob cian sobre fondo blanco */}
+      {/* Blob principal: grande, visible y animado */}
       <GlowBlob
-        className="right-[5%] top-[30%] h-[400px] w-[540px]"
-        opacity={0.14}
-        rotate={18}
+        className="right-[-5%] top-[15%] h-[560px] w-[720px]"
+        opacity={0.24}
         radius="45% 55% 62% 38% / 55% 40% 60% 45%"
+        animated
       />
       <GlowBlob
         className="left-[-2%] bottom-[12%] h-[300px] w-[400px]"
-        opacity={0.09}
+        opacity={0.1}
         rotate={-20}
         radius="60% 40% 48% 52% / 44% 58% 42% 56%"
       />
@@ -53,33 +85,34 @@ export default function Servicios() {
               {/* Zona de hover estable (no rota) */}
               <div className="card-spin-zone group h-full">
                 <div className="card-flip3d">
-                  {/* ---- Cara frontal (clara) ---- */}
-                  <div className="card-face relative flex h-full flex-col overflow-hidden rounded-2xl border border-brand-ink/10 bg-white p-8 shadow-[0_18px_45px_-20px_rgba(6,20,40,0.25)]">
-                    <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-brand-cyan/12 text-brand-cyanDark">
-                      <svg
-                        width="26"
-                        height="26"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        {iconos[s.icono]}
-                      </svg>
+                  {/* ---- Cara frontal: vidrio azul ---- */}
+                  <div
+                    className="card-face relative flex h-full flex-col overflow-hidden rounded-2xl p-8 text-white"
+                    style={{
+                      background:
+                        'linear-gradient(150deg, rgba(14,34,71,0.94) 0%, rgba(6,20,40,0.96) 100%)',
+                      border: '1px solid rgba(255,255,255,0.14)',
+                      boxShadow:
+                        'inset 0 1px 0 rgba(255,255,255,0.12), 0 22px 50px -18px rgba(6,20,40,0.5)',
+                      backdropFilter: 'blur(20px) saturate(150%)',
+                      WebkitBackdropFilter: 'blur(20px) saturate(150%)',
+                    }}
+                  >
+                    {/* Ícono grande mitad blanco / mitad cian */}
+                    <div className="mb-6 inline-flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-white/10">
+                      <DualIcon icono={s.icono} size={38} id={`grad-f-${s.icono}`} />
                     </div>
 
-                    <h3 className="font-display text-2xl font-bold text-brand-ink">
+                    <h3 className="font-display text-2xl font-bold text-white">
                       {s.titulo}
                     </h3>
-                    <p className="mt-3 text-brand-ink/70">{s.descripcion}</p>
+                    <p className="mt-3 text-white/70">{s.descripcion}</p>
 
                     <ul className="mt-6 space-y-2.5">
                       {s.detalles.map((d) => (
-                        <li key={d} className="flex items-center gap-2.5 text-sm text-brand-ink/70">
+                        <li key={d} className="flex items-center gap-2.5 text-sm text-white/70">
                           <svg
-                            className="shrink-0 text-brand-cyanDark"
+                            className="shrink-0 text-brand-cyan"
                             width="14"
                             height="14"
                             viewBox="0 0 24 24"
@@ -97,25 +130,23 @@ export default function Servicios() {
                     </ul>
                   </div>
 
-                  {/* ---- Cara trasera (navy, contraste) ---- */}
-                  <div className="card-face card-face-back flex flex-col items-center justify-center gap-6 overflow-hidden rounded-2xl border border-brand-cyan/40 bg-gradient-to-br from-brand-navyLight to-brand-navyDeep p-8 text-center shadow-[0_18px_45px_-20px_rgba(6,20,40,0.4)]">
+                  {/* ---- Cara trasera ---- */}
+                  <div
+                    className="card-face card-face-back flex flex-col items-center justify-center gap-6 overflow-hidden rounded-2xl p-8 text-center"
+                    style={{
+                      background:
+                        'linear-gradient(150deg, rgba(14,34,71,0.97) 0%, rgba(3,10,26,0.98) 100%)',
+                      border: '1px solid rgba(0,201,247,0.4)',
+                      boxShadow:
+                        'inset 0 1px 0 rgba(255,255,255,0.1), 0 22px 50px -18px rgba(6,20,40,0.55)',
+                    }}
+                  >
                     {/* Glow de fondo */}
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,201,247,0.18),transparent_65%)]" />
 
                     {/* Loguito grande */}
-                    <div className="relative inline-flex h-24 w-24 items-center justify-center rounded-2xl bg-brand-cyan/15 text-brand-cyan">
-                      <svg
-                        width="48"
-                        height="48"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        {iconos[s.icono]}
-                      </svg>
+                    <div className="relative inline-flex h-24 w-24 items-center justify-center rounded-2xl bg-white/10">
+                      <DualIcon icono={s.icono} size={48} id={`grad-b-${s.icono}`} />
                     </div>
 
                     <h3 className="relative font-display text-2xl font-bold text-white">

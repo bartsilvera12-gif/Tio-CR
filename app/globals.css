@@ -245,6 +245,26 @@ body {
   100% { transform: translateX(220%) skewX(-20deg); }
 }
 
+/* Blob animado: deriva lenta, se deforma y respira */
+@keyframes blobDrift {
+  0% {
+    transform: rotate(12deg) scale(1) translate(0, 0);
+    border-radius: 45% 55% 62% 38% / 55% 40% 60% 45%;
+  }
+  50% {
+    transform: rotate(28deg) scale(1.18) translate(40px, -25px);
+    border-radius: 60% 40% 44% 56% / 42% 60% 40% 58%;
+  }
+  100% {
+    transform: rotate(12deg) scale(1) translate(0, 0);
+    border-radius: 45% 55% 62% 38% / 55% 40% 60% 45%;
+  }
+}
+.blob-anim {
+  animation: blobDrift 16s ease-in-out infinite;
+  will-change: transform, border-radius;
+}
+
 /* Vidrio esmerilado — mismo lenguaje que el header al scrollear */
 .glass {
   background: rgba(255, 255, 255, 0.06);
