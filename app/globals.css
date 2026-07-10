@@ -207,13 +207,17 @@ body {
   filter: blur(0);
 }
 
-/* Giro vertical completo de la card al hacer hover */
-@keyframes cardFlipX {
-  from { transform: perspective(1000px) rotateX(0deg); }
-  to { transform: perspective(1000px) rotateX(360deg); }
+/* Giro vertical de la card al hacer hover.
+   El hover se detecta en la zona externa (que NO rota) — así el giro nunca
+   pierde el hover a mitad de vuelta y no se buguea. Al salir, desanda el giro. */
+.card-spin-zone .card-inner {
+  transform: perspective(1000px) rotateX(0deg);
+  transition-property: transform, border-color, background-color, box-shadow;
+  transition-duration: 0.9s, 0.5s, 0.5s, 0.5s;
+  transition-timing-function: cubic-bezier(0.45, 0, 0.2, 1);
 }
-.card-flip:hover {
-  animation: cardFlipX 0.9s cubic-bezier(0.45, 0, 0.2, 1) both;
+.card-spin-zone:hover .card-inner {
+  transform: perspective(1000px) rotateX(360deg);
 }
 
 

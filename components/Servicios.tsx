@@ -42,7 +42,9 @@ export default function Servicios() {
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {servicios.map((s, i) => (
             <Reveal key={s.titulo} delay={i * 150} as="article" className="h-full" direction="below">
-              <div className="glass card-flip group relative flex h-full flex-col overflow-hidden rounded-2xl p-8 transition-all duration-500 hover:!border-brand-cyan/50 hover:!bg-white/[0.09] hover:shadow-[0_28px_60px_-18px_rgba(0,201,247,0.45)]">
+              {/* Zona de hover estable: no rota, así el giro nunca se corta a mitad */}
+              <div className="card-spin-zone group h-full">
+              <div className="glass card-inner relative flex h-full flex-col overflow-hidden rounded-2xl p-8 group-hover:!border-brand-cyan/50 group-hover:!bg-white/[0.09] group-hover:shadow-[0_28px_60px_-18px_rgba(0,201,247,0.45)]">
                 {/* Glow interno que aparece en hover */}
                 <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(ellipse_at_top,rgba(0,201,247,0.12),transparent_60%)]" />
 
@@ -113,6 +115,7 @@ export default function Servicios() {
 
                 {/* Línea de acento inferior que crece en hover */}
                 <span className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-gradient-to-r from-brand-cyan to-transparent transition-transform duration-500 group-hover:scale-x-100" />
+              </div>
               </div>
             </Reveal>
           ))}
