@@ -44,22 +44,28 @@ function Billboard() {
   const spots = [17, 39, 61, 83]
 
   return (
-    <div className="relative w-full max-w-[600px]">
+    <div className="relative w-full max-w-[600px]" style={{ perspective: '1400px' }}>
       {/* Halo cian general */}
       <div className="pointer-events-none absolute -inset-16 -z-10 bg-[radial-gradient(circle,rgba(0,201,247,0.28),transparent_70%)] blur-3xl" />
 
-      {/* Estructura vertical: reflectores → screen → poste → base */}
-      <div className="relative">
-        {/* ---- Reflectores en la parte superior ---- */}
-        <div className="relative mx-[8%] flex items-end justify-between">
+      {/* Estructura vertical con perspectiva 3D como la referencia (vista desde abajo-izquierda) */}
+      <div
+        className="relative"
+        style={{
+          transform: 'rotateY(14deg) rotateX(6deg) rotateZ(-2deg)',
+          transformStyle: 'preserve-3d',
+        }}
+      >
+        {/* ---- Reflectores montados sobre el borde superior ---- */}
+        <div className="relative z-20 -mb-[6px] mx-[8%] flex items-end justify-between">
           {spots.map((_, i) => (
-            <div key={i} className="relative">
+            <div key={i} className="relative" style={{ transform: 'rotateX(-12deg)' }}>
               {/* Cabeza del reflector (con lente cian brillante) */}
-              <div className="relative z-10 h-[14px] w-[46px] rounded-[3px] bg-gradient-to-b from-slate-500 via-slate-700 to-slate-900 shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
-                <div className="absolute inset-x-1 bottom-[2px] h-[3px] rounded-sm bg-brand-cyan shadow-[0_0_8px_rgba(0,229,255,0.9)]" />
+              <div className="relative z-10 h-[16px] w-[52px] rounded-[4px] bg-gradient-to-b from-slate-500 via-slate-700 to-slate-900 shadow-[0_3px_8px_rgba(0,0,0,0.7)]">
+                <div className="absolute inset-x-1 bottom-[2px] h-[4px] rounded-sm bg-brand-cyan shadow-[0_0_12px_rgba(0,229,255,1)]" />
               </div>
-              {/* Brazo del reflector */}
-              <div className="mx-auto h-[18px] w-[3px] bg-gradient-to-b from-slate-700 to-slate-800" />
+              {/* Brazo del reflector inclinado hacia el cartel */}
+              <div className="mx-auto h-[22px] w-[4px] bg-gradient-to-b from-slate-600 to-slate-800" />
             </div>
           ))}
         </div>
