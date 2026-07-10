@@ -6,7 +6,7 @@ export default function Hero() {
       style={{ backgroundColor: '#050e1f' }}
     >
       {/* Video de fondo self-hosted */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <video
           autoPlay
           muted
