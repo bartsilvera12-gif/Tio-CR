@@ -13,13 +13,12 @@ export default function Hero() {
           loop
           playsInline
           preload="auto"
-          poster="/logo-hero.png"
           className="absolute inset-0 h-full w-full object-cover"
         >
           <source src="/hero.mp4" type="video/mp4" />
         </video>
-        {/* Overlay oscuro sobre el video para que el logo se lea */}
-        <div className="absolute inset-0 bg-black/55" />
+        {/* Overlay oscuro sobre el video para que el logo se lea (DEBUG: 25% para ver el video) */}
+        <div className="absolute inset-0 bg-black/25" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,201,247,0.12),transparent_65%)]" />
       </div>
 
