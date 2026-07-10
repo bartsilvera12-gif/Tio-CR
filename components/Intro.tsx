@@ -188,16 +188,18 @@ function Billboard() {
         {/* ---- Poste vertical ---- */}
         <div className="relative mx-auto h-[100px] w-[14px] rounded-b-md bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 shadow-[0_2px_10px_rgba(0,0,0,0.5)]" />
 
-        {/* ---- Base: 3 anillos blancos concéntricos ---- */}
+        {/* ---- Base: 3 anillos blancos concéntricos + halo cian difuso ---- */}
         <div className="relative mx-auto h-[46px] w-[240px]">
+          {/* Halo cian muy difuminado detrás de los anillos */}
+          <div className="absolute -inset-x-[20%] -top-3 h-[52px] rounded-[50%] bg-[radial-gradient(ellipse,rgba(0,201,247,0.3),transparent_65%)] blur-xl" />
           {/* Sombra en el piso */}
           <div className="absolute inset-x-[8%] top-5 h-[18px] rounded-[50%] bg-black/50 blur-md" />
           {/* Anillo exterior */}
-          <div className="absolute inset-x-0 top-1 h-[30px] rounded-[50%] border border-white/40" />
+          <div className="absolute inset-x-0 top-1 h-[30px] rounded-[50%] border-[3px] border-white/45" />
           {/* Anillo medio */}
-          <div className="absolute inset-x-[18%] top-[7px] h-[19px] rounded-[50%] border border-white/30" />
+          <div className="absolute inset-x-[18%] top-[7px] h-[19px] rounded-[50%] border-2 border-white/35" />
           {/* Anillo interior */}
-          <div className="absolute inset-x-[34%] top-[12px] h-[10px] rounded-[50%] border border-white/20" />
+          <div className="absolute inset-x-[34%] top-[12px] h-[10px] rounded-[50%] border-2 border-white/25" />
         </div>
       </div>
       </div>
