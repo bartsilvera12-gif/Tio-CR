@@ -1,19 +1,16 @@
-import { W, H, departments } from '@/lib/map-data'
+import { W, H, departments, markers } from '@/lib/map-data'
 
-/** Pins de las ciudades de cobertura.
-    Coordenadas de map-data.js (proyección equirectangular del handoff);
-    las ciudades sin marker original se proyectaron con la misma fórmula. */
-const pins = [
-  { city: 'Pedro Juan Caballero', info: 'Amambay · PY 05', x: 821.4, y: 428.2 },
-  { city: 'Salto del Guairá', info: 'Canindeyú · PY 03', x: 990.0, y: 614.9 },
-  { city: 'Corpus Christi', info: 'Canindeyú · PY 03', x: 925.6, y: 646.5 },
-  { city: 'Coronel Oviedo', info: 'Caaguazú · PY 02', x: 739.4, y: 800.2 },
-  { city: 'Ciudad del Este', info: 'Alto Paraná · PY 07', x: 957.6, y: 808.6 },
-  { city: 'Caacupé', info: 'Cordillera · PY 02', x: 648.5, y: 791 },
-  { city: 'Quiindy', info: 'Paraguarí · PY 01', x: 643.6, y: 868 },
-  { city: 'Villa Florida', info: 'Misiones · PY 01', x: 657.7, y: 924.9 },
-  { city: 'Encarnación', info: 'Itapúa · PY 06', x: 807.9, y: 1045.4 },
-]
+/** Los 22 carteles del relevamiento, con coordenadas exactas de map-data.js */
+type Marker = {
+  key: string
+  x: number
+  y: number
+  city: string
+  dept: string
+  route: string
+  size: string
+}
+const pins = markers as Marker[]
 
 export default function CoberturaMap() {
   return (
@@ -68,10 +65,10 @@ export default function CoberturaMap() {
 
         {/* Pins */}
         {pins.map((p) => (
-          <g key={p.city} transform={`translate(${p.x} ${p.y})`}>
+          <g key={p.key} transform={`translate(${p.x} ${p.y})`}>
             {/* Grupo interno: el hover escala acá, sin pisar el translate */}
             <g className="map-pin" filter="url(#pinGlow)">
-              <title>{`${p.city} — ${p.info}`}</title>
+              <title>{`${p.city} — ${p.dept} · ${p.route}`}</title>
               <path
                 d="M0 0 C -7 -11 -15 -18 -15 -29 A 15 15 0 1 1 15 -29 C 15 -18 7 -11 0 0 Z"
                 fill="#061428"
