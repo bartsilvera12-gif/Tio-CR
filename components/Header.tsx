@@ -36,10 +36,10 @@ export default function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled ? 'backdrop-blur' : ''
+        scrolled ? 'backdrop-blur-2xl backdrop-saturate-150' : ''
       }`}
       style={{
-        backgroundColor: scrolled ? 'rgba(5, 14, 31, 0.85)' : 'transparent',
+        backgroundColor: scrolled ? 'rgba(5, 14, 31, 0.55)' : 'transparent',
       }}
     >
       <div className="container flex h-20 items-center justify-between">
