@@ -9,13 +9,21 @@ interface LiquidMetalButtonProps {
   label?: string
   onClick?: () => void
   viewMode?: 'text' | 'icon'
+  variant?: 'dark' | 'cyan'
+  /** Ancho custom en px — sobrescribe el default 210 (modo text) */
+  width?: number
+  type?: 'button' | 'submit'
 }
 
 export function LiquidMetalButton({
   label = 'Get Started',
   onClick,
   viewMode = 'text',
+  variant = 'dark',
+  width,
+  type = 'button',
 }: LiquidMetalButtonProps) {
+  const isCyan = variant === 'cyan'
   const [isHovered, setIsHovered] = useState(false)
   const [isPressed, setIsPressed] = useState(false)
   const [ripples, setRipples] = useState<
@@ -31,9 +39,10 @@ export function LiquidMetalButton({
     if (viewMode === 'icon') {
       return { width: 46, height: 46, innerWidth: 42, innerHeight: 42, shaderWidth: 46, shaderHeight: 46 }
     }
-    // Ancho ajustado para "Solicitar presupuesto" (20 chars)
-    return { width: 210, height: 46, innerWidth: 206, innerHeight: 42, shaderWidth: 210, shaderHeight: 46 }
-  }, [viewMode])
+    // Ancho ajustado para "Solicitar presupuesto" (20 chars); custom via prop width
+    const w = width ?? 210
+    return { width: w, height: 46, innerWidth: w - 4, innerHeight: 42, shaderWidth: w, shaderHeight: 46 }
+  }, [viewMode, width])
 
   useEffect(() => {
     const styleId = 'shader-canvas-style-exploded'
@@ -190,13 +199,15 @@ export function LiquidMetalButton({
               <span
                 style={{
                   fontSize: '13px',
-                  color: isHovered ? '#FFFFFF' : '#B8B8B8',
-                  fontWeight: 600,
+                  color: isCyan ? '#062036' : (isHovered ? '#FFFFFF' : '#B8B8B8'),
+                  fontWeight: isCyan ? 700 : 600,
                   letterSpacing: isHovered ? '0.08em' : '0.05em',
                   textTransform: 'uppercase',
-                  textShadow: isHovered
-                    ? '0px 0px 8px rgba(0, 201, 247, 0.7), 0px 1px 2px rgba(0, 0, 0, 0.6)'
-                    : '0px 1px 2px rgba(0, 0, 0, 0.5)',
+                  textShadow: isCyan
+                    ? '0 1px 0 rgba(255,255,255,0.35)'
+                    : (isHovered
+                      ? '0px 0px 8px rgba(0, 201, 247, 0.7), 0px 1px 2px rgba(0, 0, 0, 0.6)'
+                      : '0px 1px 2px rgba(0, 0, 0, 0.5)'),
                   transition: 'color 0.3s ease, letter-spacing 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), text-shadow 0.3s ease',
                   transform: 'scale(1)',
                   whiteSpace: 'nowrap',
@@ -221,7 +232,9 @@ export function LiquidMetalButton({
               style={{
                 width: `${dimensions.innerWidth}px`, height: `${dimensions.innerHeight}px`,
                 margin: '2px', borderRadius: '100px',
-                background: 'linear-gradient(180deg, #202020 0%, #000000 100%)',
+                background: isCyan
+                  ? 'linear-gradient(180deg, #7DE1FF 0%, #00C9F7 55%, #00A6D6 100%)'
+                  : 'linear-gradient(180deg, #202020 0%, #000000 100%)',
                 boxShadow: isPressed
                   ? 'inset 0px 2px 4px rgba(0, 0, 0, 0.4), inset 0px 1px 2px rgba(0, 0, 0, 0.3)'
                   : 'none',
@@ -269,6 +282,7 @@ export function LiquidMetalButton({
 
           <button
             ref={buttonRef}
+            type={type}
             onClick={handleClick}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}

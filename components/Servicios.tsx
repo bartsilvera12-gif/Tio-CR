@@ -1,4 +1,5 @@
 import { servicios } from '@/lib/data'
+import { LiquidMetalButton } from './ui/liquid-metal-button'
 import Reveal from './Reveal'
 import GlowBlob from './GlowBlob'
 
@@ -201,21 +202,8 @@ export default function Servicios() {
                     </h3>
 
                     {/* CTA con el mismo formato que Solicitar presupuesto */}
-                    <a href="#contacto" className="btn-cta uppercase tracking-widest">
-                      <span>Consultar este servicio</span>
-                      <svg
-                        className="cta-arrow"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M5 12h14M13 6l6 6-6 6" />
-                      </svg>
+                    <a href="#contacto" aria-label="Consultar este servicio" className="inline-block">
+                      <LiquidMetalButton label="Consultar este servicio" variant="cyan" width={250} />
                     </a>
                   </div>
                 </div>

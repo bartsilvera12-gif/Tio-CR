@@ -131,22 +131,10 @@ export default function Header() {
           <a
             href="/#contacto"
             onClick={() => setOpen(false)}
-            className="btn-cta mt-4 justify-center uppercase tracking-widest"
+            aria-label="Solicitar presupuesto"
+            className="mt-4 inline-flex justify-center"
           >
-            <span>Solicitar presupuesto</span>
-            <svg
-              className="cta-arrow"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M5 12h14M13 6l6 6-6 6" />
-            </svg>
+            <LiquidMetalButton label="Solicitar presupuesto" variant="cyan" width={230} />
           </a>
         </div>
       </div>
