@@ -1,5 +1,6 @@
 import Reveal from './Reveal'
 import GlowBlob from './GlowBlob'
+import CondicionesCarousel from './CondicionesCarousel'
 
 const condiciones = [
   {
@@ -128,46 +129,11 @@ export default function Propuesta() {
               className="glass relative h-full overflow-hidden rounded-3xl p-8 md:p-10"
               style={{ backdropFilter: 'blur(22px) saturate(150%)' }}
             >
-              <div className="text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
+              <div className="mb-6 text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
                 Condiciones
               </div>
 
-              <ul className="mt-6 space-y-5">
-                {condiciones.map((c, i) => (
-                  <li
-                    key={i}
-                    className="group/item flex items-start gap-3.5 text-white/85 transition-transform duration-300 hover:translate-x-1"
-                  >
-                    <span
-                      className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full transition-all duration-300 group-hover/item:scale-110"
-                      style={{
-                        background:
-                          'linear-gradient(160deg, rgba(0,201,247,0.2), rgba(0,201,247,0.08))',
-                        border: '1px solid rgba(0,201,247,0.4)',
-                      }}
-                    >
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#00E5FF"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M5 12l5 5L20 7" />
-                      </svg>
-                    </span>
-                    <p className="text-[15px] leading-relaxed">
-                      <strong className="font-bold text-white">
-                        {c.title}
-                      </strong>
-                      {c.body ? <span className="text-white/75"> {c.body}</span> : null}
-                    </p>
-                  </li>
-                ))}
-              </ul>
+              <CondicionesCarousel items={condiciones} />
             </div>
           </Reveal>
         </div>
