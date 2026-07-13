@@ -114,10 +114,6 @@ export default function Servicios() {
           <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-brand-ink md:text-5xl" style={{ textShadow: "0 2px 24px rgba(255,255,255,0.65)" }}>
             Todo lo que necesitás para estar en la calle.
           </h2>
-          <p className="mt-3 text-lg font-medium text-brand-ink/85" style={{ textShadow: "0 1px 12px rgba(255,255,255,0.7)" }}>
-            De la producción al montaje: cubrimos cada etapa de tu campaña de
-            publicidad exterior.
-          </p>
         </Reveal>
 
         <div className="mt-8 grid gap-6 md:grid-cols-3">
