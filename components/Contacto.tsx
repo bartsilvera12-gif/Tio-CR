@@ -76,7 +76,7 @@ export default function Contacto() {
       />
 
       <div className="container relative">
-        <div className="grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+        <div className="grid gap-14 lg:grid-cols-[0.95fr_1.05fr]">
           {/* ---- Columna izquierda ---- */}
           <div>
             <span className="eyebrow inline-block opacity-0 animate-[letterIn_0.6s_cubic-bezier(0.22,1,0.36,1)_forwards]">
@@ -146,7 +146,7 @@ export default function Contacto() {
 
           {/* ---- Columna derecha: formulario ---- */}
           <Reveal direction="right" delay={100} as="div">
-            <form onSubmit={submit} className="glass rounded-3xl p-8 md:p-10">
+            <form onSubmit={submit} className="glass flex h-full flex-col rounded-3xl p-8 md:p-10">
               <Reveal direction="below" delay={200}>
                 <div className="text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
                   Escribinos

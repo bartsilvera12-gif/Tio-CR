@@ -71,8 +71,7 @@ export default function Footer() {
           </Reveal>
         </div>
 
-        <Reveal delay={400}>
-          <div className="mt-8 border-t border-white/10 pt-5 pb-16 md:pb-0 text-xs leading-relaxed text-white/60">
+        <div className="mt-8 border-t border-white/10 pt-5 pb-16 md:pb-0 text-xs leading-relaxed text-white/60">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
                 <span>
@@ -113,7 +112,7 @@ export default function Footer() {
               </a>
             </div>
           </div>
-        </Reveal>
+        </div>
       </div>
     </footer>
   )
