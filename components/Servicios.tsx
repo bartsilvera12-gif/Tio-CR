@@ -86,7 +86,7 @@ export default function Servicios() {
       id="servicios"
       className="relative overflow-hidden pt-8 pb-16 text-brand-ink md:pt-10 md:pb-20"
       style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.40), rgba(255,255,255,0.40)), url(/fondo2.jpg)',
+        backgroundImage: 'linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)), url(/fondo2.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
@@ -108,14 +108,14 @@ export default function Servicios() {
 
       <div className="container relative">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2.5 rounded-full border border-brand-cyan/40 bg-brand-cyan/10 px-6 py-2.5 text-base font-bold uppercase tracking-[0.25em] text-brand-cyanDark shadow-[0_4px_18px_-6px_rgba(0,201,247,0.4)]">
+          <span className="inline-flex items-center gap-2.5 rounded-full border-2 border-brand-cyan/70 bg-brand-navyDeep px-6 py-2.5 text-base font-bold uppercase tracking-[0.25em] text-brand-cyan shadow-[0_8px_28px_-6px_rgba(0,201,247,0.55),inset_0_1px_0_rgba(255,255,255,0.12)]">
             <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-brand-cyan" />
             Qué hacemos
           </span>
-          <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-brand-ink md:text-5xl">
+          <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-brand-ink md:text-5xl" style={{ textShadow: "0 2px 24px rgba(255,255,255,0.65)" }}>
             Todo lo que necesitás para estar en la calle.
           </h2>
-          <p className="mt-3 text-lg text-brand-ink/70">
+          <p className="mt-3 text-lg font-medium text-brand-ink/85" style={{ textShadow: "0 1px 12px rgba(255,255,255,0.7)" }}>
             De la producción al montaje: cubrimos cada etapa de tu campaña de
             publicidad exterior.
           </p>
