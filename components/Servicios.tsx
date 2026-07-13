@@ -132,7 +132,7 @@ export default function Servicios() {
                     className="card-face relative flex h-full flex-col overflow-hidden rounded-2xl p-6 text-white"
                     style={{
                       background:
-                        'linear-gradient(150deg, rgba(14,34,71,0.72) 0%, rgba(6,20,40,0.78) 100%)',
+                        'linear-gradient(150deg, rgba(14,34,71,0.94) 0%, rgba(6,20,40,0.97) 100%)',
                       border: '1px solid rgba(255,255,255,0.16)',
                       boxShadow:
                         'inset 0 1px 0 rgba(255,255,255,0.14), 0 22px 50px -18px rgba(6,20,40,0.45)',
@@ -185,7 +185,7 @@ export default function Servicios() {
                     className="card-face card-face-back flex flex-col items-center justify-center gap-6 overflow-hidden rounded-2xl p-8 text-center"
                     style={{
                       background:
-                        'linear-gradient(150deg, rgba(14,34,71,0.72) 0%, rgba(6,20,40,0.78) 100%)',
+                        'linear-gradient(150deg, rgba(14,34,71,0.94) 0%, rgba(6,20,40,0.97) 100%)',
                       border: '1px solid rgba(255,255,255,0.16)',
                       boxShadow:
                         'inset 0 1px 0 rgba(255,255,255,0.1), 0 22px 50px -18px rgba(6,20,40,0.5)',

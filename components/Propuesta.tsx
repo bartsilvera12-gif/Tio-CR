@@ -18,7 +18,7 @@ const condiciones = [
 /** Estilo idéntico a las cards de "Qué hacemos": navy translúcido con blur */
 const glassCardStyle = {
   background:
-    'linear-gradient(150deg, rgba(14,34,71,0.72) 0%, rgba(6,20,40,0.78) 100%)',
+    'linear-gradient(150deg, rgba(14,34,71,0.94) 0%, rgba(6,20,40,0.97) 100%)',
   border: '1px solid rgba(255,255,255,0.16)',
   boxShadow:
     'inset 0 1px 0 rgba(255,255,255,0.14), 0 22px 50px -18px rgba(6,20,40,0.45)',
