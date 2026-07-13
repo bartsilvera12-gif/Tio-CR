@@ -78,9 +78,9 @@ export default function Propuesta() {
 
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
           {/* Card izquierda: qué incluye */}
-          <Reveal direction="below">
+          <Reveal direction="left">
             <div
-              className="spotlight-card group relative flex h-full flex-col overflow-hidden rounded-3xl p-8 text-white md:p-10"
+              className="propuesta-card spotlight-card group relative flex h-full flex-col overflow-hidden rounded-3xl p-8 text-white transition-all duration-500 ease-out hover:-translate-y-2 md:p-10"
               style={glassCardStyle}
             >
               {/* Glow interno cian */}
@@ -103,8 +103,8 @@ export default function Propuesta() {
                     { t: 'Iluminación nocturna', s: 'En formatos aptos, sin costo adicional.' },
                     { t: 'Informe fotográfico', s: 'Comprobante mensual de que tu campaña está en la calle.' },
                   ].map((item) => (
-                    <li key={item.t} className="flex gap-3">
-                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-cyan/15 ring-1 ring-brand-cyan/40">
+                    <li key={item.t} className="propuesta-item flex gap-3">
+                      <span className="propuesta-check mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-cyan/15 ring-1 ring-brand-cyan/40 transition-all duration-300 group-hover:bg-brand-cyan/30 group-hover:ring-brand-cyan/80 group-hover:scale-110 group-hover:shadow-[0_0_18px_rgba(0,201,247,0.6)]">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00C9F7" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M5 12l5 5L20 7" />
                         </svg>
@@ -122,7 +122,7 @@ export default function Propuesta() {
           </Reveal>
 
           {/* Card derecha: condiciones */}
-          <Reveal direction="below" delay={140}>
+          <Reveal direction="right" delay={220}>
             <div
               className="spotlight-card relative h-full overflow-hidden rounded-3xl p-8 text-white md:p-10"
               style={glassCardStyle}
