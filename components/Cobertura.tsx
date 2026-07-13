@@ -47,15 +47,19 @@ export default function Cobertura() {
               </p>
             </Reveal>
             <div className="mt-8 flex flex-wrap gap-2">
-              {rutas.map((r, i) => (
-                <span
-                  key={r}
-                  className="glass rounded-full px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:!border-brand-cyan hover:!bg-brand-cyan/10 hover:text-brand-cyan"
-                  style={{ transitionDelay: `${i * 30}ms` }}
-                >
-                  {r}
-                </span>
-              ))}
+              {rutas.map((r, i) => {
+                const slug = r.toLowerCase().replace(/\s+/g, '-')
+                return (
+                  <a
+                    key={r}
+                    href={`/galeria?ruta=${slug}`}
+                    className="glass rounded-full px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:!border-brand-cyan hover:!bg-brand-cyan/10 hover:text-brand-cyan"
+                    style={{ transitionDelay: `${i * 30}ms` }}
+                  >
+                    {r}
+                  </a>
+                )
+              })}
             </div>
 
             <div className="relative mt-8">

@@ -42,7 +42,7 @@ export default function Galeria() {
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-xl">
-              <span className="eyebrow">Nuestro trabajo</span>
+              <span className="eyebrow">Nuestros carteles</span>
               <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
                 Campañas reales, en la ruta.
               </h2>
@@ -81,6 +81,18 @@ export default function Galeria() {
               </Reveal>
             )
           })}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <a
+            href="/galeria"
+            className="btn-cta uppercase tracking-widest"
+          >
+            <span>Ver galería completa</span>
+            <svg className="cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>
