@@ -81,7 +81,7 @@ export default function Header() {
 
         <div className="hidden md:block">
           <a href="/#contacto" aria-label="Solicitar presupuesto" className="inline-block">
-            <LiquidMetalButton label="Solicitar presupuesto" />
+            <LiquidMetalButton label="Solicitar presupuesto" variant="white" width={230} />
           </a>
         </div>
 
