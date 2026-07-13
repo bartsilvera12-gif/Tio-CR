@@ -3,15 +3,17 @@ import GlowBlob from './GlowBlob'
 import { carteles } from '@/lib/carteles'
 
 /** Selección para el mosaico — mezcla ciudades con distintas rutas y escenarios */
+/* Solo carteles cuya foto principal muestra el letrero TIO CR
+   (sin marcas comerciales de clientes) */
 const featuredKeys = [
-  'caacupe',
-  'yaguaron',
-  'quiindy',
-  'pjc',
-  'corpus',
-  'villaflorida',
   'obligado',
   'yguazu',
+  'bellavista',
+  'campo9',
+  'itakyry',
+  'katuete',
+  'mariaaux',
+  'naranjal',
 ] as const
 
 const featured = featuredKeys
