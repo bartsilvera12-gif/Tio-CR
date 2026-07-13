@@ -126,7 +126,28 @@ export function LiquidMetalButton({
   }
 
   return (
-    <div className="relative inline-block">
+    <div
+      className="relative inline-block"
+      style={{
+        // halo cian que aparece detrás del pill en hover
+        transition: 'filter 0.4s ease',
+      }}
+    >
+      {/* Anillo cian pulsante detrás del botón */}
+      <div
+        aria-hidden
+        style={{
+          position: 'absolute',
+          inset: -6,
+          borderRadius: 100,
+          background: 'radial-gradient(closest-side, rgba(0,201,247,0.35), transparent 70%)',
+          filter: 'blur(14px)',
+          opacity: isHovered ? 1 : 0,
+          transform: isHovered ? 'scale(1.15)' : 'scale(1)',
+          transition: 'opacity 0.4s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
+          pointerEvents: 'none',
+        }}
+      />
       <div style={{ perspective: '1000px', perspectiveOrigin: '50% 50%' }}>
         <div
           style={{
@@ -134,8 +155,13 @@ export function LiquidMetalButton({
             width: `${dimensions.width}px`,
             height: `${dimensions.height}px`,
             transformStyle: 'preserve-3d',
-            transition: 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.4s ease, height 0.4s ease',
-            transform: 'none',
+            transition: 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease, width 0.4s ease, height 0.4s ease',
+            transform: isHovered
+              ? 'translateY(-3px) scale(1.06) rotateX(-6deg)'
+              : 'translateY(0) scale(1) rotateX(0deg)',
+            filter: isHovered
+              ? 'drop-shadow(0 8px 22px rgba(0, 201, 247, 0.55)) drop-shadow(0 3px 10px rgba(0, 201, 247, 0.35))'
+              : 'drop-shadow(0 0 0 rgba(0, 201, 247, 0))',
           }}
         >
           <div
@@ -164,12 +190,14 @@ export function LiquidMetalButton({
               <span
                 style={{
                   fontSize: '13px',
-                  color: '#B8B8B8',
-                  fontWeight: 500,
-                  letterSpacing: '0.05em',
+                  color: isHovered ? '#FFFFFF' : '#B8B8B8',
+                  fontWeight: 600,
+                  letterSpacing: isHovered ? '0.08em' : '0.05em',
                   textTransform: 'uppercase',
-                  textShadow: '0px 1px 2px rgba(0, 0, 0, 0.5)',
-                  transition: 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                  textShadow: isHovered
+                    ? '0px 0px 8px rgba(0, 201, 247, 0.7), 0px 1px 2px rgba(0, 0, 0, 0.6)'
+                    : '0px 1px 2px rgba(0, 0, 0, 0.5)',
+                  transition: 'color 0.3s ease, letter-spacing 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), text-shadow 0.3s ease',
                   transform: 'scale(1)',
                   whiteSpace: 'nowrap',
                 }}
