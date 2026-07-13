@@ -110,36 +110,25 @@ export default function CoberturaMap() {
             <stop offset="0" stopColor="#4A5A70" />
             <stop offset="1" stopColor="#1E2836" />
           </linearGradient>
-          {/* Máscara: silueta exterior de Paraguay (anillo) + pines */}
+          {/* Máscara: SOLO los strokes/bordes de los pines */}
           <mask id="pmMask">
-            {/* Silueta bloated: cada depto con stroke blanco grueso — crea un ring exterior de ~3px */}
-            {departments.map((d: { name: string; d: string }) => (
-              <path
-                key={`bloat-${d.name}`}
-                d={d.d}
-                fill="white"
-                stroke="white"
-                strokeWidth="6"
-                strokeLinejoin="round"
-              />
-            ))}
-            {/* Hollow: rellenamos el interior con negro para dejar SOLO el borde exterior */}
-            {departments.map((d: { name: string; d: string }) => (
-              <path
-                key={`hollow-${d.name}`}
-                d={d.d}
-                fill="black"
-                stroke="none"
-              />
-            ))}
-            {/* Pines: rellenos blancos en la máscara */}
             {pins.map((p) => (
               <g key={`mp-${p.key}`} transform={`translate(${p.x} ${p.y})`}>
                 <path
                   d="M0 0 C -7 -11 -15 -18 -15 -29 A 15 15 0 1 1 15 -29 C 15 -18 7 -11 0 0 Z"
-                  fill="white"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="2.8"
+                  strokeLinejoin="round"
                 />
-                <circle cx="0" cy="-29" r="6" fill="white" />
+                <circle
+                  cx="0"
+                  cy="-29"
+                  r="6"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="2.5"
+                />
               </g>
             ))}
           </mask>
@@ -150,17 +139,7 @@ export default function CoberturaMap() {
           <path key={`fill-${d.name}`} d={d.d} fill="url(#mapFill)" />
         ))}
 
-        {/* Liquid metal: solo se ve en la silueta exterior + los pines */}
-        <g mask="url(#pmMask)">
-          <foreignObject x="0" y="0" width={W} height={H}>
-            <div
-              ref={shaderRef}
-              // @ts-expect-error xmlns necesario para render dentro de foreignObject
-              xmlns="http://www.w3.org/1999/xhtml"
-              style={{ width: '100%', height: '100%' }}
-            />
-          </foreignObject>
-        </g>
+        
 
         <polyline
           points={pins.map((p) => `${p.x},${p.y}`).join(' ')}
@@ -173,7 +152,7 @@ export default function CoberturaMap() {
           style={{ animation: 'mapDash 5s linear infinite' }}
         />
 
-        {/* Click targets transparentes — el visual lo pinta el shader vía la mask */}
+        {/* Pines con fill navy sólido — el shader se aplica solo al outline vía la mask (renderea encima) */}
         {pins.map((p) => (
           <g key={p.key} transform={`translate(${p.x} ${p.y})`}>
             <g
@@ -185,12 +164,23 @@ export default function CoberturaMap() {
             >
               <path
                 d="M0 0 C -7 -11 -15 -18 -15 -29 A 15 15 0 1 1 15 -29 C 15 -18 7 -11 0 0 Z"
-                fill="transparent"
+                fill="#061428"
               />
-              <circle cx="0" cy="-29" r="6" fill="transparent" />
+              <circle cx="0" cy="-29" r="6" fill="#061428" />
             </g>
           </g>
         ))}
+        {/* Liquid metal: solo se ve en los outlines de los pines (arriba de todo) */}
+        <g mask="url(#pmMask)">
+          <foreignObject x="0" y="0" width={W} height={H}>
+            <div
+              ref={shaderRef}
+              // @ts-expect-error xmlns necesario para render dentro de foreignObject
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+            />
+          </foreignObject>
+        </g>
       </svg>
 
       {/* Tooltip flotante al hacer hover sobre un pin */}
@@ -291,7 +281,18 @@ function CartelModal({ cartel, onClose }: { cartel: Cartel; onClose: () => void 
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="M6 6l12 12M18 6L6 18" />
-            </svg>
+              {/* Liquid metal: solo se ve en los outlines de los pines (arriba de todo) */}
+        <g mask="url(#pmMask)">
+          <foreignObject x="0" y="0" width={W} height={H}>
+            <div
+              ref={shaderRef}
+              // @ts-expect-error xmlns necesario para render dentro de foreignObject
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+            />
+          </foreignObject>
+        </g>
+      </svg>
           </button>
 
           <div className="flex items-center gap-3">
@@ -327,7 +328,18 @@ function CartelModal({ cartel, onClose }: { cartel: Cartel; onClose: () => void 
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M15 6l-6 6 6 6" />
-                    </svg>
+                      {/* Liquid metal: solo se ve en los outlines de los pines (arriba de todo) */}
+        <g mask="url(#pmMask)">
+          <foreignObject x="0" y="0" width={W} height={H}>
+            <div
+              ref={shaderRef}
+              // @ts-expect-error xmlns necesario para render dentro de foreignObject
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+            />
+          </foreignObject>
+        </g>
+      </svg>
                   </button>
                   <button
                     onClick={next}
@@ -336,7 +348,18 @@ function CartelModal({ cartel, onClose }: { cartel: Cartel; onClose: () => void 
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M9 6l6 6-6 6" />
-                    </svg>
+                      {/* Liquid metal: solo se ve en los outlines de los pines (arriba de todo) */}
+        <g mask="url(#pmMask)">
+          <foreignObject x="0" y="0" width={W} height={H}>
+            <div
+              ref={shaderRef}
+              // @ts-expect-error xmlns necesario para render dentro de foreignObject
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+            />
+          </foreignObject>
+        </g>
+      </svg>
                   </button>
                   <span className="absolute bottom-3 right-3 rounded-md bg-black/55 px-2.5 py-1 text-xs font-semibold text-white">
                     {idx + 1} / {imgs.length}
@@ -398,7 +421,18 @@ function CartelModal({ cartel, onClose }: { cartel: Cartel; onClose: () => void 
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z" />
               <circle cx="12" cy="10" r="2.5" />
-            </svg>
+              {/* Liquid metal: solo se ve en los outlines de los pines (arriba de todo) */}
+        <g mask="url(#pmMask)">
+          <foreignObject x="0" y="0" width={W} height={H}>
+            <div
+              ref={shaderRef}
+              // @ts-expect-error xmlns necesario para render dentro de foreignObject
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+            />
+          </foreignObject>
+        </g>
+      </svg>
             Ver en Maps
           </a>
         </div>
