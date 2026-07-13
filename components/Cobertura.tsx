@@ -35,9 +35,6 @@ export default function Cobertura() {
                 </span>
               ))}
             </div>
-            <p className="mt-6 text-sm text-white/50">
-              Pasá el mouse por los puntos del mapa para ver cada ciudad.
-            </p>
           </Reveal>
 
           <Reveal delay={120}>
