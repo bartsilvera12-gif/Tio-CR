@@ -228,6 +228,133 @@ export default function Servicios() {
             </Reveal>
           ))}
         </div>
+
+        {/* ============================================================
+            Refugio de buses — servicio destacado con imagen 3D
+            ============================================================ */}
+        <div className="mt-20 md:mt-28">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+            {/* Imagen — refugio con logo TIO CR sobre los paneles */}
+            <Reveal direction="left-clean">
+              <div className="relative">
+                {/* Halo cian atrás */}
+                <div className="pointer-events-none absolute inset-0 -z-10 scale-[1.05] rounded-[40%] bg-[radial-gradient(ellipse_at_center,rgba(0,201,247,0.35),transparent_65%)] blur-3xl" />
+                <div className="relative">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/colectivo.png"
+                    alt="Refugio de buses con publicidad TIO CR"
+                    className="relative z-10 h-auto w-full drop-shadow-[0_30px_40px_rgba(0,0,0,0.5)]"
+                  />
+                  {/* Logo TIO CR sobre el panel lateral izquierdo del refugio */}
+                  <div
+                    className="pointer-events-none absolute z-20 flex items-center justify-center rounded-md bg-white/95 shadow-[0_6px_18px_rgba(0,0,0,0.35)]"
+                    style={{
+                      // posición ajustada al panel vertical izquierdo del refugio
+                      left: '13.5%',
+                      top: '30%',
+                      width: '11%',
+                      aspectRatio: '3 / 5',
+                      transform: 'perspective(500px) rotateY(9deg)',
+                      transformOrigin: 'center',
+                    }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/logo.png"
+                      alt="TIO CR"
+                      className="h-auto w-[85%]"
+                    />
+                  </div>
+                  {/* Logo TIO CR sobre el panel principal grande del refugio */}
+                  <div
+                    className="pointer-events-none absolute z-20 flex items-center justify-center rounded-md bg-white/95 shadow-[0_6px_18px_rgba(0,0,0,0.35)]"
+                    style={{
+                      left: '30%',
+                      top: '25%',
+                      width: '19%',
+                      aspectRatio: '4 / 5',
+                      transform: 'perspective(600px) rotateY(-3deg)',
+                    }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/logo.png"
+                      alt="TIO CR"
+                      className="h-auto w-[80%]"
+                    />
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Texto */}
+            <Reveal direction="right-clean" delay={140}>
+              <span className="inline-flex items-center gap-2.5 rounded-full border-2 border-brand-cyan/70 bg-brand-navyDeep px-5 py-2 text-sm font-bold uppercase tracking-[0.22em] text-brand-cyan shadow-[0_8px_28px_-6px_rgba(0,201,247,0.55),inset_0_1px_0_rgba(255,255,255,0.12)]">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-brand-cyan" />
+                Nuevo servicio
+              </span>
+
+              <h3 className="mt-5 font-display text-4xl font-bold leading-[1.1] tracking-tight text-brand-cyan md:text-5xl">
+                Refugios de buses
+              </h3>
+              <p className="mt-2 font-display text-2xl font-semibold text-brand-ink md:text-3xl">
+                impactando en cada parada.
+              </p>
+
+              <p className="mt-6 max-w-xl text-lg text-brand-ink/80">
+                Estructuras premium en puntos de alta afluencia peatonal — tu
+                marca visible las 24 horas donde la gente espera, mira y
+                escanea.
+              </p>
+
+              <ul className="mt-8 space-y-3">
+                {[
+                  'Paneles retro-iluminados de alta visibilidad día y noche',
+                  'Ubicaciones estratégicas en avenidas y accesos urbanos',
+                  'Impacto directo sobre peatones, ciclistas y automovilistas',
+                  'Formato exclusivo, sin competencia visual en el mismo espacio',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <svg
+                      className="mt-1.5 shrink-0 text-brand-cyan"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12l5 5L20 7" />
+                    </svg>
+                    <span className="text-brand-ink/85">{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8">
+                <a href="#contacto" className="btn-cta uppercase tracking-widest">
+                  <span>Consultar refugios</span>
+                  <svg
+                    className="cta-arrow"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </div>
       </div>
     </section>
   )
