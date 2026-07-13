@@ -239,6 +239,30 @@ body {
   filter: blur(0);
 }
 
+/* Variantes SIN blur para elementos con imágenes (evita el halo blanco en los bordes) */
+.reveal.from-left-clean {
+  opacity: 0;
+  transform: translate3d(-70px, 0, 0);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.95s cubic-bezier(0.34, 1.4, 0.5, 1);
+  will-change: opacity, transform;
+}
+.reveal.from-left-clean.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+.reveal.from-right-clean {
+  opacity: 0;
+  transform: translate3d(70px, 0, 0);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.95s cubic-bezier(0.34, 1.4, 0.5, 1);
+  will-change: opacity, transform;
+}
+.reveal.from-right-clean.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
 /* Reveal letra por letra (para títulos) */
 .letter-hidden {
   opacity: 0;
@@ -252,6 +276,30 @@ body {
 }
 .letter-in {
   animation: letterIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Palabras "conectan al Paraguay" en cian con shimmer */
+.conectan-word {
+  background: linear-gradient(90deg, #00C9F7, #7DE1FF, #00C9F7);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: letterIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both,
+             cyanShimmer 5s ease-in-out 1.2s infinite;
+}
+
+/* Marquee vertical de condiciones — loop infinito, pausa en hover */
+@keyframes marqueeUp {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(0, -50%, 0); }
+}
+.condiciones-track {
+  animation: marqueeUp 18s linear infinite;
+  will-change: transform;
+}
+.condiciones-marquee:hover .condiciones-track {
+  animation-play-state: paused;
 }
 
 /* Barra de acento cian que crece bajo el título */

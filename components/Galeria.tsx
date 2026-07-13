@@ -70,7 +70,7 @@ export default function Galeria() {
               <Reveal
                 key={c.key}
                 delay={i * 110}
-                direction={i % 2 === 0 ? 'left' : 'right'}
+                direction={i % 2 === 0 ? 'left-clean' : 'right-clean'}
                 className={layout[i] ?? ''}
               >
                 <GalleryCard

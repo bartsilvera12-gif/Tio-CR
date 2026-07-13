@@ -7,7 +7,14 @@ type Props = {
   delay?: number
   className?: string
   as?: 'div' | 'section' | 'article' | 'span'
-  direction?: 'up' | 'right' | 'below' | 'left' | 'fade'
+  direction?:
+    | 'up'
+    | 'right'
+    | 'below'
+    | 'left'
+    | 'fade'
+    | 'left-clean'
+    | 'right-clean'
 }
 
 export default function Reveal({
@@ -49,6 +56,10 @@ export default function Reveal({
           ? 'from-left'
           : direction === 'fade'
           ? 'fade-only'
+          : direction === 'left-clean'
+          ? 'from-left-clean'
+          : direction === 'right-clean'
+          ? 'from-right-clean'
           : ''
       } ${visible ? 'is-visible' : ''} ${className}`}
     >

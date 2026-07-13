@@ -2,6 +2,7 @@ import { rutas } from '@/lib/data'
 import Reveal from './Reveal'
 import GlowBlob from './GlowBlob'
 import CoberturaMap from './CoberturaMap'
+import SplitTextReveal from './SplitTextReveal'
 
 export default function Cobertura() {
   return (
@@ -14,16 +15,37 @@ export default function Cobertura() {
       />
       <div className="container relative">
         <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
-          <Reveal>
-            <span className="eyebrow">Cobertura</span>
-            <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
-              Presentes en las rutas que conectan al Paraguay.
+          <div>
+            <span className="eyebrow inline-flex items-center gap-2.5">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-brand-cyan" />
+              Cobertura
+            </span>
+
+            <h2 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white md:text-5xl lg:text-[3.5rem]">
+              <SplitTextReveal
+                text="Presentes en las rutas que"
+                by="word"
+                step={80}
+              />{' '}
+              <SplitTextReveal
+                text="conectan al Paraguay."
+                by="word"
+                step={80}
+                delay={500}
+                unitClassName="conectan-word"
+              />
             </h2>
-            <p className="mt-5 text-lg text-white/70">
-              Operamos en las principales arterias del país — desde el sur hasta
-              la frontera norte — con ubicaciones estratégicas en accesos y
-              centros urbanos.
-            </p>
+
+            {/* Barra de acento cian que crece */}
+            <div className="mt-5 h-[3px] w-24 origin-left rounded-full bg-gradient-to-r from-brand-cyan to-transparent accent-bar" />
+
+            <Reveal direction="left-clean" delay={200}>
+              <p className="mt-6 text-lg text-white/70">
+                Operamos en las principales arterias del país — desde el sur
+                hasta la frontera norte — con ubicaciones estratégicas en
+                accesos y centros urbanos.
+              </p>
+            </Reveal>
             <div className="mt-8 flex flex-wrap gap-2">
               {rutas.map((r, i) => (
                 <span
@@ -66,7 +88,7 @@ export default function Cobertura() {
                 ))}
               </div>
             </div>
-          </Reveal>
+          </div>
 
           <Reveal delay={80} direction="fade">
             <div className="flex justify-center lg:justify-end">

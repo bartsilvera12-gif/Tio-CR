@@ -1,144 +1,67 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-
 export type Condicion = {
   title: string
   body: string | null
 }
 
-const INTERVAL = 3800
-
+/** Marquee vertical: las condiciones se desplazan de abajo hacia arriba en loop infinito.
+    Se pausa al hover. Fade masks arriba/abajo. */
 export default function CondicionesCarousel({ items }: { items: Condicion[] }) {
-  const [active, setActive] = useState(0)
-  const [visible, setVisible] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const io = new IntersectionObserver(
-      ([e]) => {
-        setVisible(e.isIntersecting)
-      },
-      { threshold: 0.35 }
-    )
-    io.observe(el)
-    return () => io.disconnect()
-  }, [])
-
-  useEffect(() => {
-    if (!visible) return
-    const t = setInterval(() => {
-      setActive((i) => (i + 1) % items.length)
-    }, INTERVAL)
-    return () => clearInterval(t)
-  }, [visible, items.length])
+  // Duplicamos para loop sin cortes
+  const track = [...items, ...items]
 
   return (
-    <div ref={ref}>
-      {/* Barra de progreso segmentada arriba */}
-      <div className="flex gap-1.5" role="tablist" aria-label="Condiciones">
-        {items.map((_, i) => (
-          <button
+    <div
+      className="condiciones-marquee relative overflow-hidden"
+      style={{
+        height: 340,
+        maskImage:
+          'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
+        WebkitMaskImage:
+          'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
+      }}
+    >
+      <ul className="condiciones-track flex flex-col gap-4">
+        {track.map((c, i) => (
+          <li
             key={i}
-            role="tab"
-            aria-selected={i === active}
-            aria-label={`Condición ${i + 1}`}
-            onClick={() => setActive(i)}
-            className="group relative h-[3px] flex-1 overflow-hidden rounded-full bg-white/10"
+            className="flex items-start gap-4 rounded-2xl px-5 py-4 transition-all duration-300 hover:!bg-brand-cyan/10"
+            style={{
+              background: 'rgba(255,255,255,0.03)',
+              border: '1px solid rgba(255,255,255,0.06)',
+            }}
           >
             <span
-              className={`absolute inset-y-0 left-0 bg-brand-cyan transition-[width,opacity]`}
+              className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
               style={{
-                width: i < active ? '100%' : i === active ? '100%' : '0%',
-                opacity: i <= active ? 1 : 0,
-                transitionDuration: i === active && visible ? `${INTERVAL}ms` : '0.4s',
-                transitionTimingFunction: i === active ? 'linear' : 'ease',
-                // reset instantáneo cuando vuelve a 0
-                transitionProperty: i === active ? 'width' : 'width, opacity',
+                background:
+                  'linear-gradient(160deg, rgba(0,229,255,0.28), rgba(0,201,247,0.1))',
+                border: '1px solid rgba(0,229,255,0.5)',
+                boxShadow: '0 0 18px rgba(0,201,247,0.3)',
               }}
-            />
-          </button>
-        ))}
-      </div>
-
-      {/* Lista con "spotlight" que camina */}
-      <ul className="mt-8 space-y-3">
-        {items.map((c, i) => {
-          const isActive = i === active
-          return (
-            <li
-              key={i}
-              className="relative overflow-hidden rounded-2xl transition-all duration-500"
-              style={{
-                background: isActive
-                  ? 'linear-gradient(90deg, rgba(0,201,247,0.14) 0%, rgba(0,201,247,0.04) 100%)'
-                  : 'rgba(255,255,255,0.03)',
-                border: isActive
-                  ? '1px solid rgba(0,201,247,0.45)'
-                  : '1px solid rgba(255,255,255,0.06)',
-                boxShadow: isActive
-                  ? '0 12px 32px -12px rgba(0,201,247,0.35), inset 0 1px 0 rgba(255,255,255,0.06)'
-                  : 'none',
-              }}
-              onMouseEnter={() => setActive(i)}
             >
-              {/* Indicador lateral cian */}
-              <span
-                className="absolute inset-y-3 left-0 w-[3px] rounded-r-full bg-brand-cyan transition-transform duration-500"
-                style={{
-                  transform: isActive ? 'scaleY(1)' : 'scaleY(0)',
-                  transformOrigin: 'center',
-                }}
-              />
-
-              <div className="flex items-start gap-4 px-5 py-4">
-                <span
-                  className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-all duration-500"
-                  style={{
-                    background: isActive
-                      ? 'linear-gradient(160deg, rgba(0,229,255,0.35), rgba(0,201,247,0.15))'
-                      : 'rgba(0,201,247,0.1)',
-                    border: isActive
-                      ? '1px solid rgba(0,229,255,0.7)'
-                      : '1px solid rgba(0,201,247,0.25)',
-                    transform: isActive ? 'scale(1.08)' : 'scale(1)',
-                  }}
-                >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#00E5FF"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12l5 5L20 7" />
-                  </svg>
-                </span>
-
-                <p
-                  className="text-[15px] leading-relaxed transition-colors duration-500"
-                  style={{ color: isActive ? '#FFFFFF' : 'rgba(255,255,255,0.55)' }}
-                >
-                  <strong className="font-bold">{c.title}</strong>
-                  {c.body ? (
-                    <span
-                      className="transition-colors duration-500"
-                      style={{ color: isActive ? 'rgba(255,255,255,0.8)' : 'rgba(255,255,255,0.4)' }}
-                    >
-                      {' '}
-                      {c.body}
-                    </span>
-                  ) : null}
-                </p>
-              </div>
-            </li>
-          )
-        })}
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#00E5FF"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12l5 5L20 7" />
+              </svg>
+            </span>
+            <p className="text-[15px] leading-relaxed text-white/85">
+              <strong className="font-bold text-white">{c.title}</strong>
+              {c.body ? (
+                <span className="text-white/70"> {c.body}</span>
+              ) : null}
+            </p>
+          </li>
+        ))}
       </ul>
     </div>
   )
