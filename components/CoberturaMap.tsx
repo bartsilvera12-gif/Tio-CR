@@ -281,18 +281,7 @@ function CartelModal({ cartel, onClose }: { cartel: Cartel; onClose: () => void 
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="M6 6l12 12M18 6L6 18" />
-              {/* Liquid metal: solo se ve en los outlines de los pines (arriba de todo) */}
-        <g mask="url(#pmMask)">
-          <foreignObject x="0" y="0" width={W} height={H}>
-            <div
-              ref={shaderRef}
-              // @ts-expect-error xmlns necesario para render dentro de foreignObject
-              xmlns="http://www.w3.org/1999/xhtml"
-              style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
-            />
-          </foreignObject>
-        </g>
-      </svg>
+            </svg>
           </button>
 
           <div className="flex items-center gap-3">
@@ -328,18 +317,7 @@ function CartelModal({ cartel, onClose }: { cartel: Cartel; onClose: () => void 
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M15 6l-6 6 6 6" />
-                      {/* Liquid metal: solo se ve en los outlines de los pines (arriba de todo) */}
-        <g mask="url(#pmMask)">
-          <foreignObject x="0" y="0" width={W} height={H}>
-            <div
-              ref={shaderRef}
-              // @ts-expect-error xmlns necesario para render dentro de foreignObject
-              xmlns="http://www.w3.org/1999/xhtml"
-              style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
-            />
-          </foreignObject>
-        </g>
-      </svg>
+                    </svg>
                   </button>
                   <button
                     onClick={next}
@@ -348,18 +326,7 @@ function CartelModal({ cartel, onClose }: { cartel: Cartel; onClose: () => void 
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M9 6l6 6-6 6" />
-                      {/* Liquid metal: solo se ve en los outlines de los pines (arriba de todo) */}
-        <g mask="url(#pmMask)">
-          <foreignObject x="0" y="0" width={W} height={H}>
-            <div
-              ref={shaderRef}
-              // @ts-expect-error xmlns necesario para render dentro de foreignObject
-              xmlns="http://www.w3.org/1999/xhtml"
-              style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
-            />
-          </foreignObject>
-        </g>
-      </svg>
+                    </svg>
                   </button>
                   <span className="absolute bottom-3 right-3 rounded-md bg-black/55 px-2.5 py-1 text-xs font-semibold text-white">
                     {idx + 1} / {imgs.length}
@@ -421,18 +388,7 @@ function CartelModal({ cartel, onClose }: { cartel: Cartel; onClose: () => void 
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z" />
               <circle cx="12" cy="10" r="2.5" />
-              {/* Liquid metal: solo se ve en los outlines de los pines (arriba de todo) */}
-        <g mask="url(#pmMask)">
-          <foreignObject x="0" y="0" width={W} height={H}>
-            <div
-              ref={shaderRef}
-              // @ts-expect-error xmlns necesario para render dentro de foreignObject
-              xmlns="http://www.w3.org/1999/xhtml"
-              style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
-            />
-          </foreignObject>
-        </g>
-      </svg>
+            </svg>
             Ver en Maps
           </a>
         </div>
