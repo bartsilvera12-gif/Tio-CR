@@ -74,7 +74,7 @@ export default function Propuesta() {
           {/* Card izquierda: qué incluye */}
           <Reveal direction="below">
             <div
-              className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl p-8 text-white md:p-10"
+              className="group relative flex h-full flex-col overflow-hidden rounded-3xl p-8 text-white md:p-10"
               style={glassCardStyle}
             >
               {/* Glow interno cian */}
@@ -112,25 +112,6 @@ export default function Propuesta() {
                 </ul>
               </div>
 
-              <a
-                href="#contacto"
-                className="btn-cta relative mt-10 self-start uppercase tracking-widest"
-              >
-                <span>Solicitar propuesta</span>
-                <svg
-                  className="cta-arrow"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </a>
             </div>
           </Reveal>
 
