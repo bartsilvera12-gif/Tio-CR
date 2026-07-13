@@ -65,13 +65,13 @@ export default function Propuesta() {
             Una inversión clara y transparente
           </h2>
           <p className="mt-5 text-lg text-brand-ink/70">
-            Tarifa fija por cara de cartel, con todo lo necesario para salir a
-            la ruta incluido.
+            Un servicio integral con todo lo necesario para poner tu marca en
+            la ruta — sin costos ocultos ni sorpresas.
           </p>
         </Reveal>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
-          {/* Card izquierda: precio */}
+          {/* Card izquierda: qué incluye */}
           <Reveal direction="below">
             <div
               className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl p-8 text-white md:p-10"
@@ -82,28 +82,34 @@ export default function Propuesta() {
 
               <div className="relative">
                 <div className="text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
-                  Costo mensual
+                  Qué incluye
                 </div>
 
-                <div className="mt-6 flex items-end gap-2">
-                  <span className="font-display text-3xl font-bold text-brand-cyan md:text-4xl">
-                    ₲
-                  </span>
-                  <span
-                    className="stat-number font-display text-5xl font-bold tracking-tight text-brand-cyan md:text-6xl lg:text-7xl"
-                    style={{ lineHeight: 1 }}
-                  >
-                    4.000.000
-                  </span>
-                  <span className="pb-2 text-lg font-semibold text-white/70">
-                    + IVA
-                  </span>
-                </div>
+                <h3 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">
+                  Todo listo para salir a la ruta.
+                </h3>
 
-                <p className="mt-4 text-base text-white/70">
-                  por cada{' '}
-                  <strong className="text-white">faz / cara</strong> del cartel
-                </p>
+                <ul className="mt-8 space-y-4">
+                  {[
+                    { t: 'Impresión de la lona', s: 'La primera impresión va incluida en el contrato.' },
+                    { t: 'Instalación profesional', s: 'Equipo propio y protocolo de seguridad en altura.' },
+                    { t: 'Mantenimiento del cartel', s: 'Revisión periódica de la estructura y la lona.' },
+                    { t: 'Iluminación nocturna', s: 'En formatos aptos, sin costo adicional.' },
+                    { t: 'Informe fotográfico', s: 'Comprobante mensual de que tu campaña está en la calle.' },
+                  ].map((item) => (
+                    <li key={item.t} className="flex gap-3">
+                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-cyan/15 ring-1 ring-brand-cyan/40">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00C9F7" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M5 12l5 5L20 7" />
+                        </svg>
+                      </span>
+                      <div>
+                        <div className="text-base font-semibold text-white">{item.t}</div>
+                        <div className="text-sm text-white/60">{item.s}</div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               <a
