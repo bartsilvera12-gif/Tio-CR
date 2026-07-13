@@ -19,8 +19,8 @@ export default function Home() {
         <Intro />
         <Servicios />
         <Cobertura />
-        <Propuesta />
         <Galeria />
+        <Propuesta />
         <Contacto />
       </main>
       <MarqueeTicker />
