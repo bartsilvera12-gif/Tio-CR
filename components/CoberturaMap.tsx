@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { liquidMetalFragmentShader, ShaderMount } from '@paper-design/shaders'
 import { createPortal } from 'react-dom'
 import { W, H, departments, markers } from '@/lib/map-data'
 import { carteles, type Cartel } from '@/lib/carteles'
@@ -28,6 +29,41 @@ export default function CoberturaMap() {
   const [hovered, setHovered] = useState<Marker | null>(null)
   const [mounted, setMounted] = useState(false)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const shaderRef = useRef<HTMLDivElement>(null)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const shaderMount = useRef<any>(null)
+
+  // Montar el liquid-metal shader sobre el mapa (clipeado a la silueta de Paraguay)
+  useEffect(() => {
+    if (!shaderRef.current) return
+    try {
+      shaderMount.current = new ShaderMount(
+        shaderRef.current,
+        liquidMetalFragmentShader,
+        {
+          u_repetition: 3,
+          u_softness: 0.55,
+          u_shiftRed: 0.25,
+          u_shiftBlue: 0.25,
+          u_distortion: 0.15,
+          u_contour: 0,
+          u_angle: 60,
+          u_scale: 5,
+          u_shape: 1,
+          u_offsetX: 0,
+          u_offsetY: 0,
+        },
+        undefined,
+        0.35, // speed lenta — sensación de agua/mercurio flotando
+      )
+    } catch (err) {
+      console.error('[CoberturaMap] shader failed:', err)
+    }
+    return () => {
+      if (shaderMount.current?.destroy) shaderMount.current.destroy()
+      shaderMount.current = null
+    }
+  }, [])
 
   const showTooltip = (p: Marker) => {
     if (closeTimer.current) clearTimeout(closeTimer.current)
@@ -74,6 +110,11 @@ export default function CoberturaMap() {
             <stop offset="0" stopColor="#4A5A70" />
             <stop offset="1" stopColor="#1E2836" />
           </linearGradient>
+          <clipPath id="paraguayClip">
+            {departments.map((d: { name: string; d: string }) => (
+              <path key={d.name} d={d.d} />
+            ))}
+          </clipPath>
           <filter id="pinGlow" x="-60%" y="-60%" width="220%" height="220%">
             <feGaussianBlur stdDeviation="3.5" result="blur" />
             <feMerge>
@@ -83,13 +124,35 @@ export default function CoberturaMap() {
           </filter>
         </defs>
 
+        {/* Base fill fallback — se ve en SSR / si el shader falla */}
+        {departments.map((d: { name: string; d: string }) => (
+          <path key={`bg-${d.name}`} d={d.d} fill="url(#mapFill)" />
+        ))}
+
+        {/* Liquid metal shader clipeado a la silueta de Paraguay */}
+        <g clipPath="url(#paraguayClip)">
+          <foreignObject x="0" y="0" width={W} height={H}>
+            <div
+              ref={shaderRef}
+              // @ts-expect-error xmlns necesario para render dentro de foreignObject
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{
+                width: '100%',
+                height: '100%',
+                mixBlendMode: 'screen',
+              }}
+            />
+          </foreignObject>
+        </g>
+
+        {/* Contornos de departamentos (arriba del shader) */}
         {departments.map((d: { name: string; d: string }) => (
           <path
-            key={d.name}
+            key={`border-${d.name}`}
             d={d.d}
-            fill="url(#mapFill)"
+            fill="none"
             stroke="#94A3B8"
-            strokeOpacity="0.35"
+            strokeOpacity="0.5"
             strokeWidth="1.4"
             strokeLinejoin="round"
           />
