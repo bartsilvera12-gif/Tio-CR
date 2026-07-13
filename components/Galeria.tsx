@@ -1,5 +1,4 @@
 import Reveal from './Reveal'
-import { LiquidMetalButton } from './ui/liquid-metal-button'
 import GlowBlob from './GlowBlob'
 import { carteles } from '@/lib/carteles'
 
@@ -89,10 +88,12 @@ export default function Galeria() {
         <div className="mt-10 flex justify-center">
           <a
             href="/galeria"
-            aria-label="Ver galería completa"
-            className="inline-block"
+            className="btn-cta uppercase tracking-widest"
           >
-            <LiquidMetalButton label="Ver galería completa" variant="cyan" width={240} />
+            <span>Ver galería completa</span>
+            <svg className="cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
           </a>
         </div>
       </div>

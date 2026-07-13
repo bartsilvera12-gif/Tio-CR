@@ -1,6 +1,5 @@
 'use client'
 
-import { LiquidMetalButton } from './ui/liquid-metal-button'
 
 import { useState } from 'react'
 import { contacto } from '@/lib/data'
@@ -200,7 +199,15 @@ export default function Contacto() {
               </Reveal>
 
               <Reveal direction="below" delay={640}>
-                <LiquidMetalButton label="Enviar por WhatsApp" variant="cyan" width={260} type="submit" />
+                <button
+                type="submit"
+                className="btn-cta w-full justify-center uppercase tracking-widest"
+              >
+                <span>Enviar por WhatsApp</span>
+                <svg className="cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </button>
                 <p className="mt-3 text-center text-xs text-white/50">
                   Al enviar, abrimos WhatsApp con tu mensaje pre-armado.
                 </p>
