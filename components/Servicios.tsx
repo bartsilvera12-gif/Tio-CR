@@ -19,11 +19,22 @@ const iconos: Record<string, React.ReactNode> = {
       <path d="M12 16.5v3M9 19.5h6" />
     </>
   ),
-  // Campañas: megáfono
+  // Campañas: megáfono (legacy — no se usa)
   campana: (
     <>
       <path d="M3 10.8L21 5v13.5L3 13.6v-2.8z" />
       <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+    </>
+  ),
+  // Bus: ploteado urbano — carrocería + ventanas + ruedas
+  bus: (
+    <>
+      <rect x="3.5" y="5" width="17" height="11.5" rx="2" />
+      <path d="M3.5 10h17" />
+      <path d="M7.5 6.5v3M11 6.5v3M14.5 6.5v3M18 6.5v3" />
+      <circle cx="8" cy="18.5" r="1.5" />
+      <circle cx="16" cy="18.5" r="1.5" />
+      <path d="M3.5 16.5v2M20.5 16.5v2" />
     </>
   ),
 }

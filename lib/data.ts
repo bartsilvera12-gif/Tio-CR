@@ -14,11 +14,11 @@ export const servicios = [
     detalles: ['Alta luminosidad día y noche', 'Contenido dinámico', 'Ubicaciones céntricas'],
   },
   {
-    titulo: 'Campañas en el interior',
+    titulo: 'Ploteado de buses',
     descripcion:
-      'Planificación integral de campañas en las ciudades más transitadas del país.',
-    icono: 'campana',
-    detalles: ['Cobertura en 8 departamentos', 'Estrategia de ubicaciones', 'Gestión completa'],
+      'Vestimos tu marca sobre buses del interior — publicidad rodante que recorre las principales ciudades.',
+    icono: 'bus',
+    detalles: ['Ploteado full o parcial', 'Alta rotación diaria', 'Cobertura urbana móvil'],
   },
 ] as const
 

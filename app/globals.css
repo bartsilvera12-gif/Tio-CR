@@ -370,10 +370,28 @@ body {
 }
 
 
-/* ——— CTA glow pulse ——— */
+/* ——— CTA glow pulse (más llamativo) ——— */
 @keyframes ctaPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 201, 247, 0.55), 0 8px 24px rgba(0, 201, 247, 0.25); }
-  50% { box-shadow: 0 0 0 12px rgba(0, 201, 247, 0), 0 12px 32px rgba(0, 201, 247, 0.35); }
+  0%, 100% {
+    box-shadow:
+      0 0 0 0 rgba(0, 201, 247, 0.7),
+      0 12px 36px -6px rgba(0, 201, 247, 0.55),
+      0 4px 12px rgba(0, 201, 247, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  }
+  50% {
+    box-shadow:
+      0 0 0 18px rgba(0, 201, 247, 0),
+      0 18px 50px -4px rgba(0, 201, 247, 0.85),
+      0 6px 18px rgba(0, 201, 247, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* Sutil "flotación" del CTA para que llame la atención */
+@keyframes ctaFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
 }
 
 /* ——— CTA shimmer sweep ——— */
@@ -478,24 +496,29 @@ body {
     @apply inline-flex items-center gap-2 rounded-full bg-brand-cyan px-6 py-3 text-sm font-semibold text-brand-ink transition-all duration-300 hover:bg-brand-cyanDark active:scale-95;
   }
   .btn-cta {
-    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-brand-cyan px-7 py-3.5 text-sm font-bold text-brand-ink transition-all duration-300 hover:-translate-y-0.5 active:scale-95;
-    animation: ctaPulse 2.6s ease-in-out infinite;
+    @apply relative inline-flex items-center gap-2.5 overflow-hidden rounded-full px-8 py-4 text-sm font-bold uppercase tracking-widest text-brand-ink transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] active:scale-95;
+    background: linear-gradient(135deg, #7DE1FF 0%, #00C9F7 50%, #00A6D6 100%);
+    animation: ctaPulse 2.2s ease-in-out infinite, ctaFloat 3.4s ease-in-out infinite;
   }
   .btn-cta::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%);
-    width: 60%;
-    animation: ctaShimmer 3s ease-in-out infinite;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.75) 50%, transparent 100%);
+    width: 55%;
+    animation: ctaShimmer 2.4s ease-in-out infinite;
     pointer-events: none;
+    z-index: 0;
   }
   .btn-cta > * { position: relative; z-index: 1; }
   .btn-cta .cta-arrow {
     transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .btn-cta:hover .cta-arrow {
-    transform: translateX(4px);
+    transform: translateX(6px);
+  }
+  .btn-cta:hover {
+    background: linear-gradient(135deg, #A5EAFF 0%, #00E0FF 50%, #00C9F7 100%);
   }
   .btn-ghost {
     @apply inline-flex items-center gap-2 rounded-full border border-brand-ink/15 px-6 py-3 text-sm font-semibold text-brand-ink transition hover:border-brand-ink/40;
