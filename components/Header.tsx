@@ -79,9 +79,9 @@ export default function Header() {
           })}
         </nav>
 
-        <div className="hidden md:block">
-          <a href="/#contacto" aria-label="Solicitar presupuesto" className="inline-block">
-            <LiquidMetalButton label="Solicitar presupuesto" variant="white" width={230} />
+        <div className="hidden md:flex md:items-center">
+          <a href="/#contacto" aria-label="Solicitar presupuesto" className="inline-flex items-center">
+            <LiquidMetalButton label="Solicitar presupuesto" variant="white" width={280} height={54} />
           </a>
         </div>
 

@@ -12,6 +12,8 @@ interface LiquidMetalButtonProps {
   variant?: 'dark' | 'cyan' | 'white'
   /** Ancho custom en px — sobrescribe el default 210 (modo text) */
   width?: number
+  /** Alto custom en px — sobrescribe el default 46 */
+  height?: number
   type?: 'button' | 'submit'
 }
 
@@ -21,6 +23,7 @@ export function LiquidMetalButton({
   viewMode = 'text',
   variant = 'dark',
   width,
+  height: heightProp,
   type = 'button',
 }: LiquidMetalButtonProps) {
   const isCyan = variant === 'cyan'
@@ -40,10 +43,11 @@ export function LiquidMetalButton({
     if (viewMode === 'icon') {
       return { width: 46, height: 46, innerWidth: 42, innerHeight: 42, shaderWidth: 46, shaderHeight: 46 }
     }
-    // Ancho ajustado para "Solicitar presupuesto" (20 chars); custom via prop width
+    // Ancho + alto ajustables via props
     const w = width ?? 210
-    return { width: w, height: 46, innerWidth: w - 4, innerHeight: 42, shaderWidth: w, shaderHeight: 46 }
-  }, [viewMode, width])
+    const h = heightProp ?? 46
+    return { width: w, height: h, innerWidth: w - 4, innerHeight: h - 4, shaderWidth: w, shaderHeight: h }
+  }, [viewMode, width, heightProp])
 
   useEffect(() => {
     const styleId = 'shader-canvas-style-exploded'
@@ -286,6 +290,9 @@ export function LiquidMetalButton({
                   maxWidth: `${dimensions.shaderWidth}px`,
                   height: `${dimensions.shaderHeight}px`,
                   transition: 'width 0.4s ease, height 0.4s ease',
+                  // Cyan variant: bleach el shader para que el borde metálico se vea blanco (no plateado)
+                  filter: isCyan ? 'brightness(2.4) saturate(0.15) contrast(0.85)' : undefined,
+                  backgroundColor: isCyan ? '#ffffff' : undefined,
                 }}
               />
             </div>
