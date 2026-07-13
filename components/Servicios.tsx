@@ -230,78 +230,82 @@ export default function Servicios() {
         </div>
 
         {/* ============================================================
-            Refugio de buses — card unificada, imagen izq + texto der
+            Refugio de buses — imagen izq (sin card) + texto der (dentro de card)
             ============================================================ */}
         <div className="mt-20 md:mt-28">
-          <Reveal direction="below">
-            <div
-              className="relative overflow-hidden rounded-3xl"
-              style={{
-                background: 'linear-gradient(135deg, rgba(14,34,71,0.97) 0%, rgba(6,20,40,0.99) 100%)',
-                border: '1px solid rgba(255,255,255,0.16)',
-                boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.14), 0 30px 70px -18px rgba(6,20,40,0.65), 0 0 60px -20px rgba(0,201,247,0.35)',
-              }}
-            >
-              {/* Glow interno cian sutil */}
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(0,201,247,0.18),transparent_60%)]" />
+          <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr] lg:gap-12">
+            {/* IZQUIERDA — imagen flotando en el fondo de la sección */}
+            <Reveal direction="left-clean">
+              <div className="relative mx-auto max-w-[560px]">
+                {/* Halo cian animado detrás */}
+                <div
+                  className="pointer-events-none absolute inset-[5%] rounded-full"
+                  style={{
+                    background: 'radial-gradient(circle at 55% 60%, rgba(0,201,247,0.5), transparent 65%)',
+                    filter: 'blur(70px)',
+                  }}
+                />
 
-              <div className="relative grid items-center gap-6 md:gap-10 lg:grid-cols-[1fr_1fr]">
-                {/* IZQUIERDA — imagen del refugio con logo TIO CR en el panel central */}
-                <div className="relative overflow-hidden p-6 md:p-10">
-                  {/* Halo cian animado detrás del refugio */}
+                {/* Reflejo cian debajo del refugio (piso brillante) */}
+                <div
+                  className="pointer-events-none absolute bottom-2 left-1/2 h-8 w-[65%] -translate-x-1/2 rounded-[50%] blur-2xl"
+                  style={{ background: 'radial-gradient(ellipse, rgba(0,201,247,0.55), transparent 70%)' }}
+                />
+
+                <div className="relative">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/colectivo.png"
+                    alt="Refugio de buses TIO CR"
+                    className="relative z-10 h-auto w-full drop-shadow-[0_25px_35px_rgba(0,0,0,0.55)]"
+                  />
+
+                  {/* Logo TIO CR sobre el primer panel central grande del refugio */}
                   <div
-                    className="pointer-events-none absolute inset-[8%] rounded-full"
+                    className="pointer-events-none absolute z-20"
                     style={{
-                      background: 'radial-gradient(circle at 50% 50%, rgba(0,201,247,0.35), transparent 65%)',
-                      filter: 'blur(60px)',
+                      left: '40%',
+                      top: '33%',
+                      width: '9%',
+                      aspectRatio: '3 / 5.2',
                     }}
-                  />
-
-                  {/* Piso reflejante bajo el refugio */}
-                  <div
-                    className="pointer-events-none absolute bottom-6 left-1/2 h-6 w-[75%] -translate-x-1/2 rounded-[50%] blur-2xl"
-                    style={{ background: 'radial-gradient(ellipse, rgba(0,201,247,0.5), transparent 70%)' }}
-                  />
-
-                  <div className="relative mx-auto max-w-[520px]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/colectivo.png"
-                      alt="Refugio de buses TIO CR"
-                      className="relative z-10 h-auto w-full drop-shadow-[0_25px_35px_rgba(0,0,0,0.6)]"
-                    />
-
-                    {/* Logo TIO CR sobre el panel central grande del refugio */}
+                  >
                     <div
-                      className="pointer-events-none absolute z-20"
+                      className="flex h-full w-full items-center justify-center rounded-[2px] overflow-hidden"
                       style={{
-                        left: '31%',
-                        top: '34%',
-                        width: '18%',
-                        aspectRatio: '3 / 5',
+                        background: 'linear-gradient(180deg, #FFFFFF 0%, #F0F4FA 100%)',
+                        boxShadow: 'inset 0 0 8px rgba(0,201,247,0.4), 0 4px 10px rgba(0,0,0,0.55)',
+                        transform: 'perspective(400px) rotateY(-2deg)',
+                        transformOrigin: 'center',
                       }}
                     >
-                      <div
-                        className="flex h-full w-full items-center justify-center rounded-sm"
-                        style={{
-                          background: 'linear-gradient(180deg, #FFFFFF 0%, #E8ECF3 100%)',
-                          boxShadow: 'inset 0 0 12px rgba(0,201,247,0.25), 0 4px 12px rgba(0,0,0,0.5)',
-                        }}
-                      >
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src="/logo.png"
-                          alt="TIO CR"
-                          className="h-auto w-[80%]"
-                          style={{ filter: 'contrast(1.05)' }}
-                        />
-                      </div>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/logo.png"
+                        alt="TIO CR"
+                        className="h-auto w-[85%]"
+                        style={{ filter: 'contrast(1.1)' }}
+                      />
                     </div>
                   </div>
                 </div>
+              </div>
+            </Reveal>
 
-                {/* DERECHA — texto en el card */}
-                <div className="relative p-6 pt-0 md:p-10 md:pt-10">
+            {/* DERECHA — texto DENTRO de una card navy */}
+            <Reveal direction="right-clean" delay={140}>
+              <div
+                className="relative overflow-hidden rounded-3xl p-8 md:p-10"
+                style={{
+                  background: 'linear-gradient(150deg, rgba(14,34,71,0.97) 0%, rgba(6,20,40,0.99) 100%)',
+                  border: '1px solid rgba(255,255,255,0.16)',
+                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.14), 0 30px 60px -18px rgba(6,20,40,0.65), 0 0 60px -20px rgba(0,201,247,0.35)',
+                }}
+              >
+                {/* Glow interno cian */}
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,201,247,0.2),transparent_60%)]" />
+
+                <div className="relative">
                   <span className="inline-flex items-center gap-2.5 rounded-full border border-brand-cyan/50 bg-brand-cyan/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-brand-cyan">
                     <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-cyan" />
                     Nuevo servicio
@@ -363,8 +367,8 @@ export default function Servicios() {
                   </div>
                 </div>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>
