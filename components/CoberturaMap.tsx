@@ -110,11 +110,19 @@ export default function CoberturaMap() {
             <stop offset="0" stopColor="#4A5A70" />
             <stop offset="1" stopColor="#1E2836" />
           </linearGradient>
-          <clipPath id="paraguayClip">
+          {/* Máscara: solo se ve donde los strokes están dibujados en blanco */}
+          <mask id="paraguayBorderMask">
             {departments.map((d: { name: string; d: string }) => (
-              <path key={d.name} d={d.d} />
+              <path
+                key={d.name}
+                d={d.d}
+                fill="none"
+                stroke="white"
+                strokeWidth="3.5"
+                strokeLinejoin="round"
+              />
             ))}
-          </clipPath>
+          </mask>
           <filter id="pinGlow" x="-60%" y="-60%" width="220%" height="220%">
             <feGaussianBlur stdDeviation="3.5" result="blur" />
             <feMerge>
@@ -124,13 +132,17 @@ export default function CoberturaMap() {
           </filter>
         </defs>
 
-        {/* Base fill fallback — se ve en SSR / si el shader falla */}
+        {/* Relleno del mapa: gris azulado sólido */}
         {departments.map((d: { name: string; d: string }) => (
-          <path key={`bg-${d.name}`} d={d.d} fill="url(#mapFill)" />
+          <path
+            key={`fill-${d.name}`}
+            d={d.d}
+            fill="url(#mapFill)"
+          />
         ))}
 
-        {/* Liquid metal shader clipeado a la silueta de Paraguay */}
-        <g clipPath="url(#paraguayClip)">
+        {/* Liquid metal SOLO en los bordes — masked por los strokes de los departamentos */}
+        <g mask="url(#paraguayBorderMask)">
           <foreignObject x="0" y="0" width={W} height={H}>
             <div
               ref={shaderRef}
@@ -139,24 +151,10 @@ export default function CoberturaMap() {
               style={{
                 width: '100%',
                 height: '100%',
-                mixBlendMode: 'screen',
               }}
             />
           </foreignObject>
         </g>
-
-        {/* Contornos de departamentos (arriba del shader) */}
-        {departments.map((d: { name: string; d: string }) => (
-          <path
-            key={`border-${d.name}`}
-            d={d.d}
-            fill="none"
-            stroke="#94A3B8"
-            strokeOpacity="0.5"
-            strokeWidth="1.4"
-            strokeLinejoin="round"
-          />
-        ))}
 
         <polyline
           points={pins.map((p) => `${p.x},${p.y}`).join(' ')}
