@@ -71,8 +71,8 @@ export default function CoberturaMap() {
       >
         <defs>
           <linearGradient id="mapFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#0E2247" />
-            <stop offset="1" stopColor="#061428" />
+            <stop offset="0" stopColor="#4A5A70" />
+            <stop offset="1" stopColor="#1E2836" />
           </linearGradient>
           <filter id="pinGlow" x="-60%" y="-60%" width="220%" height="220%">
             <feGaussianBlur stdDeviation="3.5" result="blur" />
@@ -88,8 +88,8 @@ export default function CoberturaMap() {
             key={d.name}
             d={d.d}
             fill="url(#mapFill)"
-            stroke="#00C9F7"
-            strokeOpacity="0.3"
+            stroke="#94A3B8"
+            strokeOpacity="0.35"
             strokeWidth="1.4"
             strokeLinejoin="round"
           />
