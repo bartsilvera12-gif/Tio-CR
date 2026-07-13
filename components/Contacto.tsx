@@ -16,7 +16,7 @@ export default function Contacto() {
 
   function submit(e: React.FormEvent) {
     e.preventDefault()
-    const msg = `Hola Tíos R, soy ${form.nombre}${
+    const msg = `Hola TIO CR, soy ${form.nombre}${
       form.empresa ? ` de ${form.empresa}` : ''
     }. ${form.mensaje}. Mis datos: ${form.contacto}.`
     window.open(
@@ -29,14 +29,14 @@ export default function Contacto() {
     {
       href: `https://wa.me/${contacto.whatsapp}`,
       external: true,
-      label: 'WhatsApp',
+      label: 'WhatsApp 1',
       value: contacto.whatsappDisplay,
       color: 'wa' as const,
     },
     {
       href: `https://wa.me/${contacto.whatsapp2}`,
       external: true,
-      label: 'WhatsApp',
+      label: 'WhatsApp 2',
       value: contacto.whatsapp2Display,
       color: 'wa' as const,
     },

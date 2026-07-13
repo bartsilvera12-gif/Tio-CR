@@ -3,14 +3,8 @@ import GlowBlob from './GlowBlob'
 import CondicionesCarousel from './CondicionesCarousel'
 
 const condiciones = [
-  {
-    title: 'Contrato anual.',
-    body: null,
-  },
-  {
-    title: 'Incluye la primera impresión de la lona.',
-    body: null,
-  },
+  { title: 'Contrato anual.', body: null },
+  { title: 'Incluye la primera impresión de la lona.', body: null },
   {
     title: 'Primer pago:',
     body: 'dos meses adelantados (cuotas 01 y 02).',
@@ -25,10 +19,10 @@ export default function Propuesta() {
   return (
     <section
       id="propuesta"
-      className="section relative overflow-hidden bg-brand-navyDeep text-white"
+      className="relative overflow-hidden bg-white py-24 text-brand-ink md:py-32"
     >
       <GlowBlob
-        className="right-[6%] top-[15%] h-[380px] w-[500px]"
+        className="right-[6%] top-[15%] h-[420px] w-[540px]"
         opacity={0.14}
         radius="50% 50% 55% 45% / 48% 52% 45% 55%"
         animated
@@ -36,24 +30,24 @@ export default function Propuesta() {
       />
       <GlowBlob
         className="left-[5%] bottom-[10%] h-[320px] w-[420px]"
-        opacity={0.09}
+        opacity={0.1}
         rotate={20}
         radius="42% 58% 60% 40% / 55% 42% 58% 45%"
       />
 
       <div className="container relative">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
+          <span className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-cyanDark">
             <span className="h-[2px] w-8 rounded-full bg-brand-cyan" />
             Propuesta de inversión
             <span className="h-[2px] w-8 rounded-full bg-brand-cyan" />
           </span>
-          <h2 className="mt-5 font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
+          <h2 className="mt-5 font-display text-4xl font-bold tracking-tight text-brand-ink md:text-5xl">
             Una inversión clara y transparente
           </h2>
-          <p className="mt-5 text-lg text-white/70">
-            Tarifa fija por cara de cartel, con todo lo necesario para salir a la
-            ruta incluido.
+          <p className="mt-5 text-lg text-brand-ink/70">
+            Tarifa fija por cara de cartel, con todo lo necesario para salir a
+            la ruta incluido.
           </p>
         </Reveal>
 
@@ -61,42 +55,39 @@ export default function Propuesta() {
           {/* Card izquierda: precio */}
           <Reveal direction="below">
             <div
-              className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl p-8 md:p-10"
+              className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl bg-white p-8 md:p-10"
               style={{
-                background:
-                  'linear-gradient(160deg, rgba(14,34,71,0.75) 0%, rgba(4,12,26,0.82) 100%)',
-                border: '1px solid rgba(0,201,247,0.4)',
+                border: '1px solid rgba(0,201,247,0.35)',
                 boxShadow:
-                  'inset 0 1px 0 rgba(255,255,255,0.12), 0 22px 60px -20px rgba(0,201,247,0.35)',
-                backdropFilter: 'blur(22px) saturate(150%)',
-                WebkitBackdropFilter: 'blur(22px) saturate(150%)',
+                  '0 30px 60px -25px rgba(0,201,247,0.35), inset 0 1px 0 rgba(255,255,255,0.8)',
               }}
             >
               {/* Glow interno cian */}
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(0,201,247,0.18),transparent_60%)]" />
 
               <div className="relative">
-                <div className="text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
+                <div className="text-xs font-bold uppercase tracking-[0.28em] text-brand-cyanDark">
                   Costo mensual
                 </div>
 
                 <div className="mt-6 flex items-end gap-2">
-                  <span className="font-display text-3xl font-bold text-brand-cyan md:text-4xl">
+                  <span className="font-display text-3xl font-bold text-brand-cyanDark md:text-4xl">
                     ₲
                   </span>
                   <span
-                    className="stat-number font-display text-5xl font-bold tracking-tight text-brand-cyan md:text-6xl lg:text-7xl"
+                    className="stat-number font-display text-5xl font-bold tracking-tight text-brand-cyanDark md:text-6xl lg:text-7xl"
                     style={{ lineHeight: 1 }}
                   >
                     4.000.000
                   </span>
-                  <span className="pb-2 text-lg font-semibold text-white/70">
+                  <span className="pb-2 text-lg font-semibold text-brand-ink/60">
                     + IVA
                   </span>
                 </div>
 
-                <p className="mt-4 text-base text-white/70">
-                  por cada <strong className="text-white">faz / cara</strong> del
+                <p className="mt-4 text-base text-brand-ink/70">
+                  por cada{' '}
+                  <strong className="text-brand-ink">faz / cara</strong> del
                   cartel
                 </p>
               </div>
@@ -126,14 +117,17 @@ export default function Propuesta() {
           {/* Card derecha: condiciones */}
           <Reveal direction="below" delay={140}>
             <div
-              className="glass relative h-full overflow-hidden rounded-3xl p-8 md:p-10"
-              style={{ backdropFilter: 'blur(22px) saturate(150%)' }}
+              className="relative h-full overflow-hidden rounded-3xl bg-white p-8 md:p-10"
+              style={{
+                border: '1px solid rgba(0,0,0,0.08)',
+                boxShadow: '0 30px 60px -25px rgba(6,20,40,0.18)',
+              }}
             >
-              <div className="mb-6 text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
+              <div className="mb-6 text-xs font-bold uppercase tracking-[0.28em] text-brand-cyanDark">
                 Condiciones
               </div>
 
-              <CondicionesCarousel items={condiciones} />
+              <CondicionesCarousel items={condiciones} theme="light" />
             </div>
           </Reveal>
         </div>

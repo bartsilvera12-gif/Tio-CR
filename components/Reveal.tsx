@@ -15,6 +15,7 @@ type Props = {
     | 'fade'
     | 'left-clean'
     | 'right-clean'
+    | 'cinematic'
 }
 
 export default function Reveal({
@@ -60,6 +61,8 @@ export default function Reveal({
           ? 'from-left-clean'
           : direction === 'right-clean'
           ? 'from-right-clean'
+          : direction === 'cinematic'
+          ? 'cinematic'
           : ''
       } ${visible ? 'is-visible' : ''} ${className}`}
     >

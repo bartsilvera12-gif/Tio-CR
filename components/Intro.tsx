@@ -17,7 +17,7 @@ export default function Intro() {
 
       <div className="container relative">
         <div className="grid items-center gap-16 lg:grid-cols-2">
-          <Reveal>
+          <Reveal direction="cinematic">
             <div className="flex justify-center lg:justify-start">
               <Billboard />
             </div>

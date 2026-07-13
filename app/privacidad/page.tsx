@@ -6,7 +6,7 @@ import { contacto } from '@/lib/data'
 export const metadata: Metadata = {
   title: 'Política de Privacidad — TIO CR',
   description:
-    'Cómo Tíos R recopila, utiliza, almacena y protege los datos personales de quienes visitan y contactan a través de este sitio.',
+    'Cómo TIO CR recopila, utiliza, almacena y protege los datos personales de quienes visitan y contactan a través de este sitio.',
 }
 
 const secciones: { title: string; body: React.ReactNode }[] = [
@@ -270,7 +270,7 @@ export default function PrivacidadPage() {
             <dl className="mt-5 grid gap-4 sm:grid-cols-[max-content_1fr]">
               <dt className="text-sm font-semibold text-white/60">Empresa</dt>
               <dd className="text-sm text-white">
-                Tíos R — Marketing y Servicios Publicitarios (TIOCR)
+                TIO CR — Marketing y Servicios Publicitarios (TIO CR)
               </dd>
 
               <dt className="text-sm font-semibold text-white/60">Correo</dt>

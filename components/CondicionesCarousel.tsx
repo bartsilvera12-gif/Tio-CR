@@ -7,9 +7,15 @@ export type Condicion = {
 
 /** Marquee vertical: las condiciones se desplazan de abajo hacia arriba en loop infinito.
     Se pausa al hover. Fade masks arriba/abajo. */
-export default function CondicionesCarousel({ items }: { items: Condicion[] }) {
-  // Duplicamos para loop sin cortes
+export default function CondicionesCarousel({
+  items,
+  theme = 'dark',
+}: {
+  items: Condicion[]
+  theme?: 'dark' | 'light'
+}) {
   const track = [...items, ...items]
+  const isLight = theme === 'light'
 
   return (
     <div
@@ -26,10 +32,14 @@ export default function CondicionesCarousel({ items }: { items: Condicion[] }) {
         {track.map((c, i) => (
           <li
             key={i}
-            className="flex items-start gap-4 rounded-2xl px-5 py-4 transition-all duration-300 hover:!bg-brand-cyan/10"
+            className="flex items-start gap-4 rounded-2xl px-5 py-4 transition-all duration-300"
             style={{
-              background: 'rgba(255,255,255,0.03)',
-              border: '1px solid rgba(255,255,255,0.06)',
+              background: isLight
+                ? 'rgba(0, 201, 247, 0.06)'
+                : 'rgba(255,255,255,0.03)',
+              border: isLight
+                ? '1px solid rgba(0, 201, 247, 0.18)'
+                : '1px solid rgba(255,255,255,0.06)',
             }}
           >
             <span
@@ -46,7 +56,7 @@ export default function CondicionesCarousel({ items }: { items: Condicion[] }) {
                 height="14"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#00E5FF"
+                stroke="#00A8D1"
                 strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -54,10 +64,25 @@ export default function CondicionesCarousel({ items }: { items: Condicion[] }) {
                 <path d="M5 12l5 5L20 7" />
               </svg>
             </span>
-            <p className="text-[15px] leading-relaxed text-white/85">
-              <strong className="font-bold text-white">{c.title}</strong>
+            <p
+              className={`text-[15px] leading-relaxed ${
+                isLight ? 'text-brand-ink/85' : 'text-white/85'
+              }`}
+            >
+              <strong
+                className={`font-bold ${
+                  isLight ? 'text-brand-ink' : 'text-white'
+                }`}
+              >
+                {c.title}
+              </strong>
               {c.body ? (
-                <span className="text-white/70"> {c.body}</span>
+                <span
+                  className={isLight ? 'text-brand-ink/65' : 'text-white/70'}
+                >
+                  {' '}
+                  {c.body}
+                </span>
               ) : null}
             </p>
           </li>

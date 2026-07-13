@@ -83,7 +83,7 @@ export default function Footer() {
             <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-4">
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
                 <span>
-                  © {new Date().getFullYear()} Tíos R — Marketing y Servicios
+                  © {new Date().getFullYear()} TIO CR — Marketing y Servicios
                   Publicitarios.
                 </span>
                 <a

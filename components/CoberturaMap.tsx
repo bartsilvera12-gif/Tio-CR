@@ -19,7 +19,7 @@ const pins = markers as Marker[]
 const byKey = new Map(carteles.map((c) => [c.key, c]))
 
 function waLink(c: Cartel) {
-  const msg = `Hola Tíos R, me interesa el cartel de ${c.city} (${c.route}, ${c.size}). ¿Me pasan disponibilidad y tarifa?`
+  const msg = `Hola TIO CR, me interesa el cartel de ${c.city} (${c.route}, ${c.size}). ¿Me pasan disponibilidad y tarifa?`
   return `https://wa.me/${contacto.whatsapp}?text=${encodeURIComponent(msg)}`
 }
 

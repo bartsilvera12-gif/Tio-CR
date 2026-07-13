@@ -42,8 +42,8 @@ export default function WhatsAppFloat() {
   }, [open])
 
   const options = [
-    { number: contacto.whatsapp, label: contacto.whatsappDisplay },
-    { number: contacto.whatsapp2, label: contacto.whatsapp2Display },
+    { number: contacto.whatsapp, title: 'WhatsApp 1', label: contacto.whatsappDisplay },
+    { number: contacto.whatsapp2, title: 'WhatsApp 2', label: contacto.whatsapp2Display },
   ]
 
   return (
@@ -89,9 +89,14 @@ export default function WhatsAppFloat() {
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366]">
                 <WaIcon size={16} />
               </span>
-              <span className="text-sm font-semibold text-white">
-                {o.label}
-              </span>
+              <div>
+                <div className="text-[10px] font-bold uppercase tracking-widest text-brand-cyan">
+                  {o.title}
+                </div>
+                <div className="text-sm font-semibold text-white">
+                  {o.label}
+                </div>
+              </div>
             </a>
           ))}
         </div>
