@@ -15,6 +15,17 @@ const condiciones = [
   },
 ]
 
+/** Estilo idéntico a las cards de "Qué hacemos": navy translúcido con blur */
+const glassCardStyle = {
+  background:
+    'linear-gradient(150deg, rgba(14,34,71,0.72) 0%, rgba(6,20,40,0.78) 100%)',
+  border: '1px solid rgba(255,255,255,0.16)',
+  boxShadow:
+    'inset 0 1px 0 rgba(255,255,255,0.14), 0 22px 50px -18px rgba(6,20,40,0.45)',
+  backdropFilter: 'blur(22px) saturate(150%)',
+  WebkitBackdropFilter: 'blur(22px) saturate(150%)',
+} as const
+
 export default function Propuesta() {
   return (
     <section
@@ -55,40 +66,35 @@ export default function Propuesta() {
           {/* Card izquierda: precio */}
           <Reveal direction="below">
             <div
-              className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl bg-white p-8 md:p-10"
-              style={{
-                border: '1px solid rgba(0,201,247,0.35)',
-                boxShadow:
-                  '0 30px 60px -25px rgba(0,201,247,0.35), inset 0 1px 0 rgba(255,255,255,0.8)',
-              }}
+              className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl p-8 text-white md:p-10"
+              style={glassCardStyle}
             >
               {/* Glow interno cian */}
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(0,201,247,0.18),transparent_60%)]" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(0,201,247,0.22),transparent_60%)]" />
 
               <div className="relative">
-                <div className="text-xs font-bold uppercase tracking-[0.28em] text-brand-cyanDark">
+                <div className="text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
                   Costo mensual
                 </div>
 
                 <div className="mt-6 flex items-end gap-2">
-                  <span className="font-display text-3xl font-bold text-brand-cyanDark md:text-4xl">
+                  <span className="font-display text-3xl font-bold text-brand-cyan md:text-4xl">
                     ₲
                   </span>
                   <span
-                    className="stat-number font-display text-5xl font-bold tracking-tight text-brand-cyanDark md:text-6xl lg:text-7xl"
+                    className="stat-number font-display text-5xl font-bold tracking-tight text-brand-cyan md:text-6xl lg:text-7xl"
                     style={{ lineHeight: 1 }}
                   >
                     4.000.000
                   </span>
-                  <span className="pb-2 text-lg font-semibold text-brand-ink/60">
+                  <span className="pb-2 text-lg font-semibold text-white/70">
                     + IVA
                   </span>
                 </div>
 
-                <p className="mt-4 text-base text-brand-ink/70">
+                <p className="mt-4 text-base text-white/70">
                   por cada{' '}
-                  <strong className="text-brand-ink">faz / cara</strong> del
-                  cartel
+                  <strong className="text-white">faz / cara</strong> del cartel
                 </p>
               </div>
 
@@ -117,17 +123,14 @@ export default function Propuesta() {
           {/* Card derecha: condiciones */}
           <Reveal direction="below" delay={140}>
             <div
-              className="relative h-full overflow-hidden rounded-3xl bg-white p-8 md:p-10"
-              style={{
-                border: '1px solid rgba(0,0,0,0.08)',
-                boxShadow: '0 30px 60px -25px rgba(6,20,40,0.18)',
-              }}
+              className="relative h-full overflow-hidden rounded-3xl p-8 text-white md:p-10"
+              style={glassCardStyle}
             >
-              <div className="mb-6 text-xs font-bold uppercase tracking-[0.28em] text-brand-cyanDark">
+              <div className="mb-6 text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
                 Condiciones
               </div>
 
-              <CondicionesCarousel items={condiciones} theme="light" />
+              <CondicionesCarousel items={condiciones} theme="dark" />
             </div>
           </Reveal>
         </div>

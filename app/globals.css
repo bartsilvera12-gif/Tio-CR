@@ -307,6 +307,19 @@ body {
   filter: blur(0);
 }
 
+/* Ticker horizontal — barra full-width que se desplaza derecha → izquierda */
+@keyframes tickerLeft {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+.ticker-track {
+  animation: tickerLeft 55s linear infinite;
+  will-change: transform;
+}
+.ticker-marquee:hover .ticker-track {
+  animation-play-state: paused;
+}
+
 /* Marquee vertical de condiciones — loop infinito, pausa en hover */
 @keyframes marqueeUp {
   from { transform: translate3d(0, 0, 0); }

@@ -73,14 +73,7 @@ export default function Footer() {
 
         <Reveal delay={400}>
           <div className="mt-14 border-t border-white/10 pt-6 text-xs leading-relaxed text-white/40">
-            Carteles de ruta en Caacupé, Quiindy, Villa Florida y Corpus Christi ·
-            Cartelería en Pedro Juan Caballero, Santa Rita, Katueté y Yguazú ·
-            Publicidad exterior en Campo 9, Santa Rosa del Aguaray, San Pedro,
-            Obligado, María Auxiliadora y Tavapy · Cobertura en Central,
-            Paraguarí, Misiones, Amambay, Canindeyú, Caaguazú, Alto Paraná,
-            Itapúa y San Pedro.
-
-            <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-4">
+            <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
                 <span>
                   © {new Date().getFullYear()} TIO CR — Marketing y Servicios
