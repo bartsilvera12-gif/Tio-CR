@@ -32,18 +32,27 @@ export default function Propuesta() {
       id="propuesta"
       className="relative overflow-hidden bg-white py-24 text-brand-ink md:py-32"
     >
+      {/* Blob principal grande cruzando ambas cards */}
       <GlowBlob
-        className="right-[6%] top-[15%] h-[420px] w-[540px]"
-        opacity={0.14}
-        radius="50% 50% 55% 45% / 48% 52% 45% 55%"
+        className="left-[10%] top-[38%] h-[540px] w-[900px]"
+        opacity={0.35}
+        radius="52% 48% 60% 40% / 48% 55% 45% 52%"
         animated
         speed="slow"
       />
+      {/* Blob secundario a la derecha */}
       <GlowBlob
-        className="left-[5%] bottom-[10%] h-[320px] w-[420px]"
-        opacity={0.1}
-        rotate={20}
+        className="right-[-5%] top-[20%] h-[380px] w-[500px]"
+        opacity={0.28}
+        rotate={22}
         radius="42% 58% 60% 40% / 55% 42% 58% 45%"
+      />
+      {/* Blob de acento pequeño detrás del título */}
+      <GlowBlob
+        className="left-1/2 top-[5%] h-[240px] w-[400px] -translate-x-1/2"
+        opacity={0.18}
+        rotate={-10}
+        radius="55% 45% 62% 38% / 48% 60% 40% 55%"
       />
 
       <div className="container relative">
