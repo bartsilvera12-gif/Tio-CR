@@ -213,7 +213,8 @@ export function LiquidMetalButton({
                 style={{
                   fontSize: '13px',
                   color: (isCyan || isWhite) ? '#062036' : (isHovered ? '#FFFFFF' : '#B8B8B8'),
-                  fontWeight: (isCyan || isWhite) ? 700 : 600,
+                  fontWeight: isWhite ? 800 : (isCyan ? 700 : 600),
+                  fontFamily: isWhite ? 'var(--font-manrope), Manrope, system-ui, sans-serif' : undefined,
                   letterSpacing: isHovered ? '0.08em' : '0.05em',
                   textTransform: 'uppercase',
                   textShadow: (isCyan || isWhite)
