@@ -7,7 +7,7 @@ type Props = {
   delay?: number
   className?: string
   as?: 'div' | 'section' | 'article' | 'span'
-  direction?: 'up' | 'right' | 'below'
+  direction?: 'up' | 'right' | 'below' | 'left'
 }
 
 export default function Reveal({
@@ -40,7 +40,15 @@ export default function Reveal({
     <Tag
       ref={ref as never}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`reveal ${direction === 'right' ? 'from-right' : direction === 'below' ? 'from-below' : ''} ${visible ? 'is-visible' : ''} ${className}`}
+      className={`reveal ${
+        direction === 'right'
+          ? 'from-right'
+          : direction === 'below'
+          ? 'from-below'
+          : direction === 'left'
+          ? 'from-left'
+          : ''
+      } ${visible ? 'is-visible' : ''} ${className}`}
     >
       {children}
     </Tag>

@@ -212,6 +212,47 @@ body {
   filter: blur(0);
 }
 
+/* Variante: entra desde la izquierda, con blur */
+.reveal.from-left {
+  opacity: 0;
+  transform: perspective(1100px) translateX(-90px) scale(0.94);
+  filter: blur(8px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.95s cubic-bezier(0.34, 1.4, 0.5, 1),
+              filter 0.8s ease-out;
+  will-change: opacity, transform, filter;
+}
+.reveal.from-left.is-visible {
+  opacity: 1;
+  transform: perspective(1100px) translateX(0) scale(1);
+  filter: blur(0);
+}
+
+/* Reveal letra por letra (para títulos) */
+.letter-hidden {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(6px);
+  will-change: opacity, transform, filter;
+}
+@keyframes letterIn {
+  from { opacity: 0; transform: translateY(28px); filter: blur(6px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0);   }
+}
+.letter-in {
+  animation: letterIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Barra de acento cian que crece bajo el título */
+@keyframes accentGrowIn {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+.accent-bar {
+  transform-origin: left;
+  animation: accentGrowIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+
 /* Flip card 3D: media vuelta vertical que revela el reverso.
    El hover se detecta en la zona externa (que no rota) — nunca se corta el giro. */
 .card-spin-zone {
