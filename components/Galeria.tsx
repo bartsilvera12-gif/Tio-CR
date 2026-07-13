@@ -69,8 +69,8 @@ export default function Galeria() {
             return (
               <Reveal
                 key={c.key}
-                delay={i * 90}
-                direction="below"
+                delay={i * 110}
+                direction={i % 2 === 0 ? 'left' : 'right'}
                 className={layout[i] ?? ''}
               >
                 <GalleryCard
@@ -98,9 +98,8 @@ function GalleryCard({
 }) {
   return (
     <div
-      className="group relative h-full w-full overflow-hidden rounded-2xl"
+      className="group relative h-full w-full overflow-hidden rounded-2xl transition-shadow duration-500 hover:shadow-[0_28px_60px_-18px_rgba(0,201,247,0.45)]"
       style={{
-        border: '1px solid rgba(255,255,255,0.1)',
         boxShadow: '0 18px 44px -18px rgba(0,0,0,0.6)',
       }}
     >

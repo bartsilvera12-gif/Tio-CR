@@ -75,7 +75,7 @@ export default function WhatsAppFloat() {
           }}
         >
           <div className="px-3 py-2 text-xs font-semibold uppercase tracking-widest text-white/50">
-            Elegí un número
+            Nuestros contactos
           </div>
           {options.map((o) => (
             <a

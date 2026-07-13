@@ -68,7 +68,7 @@ export default function Cobertura() {
             </div>
           </Reveal>
 
-          <Reveal delay={120}>
+          <Reveal delay={80} direction="fade">
             <div className="flex justify-center lg:justify-end">
               <CoberturaMap />
             </div>
