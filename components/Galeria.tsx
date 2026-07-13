@@ -100,10 +100,8 @@ function GalleryCard({
     <div
       className="group relative h-full w-full overflow-hidden rounded-2xl transition-shadow duration-500 hover:shadow-[0_28px_60px_-18px_rgba(0,201,247,0.45)]"
       style={{
-        // Fondo navy explícito (evita cualquier subpixel claro alrededor del edge)
         background: '#061428',
-        boxShadow:
-          '0 18px 44px -18px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(6,20,40,1)',
+        boxShadow: '0 18px 44px -18px rgba(0,0,0,0.6)',
       }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -111,16 +109,7 @@ function GalleryCard({
         src={src}
         alt={city}
         loading="lazy"
-        className="block h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
-      />
-
-      {/* Vignette dark en los bordes: integra la foto con el navy sin verse "cortada" */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          boxShadow:
-            'inset 0 0 40px 8px rgba(6,20,40,0.75), inset 0 0 0 1px rgba(0,201,247,0.08)',
-        }}
+        className="block h-full w-full scale-[1.06] object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.14]"
       />
 
       {/* Overlay oscuro que se intensifica en hover */}
