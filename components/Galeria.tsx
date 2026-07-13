@@ -1,16 +1,43 @@
-import { galeria } from '@/lib/data'
 import Reveal from './Reveal'
 import GlowBlob from './GlowBlob'
+import { carteles } from '@/lib/carteles'
+
+/** Selección para el mosaico — mezcla ciudades con distintas rutas y escenarios */
+const featuredKeys = [
+  'caacupe',
+  'yaguaron',
+  'quiindy',
+  'pjc',
+  'corpus',
+  'villaflorida',
+  'obligado',
+  'yguazu',
+] as const
+
+const featured = featuredKeys
+  .map((k) => carteles.find((c) => c.key === k))
+  .filter((c): c is NonNullable<typeof c> => Boolean(c && c.images.length))
 
 export default function Galeria() {
   return (
-    <section id="galeria" className="section relative overflow-hidden bg-brand-navy text-white">
+    <section
+      id="galeria"
+      className="section relative overflow-hidden bg-brand-navy text-white"
+    >
       <GlowBlob
-        className="right-[4%] bottom-[28%] h-[360px] w-[480px]"
+        className="right-[4%] top-[35%] h-[360px] w-[480px]"
         opacity={0.09}
         rotate={30}
         radius="48% 52% 40% 60% / 58% 44% 56% 42%"
       />
+      <GlowBlob
+        className="left-[-6%] bottom-[6%] h-[320px] w-[420px]"
+        opacity={0.11}
+        radius="52% 48% 62% 38% / 45% 58% 42% 55%"
+        animated
+        speed="slow"
+      />
+
       <div className="container relative">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
@@ -21,48 +48,88 @@ export default function Galeria() {
               </h2>
             </div>
             <p className="max-w-md text-white/70">
-              Una muestra de los formatos que producimos: cartelería, pantallas
-              y vehículos.
+              Registros de nuestros carteles en las principales rutas del país.
             </p>
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {galeria.map((g, i) => (
-            <Reveal key={i} delay={i * 80}>
-              <div
-                className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-brand-navyLight to-brand-navyDeep transition-all duration-500 hover:-translate-y-1 hover:border-brand-cyan/50 hover:shadow-[0_24px_60px_-20px_rgba(0,201,247,0.5)] ${
-                  i === 0 ? 'lg:col-span-2 lg:row-span-2 aspect-square' : 'aspect-[4/3]'
-                }`}
+        <div className="mt-12 grid auto-rows-[220px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {featured.map((c, i) => {
+            // Mosaico responsivo
+            const layout: Record<number, string> = {
+              0: 'lg:col-span-2 lg:row-span-2', // grande a la izquierda
+              1: 'lg:col-span-1',
+              2: 'lg:col-span-1',
+              3: 'lg:col-span-2', // ancho abajo del 1 y 2
+              4: 'lg:col-span-1',
+              5: 'lg:col-span-1',
+              6: 'lg:col-span-1',
+              7: 'lg:col-span-1',
+            }
+            return (
+              <Reveal
+                key={c.key}
+                delay={i * 90}
+                direction="below"
+                className={layout[i] ?? ''}
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,201,247,0.28),transparent_60%)] transition-opacity duration-500 group-hover:opacity-80" />
-                <div className="absolute inset-0 flex flex-col justify-end p-6">
-                  <span className="text-xs font-semibold uppercase tracking-widest text-brand-cyan transition-transform duration-500 group-hover:-translate-y-1">
-                    {g.categoria}
-                  </span>
-                  <div className="mt-1 text-xl font-semibold text-white transition-transform duration-500 group-hover:-translate-y-1">
-                    {g.titulo}
-                  </div>
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center opacity-30 transition-all duration-700 group-hover:scale-110 group-hover:opacity-50">
-                  <svg
-                    width="48"
-                    height="48"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#fff"
-                    strokeWidth="1.2"
-                  >
-                    <rect x="3" y="5" width="18" height="14" rx="2" />
-                    <circle cx="9" cy="11" r="1.5" />
-                    <path d="M21 15l-5-5-8 9" />
-                  </svg>
-                </div>
-              </div>
-            </Reveal>
-          ))}
+                <GalleryCard
+                  src={c.images[0]}
+                  city={c.city}
+                  route={c.route}
+                />
+              </Reveal>
+            )
+          })}
         </div>
       </div>
     </section>
+  )
+}
+
+function GalleryCard({
+  src,
+  city,
+  route,
+}: {
+  src: string
+  city: string
+  route: string
+}) {
+  return (
+    <div
+      className="group relative h-full w-full overflow-hidden rounded-2xl"
+      style={{
+        border: '1px solid rgba(255,255,255,0.1)',
+        boxShadow: '0 18px 44px -18px rgba(0,0,0,0.6)',
+      }}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={src}
+        alt={city}
+        loading="lazy"
+        className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
+      />
+
+      {/* Overlay oscuro que se intensifica en hover */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-95 transition-opacity duration-500 group-hover:opacity-100" />
+
+      {/* Glow cian al hover */}
+      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(ellipse_at_top,rgba(0,201,247,0.35),transparent_60%)] mix-blend-overlay" />
+
+      {/* Etiqueta de ciudad */}
+      <div className="absolute inset-x-4 bottom-4 flex items-end justify-between">
+        <div className="pill glass-dark rounded-lg px-3 py-2 transition-all duration-500 group-hover:-translate-y-1">
+          <div className="font-display text-sm font-bold uppercase tracking-wider text-white">
+            {city}
+          </div>
+        </div>
+        {/* Ruta chip visible solo en hover */}
+        <div className="translate-y-2 rounded-full border border-brand-cyan/50 bg-brand-cyan/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-brand-cyan opacity-0 backdrop-blur-sm transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+          {route}
+        </div>
+      </div>
+    </div>
   )
 }
