@@ -110,7 +110,6 @@ export default function Footer() {
                   <path d="M7 17L17 7M8 7h9v9" />
                 </svg>
               </a>
-            </div>
           </div>
         </div>
       </div>
