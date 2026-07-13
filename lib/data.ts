@@ -22,7 +22,7 @@ export const servicios = [
   },
 ] as const
 
-export const rutas = ['PY 01', 'PY 02', 'PY 03', 'PY 05', 'PY 06', 'PY 07']
+export const rutas = ['PY 01', 'PY 02', 'PY 03', 'PY 05', 'PY 06', 'PY 07', 'PY 08', 'PY 11']
 
 export const ciudadesCobertura = [
   { nombre: 'Coronel Oviedo', departamento: 'Caaguazú', ruta: 'PY 02' },

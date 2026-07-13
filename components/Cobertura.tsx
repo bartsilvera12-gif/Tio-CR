@@ -35,6 +35,27 @@ export default function Cobertura() {
                 </span>
               ))}
             </div>
+
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {[
+                { n: '22', label: 'Carteles' },
+                { n: '9', label: 'Departamentos' },
+                { n: '8', label: 'Rutas PY' },
+                { n: '12×6', label: 'Metros' },
+              ].map((s) => (
+                <div
+                  key={s.label}
+                  className="glass rounded-xl px-4 py-4 text-center transition-all duration-300 hover:-translate-y-0.5 hover:!border-brand-cyan/50"
+                >
+                  <div className="font-display text-2xl font-bold text-brand-cyan">
+                    {s.n}
+                  </div>
+                  <div className="mt-1 text-[11px] font-semibold uppercase tracking-widest text-white/60">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </Reveal>
 
           <Reveal delay={120}>
