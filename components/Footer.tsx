@@ -72,7 +72,7 @@ export default function Footer() {
         </div>
 
         <Reveal delay={400}>
-          <div className="mt-8 border-t border-white/10 pt-5 text-xs leading-relaxed text-white/40">
+          <div className="mt-8 border-t border-white/10 pt-5 pb-16 md:pb-0 text-xs leading-relaxed text-white/60">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
                 <span>
@@ -81,7 +81,7 @@ export default function Footer() {
                 </span>
                 <a
                   href="/privacidad"
-                  className="text-white/60 transition hover:text-brand-cyan"
+                  className="text-white/80 transition hover:text-brand-cyan"
                 >
                   Política de privacidad
                 </a>
@@ -91,7 +91,7 @@ export default function Footer() {
                 href="https://neura.com.py"
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-1.5 text-white/50 transition hover:text-brand-cyan"
+                className="group inline-flex items-center gap-1.5 text-white/70 transition hover:text-brand-cyan"
               >
                 <span>Desarrollado por</span>
                 <span className="font-display font-bold tracking-wide text-white transition group-hover:text-brand-cyan">
