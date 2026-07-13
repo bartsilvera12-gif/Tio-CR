@@ -17,12 +17,12 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Tíos R — Marketing y Servicios Publicitarios',
+  title: 'TIO CR — Marketing y Servicios Publicitarios',
   description:
     'Cartelería rutera, pantallas LED y publicidad exterior en las principales rutas y ciudades del interior del Paraguay.',
   metadataBase: new URL('https://tiocr.com.py'),
   openGraph: {
-    title: 'Tíos R — Marketing y Servicios Publicitarios',
+    title: 'TIO CR — Marketing y Servicios Publicitarios',
     description:
       'Cartelería rutera, pantallas LED y publicidad exterior en Paraguay.',
     type: 'website',

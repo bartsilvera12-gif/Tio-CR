@@ -4,7 +4,7 @@ import Footer from '@/components/Footer'
 import { contacto } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Política de Privacidad — Tíos R',
+  title: 'Política de Privacidad — TIO CR',
   description:
     'Cómo Tíos R recopila, utiliza, almacena y protege los datos personales de quienes visitan y contactan a través de este sitio.',
 }
