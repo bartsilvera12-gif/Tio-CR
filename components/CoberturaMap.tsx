@@ -110,8 +110,29 @@ export default function CoberturaMap() {
             <stop offset="0" stopColor="#4A5A70" />
             <stop offset="1" stopColor="#1E2836" />
           </linearGradient>
-          {/* Máscara: SOLO los strokes/bordes de los pines */}
+          {/* Máscara: borde exterior de Paraguay + strokes de los pines */}
           <mask id="pmMask">
+            {/* Silueta bloated (blanco) → anillo exterior de ~3px */}
+            {departments.map((d: { name: string; d: string }) => (
+              <path
+                key={`bloat-${d.name}`}
+                d={d.d}
+                fill="white"
+                stroke="white"
+                strokeWidth="6"
+                strokeLinejoin="round"
+              />
+            ))}
+            {/* Hollow (negro) → tapa el interior, solo queda el anillo exterior */}
+            {departments.map((d: { name: string; d: string }) => (
+              <path
+                key={`hollow-${d.name}`}
+                d={d.d}
+                fill="black"
+                stroke="none"
+              />
+            ))}
+            {/* Pines: outlines */}
             {pins.map((p) => (
               <g key={`mp-${p.key}`} transform={`translate(${p.x} ${p.y})`}>
                 <path
