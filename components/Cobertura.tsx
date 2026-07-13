@@ -36,25 +36,35 @@ export default function Cobertura() {
               ))}
             </div>
 
-            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-              {[
-                { n: '22', label: 'Carteles' },
-                { n: '9', label: 'Departamentos' },
-                { n: '8', label: 'Rutas PY' },
-                { n: '12×6', label: 'Metros' },
-              ].map((s) => (
-                <div
-                  key={s.label}
-                  className="glass rounded-xl px-4 py-4 text-center transition-all duration-300 hover:-translate-y-0.5 hover:!border-brand-cyan/50"
-                >
-                  <div className="font-display text-2xl font-bold text-brand-cyan">
-                    {s.n}
+            <div className="relative mt-8">
+              {/* Blob lento detrás de los stats: se ve el vidrio "cambiar de color" */}
+              <GlowBlob
+                className="left-[-8%] top-[-30%] h-[280px] w-[520px]"
+                opacity={0.28}
+                radius="52% 48% 62% 38% / 45% 58% 42% 55%"
+                animated
+                speed="slow"
+              />
+              <div className="relative grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {[
+                  { n: '22', label: 'Carteles' },
+                  { n: '9', label: 'Deptos.' },
+                  { n: '8', label: 'Rutas PY' },
+                  { n: '12×6', label: 'Metros' },
+                ].map((s) => (
+                  <div
+                    key={s.label}
+                    className="stat-card glass group rounded-xl px-3 py-4 text-center transition-all duration-300 hover:!border-brand-cyan hover:!bg-white/10 hover:shadow-[0_12px_36px_-12px_rgba(0,201,247,0.5)]"
+                  >
+                    <div className="stat-number font-display text-3xl font-bold text-brand-cyan transition-transform duration-500 group-hover:scale-110">
+                      {s.n}
+                    </div>
+                    <div className="mt-1 whitespace-nowrap text-[10px] font-semibold uppercase tracking-wider text-white/60 transition-colors group-hover:text-white/90">
+                      {s.label}
+                    </div>
                   </div>
-                  <div className="mt-1 text-[11px] font-semibold uppercase tracking-widest text-white/60">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </Reveal>
 

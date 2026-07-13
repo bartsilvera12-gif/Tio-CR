@@ -270,6 +270,41 @@ body {
   will-change: transform, border-radius;
 }
 
+/* Variante muy lenta — para que se note la transparencia del vidrio moviéndose atrás */
+@keyframes blobDriftSlow {
+  0%   { transform: rotate(0deg) scale(1) translate(0, 0);
+         border-radius: 45% 55% 62% 38% / 55% 40% 60% 45%; }
+  25%  { transform: rotate(8deg) scale(1.08) translate(30px, -20px);
+         border-radius: 55% 45% 50% 50% / 48% 55% 42% 58%; }
+  50%  { transform: rotate(-5deg) scale(1.15) translate(-25px, 25px);
+         border-radius: 60% 40% 44% 56% / 42% 60% 40% 58%; }
+  75%  { transform: rotate(12deg) scale(1.05) translate(20px, 10px);
+         border-radius: 40% 60% 55% 45% / 55% 45% 55% 45%; }
+  100% { transform: rotate(0deg) scale(1) translate(0, 0);
+         border-radius: 45% 55% 62% 38% / 55% 40% 60% 45%; }
+}
+.blob-anim-slow {
+  animation: blobDriftSlow 55s ease-in-out infinite;
+  will-change: transform, border-radius;
+}
+
+/* Stats de cobertura: números con brillo cian pulsante */
+@keyframes statPulse {
+  0%, 100% { text-shadow: 0 0 18px rgba(0, 201, 247, 0.28); }
+  50%      { text-shadow: 0 0 30px rgba(0, 201, 247, 0.6); }
+}
+.stat-number { animation: statPulse 4s ease-in-out infinite; }
+
+/* Stat tiles: levitación suave con delay escalonado */
+@keyframes statFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+.stat-card { animation: statFloat 6s ease-in-out infinite; }
+.stat-card:nth-child(2) { animation-delay: 1.5s; }
+.stat-card:nth-child(3) { animation-delay: 3s; }
+.stat-card:nth-child(4) { animation-delay: 4.5s; }
+
 /* Pins del mapa de cobertura: crecen al hover, anclados a su punta */
 .map-pin {
   cursor: pointer;

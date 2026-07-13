@@ -5,17 +5,25 @@ export default function GlowBlob({
   rotate = -14,
   radius = '58% 42% 65% 35% / 45% 60% 40% 55%',
   animated = false,
+  speed = 'normal',
 }: {
   className?: string
   opacity?: number
   rotate?: number
   radius?: string
   animated?: boolean
+  /** 'normal' = 16s (llamativo) — 'slow' = 55s (muy sutil, para fondo detrás de vidrio) */
+  speed?: 'normal' | 'slow'
 }) {
+  const animClass = animated
+    ? speed === 'slow'
+      ? 'blob-anim-slow'
+      : 'blob-anim'
+    : ''
   return (
     <div
       aria-hidden
-      className={`pointer-events-none absolute blur-[110px] ${animated ? 'blob-anim' : ''} ${className}`}
+      className={`pointer-events-none absolute blur-[110px] ${animClass} ${className}`}
       style={{
         background: `rgba(0, 201, 247, ${opacity})`,
         borderRadius: radius,

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { W, H, departments, markers } from '@/lib/map-data'
 import { carteles, type Cartel } from '@/lib/carteles'
@@ -27,6 +27,19 @@ export default function CoberturaMap() {
   const [selected, setSelected] = useState<Cartel | null>(null)
   const [hovered, setHovered] = useState<Marker | null>(null)
   const [mounted, setMounted] = useState(false)
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const showTooltip = (p: Marker) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    setHovered(p)
+  }
+  const scheduleClose = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    closeTimer.current = setTimeout(() => setHovered(null), 130)
+  }
+  const keepOpen = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+  }
 
   useEffect(() => setMounted(true), [])
 
@@ -46,10 +59,7 @@ export default function CoberturaMap() {
   const hoveredCartel = hovered ? byKey.get(hovered.key) : null
 
   return (
-    <div
-      className="relative w-full max-w-[560px]"
-      onMouseLeave={() => setHovered(null)}
-    >
+    <div className="relative w-full max-w-[560px]">
       {/* Halo suave detrás del mapa */}
       <div className="pointer-events-none absolute inset-[10%] -z-10 rounded-full bg-[radial-gradient(circle,rgba(0,201,247,0.18),transparent_70%)] blur-2xl" />
 
@@ -102,7 +112,8 @@ export default function CoberturaMap() {
               className="map-pin"
               filter="url(#pinGlow)"
               onClick={() => setSelected(byKey.get(p.key) ?? null)}
-              onMouseEnter={() => setHovered(p)}
+              onMouseEnter={() => showTooltip(p)}
+              onMouseLeave={scheduleClose}
             >
               <path
                 d="M0 0 C -7 -11 -15 -18 -15 -29 A 15 15 0 1 1 15 -29 C 15 -18 7 -11 0 0 Z"
@@ -120,6 +131,8 @@ export default function CoberturaMap() {
       {hovered && hoveredCartel && (
         <div
           className="absolute z-20 w-[240px] -translate-x-1/2 rounded-2xl p-4"
+          onMouseEnter={keepOpen}
+          onMouseLeave={scheduleClose}
           style={{
             left: `${(hovered.x / W) * 100}%`,
             top: `${(hovered.y / H) * 100}%`,
