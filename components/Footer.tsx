@@ -4,11 +4,11 @@ import Reveal from './Reveal'
 export default function Footer() {
   return (
     <footer className="bg-brand-ink text-white">
-      <div className="container py-8">
+      <div className="container py-10">
         <div className="grid gap-6 md:grid-cols-3">
           <Reveal direction="left">
-            <img src="/logo.png" alt="TIOCR" className="h-7" />
-            <p className="mt-3 max-w-xs text-xs text-white/60">
+            <img src="/logo.png" alt="TIOCR" className="h-8" />
+            <p className="mt-4 max-w-xs text-sm text-white/60">
               Marketing y servicios publicitarios. Cartelería gigante y
               publicidad exterior en rutas e interior del Paraguay.
             </p>
@@ -18,7 +18,7 @@ export default function Footer() {
             <div className="text-xs font-semibold uppercase tracking-widest text-brand-cyan">
               Servicios
             </div>
-            <ul className="mt-2 space-y-1 text-xs text-white/70">
+            <ul className="mt-3 space-y-1.5 text-sm text-white/70">
               <li className="transition-colors hover:text-brand-cyan">Cartelería de ruta</li>
               <li className="transition-colors hover:text-brand-cyan">Pantallas LED</li>
               <li className="transition-colors hover:text-brand-cyan">Ploteado de buses</li>
@@ -29,7 +29,7 @@ export default function Footer() {
             <div className="text-xs font-semibold uppercase tracking-widest text-brand-cyan">
               Contacto
             </div>
-            <ul className="mt-2 space-y-1 text-xs text-white/70">
+            <ul className="mt-3 space-y-1.5 text-sm text-white/70">
               <li>
                 <a
                   href={`https://wa.me/${contacto.whatsapp}`}
@@ -72,7 +72,7 @@ export default function Footer() {
         </div>
 
         <Reveal delay={400}>
-          <div className="mt-6 border-t border-white/10 pt-4 text-[11px] leading-relaxed text-white/40">
+          <div className="mt-8 border-t border-white/10 pt-5 text-xs leading-relaxed text-white/40">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
                 <span>
