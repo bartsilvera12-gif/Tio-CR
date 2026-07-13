@@ -285,6 +285,7 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  padding-bottom: 0.12em;
   animation: letterIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both,
              cyanShimmer 5s ease-in-out 1.2s infinite;
 }

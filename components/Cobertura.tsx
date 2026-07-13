@@ -21,7 +21,7 @@ export default function Cobertura() {
               Cobertura
             </span>
 
-            <h2 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white md:text-5xl lg:text-[3.5rem]">
+            <h2 className="mt-4 pb-2 font-display text-[2rem] font-bold leading-[1.15] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.5rem]">
               <SplitTextReveal
                 text="Presentes en las rutas que"
                 by="word"

@@ -95,56 +95,69 @@ export default function Header() {
 
         <button
           onClick={() => setOpen((v) => !v)}
-          className="text-white md:hidden"
-          aria-label="Abrir menú"
+          className="-mr-2 flex h-11 w-11 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/10 active:scale-95 md:hidden"
+          aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={open}
         >
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" className="transition-transform duration-300" style={{ transform: open ? 'rotate(90deg)' : 'rotate(0deg)' }}>
             <path
               d={open ? 'M6 6l12 12M18 6L6 18' : 'M4 7h16M4 12h16M4 17h16'}
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="2.2"
               strokeLinecap="round"
             />
           </svg>
         </button>
       </div>
 
-      {open && (
-        <div className="border-t border-white/10 md:hidden" style={{ backgroundColor: 'rgba(5, 14, 31, 0.95)' }}>
-          <div className="container flex flex-col py-4">
-            {links.map((l) => (
+      <div
+        className={`overflow-hidden border-t border-white/10 backdrop-blur-2xl backdrop-saturate-150 transition-[max-height,opacity] duration-300 ease-out md:hidden ${
+          open ? 'max-h-[520px] opacity-100' : 'pointer-events-none max-h-0 opacity-0'
+        }`}
+        style={{ backgroundColor: 'rgba(5, 14, 31, 0.92)' }}
+      >
+        <div className="container flex flex-col divide-y divide-white/5 py-2">
+          {links.map((l, i) => {
+            const isActive = active === l.href
+            return (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="py-3 text-sm font-semibold uppercase tracking-widest text-white"
+                className={`flex items-center justify-between py-4 text-base font-semibold uppercase tracking-widest transition-colors ${
+                  isActive ? 'text-brand-cyan' : 'text-white hover:text-brand-cyan'
+                }`}
+                style={{ transitionDelay: `${i * 40}ms` }}
               >
-                {l.label}
+                <span>{l.label}</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-40">
+                  <path d="M9 6l6 6-6 6" />
+                </svg>
               </a>
-            ))}
-            <a
-              href="#contacto"
-              onClick={() => setOpen(false)}
-              className="btn-cta mt-2 justify-center uppercase tracking-widest"
+            )
+          })}
+          <a
+            href="#contacto"
+            onClick={() => setOpen(false)}
+            className="btn-cta mt-4 justify-center uppercase tracking-widest"
+          >
+            <span>Solicitar presupuesto</span>
+            <svg
+              className="cta-arrow"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <span>Solicitar presupuesto</span>
-              <svg
-                className="cta-arrow"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
-            </a>
-          </div>
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
         </div>
-      )}
+      </div>
     </header>
   )
 }
