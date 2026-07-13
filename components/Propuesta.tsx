@@ -1,5 +1,19 @@
 import Reveal from './Reveal'
 import GlowBlob from './GlowBlob'
+import CondicionesCarousel from './CondicionesCarousel'
+
+const condiciones = [
+  { title: 'Contrato anual.', body: null },
+  { title: 'Incluye la primera impresión de la lona.', body: null },
+  {
+    title: 'Primer pago:',
+    body: 'dos meses adelantados (cuotas 01 y 02).',
+  },
+  {
+    title: 'Siguientes pagos:',
+    body: 'cuotas 03 a 12, pago mensual adelantado.',
+  },
+]
 
 /** Estilo idéntico a las cards de "Qué hacemos": navy translúcido con blur */
 const glassCardStyle = {
@@ -104,43 +118,14 @@ export default function Propuesta() {
           {/* Card derecha: condiciones */}
           <Reveal direction="below" delay={140}>
             <div
-              className="relative flex h-full flex-col overflow-hidden rounded-3xl p-8 text-white md:p-10"
+              className="relative h-full overflow-hidden rounded-3xl p-8 text-white md:p-10"
               style={glassCardStyle}
             >
-              {/* Glow interno cian */}
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,201,247,0.22),transparent_60%)]" />
-
-              <div className="relative">
-                <div className="text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
-                  Condiciones
-                </div>
-
-                <h3 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">
-                  Términos claros y sin letra chica.
-                </h3>
-
-                <ul className="mt-8 space-y-4">
-                  {[
-                    { t: 'Contrato anual', s: 'Duración de 12 meses para asegurar tu ubicación.' },
-                    { t: 'Primera impresión incluida', s: 'La primera lona corre por nuestra cuenta.' },
-                    { t: 'Primer pago', s: 'Dos meses adelantados (cuotas 01 y 02).' },
-                    { t: 'Siguientes pagos', s: 'Cuotas 03 a 12, mensual adelantado.' },
-                    { t: 'Sin costos ocultos', s: 'Todo lo del contrato está en la card de al lado.' },
-                  ].map((item) => (
-                    <li key={item.t} className="flex gap-3">
-                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-cyan/15 ring-1 ring-brand-cyan/40">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00C9F7" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M5 12l5 5L20 7" />
-                        </svg>
-                      </span>
-                      <div>
-                        <div className="text-base font-semibold text-white">{item.t}</div>
-                        <div className="text-sm text-white/60">{item.s}</div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+              <div className="mb-6 text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
+                Condiciones
               </div>
+
+              <CondicionesCarousel items={condiciones} theme="dark" />
             </div>
           </Reveal>
         </div>
