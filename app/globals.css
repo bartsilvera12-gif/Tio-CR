@@ -374,19 +374,15 @@ body {
 @keyframes ctaPulse {
   0%, 100% {
     box-shadow:
-      0 0 0 0 rgba(0, 224, 255, 0.85),
-      0 0 0 0 rgba(0, 201, 247, 0.5),
-      0 16px 44px -6px rgba(0, 201, 247, 0.7),
-      0 6px 18px rgba(0, 201, 247, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.75);
+      0 0 0 0 rgba(0, 201, 247, 0.45),
+      0 10px 26px -6px rgba(0, 201, 247, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
   }
   50% {
     box-shadow:
-      0 0 0 14px rgba(0, 224, 255, 0),
-      0 0 0 28px rgba(0, 201, 247, 0),
-      0 22px 60px -4px rgba(0, 224, 255, 1),
-      0 8px 22px rgba(0, 224, 255, 0.55),
-      inset 0 1px 0 rgba(255, 255, 255, 0.75);
+      0 0 0 10px rgba(0, 201, 247, 0),
+      0 14px 34px -4px rgba(0, 201, 247, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
   }
 }
 
@@ -409,8 +405,8 @@ body {
 
 /* ——— CTA shimmer sweep ——— */
 @keyframes ctaShimmer {
-  0% { transform: translateX(-120%) skewX(-20deg); }
-  100% { transform: translateX(220%) skewX(-20deg); }
+  0%, 100% { background-position: -200% 0; }
+  50% { background-position: 200% 0; }
 }
 
 /* Blob animado: deriva lenta, se deforma y respira */
@@ -509,70 +505,56 @@ body {
     @apply inline-flex items-center gap-2 rounded-full bg-brand-cyan px-6 py-3 text-sm font-semibold text-brand-ink transition-all duration-300 hover:bg-brand-cyanDark active:scale-95;
   }
   .btn-cta {
-    @apply relative inline-flex items-center gap-2.5 overflow-hidden rounded-full px-9 py-4 text-sm font-bold uppercase tracking-widest text-brand-ink transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.06] active:scale-95;
-    background: linear-gradient(120deg, #A5EAFF 0%, #7DE1FF 25%, #00E0FF 50%, #00C9F7 75%, #00A6D6 100%);
-    background-size: 250% 250%;
-    animation:
-      ctaPulse 1.8s ease-in-out infinite,
-      ctaFloat 3s ease-in-out infinite,
-      ctaBgShift 4s ease-in-out infinite;
+    @apply relative inline-flex items-center gap-2 rounded-full px-7 py-3 text-sm font-bold uppercase tracking-widest text-brand-ink transition-[transform,filter,box-shadow] duration-300 ease-out active:scale-95;
+    background: linear-gradient(135deg, #7DE1FF 0%, #00C9F7 55%, #00A6D6 100%);
+    transform-origin: center;
+    will-change: transform, filter;
+    animation: ctaPulse 3s ease-in-out infinite;
+    z-index: 0;
   }
-  /* Anillo rotativo conico detrás del botón */
+  /* Halo cian sutil detrás del botón — solo aporta glow, sin girar */
   .btn-cta::after {
     content: '';
     position: absolute;
-    inset: -3px;
+    inset: -2px;
     z-index: -1;
     border-radius: 9999px;
-    background: conic-gradient(from 0deg, #00E0FF, #7DE1FF, #00C9F7, #A5EAFF, #00E0FF);
-    animation: ctaSpin 3s linear infinite;
-    filter: blur(6px);
-    opacity: 0.9;
+    background: linear-gradient(135deg, #7DE1FF, #00C9F7, #00A6D6);
+    filter: blur(8px);
+    opacity: 0.45;
+    transition: inset 0.3s ease-out, filter 0.3s ease-out, opacity 0.3s ease-out;
   }
-  /* Shimmer sweep encima */
+  /* Shimmer sutil */
   .btn-cta::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(100deg, transparent 20%, rgba(255,255,255,0.85) 50%, transparent 80%);
-    width: 50%;
-    animation: ctaShimmer 1.8s ease-in-out infinite;
+    border-radius: inherit;
+    overflow: hidden;
+    background: linear-gradient(100deg, transparent 25%, rgba(255,255,255,0.5) 50%, transparent 75%);
+    background-size: 200% 100%;
+    background-position: -200% 0;
+    animation: ctaShimmer 4s ease-in-out infinite;
     pointer-events: none;
     z-index: 0;
-    mix-blend-mode: overlay;
+    opacity: 0.7;
   }
   .btn-cta > * { position: relative; z-index: 1; }
   .btn-cta .cta-arrow {
     transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
+  /* Hover: SIN cambios de layout — solo transform (scale) + filter + halo */
   .btn-cta:hover {
-    transform: translateY(-4px) scale(1.08);
-    filter: brightness(1.15) saturate(1.25);
-    letter-spacing: 0.13em;
-    animation:
-      ctaPulse 1.2s ease-in-out infinite,
-      ctaFloat 3s ease-in-out infinite,
-      ctaBgShift 2s ease-in-out infinite,
-      ctaHoverKick 0.4s ease-out;
+    transform: scale(1.04);
+    filter: brightness(1.08);
   }
   .btn-cta:hover::after {
-    inset: -7px;
-    filter: blur(14px);
-    opacity: 1;
-    animation: ctaSpin 1s linear infinite;
-  }
-  .btn-cta:hover::before {
-    animation: ctaShimmer 1.1s ease-in-out infinite;
+    inset: -5px;
+    filter: blur(12px);
+    opacity: 0.75;
   }
   .btn-cta:hover .cta-arrow {
-    transform: translateX(12px) scale(1.25);
-    filter: drop-shadow(0 0 6px rgba(0,224,255,0.9));
-  }
-  /* Rebote al empezar el hover */
-  @keyframes ctaHoverKick {
-    0% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-6px) scale(1.11); }
-    100% { transform: translateY(-4px) scale(1.08); }
+    transform: translateX(4px);
   }
   .btn-ghost {
     @apply inline-flex items-center gap-2 rounded-full border border-brand-ink/15 px-6 py-3 text-sm font-semibold text-brand-ink transition hover:border-brand-ink/40;
