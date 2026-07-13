@@ -57,10 +57,9 @@ export default function Propuesta() {
 
       <div className="container relative">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-cyanDark">
-            <span className="h-[2px] w-8 rounded-full bg-brand-cyan" />
+          <span className="inline-flex items-center gap-2.5 rounded-full border border-brand-cyan/40 bg-brand-cyan/10 px-6 py-2.5 text-base font-bold uppercase tracking-[0.25em] text-brand-cyanDark shadow-[0_4px_18px_-6px_rgba(0,201,247,0.4)]">
+            <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-brand-cyan" />
             Propuesta de inversión
-            <span className="h-[2px] w-8 rounded-full bg-brand-cyan" />
           </span>
           <h2 className="mt-5 font-display text-4xl font-bold tracking-tight text-brand-ink md:text-5xl">
             Una inversión clara y transparente

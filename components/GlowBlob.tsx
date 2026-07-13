@@ -23,11 +23,11 @@ export default function GlowBlob({
   return (
     <div
       aria-hidden
-      className={`pointer-events-none absolute blur-[110px] ${animClass} ${className}`}
+      className={`pointer-events-none absolute blur-[90px] ${animClass} ${className}`}
       style={{
         background: `rgba(0, 201, 247, ${opacity})`,
         borderRadius: radius,
-        ...(animated ? {} : { transform: `rotate(${rotate}deg)` }),
+        transform: `${animated ? '' : `rotate(${rotate}deg) `}translateZ(0)`,
       }}
     />
   )
