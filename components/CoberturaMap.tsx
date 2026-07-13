@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { liquidMetalFragmentShader, ShaderMount } from '@paper-design/shaders'
 import { createPortal } from 'react-dom'
 import { W, H, departments, markers } from '@/lib/map-data'
 import { carteles, type Cartel } from '@/lib/carteles'
@@ -28,6 +29,41 @@ export default function CoberturaMap() {
   const [hovered, setHovered] = useState<Marker | null>(null)
   const [mounted, setMounted] = useState(false)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const shaderRef = useRef<HTMLDivElement>(null)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const shaderMount = useRef<any>(null)
+
+  // Liquid metal shader solo en el borde exterior de Paraguay (masked por pyOuterMask)
+  useEffect(() => {
+    if (!shaderRef.current) return
+    try {
+      shaderMount.current = new ShaderMount(
+        shaderRef.current,
+        liquidMetalFragmentShader,
+        {
+          u_repetition: 3,
+          u_softness: 0.55,
+          u_shiftRed: 0.25,
+          u_shiftBlue: 0.25,
+          u_distortion: 0.15,
+          u_contour: 0,
+          u_angle: 60,
+          u_scale: 5,
+          u_shape: 1,
+          u_offsetX: 0,
+          u_offsetY: 0,
+        },
+        undefined,
+        0.35,
+      )
+    } catch (err) {
+      console.error('[CoberturaMap] shader failed:', err)
+    }
+    return () => {
+      if (shaderMount.current?.destroy) shaderMount.current.destroy()
+      shaderMount.current = null
+    }
+  }, [])
 
   const showTooltip = (p: Marker) => {
     if (closeTimer.current) clearTimeout(closeTimer.current)
@@ -81,6 +117,27 @@ export default function CoberturaMap() {
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
+          {/* Mask: solo el anillo exterior de Paraguay (bloat blanco → hollow negro deja solo el borde) */}
+          <mask id="pyOuterMask">
+            {departments.map((d: { name: string; d: string }) => (
+              <path
+                key={`bloat-${d.name}`}
+                d={d.d}
+                fill="white"
+                stroke="white"
+                strokeWidth="6"
+                strokeLinejoin="round"
+              />
+            ))}
+            {departments.map((d: { name: string; d: string }) => (
+              <path
+                key={`hollow-${d.name}`}
+                d={d.d}
+                fill="black"
+                stroke="none"
+              />
+            ))}
+          </mask>
         </defs>
 
         {departments.map((d: { name: string; d: string }) => (
@@ -94,6 +151,18 @@ export default function CoberturaMap() {
             strokeLinejoin="round"
           />
         ))}
+
+        {/* Liquid metal SOLO en el anillo exterior de Paraguay */}
+        <g mask="url(#pyOuterMask)" style={{ pointerEvents: 'none' }}>
+          <foreignObject x="0" y="0" width={W} height={H}>
+            <div
+              ref={shaderRef}
+              // @ts-expect-error xmlns necesario para render dentro de foreignObject
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+            />
+          </foreignObject>
+        </g>
 
         <polyline
           points={pins.map((p) => `${p.x},${p.y}`).join(' ')}
