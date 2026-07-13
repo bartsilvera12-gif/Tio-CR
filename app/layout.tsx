@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Manrope, Inter } from 'next/font/google'
 import './globals.css'
+import SpotlightPointer from '@/components/SpotlightPointer'
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -36,7 +37,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={`${manrope.variable} ${inter.variable}`}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <SpotlightPointer />
+        {children}
+      </body>
     </html>
   )
 }

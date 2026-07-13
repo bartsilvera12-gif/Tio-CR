@@ -119,7 +119,7 @@ export default function Servicios() {
                 <div className="card-flip3d">
                   {/* ---- Cara frontal: vidrio azul ---- */}
                   <div
-                    className="card-face relative flex h-full flex-col overflow-hidden rounded-2xl p-6 text-white"
+                    className="spotlight-card card-face relative flex h-full flex-col overflow-hidden rounded-2xl p-6 text-white"
                     style={{
                       background:
                         'linear-gradient(150deg, rgba(14,34,71,0.72) 0%, rgba(6,20,40,0.78) 100%)',
@@ -172,7 +172,7 @@ export default function Servicios() {
 
                   {/* ---- Cara trasera ---- */}
                   <div
-                    className="card-face card-face-back flex flex-col items-center justify-center gap-6 overflow-hidden rounded-2xl p-8 text-center"
+                    className="spotlight-card card-face card-face-back flex flex-col items-center justify-center gap-6 overflow-hidden rounded-2xl p-8 text-center"
                     style={{
                       background:
                         'linear-gradient(150deg, rgba(14,34,71,0.72) 0%, rgba(6,20,40,0.78) 100%)',

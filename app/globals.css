@@ -551,3 +551,59 @@ body {
 /* Aísla el ticker del resto del layout — sus animaciones no fuerzan reflow global */
 .ticker-marquee  { contain: layout paint style; }
 .condiciones-marquee { contain: layout paint style; }
+/* ============================================================
+   SPOTLIGHT CARD — borde brillante que sigue al cursor
+   ============================================================
+   Aplicá clase .spotlight-card a cualquier card ya estilada.
+   El puntero se rastrea en :root vía <SpotlightPointer />.
+*/
+:root {
+  --pointer-x: 0px;
+  --pointer-y: 0px;
+}
+
+.spotlight-card {
+  position: relative;
+  isolation: isolate;
+}
+.spotlight-card::before,
+.spotlight-card::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: -1px;
+  border: 2px solid transparent;
+  border-radius: inherit;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: calc(100% + 4px) calc(100% + 4px);
+  -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+          mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+  -webkit-mask-clip: padding-box, border-box;
+          mask-clip: padding-box, border-box;
+  -webkit-mask-composite: source-in;
+          mask-composite: intersect;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.35s ease-out;
+}
+.spotlight-card:hover::before,
+.spotlight-card:hover::after {
+  opacity: 1;
+}
+.spotlight-card::before {
+  background-image: radial-gradient(
+    200px 200px at var(--pointer-x) var(--pointer-y),
+    hsl(190 100% 55%),
+    transparent 60%
+  );
+  filter: brightness(1.6) saturate(1.4);
+}
+.spotlight-card::after {
+  background-image: radial-gradient(
+    120px 120px at var(--pointer-x) var(--pointer-y),
+    hsl(0 0% 100%),
+    transparent 55%
+  );
+}

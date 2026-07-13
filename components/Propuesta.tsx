@@ -74,7 +74,7 @@ export default function Propuesta() {
           {/* Card izquierda: qué incluye */}
           <Reveal direction="below">
             <div
-              className="group relative flex h-full flex-col overflow-hidden rounded-3xl p-8 text-white md:p-10"
+              className="spotlight-card group relative flex h-full flex-col overflow-hidden rounded-3xl p-8 text-white md:p-10"
               style={glassCardStyle}
             >
               {/* Glow interno cian */}
@@ -118,7 +118,7 @@ export default function Propuesta() {
           {/* Card derecha: condiciones */}
           <Reveal direction="below" delay={140}>
             <div
-              className="relative h-full overflow-hidden rounded-3xl p-8 text-white md:p-10"
+              className="spotlight-card relative h-full overflow-hidden rounded-3xl p-8 text-white md:p-10"
               style={glassCardStyle}
             >
               <div className="mb-6 text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
