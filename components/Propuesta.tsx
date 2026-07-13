@@ -32,7 +32,7 @@ export default function Propuesta() {
       id="propuesta"
       className="relative overflow-hidden py-24 text-brand-ink md:py-32"
       style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)), url(/fondo2.jpg)',
+        backgroundImage: 'linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0)), url(/fondo2.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
