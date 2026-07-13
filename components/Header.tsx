@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
+import { LiquidMetalButton } from './ui/liquid-metal-button'
 
 const links = [
   { href: '/#inicio', label: 'Inicio' },
@@ -79,21 +80,8 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <a href="/#contacto" className="btn-cta uppercase tracking-widest">
-            <span>Solicitar presupuesto</span>
-            <svg
-              className="cta-arrow"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M5 12h14M13 6l6 6-6 6" />
-            </svg>
+          <a href="/#contacto" aria-label="Solicitar presupuesto" className="inline-block">
+            <LiquidMetalButton label="Solicitar presupuesto" />
           </a>
         </div>
 
