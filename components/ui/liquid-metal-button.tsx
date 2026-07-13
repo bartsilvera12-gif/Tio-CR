@@ -142,14 +142,16 @@ export function LiquidMetalButton({
         transition: 'filter 0.4s ease',
       }}
     >
-      {/* Anillo cian pulsante detrás del botón */}
+      {/* Halo detrás — cian para variant cyan, gris/blanco para dark */}
       <div
         aria-hidden
         style={{
           position: 'absolute',
           inset: -6,
           borderRadius: 100,
-          background: 'radial-gradient(closest-side, rgba(0,201,247,0.35), transparent 70%)',
+          background: isCyan
+            ? 'radial-gradient(closest-side, rgba(0,201,247,0.35), transparent 70%)'
+            : 'radial-gradient(closest-side, rgba(200,200,210,0.35), transparent 70%)',
           filter: 'blur(14px)',
           opacity: isHovered ? 1 : 0,
           transform: isHovered ? 'scale(1.15)' : 'scale(1)',
@@ -169,8 +171,10 @@ export function LiquidMetalButton({
               ? 'translateY(-3px) scale(1.06) rotateX(-6deg)'
               : 'translateY(0) scale(1) rotateX(0deg)',
             filter: isHovered
-              ? 'drop-shadow(0 8px 22px rgba(0, 201, 247, 0.55)) drop-shadow(0 3px 10px rgba(0, 201, 247, 0.35))'
-              : 'drop-shadow(0 0 0 rgba(0, 201, 247, 0))',
+              ? (isCyan
+                ? 'drop-shadow(0 8px 22px rgba(0, 201, 247, 0.55)) drop-shadow(0 3px 10px rgba(0, 201, 247, 0.35))'
+                : 'drop-shadow(0 10px 26px rgba(0, 0, 0, 0.55)) drop-shadow(0 3px 10px rgba(255, 255, 255, 0.08))')
+              : 'drop-shadow(0 0 0 rgba(0, 0, 0, 0))',
           }}
         >
           <div
@@ -206,7 +210,7 @@ export function LiquidMetalButton({
                   textShadow: isCyan
                     ? '0 1px 0 rgba(255,255,255,0.35)'
                     : (isHovered
-                      ? '0px 0px 8px rgba(0, 201, 247, 0.7), 0px 1px 2px rgba(0, 0, 0, 0.6)'
+                      ? '0px 0px 10px rgba(255, 255, 255, 0.55), 0px 1px 2px rgba(0, 0, 0, 0.7)'
                       : '0px 1px 2px rgba(0, 0, 0, 0.5)'),
                   transition: 'color 0.3s ease, letter-spacing 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), text-shadow 0.3s ease',
                   transform: 'scale(1)',

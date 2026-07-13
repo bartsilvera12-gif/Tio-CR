@@ -82,7 +82,16 @@ function DualIcon({
 
 export default function Servicios() {
   return (
-    <section id="servicios" className="relative overflow-hidden bg-white pt-8 pb-16 text-brand-ink md:pt-10 md:pb-20">
+    <section
+      id="servicios"
+      className="relative overflow-hidden pt-8 pb-16 text-brand-ink md:pt-10 md:pb-20"
+      style={{
+        backgroundImage: 'linear-gradient(rgba(248,250,252,0.90), rgba(248,250,252,0.90)), url(/fondo1.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
       {/* Blob principal: grande, visible y animado */}
       <GlowBlob
         className="right-[-8%] top-[5%] h-[700px] w-[920px]"
