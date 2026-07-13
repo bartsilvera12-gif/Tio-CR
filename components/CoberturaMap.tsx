@@ -110,48 +110,54 @@ export default function CoberturaMap() {
             <stop offset="0" stopColor="#4A5A70" />
             <stop offset="1" stopColor="#1E2836" />
           </linearGradient>
-          {/* Máscara: solo se ve donde los strokes están dibujados en blanco */}
-          <mask id="paraguayBorderMask">
+          {/* Máscara: silueta exterior de Paraguay (anillo) + pines */}
+          <mask id="pmMask">
+            {/* Silueta bloated: cada depto con stroke blanco grueso — crea un ring exterior de ~3px */}
             {departments.map((d: { name: string; d: string }) => (
               <path
-                key={d.name}
+                key={`bloat-${d.name}`}
                 d={d.d}
-                fill="none"
+                fill="white"
                 stroke="white"
-                strokeWidth="3.5"
+                strokeWidth="6"
                 strokeLinejoin="round"
               />
             ))}
+            {/* Hollow: rellenamos el interior con negro para dejar SOLO el borde exterior */}
+            {departments.map((d: { name: string; d: string }) => (
+              <path
+                key={`hollow-${d.name}`}
+                d={d.d}
+                fill="black"
+                stroke="none"
+              />
+            ))}
+            {/* Pines: rellenos blancos en la máscara */}
+            {pins.map((p) => (
+              <g key={`mp-${p.key}`} transform={`translate(${p.x} ${p.y})`}>
+                <path
+                  d="M0 0 C -7 -11 -15 -18 -15 -29 A 15 15 0 1 1 15 -29 C 15 -18 7 -11 0 0 Z"
+                  fill="white"
+                />
+                <circle cx="0" cy="-29" r="6" fill="white" />
+              </g>
+            ))}
           </mask>
-          <filter id="pinGlow" x="-60%" y="-60%" width="220%" height="220%">
-            <feGaussianBlur stdDeviation="3.5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
         </defs>
 
-        {/* Relleno del mapa: gris azulado sólido */}
+        {/* Relleno interior — gris azulado (sin bordes internos) */}
         {departments.map((d: { name: string; d: string }) => (
-          <path
-            key={`fill-${d.name}`}
-            d={d.d}
-            fill="url(#mapFill)"
-          />
+          <path key={`fill-${d.name}`} d={d.d} fill="url(#mapFill)" />
         ))}
 
-        {/* Liquid metal SOLO en los bordes — masked por los strokes de los departamentos */}
-        <g mask="url(#paraguayBorderMask)">
+        {/* Liquid metal: solo se ve en la silueta exterior + los pines */}
+        <g mask="url(#pmMask)">
           <foreignObject x="0" y="0" width={W} height={H}>
             <div
               ref={shaderRef}
               // @ts-expect-error xmlns necesario para render dentro de foreignObject
               xmlns="http://www.w3.org/1999/xhtml"
-              style={{
-                width: '100%',
-                height: '100%',
-              }}
+              style={{ width: '100%', height: '100%' }}
             />
           </foreignObject>
         </g>
@@ -167,22 +173,21 @@ export default function CoberturaMap() {
           style={{ animation: 'mapDash 5s linear infinite' }}
         />
 
+        {/* Click targets transparentes — el visual lo pinta el shader vía la mask */}
         {pins.map((p) => (
           <g key={p.key} transform={`translate(${p.x} ${p.y})`}>
             <g
               className="map-pin"
-              filter="url(#pinGlow)"
               onClick={() => setSelected(byKey.get(p.key) ?? null)}
               onMouseEnter={() => showTooltip(p)}
               onMouseLeave={scheduleClose}
+              style={{ cursor: 'pointer' }}
             >
               <path
                 d="M0 0 C -7 -11 -15 -18 -15 -29 A 15 15 0 1 1 15 -29 C 15 -18 7 -11 0 0 Z"
-                fill="#061428"
-                stroke="#00E5FF"
-                strokeWidth="2.5"
+                fill="transparent"
               />
-              <circle cx="0" cy="-29" r="6" fill="#00E5FF" />
+              <circle cx="0" cy="-29" r="6" fill="transparent" />
             </g>
           </g>
         ))}
