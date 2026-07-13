@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react'
 import { carteles, type Cartel } from '@/lib/carteles'
 import GlowBlob from '@/components/GlowBlob'
 
-const routeSlug = (r: string) => r.toLowerCase().replace(/\s+/g, '-')
+const routeSlug = (r: string) => r.toLowerCase().replace(/^ruta\s+/, '').replace(/\s+/g, '-')
 
 /** Rutas únicas presentes en los carteles, en orden numérico */
 const uniqueRoutes = Array.from(new Set(carteles.map((c) => c.route))).sort()
@@ -114,7 +114,7 @@ export default function GaleriaCliente() {
                   src={p.src}
                   alt={`${p.cartel.city} — ${p.cartel.route}`}
                   loading="lazy"
-                  className="h-full w-full scale-[1.05] object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.14]"
+                  className="h-full w-full scale-[1.06] object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.16]"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(ellipse_at_top,rgba(0,201,247,0.32),transparent_60%)] mix-blend-overlay" />
