@@ -260,30 +260,30 @@ export default function Servicios() {
                     className="relative z-10 h-auto w-full drop-shadow-[0_25px_35px_rgba(0,0,0,0.55)]"
                   />
 
-                  {/* Logo TIO CR sobre el primer panel central grande del refugio */}
+                  {/* Logo TIO CR sobre el panel lateral IZQUIERDO (standalone) del refugio */}
                   <div
                     className="pointer-events-none absolute z-20"
                     style={{
-                      left: '40%',
-                      top: '33%',
-                      width: '9%',
-                      aspectRatio: '3 / 5.2',
+                      left: '20.5%',
+                      top: '30%',
+                      width: '13%',
+                      height: '45%',
                     }}
                   >
                     <div
-                      className="flex h-full w-full items-center justify-center rounded-[2px] overflow-hidden"
+                      className="flex h-full w-full items-center justify-center rounded-[3px] overflow-hidden"
                       style={{
                         background: 'linear-gradient(180deg, #FFFFFF 0%, #F0F4FA 100%)',
-                        boxShadow: 'inset 0 0 8px rgba(0,201,247,0.4), 0 4px 10px rgba(0,0,0,0.55)',
-                        transform: 'perspective(400px) rotateY(-2deg)',
-                        transformOrigin: 'center',
+                        boxShadow: 'inset 0 0 10px rgba(0,201,247,0.45), 0 6px 14px rgba(0,0,0,0.6)',
+                        transform: 'perspective(500px) rotateY(6deg)',
+                        transformOrigin: 'right center',
                       }}
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="/logo.png"
                         alt="TIO CR"
-                        className="h-auto w-[85%]"
+                        className="h-auto w-[88%]"
                         style={{ filter: 'contrast(1.1)' }}
                       />
                     </div>

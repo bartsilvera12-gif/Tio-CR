@@ -65,10 +65,6 @@ export default function Propuesta() {
           <h2 className="mt-5 font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
             Una inversión clara y transparente
           </h2>
-          <p className="mt-5 text-lg text-white/70">
-            Un servicio integral con todo lo necesario para poner tu marca en
-            la ruta — sin costos ocultos ni sorpresas.
-          </p>
         </Reveal>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
