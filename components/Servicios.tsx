@@ -1,7 +1,7 @@
 import { servicios } from '@/lib/data'
 import Reveal from './Reveal'
 import GlowBlob from './GlowBlob'
-import RefugioParallax from './RefugioParallax'
+import ParadaScene from './ParadaScene'
 
 const iconos: Record<string, React.ReactNode> = {
   // Cartel de ruta: pantalla limpia sobre poste central
@@ -230,13 +230,8 @@ export default function Servicios() {
             ============================================================ */}
         <div className="mt-20 md:mt-28">
           <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr] lg:gap-12">
-            {/* IZQUIERDA — imagen con parallax invertido al mouse */}
+            {/* IZQUIERDA — card con el texto */}
             <Reveal direction="left-clean">
-              <RefugioParallax />
-            </Reveal>
-
-            {/* DERECHA — texto DENTRO de una card navy */}
-            <Reveal direction="right-clean" delay={140}>
               <div
                 className="relative overflow-hidden rounded-3xl p-8 md:p-10"
                 style={{
@@ -310,6 +305,11 @@ export default function Servicios() {
                   </div>
                 </div>
               </div>
+            </Reveal>
+
+            {/* DERECHA — escena interactiva: la parada se eleva al hover */}
+            <Reveal direction="right-clean" delay={140}>
+              <ParadaScene />
             </Reveal>
           </div>
         </div>
