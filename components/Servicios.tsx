@@ -230,16 +230,19 @@ export default function Servicios() {
       {/* ============================================================
           Refugio de buses — banda full-width con la calle nocturna de fondo
           ============================================================ */}
+      {/* Divisor: funde el cielo de fondo2 hacia el negro nocturno */}
+      <div className="mt-16 h-36 w-full bg-gradient-to-b from-transparent via-[#080C12]/60 to-[#080C12] md:mt-24 md:h-44" />
+
       <div
-        className="relative mt-16 md:mt-24"
+        className="relative bg-[#080C12]"
         style={{
           backgroundImage: 'url(/fondo3.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center bottom',
         }}
       >
-        {/* Degradés para fundir la banda con la sección */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/30 to-transparent" />
+        {/* Suavizado del borde superior de la banda */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#080C12] to-transparent" />
         <div className="container relative py-16 md:py-24">
           <div className="grid items-center gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
             {/* IZQUIERDA — card con el texto */}

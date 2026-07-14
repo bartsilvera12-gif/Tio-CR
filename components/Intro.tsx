@@ -3,7 +3,7 @@ import GlowBlob from './GlowBlob'
 
 export default function Intro() {
   return (
-    <section className="relative overflow-hidden bg-brand-navy py-24 text-white md:py-32">
+    <section className="relative overflow-hidden bg-black py-24 text-white md:py-32">
       {/* Fade desde el negro del hero */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent" />
       {/* Blobs cian difuminados en el fondo */}
