@@ -241,11 +241,11 @@ export default function Servicios() {
         {/* Degradés para fundir la banda con la sección */}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/30 to-transparent" />
         <div className="container relative py-16 md:py-24">
-          <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr] lg:gap-12">
+          <div className="grid items-center gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
             {/* IZQUIERDA — card con el texto */}
             <Reveal direction="left-clean">
               <div
-                className="relative overflow-hidden rounded-3xl p-8 md:p-10"
+                className="relative overflow-hidden rounded-3xl p-6 md:p-8"
                 style={{
                   background: 'linear-gradient(150deg, rgba(14,34,71,0.94) 0%, rgba(6,20,40,0.97) 100%)',
                   border: '1px solid rgba(255,255,255,0.16)',

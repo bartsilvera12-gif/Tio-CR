@@ -4,7 +4,7 @@
     Al hover se eleva, escala levemente y proyecta sombra. */
 export default function ParadaScene() {
   return (
-    <div className="group relative mx-auto w-full max-w-[880px]">
+    <div className="group relative mx-auto w-full max-w-none lg:scale-[1.08] lg:origin-left">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/parada3.webp"
