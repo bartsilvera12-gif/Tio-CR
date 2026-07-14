@@ -89,7 +89,7 @@ export default function Propuesta() {
           {/* CTA titilante — columna derecha */}
           <Reveal direction="right" delay={200}>
             <div className="flex flex-col items-center gap-6 text-center">
-              <p className="max-w-sm text-lg text-white/80" style={{ textShadow: '0 2px 14px rgba(0,0,0,0.6)' }}>
+              <p className="max-w-sm text-lg font-semibold text-black">
                 ¿Listo para poner tu marca en la ruta?
               </p>
               <a
@@ -111,9 +111,6 @@ export default function Propuesta() {
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
               </a>
-              <p className="text-sm text-white/60" style={{ textShadow: '0 1px 10px rgba(0,0,0,0.6)' }}>
-                Respondemos en menos de 24 horas hábiles.
-              </p>
             </div>
           </Reveal>
         </div>

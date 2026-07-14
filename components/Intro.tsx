@@ -172,26 +172,6 @@ function Billboard() {
               <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 screen-sheen bg-gradient-to-r from-transparent via-white/25 to-transparent" />
             </div>
           </div>
-
-          {/* Rayos de luz — mismo sistema de coordenadas que los reflectores,
-              por encima del video (z-30), nacen justo bajo cada lámpara */}
-          <div className="pointer-events-none absolute inset-0 z-30 overflow-hidden rounded-[22px]">
-            {spots.map((left, i) => (
-              <div
-                key={i}
-                className="absolute top-0 h-full w-[110px] -translate-x-1/2"
-                style={{
-                  left: `${left}%`,
-                  background:
-                    'linear-gradient(to bottom, rgba(220,245,255,0.6) 0%, rgba(160,225,250,0.28) 45%, rgba(160,225,250,0.04) 85%, transparent 100%)',
-                  clipPath: 'polygon(40% 0, 60% 0, 100% 100%, 0% 100%)',
-                  mixBlendMode: 'screen',
-                  filter: 'blur(9px)',
-                  animation: `beamPulse ${3 + i * 0.3}s ease-in-out infinite`,
-                }}
-              />
-            ))}
-          </div>
         </div>
 
         {/* ---- Poste vertical ---- */}
