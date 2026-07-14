@@ -32,7 +32,7 @@ export default function Propuesta() {
       id="propuesta"
       className="relative overflow-hidden py-24 text-white md:py-32"
       style={{
-        backgroundImage: 'url(/fondo2.jpg)',
+        backgroundImage: 'url(/fondo2.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

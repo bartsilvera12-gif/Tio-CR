@@ -86,7 +86,7 @@ export default function Servicios() {
       id="servicios"
       className="relative overflow-hidden pt-8 pb-16 text-brand-ink md:pt-10 md:pb-20"
       style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0)), url(/fondo2.jpg)',
+        backgroundImage: 'linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0)), url(/fondo2.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

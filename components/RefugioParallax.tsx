@@ -68,8 +68,10 @@ export default function RefugioParallax() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/colectivo.png"
+          src="/colectivo.webp"
           alt="Refugio de buses TIO CR"
+          loading="lazy"
+          decoding="async"
           className="relative z-10 h-auto w-full drop-shadow-[0_25px_35px_rgba(0,0,0,0.55)]"
         />
       </div>
