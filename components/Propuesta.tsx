@@ -30,13 +30,7 @@ export default function Propuesta() {
   return (
     <section
       id="propuesta"
-      className="relative overflow-hidden py-24 text-brand-ink md:py-32"
-      style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0)), url(/fondo2.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-      }}
+      className="relative overflow-hidden bg-brand-navy py-24 text-white md:py-32"
     >
       {/* Blob principal grande cruzando ambas cards */}
       <GlowBlob
@@ -63,14 +57,15 @@ export default function Propuesta() {
 
       <div className="container relative">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2.5 rounded-full border-2 border-brand-cyan/70 bg-brand-navyDeep px-6 py-2.5 text-base font-bold uppercase tracking-[0.25em] text-brand-cyan shadow-[0_8px_28px_-6px_rgba(0,201,247,0.55),inset_0_1px_0_rgba(255,255,255,0.12)]">
-            <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-brand-cyan" />
+          <span className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
+            <span className="h-[2px] w-8 rounded-full bg-brand-cyan" />
             Propuesta de inversión
+            <span className="h-[2px] w-8 rounded-full bg-brand-cyan" />
           </span>
-          <h2 className="mt-5 font-display text-4xl font-bold tracking-tight text-brand-ink md:text-5xl" style={{ textShadow: "0 2px 24px rgba(255,255,255,0.65)" }}>
+          <h2 className="mt-5 font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
             Una inversión clara y transparente
           </h2>
-          <p className="mt-5 text-lg font-medium text-brand-ink/85" style={{ textShadow: "0 1px 12px rgba(255,255,255,0.7)" }}>
+          <p className="mt-5 text-lg text-white/70">
             Un servicio integral con todo lo necesario para poner tu marca en
             la ruta — sin costos ocultos ni sorpresas.
           </p>
