@@ -36,7 +36,7 @@ export default function RefugioParallax() {
       ref={wrapRef}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      className="relative mx-auto w-full max-w-[780px]"
+      className="relative mx-auto w-full max-w-[880px]"
       style={{ perspective: '1200px' }}
     >
       {/* Halo cian animado detrás */}
