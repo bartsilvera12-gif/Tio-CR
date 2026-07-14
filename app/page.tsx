@@ -7,7 +7,6 @@ import Propuesta from '@/components/Propuesta'
 import Galeria from '@/components/Galeria'
 import Contacto from '@/components/Contacto'
 import Footer from '@/components/Footer'
-import MarqueeTicker from '@/components/MarqueeTicker'
 import WhatsAppFloat from '@/components/WhatsAppFloat'
 
 export default function Home() {
@@ -23,7 +22,6 @@ export default function Home() {
         <Propuesta />
         <Contacto />
       </main>
-      <MarqueeTicker />
       <Footer />
       <WhatsAppFloat />
     </>

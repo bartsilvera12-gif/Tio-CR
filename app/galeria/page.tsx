@@ -1,6 +1,5 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import MarqueeTicker from '@/components/MarqueeTicker'
 import WhatsAppFloat from '@/components/WhatsAppFloat'
 import GaleriaCliente from './GaleriaCliente'
 import { Suspense } from 'react'
@@ -19,7 +18,6 @@ export default function Page() {
           <GaleriaCliente />
         </Suspense>
       </main>
-      <MarqueeTicker />
       <Footer />
       <WhatsAppFloat />
     </>
