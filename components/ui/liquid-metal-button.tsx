@@ -93,7 +93,7 @@ export function LiquidMetalButton({
               u_offsetY: -0.1,
             },
             undefined,
-            0.6,
+            0, // PERF: shader estático en reposo — solo anima al hover (libera GPU para el video del hero)
           )
         }
       } catch (error) {
@@ -118,14 +118,14 @@ export function LiquidMetalButton({
   const handleMouseLeave = () => {
     setIsHovered(false)
     setIsPressed(false)
-    shaderMount.current?.setSpeed?.(0.6)
+    shaderMount.current?.setSpeed?.(0)
   }
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (shaderMount.current?.setSpeed) {
       shaderMount.current.setSpeed(2.4)
       setTimeout(() => {
-        shaderMount.current?.setSpeed?.(isHovered ? 1 : 0.6)
+        shaderMount.current?.setSpeed?.(isHovered ? 1 : 0)
       }, 300)
     }
     if (buttonRef.current) {
