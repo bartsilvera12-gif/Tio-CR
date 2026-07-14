@@ -67,62 +67,47 @@ export default function Propuesta() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
-          {/* Card izquierda: qué incluye */}
-          <Reveal direction="left">
+        <div className="mx-auto mt-14 max-w-3xl">
+          <Reveal direction="below">
             <div
-              className="propuesta-card spotlight-card group relative flex h-full flex-col overflow-hidden rounded-3xl p-8 text-white transition-all duration-500 ease-out hover:-translate-y-2 md:p-10"
+              className="propuesta-card spotlight-card relative h-full overflow-hidden rounded-3xl p-8 text-white transition-all duration-500 ease-out hover:-translate-y-2 md:p-10"
               style={glassCardStyle}
             >
               {/* Glow interno cian */}
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(0,201,247,0.22),transparent_60%)]" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,201,247,0.22),transparent_60%)]" />
 
               <div className="relative">
-                <div className="text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
-                  Qué incluye
+                <div className="mb-6 text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
+                  Condiciones
                 </div>
 
-                <h3 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">
-                  Todo listo para salir a la ruta.
-                </h3>
-
-                <ul className="mt-8 space-y-4">
-                  {[
-                    { t: 'Impresión de la lona', s: 'La primera impresión va incluida en el contrato.' },
-                    { t: 'Instalación profesional', s: 'Equipo propio y protocolo de seguridad en altura.' },
-                    { t: 'Mantenimiento del cartel', s: 'Revisión periódica de la estructura y la lona.' },
-                    { t: 'Iluminación nocturna', s: 'En formatos aptos, sin costo adicional.' },
-                    { t: 'Informe fotográfico', s: 'Comprobante mensual de que tu campaña está en la calle.' },
-                  ].map((item) => (
-                    <li key={item.t} className="propuesta-item flex gap-3">
-                      <span className="propuesta-check mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-cyan/15 ring-1 ring-brand-cyan/40 transition-all duration-300 group-hover:bg-brand-cyan/30 group-hover:ring-brand-cyan/80 group-hover:scale-110 group-hover:shadow-[0_0_18px_rgba(0,201,247,0.6)]">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00C9F7" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M5 12l5 5L20 7" />
-                        </svg>
-                      </span>
-                      <div>
-                        <div className="text-base font-semibold text-white">{item.t}</div>
-                        <div className="text-sm text-white/60">{item.s}</div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+                <CondicionesCarousel items={condiciones} theme="dark" />
               </div>
-
             </div>
           </Reveal>
 
-          {/* Card derecha: condiciones */}
-          <Reveal direction="right" delay={220}>
-            <div
-              className="spotlight-card relative h-full overflow-hidden rounded-3xl p-8 text-white md:p-10"
-              style={glassCardStyle}
-            >
-              <div className="mb-6 text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
-                Condiciones
-              </div>
-
-              <CondicionesCarousel items={condiciones} theme="dark" />
+          {/* CTA titilante */}
+          <Reveal direction="below" delay={200}>
+            <div className="mt-10 flex justify-center">
+              <a
+                href="#contacto"
+                className="btn-cta btn-blink px-10 py-4 text-base uppercase tracking-widest"
+              >
+                <span>Solicitar propuesta</span>
+                <svg
+                  className="cta-arrow"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
             </div>
           </Reveal>
         </div>

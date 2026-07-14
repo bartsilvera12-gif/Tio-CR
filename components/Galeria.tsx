@@ -3,7 +3,7 @@ import GlowBlob from './GlowBlob'
 import { carteles } from '@/lib/carteles'
 
 /** Selección para el mosaico — mezcla ciudades con distintas rutas y escenarios */
-/* Mosaico del home: campañas reales con marca (Coca-Cola) + 2 TIO CR */
+/* Mosaico del home: solo campañas reales con marca */
 const featuredKeys = [
   'caacupe',
   'yaguaron',
@@ -11,8 +11,6 @@ const featuredKeys = [
   'pjc',
   'corpus',
   'villaflorida',
-  'obligado',
-  'yguazu',
 ] as const
 
 const featured = featuredKeys
@@ -62,10 +60,8 @@ export default function Galeria() {
               1: 'lg:col-span-1',
               2: 'lg:col-span-1',
               3: 'lg:col-span-2', // ancho abajo del 1 y 2
-              4: 'lg:col-span-1',
-              5: 'lg:col-span-1',
-              6: 'lg:col-span-1',
-              7: 'lg:col-span-1',
+              4: 'lg:col-span-2',
+              5: 'lg:col-span-2',
             }
             return (
               <Reveal
