@@ -1,5 +1,3 @@
-import AutoPauseVideo from './AutoPauseVideo'
-
 export default function Hero() {
   return (
     <section
@@ -9,11 +7,16 @@ export default function Hero() {
     >
       {/* Video de fondo self-hosted */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <AutoPauseVideo
-          src="/hero.mp4"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           preload="auto"
           className="absolute inset-0 h-full w-full object-cover"
-        />
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+        </video>
         {/* Overlay oscuro + degradado: transparente → negro → navy (funde con la próxima sección) */}
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black via-black via-[20%] to-transparent" />
