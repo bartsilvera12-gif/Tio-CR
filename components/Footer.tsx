@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container py-10">
         <div className="grid gap-6 md:grid-cols-3">
           <Reveal direction="left">
-            <img src="/logo.png" alt="TIOCR" className="h-8" />
+            <img src="/logo.webp" alt="TIOCR" className="h-8" />
             <p className="mt-4 max-w-xs text-sm text-white/60">
               Marketing y servicios publicitarios. Cartelería gigante y
               publicidad exterior en rutas e interior del Paraguay.

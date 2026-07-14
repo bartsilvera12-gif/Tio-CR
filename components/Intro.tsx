@@ -159,7 +159,7 @@ function Billboard() {
                 muted
                 loop
                 playsInline
-                preload="auto"
+                preload="metadata"
                 className="absolute inset-0 h-full w-full object-cover"
               >
                 <source src="/intro.mp4" type="video/mp4" />

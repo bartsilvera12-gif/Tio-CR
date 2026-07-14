@@ -26,7 +26,7 @@ export default function Hero() {
       {/* Solo el logo, sin texto — wrapper anima fade-in, img anima hover */}
       <div className="relative z-10 animate-fade-in px-6">
         <img
-          src="/logo-hero.png"
+          src="/logo-hero.webp"
           alt="TIOCR - Marketing y Servicios Publicitarios"
           className="w-[min(90vw,860px)] cursor-pointer transition-transform duration-500 ease-out hover:scale-[1.02]"
         />
@@ -69,4 +69,3 @@ export default function Hero() {
     </section>
   )
 }
-
