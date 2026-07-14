@@ -1,6 +1,7 @@
 import { servicios } from '@/lib/data'
 import Reveal from './Reveal'
 import GlowBlob from './GlowBlob'
+import RefugioParallax from './RefugioParallax'
 
 const iconos: Record<string, React.ReactNode> = {
   // Cartel de ruta: pantalla limpia sobre poste central
@@ -233,33 +234,9 @@ export default function Servicios() {
             ============================================================ */}
         <div className="mt-20 md:mt-28">
           <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr] lg:gap-12">
-            {/* IZQUIERDA — imagen flotando en el fondo de la sección */}
+            {/* IZQUIERDA — imagen con parallax invertido al mouse */}
             <Reveal direction="left-clean">
-              <div className="relative mx-auto max-w-[680px]">
-                {/* Halo cian animado detrás */}
-                <div
-                  className="pointer-events-none absolute inset-[5%] rounded-full"
-                  style={{
-                    background: 'radial-gradient(circle at 55% 60%, rgba(0,201,247,0.5), transparent 65%)',
-                    filter: 'blur(70px)',
-                  }}
-                />
-
-                {/* Reflejo cian debajo del refugio (piso brillante) */}
-                <div
-                  className="pointer-events-none absolute bottom-2 left-1/2 h-8 w-[65%] -translate-x-1/2 rounded-[50%] blur-2xl"
-                  style={{ background: 'radial-gradient(ellipse, rgba(0,201,247,0.55), transparent 70%)' }}
-                />
-
-                <div className="relative">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/colectivo.png"
-                    alt="Refugio de buses TIO CR"
-                    className="relative z-10 h-auto w-full drop-shadow-[0_25px_35px_rgba(0,0,0,0.55)]"
-                  />
-                </div>
-              </div>
+              <RefugioParallax />
             </Reveal>
 
             {/* DERECHA — texto DENTRO de una card navy */}
