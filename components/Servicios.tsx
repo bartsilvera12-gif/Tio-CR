@@ -110,7 +110,7 @@ export default function Servicios() {
             <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-brand-cyan" />
             Qué hacemos
           </span>
-          <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-brand-ink md:text-5xl" style={{ textShadow: "0 2px 24px rgba(255,255,255,0.65)" }}>
+          <h2 className="mt-3 font-display text-5xl font-bold tracking-tight text-white md:text-6xl" style={{ textShadow: "0 2px 24px rgba(0,0,0,0.6)" }}>
             Todo lo que necesitás para estar en la calle.
           </h2>
         </Reveal>
