@@ -29,6 +29,20 @@ export default function CoberturaMap() {
   const [hovered, setHovered] = useState<Marker | null>(null)
   const [mounted, setMounted] = useState(false)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const rootRef = useRef<HTMLDivElement>(null)
+  const [inView, setInView] = useState(true)
+
+  // Pausar la línea punteada animada cuando el mapa no está en pantalla
+  useEffect(() => {
+    const el = rootRef.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.05 }
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
   const shaderRef = useRef<HTMLDivElement>(null)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const shaderMount = useRef<any>(null)
@@ -95,7 +109,7 @@ export default function CoberturaMap() {
   const hoveredCartel = hovered ? byKey.get(hovered.key) : null
 
   return (
-    <div className="relative w-full max-w-[560px]">
+    <div ref={rootRef} className="relative w-full max-w-[560px]">
       {/* Halo suave detrás del mapa */}
       <div className="pointer-events-none absolute inset-[10%] -z-10 rounded-full bg-[radial-gradient(circle,rgba(0,201,247,0.18),transparent_70%)] blur-2xl" />
 
@@ -110,13 +124,6 @@ export default function CoberturaMap() {
             <stop offset="0" stopColor="#4A5A70" />
             <stop offset="1" stopColor="#1E2836" />
           </linearGradient>
-          <filter id="pinGlow" x="-60%" y="-60%" width="220%" height="220%">
-            <feGaussianBlur stdDeviation="3.5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
           {/* Mask: solo el anillo exterior de Paraguay (bloat blanco → hollow negro deja solo el borde) */}
           <mask id="pyOuterMask">
             {departments.map((d: { name: string; d: string }) => (
@@ -172,14 +179,13 @@ export default function CoberturaMap() {
           strokeOpacity="0.45"
           strokeDasharray="3 14"
           strokeLinecap="round"
-          style={{ animation: 'mapDash 5s linear infinite' }}
+          style={{ animation: 'mapDash 5s linear infinite', animationPlayState: inView ? 'running' : 'paused' }}
         />
 
         {pins.map((p) => (
           <g key={p.key} transform={`translate(${p.x} ${p.y})`}>
             <g
               className="map-pin"
-              filter="url(#pinGlow)"
               onClick={() => setSelected(byKey.get(p.key) ?? null)}
               onMouseEnter={() => showTooltip(p)}
               onMouseLeave={scheduleClose}

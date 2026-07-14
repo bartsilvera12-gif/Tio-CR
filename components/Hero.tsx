@@ -13,7 +13,9 @@ export default function Hero() {
           loop
           playsInline
           preload="auto"
+          poster="/hero-poster.webp"
           className="absolute inset-0 h-full w-full object-cover"
+          style={{ transform: 'translateZ(0)', willChange: 'transform' }}
         >
           <source src="/hero.mp4" type="video/mp4" />
         </video>
