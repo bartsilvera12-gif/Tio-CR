@@ -67,8 +67,8 @@ export default function Propuesta() {
           </h2>
         </Reveal>
 
-        <div className="mx-auto mt-14 max-w-3xl">
-          <Reveal direction="below">
+        <div className="mt-14 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+          <Reveal direction="left">
             <div
               className="propuesta-card spotlight-card relative h-full overflow-hidden rounded-3xl p-8 text-white transition-all duration-500 ease-out hover:-translate-y-2 md:p-10"
               style={glassCardStyle}
@@ -86,18 +86,21 @@ export default function Propuesta() {
             </div>
           </Reveal>
 
-          {/* CTA titilante */}
-          <Reveal direction="below" delay={200}>
-            <div className="mt-10 flex justify-center">
+          {/* CTA titilante — columna derecha */}
+          <Reveal direction="right" delay={200}>
+            <div className="flex flex-col items-center gap-6 text-center">
+              <p className="max-w-sm text-lg text-white/80" style={{ textShadow: '0 2px 14px rgba(0,0,0,0.6)' }}>
+                ¿Listo para poner tu marca en la ruta?
+              </p>
               <a
                 href="#contacto"
-                className="btn-cta btn-blink px-10 py-4 text-base uppercase tracking-widest"
+                className="btn-cta btn-blink px-12 py-6 text-lg uppercase tracking-widest"
               >
                 <span>Solicitar propuesta</span>
                 <svg
                   className="cta-arrow"
-                  width="18"
-                  height="18"
+                  width="20"
+                  height="20"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -108,6 +111,9 @@ export default function Propuesta() {
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
               </a>
+              <p className="text-sm text-white/60" style={{ textShadow: '0 1px 10px rgba(0,0,0,0.6)' }}>
+                Respondemos en menos de 24 horas hábiles.
+              </p>
             </div>
           </Reveal>
         </div>
