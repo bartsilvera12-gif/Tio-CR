@@ -112,7 +112,7 @@ export default function Refugios() {
         </Reveal>
 
         {/* Grid: 4 cards (2×2) a la izquierda + parada a la derecha */}
-        <div className="mt-12 grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
+        <div className="mt-12 grid items-center gap-8 lg:grid-cols-[1fr_1fr] lg:gap-10">
           <div className="grid gap-5 sm:grid-cols-2">
             {servicios.map((s, i) => (
               <Reveal key={s.titulo} delay={i * 120} as="article" className="h-full" direction="below">
@@ -132,7 +132,7 @@ export default function Refugios() {
                     >
                       {/* Ícono grande mitad blanco / mitad cian, en círculo */}
                       <div
-                        className="mb-4 inline-flex h-[72px] w-[72px] items-center justify-center rounded-full"
+                        className="mb-3 inline-flex h-16 w-16 items-center justify-center rounded-full"
                         style={{
                           background:
                             'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.12))',
@@ -140,13 +140,13 @@ export default function Refugios() {
                           boxShadow: '0 8px 24px -8px rgba(0,201,247,0.35)',
                         }}
                       >
-                        <DualIcon icono={s.icono} size={40} id={`grad-f-${s.icono}`} />
+                        <DualIcon icono={s.icono} size={36} id={`grad-f-${s.icono}`} />
                       </div>
 
-                      <h3 className="font-display text-2xl font-bold text-white">
+                      <h3 className="font-display text-[1.35rem] font-bold text-white">
                         {s.titulo}
                       </h3>
-                      <p className="mt-2.5 text-base text-white/70">{s.descripcion}</p>
+                      <p className="mt-2 text-[15px] text-white/70">{s.descripcion}</p>
 
                       <ul className="mt-5 space-y-2.5">
                         {s.detalles.map((d) => (
@@ -183,7 +183,7 @@ export default function Refugios() {
                     >
                       {/* Loguito grande en círculo */}
                       <div
-                        className="relative inline-flex h-24 w-24 items-center justify-center rounded-full"
+                        className="relative inline-flex h-20 w-20 items-center justify-center rounded-full"
                         style={{
                           background:
                             'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.14))',
@@ -191,10 +191,10 @@ export default function Refugios() {
                           boxShadow: '0 10px 30px -10px rgba(0,201,247,0.45)',
                         }}
                       >
-                        <DualIcon icono={s.icono} size={52} id={`grad-b-${s.icono}`} />
+                        <DualIcon icono={s.icono} size={46} id={`grad-b-${s.icono}`} />
                       </div>
 
-                      <h3 className="relative font-display text-2xl font-bold text-white">
+                      <h3 className="relative font-display text-[1.35rem] font-bold text-white">
                         {s.titulo}
                       </h3>
 
