@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { LiquidMetalButton } from './ui/liquid-metal-button'
 
 const links = [
   { href: '/#inicio', label: 'Inicio' },
@@ -80,8 +79,8 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:flex md:items-center">
-          <a href="/#contacto" aria-label="Solicitar presupuesto" className="inline-flex items-center">
-            <LiquidMetalButton label="Solicitar presupuesto" variant="white" width={280} height={54} animateIdle={scrolled} />
+          <a href="/#contacto" className="btn-header-pill">
+            <span className="btn-header-pill__label">Solicitar presupuesto</span>
           </a>
         </div>
 
