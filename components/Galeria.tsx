@@ -115,9 +115,12 @@ function GalleryCard({
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={src}
+        src={src.replace(/\.webp$/, '-sm.webp')}
+        srcSet={`${src.replace(/\.webp$/, '-sm.webp')} 600w, ${src} 1200w`}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
         alt={city}
         loading="lazy"
+        decoding="async"
         className="block h-full w-full scale-[1.06] object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.14]"
       />
 

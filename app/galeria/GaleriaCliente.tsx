@@ -1,11 +1,16 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { carteles, type Cartel } from '@/lib/carteles'
 import GlowBlob from '@/components/GlowBlob'
 
 const routeSlug = (r: string) => r.toLowerCase().replace(/^ruta\s+/, '').replace(/\s+/g, '-')
+
+/** /billboards/x.webp → /billboards/x-sm.webp (600px, para el grid) */
+const thumb = (src: string) => src.replace(/\.webp$/, '-sm.webp')
+
+const PAGE_SIZE = 24
 
 /** Rutas únicas presentes en los carteles, en orden numérico */
 const uniqueRoutes = Array.from(new Set(carteles.map((c) => c.route))).sort()
@@ -16,11 +21,15 @@ export default function GaleriaCliente() {
   const params = useSearchParams()
   const rutaParam = params.get('ruta')
   const [lightbox, setLightbox] = useState<Photo | null>(null)
+  const [limit, setLimit] = useState(PAGE_SIZE)
 
   const filtered = useMemo(() => {
     if (!rutaParam) return carteles
     return carteles.filter((c) => routeSlug(c.route) === rutaParam)
   }, [rutaParam])
+
+  // Reset de paginación al cambiar el filtro de ruta
+  useEffect(() => setLimit(PAGE_SIZE), [rutaParam])
 
   const photos: Photo[] = useMemo(
     () =>
@@ -102,7 +111,7 @@ export default function GaleriaCliente() {
           </div>
         ) : (
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {photos.map((p, i) => (
+            {photos.slice(0, limit).map((p, i) => (
               <button
                 key={`${p.cartel.key}-${p.idx}`}
                 onClick={() => setLightbox(p)}
@@ -111,9 +120,12 @@ export default function GaleriaCliente() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={p.src}
+                  src={thumb(p.src)}
+                  srcSet={`${thumb(p.src)} 600w, ${p.src} 1200w`}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                   alt={`${p.cartel.city} — ${p.cartel.route}`}
                   loading="lazy"
+                  decoding="async"
                   className="h-full w-full scale-[1.06] object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.16]"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent transition-opacity duration-500 group-hover:opacity-100" />
@@ -134,6 +146,21 @@ export default function GaleriaCliente() {
                 </div>
               </button>
             ))}
+          </div>
+        )}
+
+        {/* Cargar más */}
+        {photos.length > limit && (
+          <div className="mt-10 flex justify-center">
+            <button
+              onClick={() => setLimit((l) => l + PAGE_SIZE)}
+              className="btn-cta uppercase tracking-widest"
+            >
+              <span>Cargar más fotos ({photos.length - limit})</span>
+              <svg className="cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 5v14M6 13l6 6 6-6" />
+              </svg>
+            </button>
           </div>
         )}
       </div>
