@@ -628,6 +628,12 @@ body {
 .spotlight-card:hover::after {
   opacity: 1;
 }
+/* PERF: sin hover, los pseudo-elementos no se pintan — evita repaints
+   por background-attachment:fixed durante el scroll */
+.spotlight-card:not(:hover)::before,
+.spotlight-card:not(:hover)::after {
+  display: none;
+}
 .spotlight-card::before {
   background-image: radial-gradient(
     200px 200px at var(--pointer-x) var(--pointer-y),

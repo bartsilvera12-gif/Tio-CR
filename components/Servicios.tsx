@@ -131,8 +131,6 @@ export default function Servicios() {
                       border: '1px solid rgba(255,255,255,0.16)',
                       boxShadow:
                         'inset 0 1px 0 rgba(255,255,255,0.14), 0 22px 50px -18px rgba(6,20,40,0.45)',
-                      backdropFilter: 'blur(22px) saturate(150%)',
-                      WebkitBackdropFilter: 'blur(22px) saturate(150%)',
                     }}
                   >
                     {/* Ícono grande mitad blanco / mitad cian, en círculo */}
@@ -184,8 +182,6 @@ export default function Servicios() {
                       border: '1px solid rgba(255,255,255,0.16)',
                       boxShadow:
                         'inset 0 1px 0 rgba(255,255,255,0.1), 0 22px 50px -18px rgba(6,20,40,0.5)',
-                      backdropFilter: 'blur(22px) saturate(150%)',
-                      WebkitBackdropFilter: 'blur(22px) saturate(150%)',
                     }}
                   >
                     {/* Loguito grande en círculo */}
@@ -245,8 +241,6 @@ export default function Servicios() {
                 className="relative overflow-hidden rounded-3xl p-8 md:p-10"
                 style={{
                   background: 'linear-gradient(150deg, rgba(14,34,71,0.94) 0%, rgba(6,20,40,0.97) 100%)',
-                  backdropFilter: 'blur(22px) saturate(150%)',
-                  WebkitBackdropFilter: 'blur(22px) saturate(150%)',
                   border: '1px solid rgba(255,255,255,0.16)',
                   boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.14), 0 30px 60px -18px rgba(6,20,40,0.65), 0 0 60px -20px rgba(0,201,247,0.35)',
                 }}
