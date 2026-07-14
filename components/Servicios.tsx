@@ -230,21 +230,8 @@ export default function Servicios() {
       {/* ============================================================
           Refugio de buses — banda full-width con la calle nocturna de fondo
           ============================================================ */}
-      {/* Divisor: curva orgánica que entra al negro nocturno */}
-      <svg
-        className="mt-16 block h-16 w-full md:mt-24 md:h-24"
-        viewBox="0 0 1440 100"
-        preserveAspectRatio="none"
-        aria-hidden
-      >
-        <path
-          d="M0,100 L0,58 Q720,2 1440,58 L1440,100 Z"
-          fill="#080C12"
-        />
-      </svg>
-
       <div
-        className="relative -mt-px bg-[#080C12]"
+        className="relative mt-16 bg-[#080C12] md:mt-24"
         style={{
           backgroundImage: 'url(/fondo3.webp)',
           backgroundSize: 'cover',
@@ -258,11 +245,9 @@ export default function Servicios() {
             {/* IZQUIERDA — card con el texto */}
             <Reveal direction="left-clean">
               <div
-                className="relative overflow-hidden rounded-3xl p-6 md:p-8"
+                className="propuesta-card group relative overflow-hidden rounded-3xl p-6 transition-all duration-500 ease-out hover:-translate-y-2 md:p-8"
                 style={{
                   background: 'linear-gradient(150deg, rgba(14,34,71,0.94) 0%, rgba(6,20,40,0.97) 100%)',
-                  border: '1px solid rgba(255,255,255,0.16)',
-                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.14), 0 30px 60px -18px rgba(6,20,40,0.65), 0 0 60px -20px rgba(0,201,247,0.35)',
                 }}
               >
                 {/* Glow interno cian */}
