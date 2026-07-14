@@ -121,7 +121,7 @@ export default function Refugios() {
                   <div className="card-flip3d">
                     {/* ---- Cara frontal: vidrio azul ---- */}
                     <div
-                      className="card-face relative flex h-full flex-col overflow-hidden rounded-2xl p-6 text-white"
+                      className="card-face relative flex h-full flex-col overflow-hidden rounded-2xl p-5 text-white"
                       style={{
                         background:
                           'linear-gradient(150deg, rgba(14,34,71,0.94) 0%, rgba(6,20,40,0.97) 100%)',
@@ -132,7 +132,7 @@ export default function Refugios() {
                     >
                       {/* Ícono grande mitad blanco / mitad cian, en círculo */}
                       <div
-                        className="mb-3 inline-flex h-16 w-16 items-center justify-center rounded-full"
+                        className="mb-3 inline-flex h-14 w-14 items-center justify-center rounded-full"
                         style={{
                           background:
                             'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.12))',
@@ -140,17 +140,17 @@ export default function Refugios() {
                           boxShadow: '0 8px 24px -8px rgba(0,201,247,0.35)',
                         }}
                       >
-                        <DualIcon icono={s.icono} size={36} id={`grad-f-${s.icono}`} />
+                        <DualIcon icono={s.icono} size={32} id={`grad-f-${s.icono}`} />
                       </div>
 
                       <h3 className="font-display text-[1.35rem] font-bold text-white">
                         {s.titulo}
                       </h3>
-                      <p className="mt-2 text-[15px] text-white/70">{s.descripcion}</p>
+                      <p className="mt-2 text-sm leading-snug text-white/70">{s.descripcion}</p>
 
-                      <ul className="mt-5 space-y-2.5">
+                      <ul className="mt-4 space-y-2">
                         {s.detalles.map((d) => (
-                          <li key={d} className="flex items-center gap-2.5 text-sm text-white/70">
+                          <li key={d} className="flex items-center gap-2 text-[13px] text-white/70">
                             <svg
                               className="shrink-0 text-brand-cyan"
                               width="12"
