@@ -238,7 +238,7 @@ export default function Servicios() {
         aria-hidden
       >
         <path
-          d="M0,100 L0,55 C240,95 480,15 720,40 C960,65 1200,8 1440,48 L1440,100 Z"
+          d="M0,100 L0,58 Q720,2 1440,58 L1440,100 Z"
           fill="#080C12"
         />
       </svg>
