@@ -16,8 +16,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ['var(--font-manrope)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['var(--font-made-tommy)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-poppins)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       container: {
         center: true,

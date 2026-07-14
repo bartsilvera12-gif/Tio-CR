@@ -1,19 +1,23 @@
 import type { Metadata } from 'next'
-import { Manrope, Inter } from 'next/font/google'
+import { Poppins } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 import SpotlightPointer from '@/components/SpotlightPointer'
 
-const manrope = Manrope({
-  subsets: ['latin'],
-  variable: '--font-manrope',
-  weight: ['500', '600', '700', '800'],
+const madeTommy = localFont({
+  src: [
+    { path: '../public/fonts/made-tommy-regular.woff2', weight: '400', style: 'normal' },
+    { path: '../public/fonts/made-tommy-medium.woff2', weight: '500', style: 'normal' },
+    { path: '../public/fonts/made-tommy-bold.woff2', weight: '700', style: 'normal' },
+  ],
+  variable: '--font-made-tommy',
   display: 'swap',
 })
 
-const inter = Inter({
+const poppins = Poppins({
   subsets: ['latin'],
-  variable: '--font-inter',
-  weight: ['400', '500', '600'],
+  variable: '--font-poppins',
+  weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
 })
 
@@ -36,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className={`${manrope.variable} ${inter.variable}`}>
+    <html lang="es" className={`${madeTommy.variable} ${poppins.variable}`}>
       <body className="font-sans">
         <SpotlightPointer />
         {children}
