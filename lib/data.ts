@@ -20,6 +20,13 @@ export const servicios = [
     icono: 'bus',
     detalles: ['Ploteado full o parcial', 'Alta rotación diaria', 'Cobertura urbana móvil'],
   },
+  {
+    titulo: 'Refugios de buses',
+    descripcion:
+      'Paneles retro-iluminados en paradas de alta afluencia — tu marca visible las 24 horas.',
+    icono: 'refugio',
+    detalles: ['Retro-iluminados día y noche', 'Avenidas y accesos urbanos', 'Formato exclusivo en su espacio'],
+  },
 ] as const
 
 export const rutas = ['PY 01', 'PY 02', 'PY 03', 'PY 05', 'PY 06', 'PY 07', 'PY 08', 'PY 11']

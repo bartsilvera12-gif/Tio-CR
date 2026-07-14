@@ -1,7 +1,6 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Intro from '@/components/Intro'
-import Servicios from '@/components/Servicios'
 import Refugios from '@/components/Refugios'
 import Cobertura from '@/components/Cobertura'
 import Propuesta from '@/components/Propuesta'
@@ -18,9 +17,8 @@ export default function Home() {
       <main>
         <Hero />
         <Intro />
-        <Servicios />
-        <Cobertura />
         <Refugios />
+        <Cobertura />
         <Galeria />
         <Propuesta />
         <Contacto />
