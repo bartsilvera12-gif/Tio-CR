@@ -90,10 +90,10 @@ export default function Footer() {
                 href="https://neura.com.py"
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-1.5 text-white/70 transition hover:text-brand-cyan"
+                className="group relative z-[45] inline-flex cursor-pointer items-center gap-1.5 py-2 text-white/70 transition hover:text-brand-cyan"
               >
-                <span>Desarrollado por</span>
-                <span className="font-display font-bold tracking-wide text-white transition group-hover:text-brand-cyan">
+                <span className="transition group-hover:underline group-hover:decoration-brand-cyan/60 group-hover:underline-offset-4">Desarrollado por</span>
+                <span className="font-display font-bold tracking-wide text-white transition group-hover:text-brand-cyan group-hover:underline group-hover:decoration-brand-cyan/60 group-hover:underline-offset-4">
                   Neura
                 </span>
                 <svg
