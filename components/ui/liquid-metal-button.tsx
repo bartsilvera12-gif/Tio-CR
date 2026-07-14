@@ -15,6 +15,8 @@ interface LiquidMetalButtonProps {
   /** Alto custom en px — sobrescribe el default 46 */
   height?: number
   type?: 'button' | 'submit'
+  /** Si true, el metal fluye también en reposo (no solo al hover) */
+  animateIdle?: boolean
 }
 
 export function LiquidMetalButton({
@@ -25,6 +27,7 @@ export function LiquidMetalButton({
   width,
   height: heightProp,
   type = 'button',
+  animateIdle = false,
 }: LiquidMetalButtonProps) {
   const isCyan = variant === 'cyan'
   const isWhite = variant === 'white'
@@ -118,14 +121,20 @@ export function LiquidMetalButton({
   const handleMouseLeave = () => {
     setIsHovered(false)
     setIsPressed(false)
-    shaderMount.current?.setSpeed?.(0)
+    shaderMount.current?.setSpeed?.(animateIdle ? 0.6 : 0)
   }
+
+  // El idle depende del scroll (el Header lo activa al despegar del hero)
+  useEffect(() => {
+    if (!shaderMount.current?.setSpeed) return
+    if (!isHovered) shaderMount.current.setSpeed(animateIdle ? 0.6 : 0)
+  }, [animateIdle, isHovered])
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (shaderMount.current?.setSpeed) {
       shaderMount.current.setSpeed(2.4)
       setTimeout(() => {
-        shaderMount.current?.setSpeed?.(isHovered ? 1 : 0)
+        shaderMount.current?.setSpeed?.(isHovered ? 1 : animateIdle ? 0.6 : 0)
       }, 300)
     }
     if (buttonRef.current) {

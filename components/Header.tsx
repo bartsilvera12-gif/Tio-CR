@@ -81,7 +81,7 @@ export default function Header() {
 
         <div className="hidden md:flex md:items-center">
           <a href="/#contacto" aria-label="Solicitar presupuesto" className="inline-flex items-center">
-            <LiquidMetalButton label="Solicitar presupuesto" variant="white" width={280} height={54} />
+            <LiquidMetalButton label="Solicitar presupuesto" variant="white" width={280} height={54} animateIdle={scrolled} />
           </a>
         </div>
 
