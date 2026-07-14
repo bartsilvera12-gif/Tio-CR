@@ -261,22 +261,22 @@ export default function Servicios() {
                     Nuevo servicio
                   </span>
 
-                  <h3 className="mt-5 font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-5xl">
+                  <h3 className="mt-4 font-display text-3xl font-bold leading-[1.08] tracking-tight md:text-4xl">
                     <span className="text-brand-cyan">Refugios de buses</span>
                     <br />
                     <span className="text-white">impactando en cada parada.</span>
                   </h3>
 
-                  <p className="mt-6 max-w-lg text-lg text-white/70">
-                    Estructuras premium en puntos de alta afluencia peatonal — tu marca visible las 24 horas donde la gente espera, mira y escanea.
+                  <p className="mt-4 max-w-lg text-base text-white/70">
+                    Tu marca visible las 24 horas donde la gente espera, mira y escanea.
                   </p>
 
-                  <ul className="mt-7 space-y-3">
+                  <ul className="mt-5 space-y-2.5">
                     {[
-                      'Paneles retro-iluminados de alta visibilidad día y noche',
-                      'Ubicaciones estratégicas en avenidas y accesos urbanos',
-                      'Impacto directo sobre peatones, ciclistas y automovilistas',
-                      'Formato exclusivo, sin competencia visual en el mismo espacio',
+                      'Paneles retro-iluminados día y noche',
+                      'Ubicaciones estratégicas en avenidas',
+                      'Impacto directo sobre peatones y automovilistas',
+                      'Formato exclusivo, sin competencia visual',
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3">
                         <svg
@@ -292,12 +292,12 @@ export default function Servicios() {
                         >
                           <path d="M5 12l5 5L20 7" />
                         </svg>
-                        <span className="text-white/80">{item}</span>
+                        <span className="text-sm text-white/80">{item}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <div className="mt-8">
+                  <div className="mt-6">
                     <a href="#contacto" className="btn-cta uppercase tracking-widest">
                       <span>Consultar refugios</span>
                       <svg
