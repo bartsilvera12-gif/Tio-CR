@@ -22,6 +22,8 @@ const glassCardStyle = {
   border: '1px solid rgba(255,255,255,0.16)',
   boxShadow:
     'inset 0 1px 0 rgba(255,255,255,0.14), 0 22px 50px -18px rgba(6,20,40,0.45)',
+  backdropFilter: 'blur(22px) saturate(150%)',
+  WebkitBackdropFilter: 'blur(22px) saturate(150%)',
 } as const
 
 export default function Propuesta() {
