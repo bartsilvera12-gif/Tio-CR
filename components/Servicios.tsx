@@ -84,7 +84,7 @@ export default function Servicios() {
   return (
     <section
       id="servicios"
-      className="relative overflow-hidden pt-8 pb-16 text-brand-ink md:pt-10 md:pb-20"
+      className="relative overflow-hidden pt-8 text-brand-ink md:pt-10"
       style={{
         backgroundImage: 'linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0)), url(/fondo2.webp)',
         backgroundSize: 'cover',
@@ -225,10 +225,22 @@ export default function Servicios() {
           ))}
         </div>
 
-        {/* ============================================================
-            Refugio de buses — imagen izq (sin card) + texto der (dentro de card)
-            ============================================================ */}
-        <div className="mt-20 md:mt-28">
+      </div>
+
+      {/* ============================================================
+          Refugio de buses — banda full-width con la calle nocturna de fondo
+          ============================================================ */}
+      <div
+        className="relative mt-16 md:mt-24"
+        style={{
+          backgroundImage: 'url(/fondo3.webp)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center bottom',
+        }}
+      >
+        {/* Degradés para fundir la banda con la sección */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/30 to-transparent" />
+        <div className="container relative py-16 md:py-24">
           <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr] lg:gap-12">
             {/* IZQUIERDA — card con el texto */}
             <Reveal direction="left-clean">
