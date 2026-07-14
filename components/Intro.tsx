@@ -1,5 +1,6 @@
 import Reveal from './Reveal'
 import GlowBlob from './GlowBlob'
+import AutoPauseVideo from './AutoPauseVideo'
 
 export default function Intro() {
   return (
@@ -154,16 +155,10 @@ function Billboard() {
             {/* Pantalla */}
             <div className="relative h-full w-full overflow-hidden rounded-[14px]">
               {/* Video */}
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
+              <AutoPauseVideo
+                src="/intro.mp4"
                 className="absolute inset-0 h-full w-full object-cover"
-              >
-                <source src="/intro.mp4" type="video/mp4" />
-              </video>
+              />
 
               {/* Tinte cian LED sutil global */}
               <div className="pointer-events-none absolute inset-0 bg-brand-cyan/[0.03]" />

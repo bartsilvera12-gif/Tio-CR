@@ -1,4 +1,6 @@
-/** Mancha de luz cian difuminada y deformada para fondos de sección */
+/** Mancha de luz cian difuminada para fondos de sección.
+    PERF: usa radial-gradient pre-suavizado en vez de filter:blur(90px) —
+    mismo aspecto, sin costo de compositing en scroll (clave en GPUs de gama baja). */
 export default function GlowBlob({
   className = '',
   opacity = 0.14,
@@ -23,11 +25,11 @@ export default function GlowBlob({
   return (
     <div
       aria-hidden
-      className={`pointer-events-none absolute blur-[90px] ${animClass} ${className}`}
+      className={`pointer-events-none absolute ${animClass} ${className}`}
       style={{
-        background: `rgba(0, 201, 247, ${opacity})`,
+        background: `radial-gradient(closest-side, rgba(0,201,247,${opacity}) 0%, rgba(0,201,247,${(opacity * 0.55).toFixed(3)}) 45%, rgba(0,201,247,0) 78%)`,
         borderRadius: radius,
-        transform: `${animated ? '' : `rotate(${rotate}deg) `}translateZ(0)`,
+        ...(animated ? {} : { transform: `rotate(${rotate}deg) translateZ(0)` }),
       }}
     />
   )
