@@ -30,7 +30,13 @@ export default function Propuesta() {
   return (
     <section
       id="propuesta"
-      className="relative overflow-hidden bg-brand-navy py-24 text-white md:py-32"
+      className="relative overflow-hidden py-24 text-white md:py-32"
+      style={{
+        backgroundImage: 'linear-gradient(rgba(6,20,40,0.55), rgba(6,20,40,0.55)), url(/fondo2.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
     >
       {/* Blob principal grande cruzando ambas cards */}
       <GlowBlob
@@ -62,7 +68,7 @@ export default function Propuesta() {
             Propuesta de inversión
             <span className="h-[2px] w-8 rounded-full bg-brand-cyan" />
           </span>
-          <h2 className="mt-5 font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
+          <h2 className="mt-5 font-display text-4xl font-bold tracking-tight text-white md:text-5xl" style={{ textShadow: "0 2px 20px rgba(0,0,0,0.55)" }}>
             Una inversión clara y transparente
           </h2>
         </Reveal>

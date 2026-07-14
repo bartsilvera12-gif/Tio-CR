@@ -236,7 +236,7 @@ export default function Servicios() {
           <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr] lg:gap-12">
             {/* IZQUIERDA — imagen flotando en el fondo de la sección */}
             <Reveal direction="left-clean">
-              <div className="relative mx-auto max-w-[560px]">
+              <div className="relative mx-auto max-w-[680px]">
                 {/* Halo cian animado detrás */}
                 <div
                   className="pointer-events-none absolute inset-[5%] rounded-full"
@@ -260,30 +260,30 @@ export default function Servicios() {
                     className="relative z-10 h-auto w-full drop-shadow-[0_25px_35px_rgba(0,0,0,0.55)]"
                   />
 
-                  {/* Logo TIO CR sobre el panel lateral IZQUIERDO (standalone) del refugio */}
+                  {/* Logo TIO CR sobre el panel lateral izquierdo — coords medidas sobre la imagen (panel: 25-35% x, 31-88% y) */}
                   <div
                     className="pointer-events-none absolute z-20"
                     style={{
-                      left: '20.5%',
-                      top: '30%',
-                      width: '13%',
-                      height: '45%',
+                      left: '25.2%',
+                      top: '32%',
+                      width: '9.4%',
+                      height: '53%',
+                      transform: 'rotate(-4deg) perspective(500px) rotateY(7deg)',
+                      transformOrigin: 'center',
                     }}
                   >
                     <div
-                      className="flex h-full w-full items-center justify-center rounded-[3px] overflow-hidden"
+                      className="flex h-full w-full items-center justify-center overflow-hidden rounded-[2px]"
                       style={{
-                        background: 'linear-gradient(180deg, #FFFFFF 0%, #F0F4FA 100%)',
-                        boxShadow: 'inset 0 0 10px rgba(0,201,247,0.45), 0 6px 14px rgba(0,0,0,0.6)',
-                        transform: 'perspective(500px) rotateY(6deg)',
-                        transformOrigin: 'right center',
+                        background: 'linear-gradient(180deg, #FFFFFF 0%, #EDF2F8 100%)',
+                        boxShadow: 'inset 0 0 12px rgba(0,201,247,0.35), 0 4px 12px rgba(0,0,0,0.5)',
                       }}
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="/logo.png"
                         alt="TIO CR"
-                        className="h-auto w-[88%]"
+                        className="h-auto w-[86%]"
                         style={{ filter: 'contrast(1.1)' }}
                       />
                     </div>
