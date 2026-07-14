@@ -35,7 +35,6 @@ export default function Propuesta() {
         backgroundImage: 'linear-gradient(rgba(6,20,40,0.55), rgba(6,20,40,0.55)), url(/fondo2.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
       }}
     >
       {/* Blob principal grande cruzando ambas cards */}

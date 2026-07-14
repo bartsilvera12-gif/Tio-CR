@@ -88,7 +88,6 @@ export default function Servicios() {
         backgroundImage: 'linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0)), url(/fondo2.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
       }}
     >
       {/* Blob principal: grande, visible y animado */}
@@ -259,35 +258,6 @@ export default function Servicios() {
                     alt="Refugio de buses TIO CR"
                     className="relative z-10 h-auto w-full drop-shadow-[0_25px_35px_rgba(0,0,0,0.55)]"
                   />
-
-                  {/* Logo TIO CR sobre el panel lateral izquierdo — coords medidas sobre la imagen (panel: 25-35% x, 31-88% y) */}
-                  <div
-                    className="pointer-events-none absolute z-20"
-                    style={{
-                      left: '25.2%',
-                      top: '32%',
-                      width: '9.4%',
-                      height: '53%',
-                      transform: 'rotate(-4deg) perspective(500px) rotateY(7deg)',
-                      transformOrigin: 'center',
-                    }}
-                  >
-                    <div
-                      className="flex h-full w-full items-center justify-center overflow-hidden rounded-[2px]"
-                      style={{
-                        background: 'linear-gradient(180deg, #FFFFFF 0%, #EDF2F8 100%)',
-                        boxShadow: 'inset 0 0 12px rgba(0,201,247,0.35), 0 4px 12px rgba(0,0,0,0.5)',
-                      }}
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src="/logo.png"
-                        alt="TIO CR"
-                        className="h-auto w-[86%]"
-                        style={{ filter: 'contrast(1.1)' }}
-                      />
-                    </div>
-                  </div>
                 </div>
               </div>
             </Reveal>
@@ -297,7 +267,9 @@ export default function Servicios() {
               <div
                 className="relative overflow-hidden rounded-3xl p-8 md:p-10"
                 style={{
-                  background: 'linear-gradient(150deg, rgba(14,34,71,0.97) 0%, rgba(6,20,40,0.99) 100%)',
+                  background: 'linear-gradient(150deg, rgba(14,34,71,0.72) 0%, rgba(6,20,40,0.80) 100%)',
+                  backdropFilter: 'blur(18px) saturate(140%)',
+                  WebkitBackdropFilter: 'blur(18px) saturate(140%)',
                   border: '1px solid rgba(255,255,255,0.16)',
                   boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.14), 0 30px 60px -18px rgba(6,20,40,0.65), 0 0 60px -20px rgba(0,201,247,0.35)',
                 }}
