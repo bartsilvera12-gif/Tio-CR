@@ -21,9 +21,9 @@ export default function SpotlightBox({
     const el = ref.current
     if (!el) return
     const r = el.getBoundingClientRect()
-    // Coordenadas locales directas en ambos ejes
+    // X directo, Y invertido
     el.style.setProperty('--x', `${(clientX - r.left).toFixed(1)}px`)
-    el.style.setProperty('--y', `${(clientY - r.top).toFixed(1)}px`)
+    el.style.setProperty('--y', `${(r.height - (clientY - r.top)).toFixed(1)}px`)
   }
 
   const onMove = (e: React.PointerEvent<HTMLDivElement>) => {
