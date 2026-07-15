@@ -21,8 +21,9 @@ export default function SpotlightBox({
     const el = ref.current
     if (!el) return
     const r = el.getBoundingClientRect()
-    // X directo, Y invertido
-    el.style.setProperty('--x', `${(clientX - r.left).toFixed(1)}px`)
+    // X invertido, Y invertido (calibrado con feedback del usuario:
+    // vertical quedó perfecto con Y invertido; ahora X también invertido)
+    el.style.setProperty('--x', `${(r.width - (clientX - r.left)).toFixed(1)}px`)
     el.style.setProperty('--y', `${(r.height - (clientY - r.top)).toFixed(1)}px`)
   }
 
