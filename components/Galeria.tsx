@@ -119,7 +119,7 @@ function Panel({
         className={`expand-panel-photo ${
           cartel.anchor === 'left' ? 'photo-anchor-left' : 'photo-anchor-right'
         }`}
-        style={{ objectPosition: cartel.pos, '--shift': cartel.shift } as React.CSSProperties}
+        style={{ objectPosition: cartel.pos, transformOrigin: cartel.pos, '--shift': cartel.shift } as React.CSSProperties}
       />
 
       {/* Gradiente inferior solo mobile — da look de card y legibilidad */}

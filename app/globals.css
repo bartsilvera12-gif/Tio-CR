@@ -862,6 +862,8 @@ body {
 
 @media (max-width: 767px) {
   .expand-panel-detail { display: none; }
+  /* Zoom extra en las fotos del trío — ancladas al cartel via transform-origin */
+  .expand-panel-photo { transform: scale(1.22); }
 }
 
 /* Foto de los expand panels: tamaño fijo 75vw en desktop — NUNCA
