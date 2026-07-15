@@ -98,7 +98,7 @@ export default function Contacto() {
               </p>
             </Reveal>
 
-            <div className="mt-10 space-y-3">
+            <div className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-1">
               {items.map((item, i) => (
                 <Reveal
                   key={i}
@@ -109,7 +109,7 @@ export default function Contacto() {
                     href={item.href}
                     target={item.external ? '_blank' : undefined}
                     rel={item.external ? 'noreferrer' : undefined}
-                    className="glass group flex items-center gap-4 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:!border-brand-cyan/50 hover:!bg-white/[0.09] hover:shadow-[0_16px_36px_-16px_rgba(0,201,247,0.4)]"
+                    className="glass group flex flex-col items-start gap-3 rounded-2xl p-4 transition-all duration-300 hover:-translate-y-0.5 hover:!border-brand-cyan/50 hover:!bg-white/[0.09] hover:shadow-[0_16px_36px_-16px_rgba(0,201,247,0.4)] lg:flex-row lg:items-center lg:gap-4 lg:p-5"
                   >
                     <div
                       className={`flex h-11 w-11 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110 ${
@@ -137,7 +137,7 @@ export default function Contacto() {
                       <div className="text-xs font-semibold uppercase tracking-widest text-white/50">
                         {item.label}
                       </div>
-                      <div className="font-semibold text-white">{item.value}</div>
+                      <div className="text-sm font-semibold text-white lg:text-base">{item.value}</div>
                     </div>
                   </a>
                 </Reveal>

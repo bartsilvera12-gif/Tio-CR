@@ -588,16 +588,14 @@ body {
    SPOTLIGHT CARD — borde brillante que sigue al cursor
    ============================================================
    Aplicá clase .spotlight-card a cualquier card ya estilada.
-   El puntero se rastrea en :root vía <SpotlightPointer />.
-*/
-:root {
-  --pointer-x: 0px;
-  --pointer-y: 0px;
-}
-
+   <SpotlightPointer /> escribe --x/--y LOCALES en cada card
+   (coordenadas relativas a la card, actualizadas por rAF).
+   Sin background-attachment:fixed → tracking 1:1, sin lag. */
 .spotlight-card {
   position: relative;
   isolation: isolate;
+  --x: -999px;
+  --y: -999px;
 }
 .spotlight-card::before,
 .spotlight-card::after {
@@ -607,10 +605,6 @@ body {
   inset: -1px;
   border: 2px solid transparent;
   border-radius: inherit;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: calc(100% + 4px) calc(100% + 4px);
   -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
           mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
   -webkit-mask-clip: padding-box, border-box;
@@ -625,15 +619,14 @@ body {
 .spotlight-card:hover::after {
   opacity: 1;
 }
-/* PERF: sin hover, los pseudo-elementos no se pintan — evita repaints
-   por background-attachment:fixed durante el scroll */
+/* PERF: sin hover no se pintan */
 .spotlight-card:not(:hover)::before,
 .spotlight-card:not(:hover)::after {
   display: none;
 }
 .spotlight-card::before {
   background-image: radial-gradient(
-    200px 200px at var(--pointer-x) var(--pointer-y),
+    220px 220px at var(--x) var(--y),
     hsl(190 100% 55%),
     transparent 60%
   );
@@ -641,7 +634,7 @@ body {
 }
 .spotlight-card::after {
   background-image: radial-gradient(
-    120px 120px at var(--pointer-x) var(--pointer-y),
+    130px 130px at var(--x) var(--y),
     hsl(0 0% 100%),
     transparent 55%
   );

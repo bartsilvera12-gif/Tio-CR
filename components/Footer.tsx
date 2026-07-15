@@ -5,8 +5,8 @@ export default function Footer() {
   return (
     <footer className="bg-brand-ink text-white">
       <div className="container py-6 pb-16 md:pb-8">
-        <div className="grid gap-4 md:grid-cols-3">
-          <Reveal direction="left">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+          <Reveal direction="left" className="col-span-2 md:col-span-1">
             <img src="/logo.webp" alt="TIOCR" className="h-7" />
             <p className="mt-2.5 max-w-xs text-[13px] text-white/60">
               Marketing y servicios publicitarios. Cartelería gigante y
