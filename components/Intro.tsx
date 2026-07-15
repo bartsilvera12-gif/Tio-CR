@@ -135,11 +135,11 @@ function Billboard() {
         {/* ---- Pantalla con marco ---- */}
         <div className="relative aspect-[16/9]">
           {/* Sombra atrás del bezel */}
-          <div className="absolute -inset-2 rounded-[26px] bg-black/40 blur-lg" />
+          <div className="absolute -inset-2 rounded-[10px] bg-black/40 blur-lg" />
 
           {/* Bezel */}
           <div
-            className="relative h-full w-full overflow-hidden rounded-[22px] p-[10px]"
+            className="relative h-full w-full overflow-hidden rounded-[8px] p-[10px]"
             style={{
               background:
                 'linear-gradient(150deg, rgba(51,65,85,0.45) 0%, rgba(15,23,42,0.55) 100%)',
@@ -150,7 +150,7 @@ function Billboard() {
           >
             {/* Pantalla: frame del video institucional (captura estática —
                 mismo look que el video en pausa, cero costo de decode) */}
-            <div className="relative h-full w-full overflow-hidden rounded-[14px] bg-[#050e1f]">
+            <div className="relative h-full w-full overflow-hidden rounded-[5px] bg-[#050e1f]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/intro-poster.webp"
