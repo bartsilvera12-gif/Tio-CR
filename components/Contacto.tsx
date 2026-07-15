@@ -4,6 +4,7 @@
 import { useState } from 'react'
 import { contacto } from '@/lib/data'
 import Reveal from './Reveal'
+import { SpotlightCard } from './ui/spotlight-card'
 import GlowBlob from './GlowBlob'
 import SplitTextReveal from './SplitTextReveal'
 
@@ -147,7 +148,8 @@ export default function Contacto() {
 
           {/* ---- Columna derecha: formulario ---- */}
           <Reveal direction="right" delay={100} as="div">
-            <form onSubmit={submit} className="glass flex h-full flex-col rounded-3xl p-8 md:p-10">
+            <SpotlightCard glowColor="blue" glowSize={300} className="h-full rounded-3xl">
+              <form onSubmit={submit} className="glass flex h-full flex-col rounded-3xl p-8 md:p-10">
               <Reveal direction="below" delay={200}>
                 <div className="text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
                   Escribinos
@@ -193,7 +195,7 @@ export default function Contacto() {
                   onChange={(e) => setForm({ ...form, mensaje: e.target.value })}
                   required
                   rows={5}
-                  className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-white/40 focus:border-brand-cyan focus:bg-white/10"
+                  className="mt-2 w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-white/40 focus:border-brand-cyan focus:bg-white/10"
                   placeholder="Contanos qué campaña querés hacer..."
                 />
               </Reveal>
@@ -212,7 +214,8 @@ export default function Contacto() {
                   Al enviar, abrimos WhatsApp con tu mensaje pre-armado.
                 </p>
               </Reveal>
-            </form>
+              </form>
+            </SpotlightCard>
           </Reveal>
         </div>
       </div>
