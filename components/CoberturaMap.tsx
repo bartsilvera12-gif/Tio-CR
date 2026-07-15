@@ -90,8 +90,6 @@ export default function CoberturaMap() {
           </linearGradient>
         </defs>
 
-        {/* Sombra proyectada: el mapa parece elevado sobre el fondo */}
-        <g style={{ filter: 'drop-shadow(0 26px 22px rgba(6, 20, 40, 0.5)) drop-shadow(0 8px 8px rgba(6, 20, 40, 0.35))' }}>
         {departments.map((d: { name: string; d: string }) => (
           <path
             key={d.name}
@@ -106,7 +104,6 @@ export default function CoberturaMap() {
             <title>{d.name}</title>
           </path>
         ))}
-        </g>
 
         <polyline
           points={pins.map((p) => `${p.x},${p.y}`).join(' ')}
