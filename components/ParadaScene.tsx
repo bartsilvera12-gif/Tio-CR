@@ -35,7 +35,7 @@ export default function ParadaScene() {
       ref={wrapRef}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      className="group relative mx-auto w-full max-w-none lg:origin-center lg:scale-[1.25]"
+      className="group relative mx-auto w-full max-w-none scale-[1.15] lg:origin-center lg:scale-[1.4]"
       style={{ perspective: '1200px' }}
     >
       <div

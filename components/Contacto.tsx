@@ -133,11 +133,11 @@ export default function Contacto() {
                         </svg>
                       )}
                     </div>
-                    <div>
+                    <div className="w-full min-w-0">
                       <div className="text-xs font-semibold uppercase tracking-widest text-white/50">
                         {item.label}
                       </div>
-                      <div className="text-sm font-semibold text-white lg:text-base">{item.value}</div>
+                      <div className="w-full min-w-0 break-words text-sm font-semibold text-white lg:text-base">{item.value}</div>
                     </div>
                   </a>
                 </Reveal>
