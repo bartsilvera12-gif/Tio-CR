@@ -148,13 +148,14 @@ function Billboard() {
                 '0 20px 50px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.16), inset 0 -1px 0 rgba(0,0,0,0.3)',
             }}
           >
-            {/* Pantalla: logo estático sobre fondo navy */}
-            <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[14px] bg-[#050e1f]">
+            {/* Pantalla: frame del video institucional (captura estática —
+                mismo look que el video en pausa, cero costo de decode) */}
+            <div className="relative h-full w-full overflow-hidden rounded-[14px] bg-[#050e1f]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/logo-hero.webp"
-                alt="TIO CR"
-                className="w-[82%]"
+                src="/intro-poster.webp"
+                alt="TIO CR — Marketing y Servicios Publicitarios"
+                className="absolute inset-0 h-full w-full object-cover"
                 loading="lazy"
                 decoding="async"
               />

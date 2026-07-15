@@ -1,6 +1,5 @@
 import { rutas } from '@/lib/data'
 import Reveal from './Reveal'
-import GlowBlob from './GlowBlob'
 import CoberturaMap from './CoberturaMap'
 import SplitTextReveal from './SplitTextReveal'
 
@@ -11,13 +10,6 @@ export default function Cobertura() {
       className="section relative overflow-hidden text-white"
       style={{ backgroundColor: '#888E9E' }}
     >
-      <GlowBlob
-        className="left-[2%] bottom-[30%] h-[400px] w-[520px]"
-        opacity={0.28}
-        rotate={-24}
-        radius="62% 38% 50% 50% / 42% 58% 45% 55%"
-        color="10, 31, 61"
-      />
       <div className="container relative">
         <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
@@ -68,15 +60,6 @@ export default function Cobertura() {
             </div>
 
             <div className="relative mt-8">
-              {/* Blob lento navy detrás de los stats: se ve el vidrio "cambiar de color" */}
-              <GlowBlob
-                className="left-[-8%] top-[-30%] h-[280px] w-[520px]"
-                opacity={0.45}
-                radius="52% 48% 62% 38% / 45% 58% 42% 55%"
-                animated
-                speed="slow"
-                color="10, 31, 61"
-              />
               <div className="relative grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {[
                   { n: '22', label: 'Carteles' },
