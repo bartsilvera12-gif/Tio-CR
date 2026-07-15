@@ -123,11 +123,11 @@ function Billboard() {
               style={{ left: `${left}%` }}
             >
               {/* Cabeza del reflector */}
-              <div className="relative z-10 h-[16px] w-[52px] rounded-[4px] bg-gradient-to-b from-slate-500 via-slate-700 to-slate-900 shadow-[0_3px_8px_rgba(0,0,0,0.7)]">
+              <div className="relative z-10 h-[16px] w-[52px] rounded-[4px] bg-gradient-to-b from-slate-300 via-slate-600 to-slate-800 shadow-[0_3px_8px_rgba(0,0,0,0.7)]">
                 <div className="absolute inset-x-1 bottom-[2px] h-[4px] rounded-sm bg-sky-200/80" />
               </div>
               {/* Brazo */}
-              <div className="mx-auto h-[22px] w-[4px] bg-gradient-to-b from-slate-600 to-slate-800" />
+              <div className="mx-auto h-[22px] w-[4px] bg-gradient-to-b from-slate-400 to-slate-700" />
             </div>
           ))}
         </div>
@@ -142,10 +142,10 @@ function Billboard() {
             className="relative h-full w-full overflow-hidden rounded-[8px] p-[10px]"
             style={{
               background:
-                'linear-gradient(150deg, rgba(51,65,85,0.45) 0%, rgba(15,23,42,0.55) 100%)',
-              border: '1px solid rgba(255,255,255,0.18)',
+                'linear-gradient(150deg, #66788E 0%, #9FACBD 16%, #46556B 42%, #93A1B2 68%, #3C4A5E 100%)',
+              border: '1px solid rgba(255,255,255,0.3)',
               boxShadow:
-                '0 20px 50px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.16), inset 0 -1px 0 rgba(0,0,0,0.3)',
+                '0 20px 50px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.45)',
             }}
           >
             {/* Esquineros tipo HUD en el bezel */}
@@ -205,7 +205,7 @@ function Billboard() {
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(90deg, #1E293B 0%, #475569 45%, #64748B 50%, #475569 55%, #1E293B 100%), repeating-linear-gradient(180deg, transparent 0px, transparent 14px, rgba(0,0,0,0.45) 14px, rgba(0,0,0,0.45) 16px)',
+                'linear-gradient(90deg, #2A3648 0%, #5D6E84 38%, #A7B4C4 50%, #5D6E84 62%, #2A3648 100%), repeating-linear-gradient(180deg, transparent 0px, transparent 14px, rgba(0,0,0,0.45) 14px, rgba(0,0,0,0.45) 16px)',
               backgroundBlendMode: 'overlay',
               clipPath: 'polygon(15% 0, 85% 0, 100% 100%, 0 100%)',
               boxShadow: '0 2px 10px rgba(0,0,0,0.5)',
@@ -225,7 +225,7 @@ function Billboard() {
           <div
             className="absolute inset-x-[22%] top-0 h-[10px]"
             style={{
-              background: 'linear-gradient(180deg, #475569 0%, #1E293B 100%)',
+              background: 'linear-gradient(180deg, #8B99AB 0%, #35404F 100%)',
               clipPath: 'polygon(8% 0, 92% 0, 100% 100%, 0 100%)',
               boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.25)',
             }}
@@ -234,7 +234,7 @@ function Billboard() {
           <div
             className="absolute inset-x-[10%] top-[9px] h-[12px]"
             style={{
-              background: 'linear-gradient(180deg, #334155 0%, #0F172A 100%)',
+              background: 'linear-gradient(180deg, #6B7A8D 0%, #1C2530 100%)',
               clipPath: 'polygon(5% 0, 95% 0, 100% 100%, 0 100%)',
               boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.18)',
             }}
