@@ -81,8 +81,7 @@ export function SpotlightCard({
           isolation: isolate;
         }
 
-        [data-spotlight-card]::before,
-        [data-spotlight-card]::after {
+        [data-spotlight-card]::before {
           content: "";
           position: absolute;
           pointer-events: none;
@@ -120,25 +119,6 @@ export function SpotlightCard({
           mask-composite: exclude;
         }
 
-        [data-spotlight-card]::after {
-          inset: -12px;
-          z-index: -1;
-
-          background: radial-gradient(
-            circle calc(var(--spotlight-size) * 0.7)
-              at var(--spotlight-x) var(--spotlight-y),
-            hsla(
-              var(--spotlight-hue),
-              100%,
-              60%,
-              0.55
-            ),
-            transparent 60%
-          );
-
-          filter: blur(18px);
-          opacity: var(--spotlight-active);
-        }
       `}</style>
 
       <div
