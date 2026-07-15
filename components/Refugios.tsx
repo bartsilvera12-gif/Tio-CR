@@ -120,15 +120,15 @@ export default function Refugios() {
           className="mt-12 rounded-[2rem] p-4 md:p-8"
         >
           <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr] lg:gap-10">
-          <div className="no-scrollbar -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0">
+          <div className="grid grid-cols-2 gap-3 sm:gap-5">
             {servicios.map((s, i) => (
-              <article key={s.titulo} className="h-full w-[78vw] shrink-0 snap-center sm:w-auto sm:shrink">
+              <article key={s.titulo} className="h-full">
                 {/* Zona de hover estable (no rota) */}
                 <div className="card-spin-zone group h-full">
                   <div className="card-flip3d">
                     {/* ---- Cara frontal: vidrio azul ---- */}
                     <div
-                      className="card-face relative flex h-full min-h-[250px] flex-col justify-center overflow-hidden rounded-2xl p-6 text-white"
+                      className="card-face relative flex h-full flex-col justify-center overflow-hidden rounded-2xl p-3 sm:min-h-[250px] sm:p-6 text-white"
                       style={{
                         background:
                           'linear-gradient(150deg, rgba(14,34,71,0.94) 0%, rgba(6,20,40,0.97) 100%)',
@@ -140,9 +140,9 @@ export default function Refugios() {
                       }}
                     >
                       {/* Header: ícono + título lado a lado */}
-                      <div className="mb-3 flex items-center gap-3">
+                      <div className="mb-2 flex items-center gap-2 sm:mb-3 sm:gap-3">
                         <div
-                          className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full"
+                          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full sm:h-12 sm:w-12"
                           style={{
                             background:
                               'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.12))',
@@ -152,16 +152,16 @@ export default function Refugios() {
                         >
                           <DualIcon icono={s.icono} size={26} id={`grad-f-${s.icono}`} />
                         </div>
-                        <h3 className="font-display text-[1.2rem] font-bold leading-tight text-white">
+                        <h3 className="font-display text-[0.85rem] font-bold leading-tight text-white sm:text-[1.2rem]">
                           {s.titulo}
                         </h3>
                       </div>
 
-                      <p className="text-sm leading-snug text-white/70">{s.descripcion}</p>
+                      <p className="text-[11px] leading-snug text-white/70 sm:text-sm">{s.descripcion}</p>
 
-                      <ul className="mt-3 space-y-1.5">
+                      <ul className="mt-2 space-y-1 sm:mt-3 sm:space-y-1.5">
                         {s.detalles.map((d) => (
-                          <li key={d} className="flex items-center gap-2 text-[13px] text-white/70">
+                          <li key={d} className="flex items-center gap-1.5 text-[10px] text-white/70 sm:gap-2 sm:text-[13px]">
                             <svg
                               className="shrink-0 text-brand-cyan"
                               width="12"
