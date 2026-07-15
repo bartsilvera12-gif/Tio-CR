@@ -118,10 +118,18 @@ function Panel({
         loading="lazy"
         decoding="async"
         className="expand-panel-img absolute inset-0 block h-full w-full object-cover"
+        style={{ marginTop: '-1px', marginBottom: '-1px', height: 'calc(100% + 2px)' }}
       />
 
-      {/* Overlay oscuro que se aclara al expandir */}
-      <div className="expand-panel-overlay pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/45" />
+      {/* Overlay oscuro con "vignette horizontal": mata los bordes gris
+          que aparecen donde el sky de la foto se mezcla con el gradient */}
+      <div
+        className="expand-panel-overlay pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(to bottom, #061428 0%, rgba(6,20,40,0) 12%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.85) 100%)',
+        }}
+      />
 
       {/* Contenido — ciudad centrada (OPL-style) */}
       <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
