@@ -23,7 +23,7 @@ export default function Cobertura() {
           backgroundImage: 'url(/grain.webp)',
           backgroundRepeat: 'repeat',
           mixBlendMode: 'overlay',
-          opacity: 0.45,
+          opacity: 0.28,
         }}
       />
       <div className="container relative">
