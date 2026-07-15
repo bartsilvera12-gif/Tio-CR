@@ -868,3 +868,23 @@ body {
 @media (max-width: 767px) {
   .expand-panel-detail { display: none; }
 }
+
+/* Foto de los expand panels: tamaño fijo 75vw en desktop — NUNCA
+   reescala al expandir (cero zoom). En mobile llena el panel normal. */
+.expand-panel-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (min-width: 768px) {
+  .expand-panel-photo {
+    width: 75vw;
+    max-width: none;
+  }
+  .photo-anchor-left  { left: -6vw; right: auto; }
+  .photo-anchor-right { left: auto; right: 0; }
+}

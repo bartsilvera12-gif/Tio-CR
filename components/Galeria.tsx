@@ -4,14 +4,14 @@ import { carteles } from '@/lib/carteles'
 
 const featured = (
   [
-    { key: 'yaguaron', pos: '42% center' },
-    { key: 'corpus', pos: '78% center' },
-    { key: 'villaflorida', pos: '82% center' },
+    { key: 'yaguaron', pos: '42% center', anchor: 'left' },
+    { key: 'corpus', pos: '78% center', anchor: 'right' },
+    { key: 'villaflorida', pos: '82% center', anchor: 'right' },
   ] as const
 )
   .map((f) => {
     const c = carteles.find((x) => x.key === f.key)
-    return c ? { ...c, pos: f.pos } : null
+    return c ? { ...c, pos: f.pos, anchor: f.anchor } : null
   })
   .filter((c): c is NonNullable<typeof c> => Boolean(c && c.images.length))
 
@@ -92,33 +92,30 @@ function Panel({
     ref: string
     images: string[]
     pos: string
+    anchor: 'left' | 'right'
   }
   isFirst: boolean
 }) {
   const src = cartel.images[0]
-  const smSrc = src.replace(/\.webp$/, '-sm.webp')
   return (
     <div
       className={`expand-panel group relative h-[300px] flex-1 cursor-pointer overflow-hidden border-0 outline-none md:h-full ${
         !isFirst ? 'md:-ml-5' : ''
       }`}
-      style={
-        {
-          background: '#061428',
-          '--pos': cartel.pos,
-        } as React.CSSProperties
-      }
+      style={{ background: '#061428' }}
     >
-      {/* Imagen full-fill: object-cover con object-position en el cartel.
-          Nada se deforma (cover preserva aspect ratio), la foto siempre
-          llena todo el panel. */}
+      {/* Imagen de TAMAÑO FIJO (75vw, más ancha que el panel máximo
+          expandido) anclada a un lado. Al expandir el panel solo se
+          revela más imagen — la imagen jamás cambia de escala. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
         alt={cartel.city}
         loading="lazy"
         decoding="async"
-        className="expand-panel-img absolute inset-0 block h-full w-full object-cover"
+        className={`expand-panel-photo ${
+          cartel.anchor === 'left' ? 'photo-anchor-left' : 'photo-anchor-right'
+        }`}
         style={{ objectPosition: cartel.pos }}
       />
 
