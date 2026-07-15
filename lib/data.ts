@@ -2,28 +2,28 @@ export const servicios = [
   {
     titulo: 'Cartelería de ruta',
     descripcion:
-      'Carteles gigantes en los principales accesos y cruces de las rutas nacionales del Paraguay.',
+      'Carteles gigantes en accesos y cruces de las rutas del país.',
     icono: 'ruta',
     detalles: ['Formatos hasta 12×6 m', 'Doble faz disponible', 'Impresión de lona incluida'],
   },
   {
     titulo: 'Pantallas LED',
     descripcion:
-      'Pantallas de alta resolución para campañas dinámicas en ciudades del interior.',
+      'Alta resolución para campañas dinámicas en el interior.',
     icono: 'led',
     detalles: ['Alta luminosidad día y noche', 'Contenido dinámico', 'Ubicaciones céntricas'],
   },
   {
     titulo: 'Ploteado de buses',
     descripcion:
-      'Vestimos tu marca sobre buses del interior — publicidad rodante que recorre las principales ciudades.',
+      'Tu marca sobre buses del interior — publicidad rodante.',
     icono: 'bus',
     detalles: ['Ploteado full o parcial', 'Alta rotación diaria', 'Cobertura urbana móvil'],
   },
   {
     titulo: 'Refugios de buses',
     descripcion:
-      'Paneles retro-iluminados en paradas de alta afluencia — tu marca visible las 24 horas.',
+      'Paneles retro-iluminados en paradas de alta afluencia.',
     icono: 'refugio',
     detalles: ['Retro-iluminados día y noche', 'Avenidas y accesos urbanos', 'Formato exclusivo en su espacio'],
   },

@@ -4,9 +4,9 @@ import { carteles } from '@/lib/carteles'
 
 const featured = (
   [
-    { key: 'yaguaron', pos: '42% center', anchor: 'left' },
     { key: 'corpus', pos: '78% center', anchor: 'right' },
     { key: 'villaflorida', pos: '82% center', anchor: 'right' },
+    { key: 'yaguaron', pos: '42% center', anchor: 'left' },
   ] as const
 )
   .map((f) => {

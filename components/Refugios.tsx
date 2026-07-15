@@ -132,25 +132,27 @@ export default function Refugios() {
                         WebkitBackdropFilter: 'blur(22px) saturate(150%)',
                       }}
                     >
-                      {/* Ícono grande mitad blanco / mitad cian, en círculo */}
-                      <div
-                        className="mb-3 inline-flex h-14 w-14 items-center justify-center rounded-full"
-                        style={{
-                          background:
-                            'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.12))',
-                          border: '1px solid rgba(255,255,255,0.18)',
-                          boxShadow: '0 8px 24px -8px rgba(0,201,247,0.35)',
-                        }}
-                      >
-                        <DualIcon icono={s.icono} size={32} id={`grad-f-${s.icono}`} />
+                      {/* Header: ícono + título lado a lado */}
+                      <div className="mb-3 flex items-center gap-3">
+                        <div
+                          className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full"
+                          style={{
+                            background:
+                              'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.12))',
+                            border: '1px solid rgba(255,255,255,0.18)',
+                            boxShadow: '0 8px 24px -8px rgba(0,201,247,0.35)',
+                          }}
+                        >
+                          <DualIcon icono={s.icono} size={26} id={`grad-f-${s.icono}`} />
+                        </div>
+                        <h3 className="font-display text-[1.2rem] font-bold leading-tight text-white">
+                          {s.titulo}
+                        </h3>
                       </div>
 
-                      <h3 className="font-display text-[1.35rem] font-bold text-white">
-                        {s.titulo}
-                      </h3>
-                      <p className="mt-2 text-sm leading-snug text-white/70">{s.descripcion}</p>
+                      <p className="text-sm leading-snug text-white/70">{s.descripcion}</p>
 
-                      <ul className="mt-4 space-y-2">
+                      <ul className="mt-3 space-y-1.5">
                         {s.detalles.map((d) => (
                           <li key={d} className="flex items-center gap-2 text-[13px] text-white/70">
                             <svg
