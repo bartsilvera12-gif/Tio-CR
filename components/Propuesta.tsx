@@ -60,7 +60,7 @@ export default function Propuesta() {
 
       <div className="container relative">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2.5 rounded-full border-2 border-brand-cyan/70 bg-brand-navyDeep px-6 py-2.5 text-base font-bold uppercase tracking-[0.25em] text-brand-cyan shadow-[0_8px_28px_-6px_rgba(10,31,61,0.55),inset_0_1px_0_rgba(255,255,255,0.12)]">
+          <span className="inline-flex items-center gap-2.5 rounded-full border-2 border-brand-cyan/70 bg-brand-navyDeep px-6 py-2.5 text-base font-bold uppercase tracking-[0.25em] text-brand-cyan shadow-[0_8px_28px_-6px_rgba(47,123,255,0.55),inset_0_1px_0_rgba(255,255,255,0.12)]">
             <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-brand-cyan" />
             Propuesta de inversión
           </span>
@@ -76,7 +76,7 @@ export default function Propuesta() {
               style={glassCardStyle}
             >
               {/* Glow interno cian */}
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(10,31,61,0.22),transparent_60%)]" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(47,123,255,0.22),transparent_60%)]" />
 
               <div className="relative">
                 <div className="mb-6 text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
