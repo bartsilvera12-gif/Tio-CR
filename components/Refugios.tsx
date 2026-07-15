@@ -121,7 +121,7 @@ export default function Refugios() {
                   <div className="card-flip3d">
                     {/* ---- Cara frontal: vidrio azul ---- */}
                     <div
-                      className="card-face relative flex h-full flex-col overflow-hidden rounded-2xl p-5 text-white"
+                      className="card-face relative flex h-full min-h-[250px] flex-col justify-center overflow-hidden rounded-2xl p-6 text-white"
                       style={{
                         background:
                           'linear-gradient(150deg, rgba(14,34,71,0.94) 0%, rgba(6,20,40,0.97) 100%)',

@@ -887,8 +887,8 @@ body {
   }
   /* Anclajes: left:0 / right:0 EXACTOS — con la imagen a 75vw (≥ panel
      máximo expandido) el panel queda SIEMPRE cubierto, sin huecos navy. */
-  .photo-anchor-left  { left: 0; right: auto; }
-  .photo-anchor-right { left: auto; right: 0; }
+  .photo-anchor-left  { left: var(--shift, 0px); right: auto; }
+  .photo-anchor-right { left: auto; right: var(--shift, 0px); }
 }
 
 /* Al enfocar un panel, los títulos de los otros dos se desvanecen */

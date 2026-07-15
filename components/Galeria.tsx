@@ -4,14 +4,15 @@ import { carteles } from '@/lib/carteles'
 
 const featured = (
   [
-    { key: 'corpus', pos: '78% center', anchor: 'right' },
-    { key: 'villaflorida', pos: '82% center', anchor: 'right' },
-    { key: 'yaguaron', pos: '42% center', anchor: 'left' },
+    // shift corre la foto (solo desktop) para que el cartel quede visible en reposo
+    { key: 'corpus', pos: '78% center', anchor: 'right', shift: '-8vw' },
+    { key: 'villaflorida', pos: '82% center', anchor: 'right', shift: '0vw' },
+    { key: 'yaguaron', pos: '42% center', anchor: 'left', shift: '-6vw' },
   ] as const
 )
   .map((f) => {
     const c = carteles.find((x) => x.key === f.key)
-    return c ? { ...c, pos: f.pos, anchor: f.anchor } : null
+    return c ? { ...c, pos: f.pos, anchor: f.anchor, shift: f.shift } : null
   })
   .filter((c): c is NonNullable<typeof c> => Boolean(c && c.images.length))
 
@@ -94,6 +95,7 @@ function Panel({
     images: string[]
     pos: string
     anchor: 'left' | 'right'
+    shift: string
   }
   isFirst: boolean
 }) {
@@ -117,7 +119,7 @@ function Panel({
         className={`expand-panel-photo ${
           cartel.anchor === 'left' ? 'photo-anchor-left' : 'photo-anchor-right'
         }`}
-        style={{ objectPosition: cartel.pos }}
+        style={{ objectPosition: cartel.pos, '--shift': cartel.shift } as React.CSSProperties}
       />
 
       {/* Gradiente inferior solo mobile — da look de card y legibilidad */}
