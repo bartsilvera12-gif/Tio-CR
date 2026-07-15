@@ -885,6 +885,8 @@ body {
     width: 75vw;
     max-width: none;
   }
-  .photo-anchor-left  { left: -6vw; right: auto; }
+  /* Anclajes: left:0 / right:0 EXACTOS — con la imagen a 75vw (≥ panel
+     máximo expandido) el panel queda SIEMPRE cubierto, sin huecos navy. */
+  .photo-anchor-left  { left: 0; right: auto; }
   .photo-anchor-right { left: auto; right: 0; }
 }

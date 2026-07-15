@@ -131,6 +131,15 @@ function Panel({
         className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[6px]"
         style={{ background: '#061428' }}
       />
+      {/* Divisor vertical navy en la unión entre paneles — corte nítido,
+          tapa cualquier "raya" donde se encuentran dos fotos distintas */}
+      {!isFirst && (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 left-0 z-20 hidden w-[4px] md:block"
+          style={{ background: '#061428' }}
+        />
+      )}
 
       {/* Contenido — ciudad centrada. Sin overlay oscuro por encima:
           la foto se ve limpia y el texto lleva su propio text-shadow. */}
