@@ -159,20 +159,8 @@ function Billboard() {
           </div>
         </div>
 
-        {/* ---- Poste vertical ---- */}
-        <div className="relative mx-auto h-[40px] w-[10px] rounded-b-md md:h-[100px] md:w-[14px] bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 shadow-[0_2px_10px_rgba(0,0,0,0.5)]" />
-
-        {/* ---- Base: 3 anillos blancos concéntricos ---- */}
-        <div className="relative mx-auto h-[46px] w-[240px] origin-top scale-[0.55] md:scale-100">
-          {/* Sombra en el piso */}
-          <div className="absolute inset-x-[8%] top-5 h-[18px] rounded-[50%] bg-black/50 blur-md" />
-          {/* Placa exterior */}
-          <div className="absolute inset-x-0 top-1 h-[28px] rounded-[4px] border-[3px] border-white/45" />
-          {/* Placa media */}
-          <div className="absolute inset-x-[18%] top-[7px] h-[17px] rounded-[3px] border-2 border-white/35" />
-          {/* Placa interior */}
-          <div className="absolute inset-x-[34%] top-[12px] h-[8px] rounded-[2px] border-2 border-white/25" />
-        </div>
+        {/* ---- Poste plano (sin cilindro, sin base) ---- */}
+        <div className="relative mx-auto h-[48px] w-[16px] bg-slate-800 shadow-[0_2px_10px_rgba(0,0,0,0.5)] md:h-[110px] md:w-[20px]" />
       </div>
     </div>
   )
