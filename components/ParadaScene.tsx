@@ -19,7 +19,7 @@ export default function ParadaScene() {
     const ny = ((e.clientY - rect.top) / rect.height) * 2 - 1
     if (raf.current) cancelAnimationFrame(raf.current)
     raf.current = requestAnimationFrame(() => {
-      inner.style.transform = `translate3d(${nx * -26}px, ${ny * -14}px, 0) rotateY(${nx * -4}deg) rotateX(${ny * 3}deg)`
+      inner.style.transform = `translate3d(${nx * -12}px, ${ny * -7}px, 0) rotateY(${nx * -2}deg) rotateX(${ny * 1.5}deg)`
     })
   }
 

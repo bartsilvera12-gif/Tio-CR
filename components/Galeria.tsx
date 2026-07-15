@@ -7,7 +7,7 @@ const featured = (
     // shift corre la foto (solo desktop) para que el cartel quede visible en reposo
     { key: 'corpus', pos: '78% center', anchor: 'right', shift: '-8vw' },
     { key: 'villaflorida', pos: '82% center', anchor: 'right', shift: '0vw' },
-    { key: 'yaguaron', pos: '42% center', anchor: 'left', shift: '-6vw' },
+    { key: 'yaguaron', pos: '42% center', anchor: 'left', shift: '-13vw' },
   ] as const
 )
   .map((f) => {

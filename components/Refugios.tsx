@@ -122,7 +122,7 @@ export default function Refugios() {
           <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr] lg:gap-10">
           <div className="no-scrollbar -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0">
             {servicios.map((s, i) => (
-              <Reveal key={s.titulo} delay={i * 120} as="article" className="h-full w-[78vw] shrink-0 snap-center sm:w-auto sm:shrink" direction="below">
+              <article key={s.titulo} className="h-full w-[78vw] shrink-0 snap-center sm:w-auto sm:shrink">
                 {/* Zona de hover estable (no rota) */}
                 <div className="card-spin-zone group h-full">
                   <div className="card-flip3d">
@@ -231,7 +231,7 @@ export default function Refugios() {
                     </div>
                   </div>
                 </div>
-              </Reveal>
+              </article>
             ))}
           </div>
 

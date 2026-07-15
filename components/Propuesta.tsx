@@ -72,7 +72,7 @@ export default function Propuesta() {
           {/* CTA titilante — columna derecha */}
           <Reveal direction="right" delay={200}>
             <div className="flex flex-col items-center gap-6 text-center">
-              <p className="max-w-sm text-lg font-semibold text-black">
+              <p className="max-w-sm text-lg font-semibold text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.5)] md:text-black md:[text-shadow:none]">
                 ¿Listo para poner tu marca en la ruta?
               </p>
               <a
