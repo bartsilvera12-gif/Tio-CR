@@ -75,7 +75,7 @@ export default function CoberturaMap() {
   return (
     <div ref={rootRef} className="relative w-full max-w-[560px]">
       {/* Halo suave detrás del mapa */}
-      <div className="pointer-events-none absolute inset-[10%] -z-10 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.18),transparent_70%)] blur-2xl" />
+      <div className="pointer-events-none absolute inset-[10%] -z-10 rounded-full bg-[radial-gradient(circle,rgba(47,123,255,0.18),transparent_70%)] blur-2xl" />
 
       <svg
         viewBox={`0 0 ${W} ${H}`}
@@ -105,7 +105,7 @@ export default function CoberturaMap() {
         <polyline
           points={pins.map((p) => `${p.x},${p.y}`).join(' ')}
           fill="none"
-          stroke="#FFFFFF"
+          stroke="#2F7BFF"
           strokeWidth="2.5"
           strokeOpacity="0.45"
           strokeDasharray="3 14"
@@ -145,7 +145,7 @@ export default function CoberturaMap() {
             transform: 'translate(-50%, calc(-100% - 44px))',
             background:
               'linear-gradient(160deg, rgba(14,34,71,0.98) 0%, rgba(4,12,26,0.99) 100%)',
-            border: '1px solid rgba(255,255,255,0.35)',
+            border: '1px solid rgba(47,123,255,0.35)',
             boxShadow:
               '0 16px 44px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)',
             animation: 'fadeIn 0.2s ease both',
@@ -215,15 +215,15 @@ function CartelModal({ cartel, onClose }: { cartel: Cartel; onClose: () => void 
         style={{
           background:
             'linear-gradient(160deg, rgba(14,34,71,0.98) 0%, rgba(4,12,26,0.99) 100%)',
-          border: '1px solid rgba(255,255,255,0.4)',
+          border: '1px solid rgba(47,123,255,0.4)',
           boxShadow:
-            '0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(255,255,255,0.2), inset 0 1px 0 rgba(255,255,255,0.1)',
+            '0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(47,123,255,0.2), inset 0 1px 0 rgba(255,255,255,0.1)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Banner */}
         <div className="relative overflow-hidden px-7 pb-5 pt-6">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.25),transparent_60%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(47,123,255,0.25),transparent_60%)]" />
           <button
             onClick={onClose}
             aria-label="Cerrar"

@@ -35,10 +35,10 @@ export default function CondicionesCarousel({
             className="flex items-start gap-4 rounded-2xl px-5 py-4 transition-all duration-300"
             style={{
               background: isLight
-                ? 'rgba(255, 255, 255, 0.06)'
+                ? 'rgba(47, 123, 255, 0.06)'
                 : 'rgba(255,255,255,0.03)',
               border: isLight
-                ? '1px solid rgba(255, 255, 255, 0.18)'
+                ? '1px solid rgba(47, 123, 255, 0.18)'
                 : '1px solid rgba(255,255,255,0.06)',
             }}
           >
@@ -46,9 +46,9 @@ export default function CondicionesCarousel({
               className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
               style={{
                 background:
-                  'linear-gradient(160deg, rgba(255,255,255,0.28), rgba(255,255,255,0.1))',
-                border: '1px solid rgba(255,255,255,0.5)',
-                boxShadow: '0 0 18px rgba(255,255,255,0.3)',
+                  'linear-gradient(160deg, rgba(47,123,255,0.28), rgba(47,123,255,0.1))',
+                border: '1px solid rgba(47,123,255,0.5)',
+                boxShadow: '0 0 18px rgba(47,123,255,0.3)',
               }}
             >
               <svg
@@ -56,7 +56,7 @@ export default function CondicionesCarousel({
                 height="14"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#0A1F3D"
+                stroke="#1F5FCC"
                 strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
