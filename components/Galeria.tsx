@@ -52,7 +52,8 @@ export default function Galeria() {
       </div>
 
       {/* Paneles expandibles — full-bleed */}
-      <div className="expand-panels relative mt-12 flex flex-col bg-brand-navy md:h-[520px] md:flex-row">
+      {/* Mobile: carrusel horizontal con snap — Desktop: paneles expandibles */}
+      <div className="expand-panels relative mt-12 flex snap-x snap-mandatory flex-row gap-4 overflow-x-auto px-6 pb-2 md:h-[520px] md:snap-none md:gap-0 md:overflow-visible md:bg-brand-navy md:px-0 md:pb-0">
         {featured.map((c, i) => (
           <Panel key={c.key} cartel={c} isFirst={i === 0} />
         ))}
@@ -99,7 +100,7 @@ function Panel({
   const src = cartel.images[0]
   return (
     <div
-      className={`expand-panel group relative h-[300px] flex-1 cursor-pointer overflow-hidden border-0 outline-none md:h-full ${
+      className={`expand-panel group relative h-[380px] w-[82vw] shrink-0 snap-center cursor-pointer overflow-hidden rounded-2xl border-0 outline-none shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)] md:h-full md:w-auto md:flex-1 md:shrink md:snap-align-none md:rounded-none md:shadow-none ${
         !isFirst ? 'md:-ml-5' : ''
       }`}
       style={{ background: '#061428' }}
@@ -119,16 +120,22 @@ function Panel({
         style={{ objectPosition: cartel.pos }}
       />
 
+      {/* Gradiente inferior solo mobile — da look de card y legibilidad */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[5] bg-gradient-to-t from-black/70 via-black/10 to-transparent md:hidden"
+      />
+
       {/* Franjas navy sólidas arriba y abajo — matan cualquier borde grey
           baked-in o seam de subpixel. Son sólidas, no gradiente. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[6px]"
+        className="pointer-events-none absolute inset-x-0 top-0 z-20 hidden h-[6px] md:block"
         style={{ background: '#061428' }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[6px]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 hidden h-[6px] md:block"
         style={{ background: '#061428' }}
       />
       {/* Divisor vertical navy en la unión entre paneles — corte nítido,
@@ -143,7 +150,7 @@ function Panel({
 
       {/* Contenido — ciudad centrada. Sin overlay oscuro por encima:
           la foto se ve limpia y el texto lleva su propio text-shadow. */}
-      <div className="expand-panel-content pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center">
+      <div className="expand-panel-content pointer-events-none absolute inset-0 z-10 flex flex-col items-start justify-end p-5 text-left md:items-center md:justify-center md:p-6 md:text-center">
         <div
           className="expand-panel-title whitespace-nowrap font-display text-2xl font-bold uppercase tracking-widest text-white md:text-3xl lg:text-4xl"
           style={{ textShadow: '0 2px 12px rgba(0,0,0,0.85), 0 0 24px rgba(0,0,0,0.6)' }}

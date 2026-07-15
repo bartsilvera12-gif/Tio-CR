@@ -916,3 +916,14 @@ body {
   transform: translateY(-7px);
   filter: brightness(1.35) drop-shadow(0 12px 10px rgba(0, 0, 0, 0.45));
 }
+
+/* Mobile: carrusel de paneles — sin scrollbar visible, snap suave */
+@media (max-width: 767px) {
+  .expand-panels {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-padding-left: 1.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .expand-panels::-webkit-scrollbar { display: none; }
+}
