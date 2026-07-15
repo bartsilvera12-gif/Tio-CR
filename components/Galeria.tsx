@@ -52,15 +52,13 @@ export default function Galeria() {
         </Reveal>
       </div>
 
-      {/* Paneles expandibles — full-bleed, de un extremo al otro */}
-      <div className="relative mt-12">
-        <Reveal delay={120}>
-          <div className="expand-panels flex flex-col md:h-[520px] md:flex-row">
-            {featured.map((c) => (
-              <Panel key={c.key} cartel={c} />
-            ))}
-          </div>
-        </Reveal>
+      {/* Paneles expandibles — full-bleed, de un extremo al otro.
+          Sin <Reveal> wrapper: su will-change+transform deja un seam de 1px
+          en el borde superior del layer promocionado. */}
+      <div className="expand-panels relative mt-12 flex flex-col bg-brand-navy md:h-[520px] md:flex-row">
+        {featured.map((c) => (
+          <Panel key={c.key} cartel={c} />
+        ))}
       </div>
 
       {/* CTA — vuelve al container */}
@@ -103,7 +101,7 @@ function Panel({
   const smSrc = src.replace(/\.webp$/, '-sm.webp')
   return (
     <div
-      className="expand-panel group relative h-[300px] flex-1 cursor-pointer overflow-hidden md:h-full"
+      className="expand-panel group relative h-[300px] flex-1 cursor-pointer overflow-hidden border-0 outline-none md:h-full"
       style={
         {
           background: '#061428',
