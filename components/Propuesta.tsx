@@ -1,5 +1,4 @@
 import Reveal from './Reveal'
-import GlowBlob from './GlowBlob'
 import CondicionesCarousel from './CondicionesCarousel'
 
 const condiciones = [
@@ -37,27 +36,6 @@ export default function Propuesta() {
         backgroundPosition: 'center',
       }}
     >
-      {/* Blob principal grande cruzando ambas cards */}
-      <GlowBlob
-        className="left-[10%] top-[38%] h-[540px] w-[900px]"
-        opacity={0.35}
-        radius="52% 48% 60% 40% / 48% 55% 45% 52%"
-      />
-      {/* Blob secundario a la derecha */}
-      <GlowBlob
-        className="right-[-5%] top-[20%] h-[380px] w-[500px]"
-        opacity={0.28}
-        rotate={22}
-        radius="42% 58% 60% 40% / 55% 42% 58% 45%"
-      />
-      {/* Blob de acento pequeño detrás del título */}
-      <GlowBlob
-        className="left-1/2 top-[5%] h-[240px] w-[400px] -translate-x-1/2"
-        opacity={0.18}
-        rotate={-10}
-        radius="55% 45% 62% 38% / 48% 60% 40% 55%"
-      />
-
       <div className="container relative">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-2.5 rounded-full border-2 border-brand-cyan/70 bg-brand-navyDeep px-6 py-2.5 text-base font-bold uppercase tracking-[0.25em] text-brand-cyan shadow-[0_8px_28px_-6px_rgba(0,201,247,0.55),inset_0_1px_0_rgba(255,255,255,0.12)]">
