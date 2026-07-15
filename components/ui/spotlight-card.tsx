@@ -139,6 +139,14 @@ export function SpotlightCard({
           filter: blur(30px);
           opacity: var(--spotlight-active);
         }
+        /* Touch: sin spotlight — el efecto es de cursor, en mobile
+           quedaba pegado tras el tap */
+        @media (hover: none) {
+          [data-spotlight-card]::before,
+          [data-spotlight-card]::after {
+            display: none !important;
+          }
+        }
       `}</style>
 
       <div
