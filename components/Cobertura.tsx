@@ -50,7 +50,7 @@ export default function Cobertura() {
                   <a
                     key={r}
                     href={`/galeria?ruta=${slug}`}
-                    className="glass rounded-full px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:!border-brand-cyan hover:!bg-brand-cyan/10 hover:text-brand-cyan"
+                    className="glass rounded-full !border-brand-cyan !bg-brand-cyan/10 px-4 py-2 text-sm font-semibold text-brand-cyan transition-all duration-300 hover:-translate-y-0.5 hover:!bg-brand-cyan/20"
                     style={{ transitionDelay: `${i * 30}ms` }}
                   >
                     {r}
