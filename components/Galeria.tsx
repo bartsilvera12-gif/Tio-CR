@@ -143,7 +143,7 @@ function Panel({
 
       {/* Contenido — ciudad centrada. Sin overlay oscuro por encima:
           la foto se ve limpia y el texto lleva su propio text-shadow. */}
-      <div className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center">
+      <div className="expand-panel-content pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center">
         <div
           className="expand-panel-title whitespace-nowrap font-display text-2xl font-bold uppercase tracking-widest text-white md:text-3xl lg:text-4xl"
           style={{ textShadow: '0 2px 12px rgba(0,0,0,0.85), 0 0 24px rgba(0,0,0,0.6)' }}

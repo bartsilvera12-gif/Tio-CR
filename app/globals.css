@@ -890,3 +890,13 @@ body {
   .photo-anchor-left  { left: 0; right: auto; }
   .photo-anchor-right { left: auto; right: 0; }
 }
+
+/* Al enfocar un panel, los títulos de los otros dos se desvanecen */
+.expand-panel-content {
+  transition: opacity 0.35s ease;
+}
+@media (min-width: 768px) {
+  .expand-panels:hover .expand-panel:not(:hover) .expand-panel-content {
+    opacity: 0;
+  }
+}
