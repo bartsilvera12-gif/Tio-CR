@@ -89,7 +89,7 @@ export default function Refugios() {
       id="servicios"
       className="relative overflow-hidden bg-[#080C12]"
       style={{
-        backgroundImage: 'url(/fondo3.webp)',
+        backgroundImage: 'url(/fondo-colectivo.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center bottom',
       }}
