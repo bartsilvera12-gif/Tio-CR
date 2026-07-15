@@ -21,8 +21,9 @@ export default function SpotlightBox({
     const el = ref.current
     if (!el) return
     const r = el.getBoundingClientRect()
-    el.style.setProperty('--x', `${(clientX - r.left).toFixed(1)}px`)
-    el.style.setProperty('--y', `${(clientY - r.top).toFixed(1)}px`)
+    // INVERTIDO a pedido del usuario: el glow va al lado opuesto del cursor
+    el.style.setProperty('--x', `${(r.width - (clientX - r.left)).toFixed(1)}px`)
+    el.style.setProperty('--y', `${(r.height - (clientY - r.top)).toFixed(1)}px`)
   }
 
   const onMove = (e: React.PointerEvent<HTMLDivElement>) => {
