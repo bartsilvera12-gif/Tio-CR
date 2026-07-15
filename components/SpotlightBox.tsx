@@ -21,10 +21,10 @@ export default function SpotlightBox({
     const el = ref.current
     if (!el) return
     const r = el.getBoundingClientRect()
-    // X invertido, Y invertido (calibrado con feedback del usuario:
-    // vertical quedó perfecto con Y invertido; ahora X también invertido)
-    el.style.setProperty('--x', `${(r.width - (clientX - r.left)).toFixed(1)}px`)
-    el.style.setProperty('--y', `${(r.height - (clientY - r.top)).toFixed(1)}px`)
+    // Coordenadas locales directas — verificado con test de render:
+    // el gradiente pinta exactamente donde apuntan las vars
+    el.style.setProperty('--x', `${(clientX - r.left).toFixed(1)}px`)
+    el.style.setProperty('--y', `${(clientY - r.top).toFixed(1)}px`)
   }
 
   const onMove = (e: React.PointerEvent<HTMLDivElement>) => {
