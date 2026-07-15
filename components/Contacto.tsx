@@ -109,7 +109,7 @@ export default function Contacto() {
                     href={item.href}
                     target={item.external ? '_blank' : undefined}
                     rel={item.external ? 'noreferrer' : undefined}
-                    className="glass group flex items-center gap-4 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:!border-brand-cyan/50 hover:!bg-white/[0.09] hover:shadow-[0_16px_36px_-16px_rgba(47,123,255,0.4)]"
+                    className="glass group flex items-center gap-4 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:!border-brand-cyan/50 hover:!bg-white/[0.09] hover:shadow-[0_16px_36px_-16px_rgba(0,201,247,0.4)]"
                   >
                     <div
                       className={`flex h-11 w-11 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110 ${

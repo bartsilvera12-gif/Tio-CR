@@ -73,7 +73,7 @@ function DualIcon({
           y2="24"
         >
           <stop offset="0.48" stopColor="#FFFFFF" />
-          <stop offset="0.52" stopColor="#2F7BFF" />
+          <stop offset="0.52" stopColor="#00C9F7" />
         </linearGradient>
       </defs>
       {iconos[icono]}
@@ -99,7 +99,7 @@ export default function Refugios() {
       <div className="container relative py-16 md:py-24">
         {/* Encabezado */}
         <Reveal className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-2.5 rounded-full border-2 border-brand-cyan/70 bg-brand-navyDeep px-6 py-2.5 text-base font-bold uppercase tracking-[0.25em] text-brand-cyan shadow-[0_8px_28px_-6px_rgba(47,123,255,0.55),inset_0_1px_0_rgba(255,255,255,0.12)]">
+          <span className="inline-flex items-center gap-2.5 rounded-full border-2 border-brand-cyan/70 bg-brand-navyDeep px-6 py-2.5 text-base font-bold uppercase tracking-[0.25em] text-brand-cyan shadow-[0_8px_28px_-6px_rgba(0,201,247,0.55),inset_0_1px_0_rgba(255,255,255,0.12)]">
             <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-brand-cyan" />
             Qué hacemos
           </span>
@@ -137,9 +137,9 @@ export default function Refugios() {
                         className="mb-3 inline-flex h-14 w-14 items-center justify-center rounded-full"
                         style={{
                           background:
-                            'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(47,123,255,0.12))',
+                            'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.12))',
                           border: '1px solid rgba(255,255,255,0.18)',
-                          boxShadow: '0 8px 24px -8px rgba(47,123,255,0.35)',
+                          boxShadow: '0 8px 24px -8px rgba(0,201,247,0.35)',
                         }}
                       >
                         <DualIcon icono={s.icono} size={32} id={`grad-f-${s.icono}`} />
@@ -190,9 +190,9 @@ export default function Refugios() {
                         className="relative inline-flex h-20 w-20 items-center justify-center rounded-full"
                         style={{
                           background:
-                            'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(47,123,255,0.14))',
+                            'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.14))',
                           border: '1px solid rgba(255,255,255,0.2)',
-                          boxShadow: '0 10px 30px -10px rgba(47,123,255,0.45)',
+                          boxShadow: '0 10px 30px -10px rgba(0,201,247,0.45)',
                         }}
                       >
                         <DualIcon icono={s.icono} size={46} id={`grad-b-${s.icono}`} />

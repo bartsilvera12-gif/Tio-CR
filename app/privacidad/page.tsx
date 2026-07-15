@@ -231,7 +231,7 @@ export default function PrivacidadPage() {
     <>
       <Header />
       <main className="relative overflow-hidden bg-brand-navyDeep pt-32 pb-24 text-white md:pt-40 md:pb-32">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(47,123,255,0.12),transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,201,247,0.12),transparent_60%)]" />
 
         <div className="container relative max-w-3xl">
           {/* Header */}

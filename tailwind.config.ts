@@ -6,8 +6,8 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          cyan: '#2F7BFF',
-          cyanDark: '#1F5FCC',
+          cyan: '#00C9F7',
+          cyanDark: '#00A8D1',
           ink: '#202020',
           soft: '#F6F6F6',
           navy: '#061428',

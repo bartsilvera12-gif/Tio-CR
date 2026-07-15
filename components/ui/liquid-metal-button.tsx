@@ -164,7 +164,7 @@ export function LiquidMetalButton({
           inset: -6,
           borderRadius: 100,
           background: isCyan
-            ? 'radial-gradient(closest-side, rgba(47,123,255,0.35), transparent 70%)'
+            ? 'radial-gradient(closest-side, rgba(0,201,247,0.35), transparent 70%)'
             : (isWhite
               ? 'radial-gradient(closest-side, rgba(255,255,255,0.55), transparent 70%)'
               : 'radial-gradient(closest-side, rgba(200,200,210,0.35), transparent 70%)'),
@@ -188,7 +188,7 @@ export function LiquidMetalButton({
               : 'translateY(0) scale(1) rotateX(0deg)',
             filter: isHovered
               ? (isCyan
-                ? 'drop-shadow(0 8px 22px rgba(47, 123, 255, 0.55)) drop-shadow(0 3px 10px rgba(47, 123, 255, 0.35))'
+                ? 'drop-shadow(0 8px 22px rgba(0, 201, 247, 0.55)) drop-shadow(0 3px 10px rgba(0, 201, 247, 0.35))'
                 : (isWhite
                   ? 'drop-shadow(0 10px 30px rgba(255, 255, 255, 0.5)) drop-shadow(0 3px 10px rgba(255, 255, 255, 0.3))'
                   : 'drop-shadow(0 10px 26px rgba(0, 0, 0, 0.55)) drop-shadow(0 3px 10px rgba(255, 255, 255, 0.08))'))
@@ -256,7 +256,7 @@ export function LiquidMetalButton({
                 width: `${dimensions.innerWidth}px`, height: `${dimensions.innerHeight}px`,
                 margin: '2px', borderRadius: '100px',
                 background: isCyan
-                  ? 'linear-gradient(180deg, #7BA9FF 0%, #2F7BFF 55%, #1F5FCC 100%)'
+                  ? 'linear-gradient(180deg, #7DE1FF 0%, #00C9F7 55%, #00A6D6 100%)'
                   : (isWhite
                     ? 'linear-gradient(180deg, #FFFFFF 0%, #EDF1F7 55%, #D8DEE8 100%)'
                     : 'linear-gradient(180deg, #202020 0%, #000000 100%)'),
