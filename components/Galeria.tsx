@@ -100,7 +100,7 @@ function Panel({
   return (
     <div
       className={`expand-panel group relative h-[300px] flex-1 cursor-pointer overflow-hidden border-0 outline-none md:h-full ${
-        !isFirst ? 'md:-ml-[8px]' : ''
+        !isFirst ? 'md:-ml-5' : ''
       }`}
       style={
         {
@@ -109,28 +109,18 @@ function Panel({
         } as React.CSSProperties
       }
     >
-      {/* Wrapper de tamaño FIJO (1200px) — la imagen dentro se escala a
-          este tamaño constante con object-cover, así el "zoom-feel"
-          desaparece: cuando el panel cambia de ancho, solo se ve más o
-          menos slice del mismo render de imagen. */}
-      <div
-        className="expand-panel-img absolute inset-y-0"
-        style={{
-          width: '1200px',
-          left: '50%',
-          transform: `translateX(calc(-1 * ${cartel.pos.split(' ')[0]}))`,
-        }}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={src}
-          alt={cartel.city}
-          loading="lazy"
-          decoding="async"
-          className="block h-full w-full object-cover"
-          style={{ objectPosition: cartel.pos }}
-        />
-      </div>
+      {/* Imagen full-fill: object-cover con object-position en el cartel.
+          Nada se deforma (cover preserva aspect ratio), la foto siempre
+          llena todo el panel. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={src}
+        alt={cartel.city}
+        loading="lazy"
+        decoding="async"
+        className="expand-panel-img absolute inset-0 block h-full w-full object-cover"
+        style={{ objectPosition: cartel.pos }}
+      />
 
       {/* Franjas navy sólidas arriba y abajo — matan cualquier borde grey
           baked-in o seam de subpixel. Son sólidas, no gradiente. */}
