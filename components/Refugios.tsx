@@ -2,7 +2,6 @@ import { servicios } from '@/lib/data'
 import Reveal from './Reveal'
 import ParadaScene from './ParadaScene'
 import { SpotlightCard } from './ui/spotlight-card'
-import CarouselArrows from './CarouselArrows'
 
 const iconos: Record<string, React.ReactNode> = {
   // Cartel de ruta: pantalla limpia sobre poste central
@@ -121,9 +120,7 @@ export default function Refugios() {
           className="mt-12 rounded-[2rem] p-4 md:p-8"
         >
           <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr] lg:gap-10">
-          <div>
-          <CarouselArrows targetId="servicios-track" />
-          <div id="servicios-track" className="no-scrollbar -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0">
+          <div className="no-scrollbar -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0">
             {servicios.map((s, i) => (
               <article key={s.titulo} className="h-full w-[78vw] shrink-0 snap-center sm:w-auto sm:shrink">
                 {/* Zona de hover estable (no rota) */}
@@ -236,7 +233,6 @@ export default function Refugios() {
                 </div>
               </article>
             ))}
-          </div>
           </div>
 
           {/* DERECHA — escena interactiva: la parada se eleva al hover */}
