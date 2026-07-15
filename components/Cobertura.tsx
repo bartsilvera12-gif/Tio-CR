@@ -1,6 +1,7 @@
 import { rutas } from '@/lib/data'
 import Reveal from './Reveal'
 import CoberturaMap from './CoberturaMap'
+import CoberturaDoodles from './CoberturaDoodles'
 import SplitTextReveal from './SplitTextReveal'
 
 export default function Cobertura() {
@@ -10,6 +11,7 @@ export default function Cobertura() {
       className="section relative overflow-hidden text-white"
       style={{ backgroundColor: '#888E9E' }}
     >
+      <CoberturaDoodles />
       <div className="container relative">
         <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
