@@ -183,7 +183,7 @@ export default function Refugios() {
 
                     {/* ---- Cara trasera ---- */}
                     <div
-                      className="card-face card-face-back flex flex-col items-center justify-center gap-5 overflow-hidden rounded-2xl p-6 text-center"
+                      className="card-face card-face-back flex flex-col items-center justify-center gap-2.5 overflow-hidden rounded-2xl p-3 text-center sm:gap-5 sm:p-6"
                       style={{
                         background:
                           'linear-gradient(150deg, rgba(14,34,71,0.94) 0%, rgba(6,20,40,0.97) 100%)',
@@ -196,7 +196,7 @@ export default function Refugios() {
                     >
                       {/* Loguito grande en círculo */}
                       <div
-                        className="relative inline-flex h-20 w-20 items-center justify-center rounded-full"
+                        className="relative inline-flex h-11 w-11 items-center justify-center rounded-full sm:h-20 sm:w-20"
                         style={{
                           background:
                             'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.14))',
@@ -204,15 +204,20 @@ export default function Refugios() {
                           boxShadow: '0 10px 30px -10px rgba(0,201,247,0.45)',
                         }}
                       >
-                        <DualIcon icono={s.icono} size={46} id={`grad-b-${s.icono}`} />
+                        <span className="sm:hidden">
+                          <DualIcon icono={s.icono} size={24} id={`grad-bm-${s.icono}`} />
+                        </span>
+                        <span className="hidden sm:inline">
+                          <DualIcon icono={s.icono} size={46} id={`grad-b-${s.icono}`} />
+                        </span>
                       </div>
 
-                      <h3 className="relative font-display text-[1.35rem] font-bold text-white">
+                      <h3 className="relative font-display text-[0.9rem] font-bold text-white sm:text-[1.35rem]">
                         {s.titulo}
                       </h3>
 
                       {/* CTA con el mismo formato que Solicitar presupuesto */}
-                      <a href="#contacto" className="btn-cta uppercase tracking-widest">
+                      <a href="#contacto" className="btn-cta !px-4 !py-2 !text-[11px] uppercase tracking-widest sm:!px-7 sm:!py-3 sm:!text-sm">
                         <span>Consultar</span>
                         <svg
                           className="cta-arrow"
