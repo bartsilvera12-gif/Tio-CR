@@ -1,5 +1,5 @@
 import Reveal from './Reveal'
-import SpotlightBox from './SpotlightBox'
+import { SpotlightCard } from './ui/spotlight-card'
 import CondicionesCarousel from './CondicionesCarousel'
 
 const condiciones = [
@@ -50,12 +50,14 @@ export default function Propuesta() {
 
         <div className="mt-14 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <Reveal direction="left">
-            <SpotlightBox
-              className="propuesta-card spotlight-card relative h-full overflow-hidden rounded-3xl p-8 text-white transition-all duration-500 ease-out hover:-translate-y-2 md:p-10"
+            <SpotlightCard
+              glowColor="blue"
+              glowSize={280}
+              className="propuesta-card relative h-full rounded-3xl p-8 text-white transition-all duration-500 ease-out hover:-translate-y-2 md:p-10"
               style={glassCardStyle}
             >
               {/* Glow interno cian */}
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,201,247,0.22),transparent_60%)]" />
+              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(ellipse_at_top_right,rgba(0,201,247,0.22),transparent_60%)]" />
 
               <div className="relative">
                 <div className="mb-6 text-xs font-bold uppercase tracking-[0.28em] text-brand-cyan">
@@ -64,7 +66,7 @@ export default function Propuesta() {
 
                 <CondicionesCarousel items={condiciones} theme="dark" />
               </div>
-            </SpotlightBox>
+            </SpotlightCard>
           </Reveal>
 
           {/* CTA titilante — columna derecha */}
