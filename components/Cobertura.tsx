@@ -13,15 +13,16 @@ export default function Cobertura() {
     >
       <GlowBlob
         className="left-[2%] bottom-[30%] h-[400px] w-[520px]"
-        opacity={0.09}
+        opacity={0.28}
         rotate={-24}
         radius="62% 38% 50% 50% / 42% 58% 45% 55%"
+        color="10, 31, 61"
       />
       <div className="container relative">
         <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <span className="eyebrow inline-flex items-center gap-2.5">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-brand-cyan" />
+            <span className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-black">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-black" />
               Cobertura
             </span>
 
@@ -36,12 +37,12 @@ export default function Cobertura() {
                 by="word"
                 step={80}
                 delay={500}
-                unitClassName="conectan-word"
+                unitClassName="text-black"
               />
             </h2>
 
-            {/* Barra de acento cian que crece */}
-            <div className="mt-5 h-[3px] w-24 origin-left rounded-full bg-gradient-to-r from-brand-cyan to-transparent accent-bar" />
+            {/* Barra de acento negra que crece */}
+            <div className="mt-5 h-[3px] w-24 origin-left rounded-full bg-gradient-to-r from-black to-transparent accent-bar" />
 
             <Reveal direction="left-clean" delay={200}>
               <p className="mt-6 text-lg text-white/85">
@@ -67,13 +68,14 @@ export default function Cobertura() {
             </div>
 
             <div className="relative mt-8">
-              {/* Blob lento detrás de los stats: se ve el vidrio "cambiar de color" */}
+              {/* Blob lento navy detrás de los stats: se ve el vidrio "cambiar de color" */}
               <GlowBlob
                 className="left-[-8%] top-[-30%] h-[280px] w-[520px]"
-                opacity={0.28}
+                opacity={0.45}
                 radius="52% 48% 62% 38% / 45% 58% 42% 55%"
                 animated
                 speed="slow"
+                color="10, 31, 61"
               />
               <div className="relative grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {[
