@@ -15,6 +15,17 @@ export default function Cobertura() {
         backgroundPosition: 'center',
       }}
     >
+      {/* Grano de película sobre el fondo gris */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: 'url(/grain.webp)',
+          backgroundRepeat: 'repeat',
+          mixBlendMode: 'overlay',
+          opacity: 0.45,
+        }}
+      />
       <div className="container relative">
         <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
