@@ -1,4 +1,5 @@
 import Reveal from './Reveal'
+import SpotlightBox from './SpotlightBox'
 import CondicionesCarousel from './CondicionesCarousel'
 
 const condiciones = [
@@ -49,7 +50,7 @@ export default function Propuesta() {
 
         <div className="mt-14 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <Reveal direction="left">
-            <div
+            <SpotlightBox
               className="propuesta-card spotlight-card relative h-full overflow-hidden rounded-3xl p-8 text-white transition-all duration-500 ease-out hover:-translate-y-2 md:p-10"
               style={glassCardStyle}
             >
@@ -63,7 +64,7 @@ export default function Propuesta() {
 
                 <CondicionesCarousel items={condiciones} theme="dark" />
               </div>
-            </div>
+            </SpotlightBox>
           </Reveal>
 
           {/* CTA titilante — columna derecha */}

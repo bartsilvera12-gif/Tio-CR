@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
-import SpotlightPointer from '@/components/SpotlightPointer'
 
 const madeTommy = localFont({
   src: [
@@ -42,7 +41,6 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${madeTommy.variable} ${poppins.variable}`}>
       <body className="font-sans">
-        <SpotlightPointer />
         {children}
       </body>
     </html>
