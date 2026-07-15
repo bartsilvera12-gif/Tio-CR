@@ -839,31 +839,18 @@ body {
   letter-spacing: 0.08em;
 }
 
-/* ============================================================
+
 
 /* ============================================================
-   EXPAND PANELS — 3 paneles horizontales full-bleed (OPL style)
+   EXPAND PANELS — 3 paneles horizontales (OPL style)
    ============================================================
-   Sin gap, sin bordes redondeados, sin sombras que dejen halo.
-   Título con nowrap y tamaño estable — no se deforma al expandir. */
-.expand-panel-img {
-  object-position: var(--pos, center);
-  transition: object-position 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.expand-panel-title {
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  transform: translateZ(0);           /* GPU layer estable, evita jitter subpixel */
-  backface-visibility: hidden;
-  will-change: transform;
-}
+   Solo transición de ancho (flex). SIN transición en la imagen,
+   así no se siente ningún "zoom" — solo desplazamiento del panel. */
 .expand-panel-detail {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
   transition: opacity 0.4s ease 0.15s, max-height 0.5s ease 0.15s;
-}
-.expand-panel-overlay {
-  transition: opacity 0.5s ease;
 }
 
 @media (min-width: 768px) {
@@ -872,7 +859,6 @@ body {
   }
   .expand-panels:hover .expand-panel { flex: 0.55; }
   .expand-panels .expand-panel:hover { flex: 3; }
-  .expand-panels .expand-panel:hover .expand-panel-img { object-position: center; }
   .expand-panels .expand-panel:hover .expand-panel-detail {
     opacity: 1;
     max-height: 200px;

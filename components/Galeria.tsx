@@ -35,7 +35,6 @@ export default function Galeria() {
         speed="slow"
       />
 
-      {/* Header — dentro del container */}
       <div className="container relative">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
@@ -52,16 +51,13 @@ export default function Galeria() {
         </Reveal>
       </div>
 
-      {/* Paneles expandibles — full-bleed, de un extremo al otro.
-          Sin <Reveal> wrapper: su will-change+transform deja un seam de 1px
-          en el borde superior del layer promocionado. */}
+      {/* Paneles expandibles — full-bleed */}
       <div className="expand-panels relative mt-12 flex flex-col bg-brand-navy md:h-[520px] md:flex-row">
-        {featured.map((c) => (
-          <Panel key={c.key} cartel={c} />
+        {featured.map((c, i) => (
+          <Panel key={c.key} cartel={c} isFirst={i === 0} />
         ))}
       </div>
 
-      {/* CTA — vuelve al container */}
       <div className="container relative">
         <div className="mt-10 flex justify-center">
           <a href="/galeria" className="btn-cta uppercase tracking-widest">
@@ -88,6 +84,7 @@ export default function Galeria() {
 
 function Panel({
   cartel,
+  isFirst,
 }: {
   cartel: {
     city: string
@@ -96,12 +93,15 @@ function Panel({
     images: string[]
     pos: string
   }
+  isFirst: boolean
 }) {
   const src = cartel.images[0]
   const smSrc = src.replace(/\.webp$/, '-sm.webp')
   return (
     <div
-      className="expand-panel group relative h-[300px] flex-1 cursor-pointer overflow-hidden border-0 outline-none md:h-full"
+      className={`expand-panel group relative h-[300px] flex-1 cursor-pointer overflow-hidden border-0 outline-none md:h-full ${
+        !isFirst ? 'md:-ml-px' : ''
+      }`}
       style={
         {
           background: '#061428',
@@ -109,18 +109,23 @@ function Panel({
         } as React.CSSProperties
       }
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={smSrc}
-        srcSet={`${smSrc} 600w, ${src} 1400w`}
-        sizes="(max-width: 768px) 100vw, 60vw"
-        alt={cartel.city}
-        loading="lazy"
-        decoding="async"
-        className="expand-panel-img absolute inset-0 block h-full w-full object-cover"
+      {/* Foto de fondo — background-image en vez de <img> para que al
+          expandir NO reescale (background-size: cover en un ancho fijo).
+          Solo se corre background-position, así se siente "desplazamiento". */}
+      <div
+        className="expand-panel-img absolute inset-0"
+        style={{
+          backgroundImage: `image-set(url(${smSrc}) 1x, url(${src}) 2x)`,
+          backgroundSize: 'cover',
+          backgroundPosition: cartel.pos,
+          backgroundRepeat: 'no-repeat',
+        }}
+        role="img"
+        aria-label={cartel.city}
       />
 
-      {/* Franjas navy sólidas — SIEMPRE encima de todo, matan la banda gris */}
+      {/* Franjas navy sólidas arriba y abajo — matan cualquier borde grey
+          baked-in o seam de subpixel. Son sólidas, no gradiente. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[6px]"
@@ -132,25 +137,25 @@ function Panel({
         style={{ background: '#061428' }}
       />
 
-      {/* Overlay oscuro con "vignette horizontal": mata los bordes gris
-          que aparecen donde el sky de la foto se mezcla con el gradient */}
-      <div
-        className="expand-panel-overlay pointer-events-none absolute inset-0"
-        style={{
-          background:
-            'linear-gradient(to bottom, #061428 0%, rgba(6,20,40,0) 12%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.85) 100%)',
-        }}
-      />
-
-      {/* Contenido — ciudad centrada (OPL-style) */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-        <div className="expand-panel-title whitespace-nowrap font-display text-2xl font-bold uppercase tracking-widest text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)] md:text-3xl lg:text-4xl">
+      {/* Contenido — ciudad centrada. Sin overlay oscuro por encima:
+          la foto se ve limpia y el texto lleva su propio text-shadow. */}
+      <div className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center">
+        <div
+          className="expand-panel-title whitespace-nowrap font-display text-2xl font-bold uppercase tracking-widest text-white md:text-3xl lg:text-4xl"
+          style={{ textShadow: '0 2px 12px rgba(0,0,0,0.85), 0 0 24px rgba(0,0,0,0.6)' }}
+        >
           {cartel.city}
         </div>
-        <div className="mt-2 whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.3em] text-white/75 md:text-xs">
+        <div
+          className="mt-2 whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.3em] text-white/90 md:text-xs"
+          style={{ textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}
+        >
           {cartel.route}
         </div>
-        <p className="expand-panel-detail mt-6 max-w-md text-sm leading-relaxed text-white/90">
+        <p
+          className="expand-panel-detail mt-6 max-w-md text-sm leading-relaxed text-white"
+          style={{ textShadow: '0 1px 6px rgba(0,0,0,0.85)' }}
+        >
           {cartel.ref}
         </p>
       </div>

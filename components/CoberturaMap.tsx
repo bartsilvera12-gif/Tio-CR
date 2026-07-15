@@ -178,7 +178,7 @@ export default function CoberturaMap() {
 
       {/* Caption */}
       <p className="mt-4 flex items-center justify-center gap-2.5 text-sm text-white/60">
-        <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-brand-cyan" />
+        <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-[#0A1F3D]" />
         Tocá un punto para ver el cartel disponible
       </p>
 
