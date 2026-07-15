@@ -85,8 +85,8 @@ export default function CoberturaMap() {
       >
         <defs>
           <linearGradient id="mapFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#4A5A70" />
-            <stop offset="1" stopColor="#1E2836" />
+            <stop offset="0" stopColor="#1E4B8A" />
+            <stop offset="1" stopColor="#0A1F3D" />
           </linearGradient>
         </defs>
 
@@ -95,8 +95,8 @@ export default function CoberturaMap() {
             key={d.name}
             d={d.d}
             fill="url(#mapFill)"
-            stroke="#94A3B8"
-            strokeOpacity="0.35"
+            stroke="#7DB0E8"
+            strokeOpacity="0.45"
             strokeWidth="1.4"
             strokeLinejoin="round"
           />

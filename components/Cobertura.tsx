@@ -6,7 +6,11 @@ import SplitTextReveal from './SplitTextReveal'
 
 export default function Cobertura() {
   return (
-    <section id="cobertura" className="section relative overflow-hidden bg-brand-navyDeep text-white">
+    <section
+      id="cobertura"
+      className="section relative overflow-hidden text-white"
+      style={{ backgroundColor: '#888E9E' }}
+    >
       <GlowBlob
         className="left-[2%] bottom-[30%] h-[400px] w-[520px]"
         opacity={0.09}
@@ -40,7 +44,7 @@ export default function Cobertura() {
             <div className="mt-5 h-[3px] w-24 origin-left rounded-full bg-gradient-to-r from-brand-cyan to-transparent accent-bar" />
 
             <Reveal direction="left-clean" delay={200}>
-              <p className="mt-6 text-lg text-white/70">
+              <p className="mt-6 text-lg text-white/85">
                 Operamos en las principales arterias del país — desde el sur
                 hasta la frontera norte — con ubicaciones estratégicas en
                 accesos y centros urbanos.
@@ -85,7 +89,7 @@ export default function Cobertura() {
                     <div className="stat-number font-display text-3xl font-bold text-brand-cyan transition-transform duration-500 group-hover:scale-110">
                       {s.n}
                     </div>
-                    <div className="mt-1 whitespace-nowrap text-[10px] font-semibold uppercase tracking-wider text-white/60 transition-colors group-hover:text-white/90">
+                    <div className="mt-1 whitespace-nowrap text-[10px] font-semibold uppercase tracking-wider text-white/75 transition-colors group-hover:text-white/95">
                       {s.label}
                     </div>
                   </div>
