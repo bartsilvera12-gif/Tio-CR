@@ -2,9 +2,6 @@ import Reveal from './Reveal'
 import GlowBlob from './GlowBlob'
 import { carteles } from '@/lib/carteles'
 
-/** 3 paneles expandibles al estilo OPL Digital.
-    En reposo cada panel muestra el lado más cercano al cartel (object-position);
-    al hover el panel se ensancha y la imagen se centra para revelar la escena. */
 const featured = (
   [
     { key: 'yaguaron', pos: '42% center' },
@@ -38,6 +35,7 @@ export default function Galeria() {
         speed="slow"
       />
 
+      {/* Header — dentro del container */}
       <div className="container relative">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
@@ -52,16 +50,21 @@ export default function Galeria() {
             </p>
           </div>
         </Reveal>
+      </div>
 
-        {/* Paneles expandibles (OPL-style) */}
+      {/* Paneles expandibles — full-bleed, de un extremo al otro */}
+      <div className="relative mt-12">
         <Reveal delay={120}>
-          <div className="expand-panels mt-12 flex flex-col gap-3 md:h-[520px] md:flex-row md:gap-2">
+          <div className="expand-panels flex flex-col md:h-[520px] md:flex-row">
             {featured.map((c) => (
               <Panel key={c.key} cartel={c} />
             ))}
           </div>
         </Reveal>
+      </div>
 
+      {/* CTA — vuelve al container */}
+      <div className="container relative">
         <div className="mt-10 flex justify-center">
           <a href="/galeria" className="btn-cta uppercase tracking-widest">
             <span>Ver galería completa</span>
@@ -100,11 +103,10 @@ function Panel({
   const smSrc = src.replace(/\.webp$/, '-sm.webp')
   return (
     <div
-      className="expand-panel group relative h-[280px] flex-1 cursor-pointer overflow-hidden rounded-2xl md:h-full"
+      className="expand-panel group relative h-[300px] flex-1 cursor-pointer overflow-hidden md:h-full"
       style={
         {
           background: '#061428',
-          boxShadow: '0 18px 44px -18px rgba(0,0,0,0.6)',
           '--pos': cartel.pos,
         } as React.CSSProperties
       }
@@ -117,21 +119,20 @@ function Panel({
         alt={cartel.city}
         loading="lazy"
         decoding="async"
-        className="expand-panel-img absolute inset-0 h-full w-full object-cover"
+        className="expand-panel-img absolute inset-0 block h-full w-full object-cover"
       />
 
       {/* Overlay oscuro que se aclara al expandir */}
-      <div className="expand-panel-overlay pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/25" />
+      <div className="expand-panel-overlay pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/45" />
 
       {/* Contenido — ciudad centrada (OPL-style) */}
       <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-        <div className="font-display text-3xl font-bold uppercase tracking-widest text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)] md:text-4xl">
+        <div className="expand-panel-title whitespace-nowrap font-display text-2xl font-bold uppercase tracking-widest text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)] md:text-3xl lg:text-4xl">
           {cartel.city}
         </div>
-        <div className="mt-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/75">
+        <div className="mt-2 whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.3em] text-white/75 md:text-xs">
           {cartel.route}
         </div>
-        {/* Descripción — visible solo cuando el panel está expandido */}
         <p className="expand-panel-detail mt-6 max-w-md text-sm leading-relaxed text-white/90">
           {cartel.ref}
         </p>
