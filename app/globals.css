@@ -624,27 +624,22 @@ body {
 .spotlight-card:not(:hover)::after {
   display: none;
 }
-/* Halo INTERIOR que sigue al mouse por toda la card (sin máscara de borde) */
+/* La "rayita" del borde: glow cian ancho + núcleo blanco fino, ambos
+   recortados al borde de 2px — recorren el perímetro siguiendo al cursor */
 .spotlight-card::before {
-  -webkit-mask: none;
-          mask: none;
-  border: none;
-  inset: 0;
   background-image: radial-gradient(
-    260px 260px at var(--x) var(--y),
-    rgba(0, 201, 247, 0.16),
-    rgba(255, 255, 255, 0.05) 40%,
-    transparent 70%
-  );
-}
-/* Anillo de borde que se enciende cerca del cursor */
-.spotlight-card::after {
-  background-image: radial-gradient(
-    220px 220px at var(--x) var(--y),
-    hsl(190 100% 60%),
+    240px 240px at var(--x) var(--y),
+    hsl(190 100% 55%),
     transparent 60%
   );
-  filter: brightness(1.5) saturate(1.3);
+  filter: brightness(1.6) saturate(1.4);
+}
+.spotlight-card::after {
+  background-image: radial-gradient(
+    130px 130px at var(--x) var(--y),
+    hsl(0 0% 100%),
+    transparent 55%
+  );
 }
 
 /* ============================================================
