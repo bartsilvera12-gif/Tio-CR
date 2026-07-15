@@ -93,13 +93,16 @@ export default function CoberturaMap() {
         {departments.map((d: { name: string; d: string }) => (
           <path
             key={d.name}
+            className="map-dept"
             d={d.d}
             fill="url(#mapFill)"
             stroke="#E8EDF5"
             strokeOpacity="0.45"
             strokeWidth="1.4"
             strokeLinejoin="round"
-          />
+          >
+            <title>{d.name}</title>
+          </path>
         ))}
 
         <polyline
