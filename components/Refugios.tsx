@@ -96,7 +96,7 @@ export default function Refugios() {
       {/* Suavizado del borde superior de la banda */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-black via-black/70 to-transparent" />
 
-      <div className="container relative py-16 md:py-24">
+      <div className="container relative py-12 md:py-24">
         {/* Encabezado */}
         <Reveal className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2.5 rounded-full border-2 border-brand-cyan/70 bg-brand-navyDeep px-6 py-2.5 text-base font-bold uppercase tracking-[0.25em] text-brand-cyan shadow-[0_8px_28px_-6px_rgba(0,201,247,0.55),inset_0_1px_0_rgba(255,255,255,0.12)]">
@@ -113,9 +113,9 @@ export default function Refugios() {
 
         {/* Grid: 4 cards (2×2) a la izquierda + parada a la derecha */}
         <div className="mt-12 grid items-center gap-8 lg:grid-cols-[1fr_1fr] lg:gap-10">
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="no-scrollbar -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0">
             {servicios.map((s, i) => (
-              <Reveal key={s.titulo} delay={i * 120} as="article" className="h-full" direction="below">
+              <Reveal key={s.titulo} delay={i * 120} as="article" className="h-full w-[78vw] shrink-0 snap-center sm:w-auto sm:shrink" direction="below">
                 {/* Zona de hover estable (no rota) */}
                 <div className="card-spin-zone group h-full">
                   <div className="card-flip3d">

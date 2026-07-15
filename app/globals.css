@@ -560,7 +560,7 @@ body {
     @apply text-xs font-semibold uppercase tracking-[0.18em] text-brand-cyanDark;
   }
   .section {
-    @apply py-24 md:py-32;
+    @apply py-16 md:py-32;
   }
   .h-display {
     @apply font-display font-bold tracking-tight text-brand-ink;
@@ -927,3 +927,7 @@ body {
   }
   .expand-panels::-webkit-scrollbar { display: none; }
 }
+
+/* Utilidad: ocultar scrollbar en carruseles táctiles */
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }

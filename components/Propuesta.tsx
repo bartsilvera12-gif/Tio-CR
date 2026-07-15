@@ -30,7 +30,7 @@ export default function Propuesta() {
   return (
     <section
       id="propuesta"
-      className="relative overflow-hidden py-24 text-white md:py-32"
+      className="relative overflow-hidden py-16 text-white md:py-32"
       style={{
         backgroundImage: 'url(/fondo2.webp)',
         backgroundSize: 'cover',

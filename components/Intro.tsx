@@ -3,7 +3,7 @@ import GlowBlob from './GlowBlob'
 
 export default function Intro() {
   return (
-    <section className="relative overflow-hidden bg-black py-24 text-white md:py-32">
+    <section className="relative overflow-hidden bg-black py-16 text-white md:py-32">
       {/* Fade desde el negro del hero */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent" />
       {/* Blobs cian difuminados en el fondo */}
@@ -16,7 +16,7 @@ export default function Intro() {
       />
 
       <div className="container relative">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal direction="cinematic">
             <div className="flex justify-center lg:justify-start">
               <Billboard />
@@ -165,10 +165,10 @@ function Billboard() {
         </div>
 
         {/* ---- Poste vertical ---- */}
-        <div className="relative mx-auto h-[100px] w-[14px] rounded-b-md bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 shadow-[0_2px_10px_rgba(0,0,0,0.5)]" />
+        <div className="relative mx-auto h-[56px] w-[12px] rounded-b-md md:h-[100px] md:w-[14px] bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 shadow-[0_2px_10px_rgba(0,0,0,0.5)]" />
 
         {/* ---- Base: 3 anillos blancos concéntricos ---- */}
-        <div className="relative mx-auto h-[46px] w-[240px]">
+        <div className="relative mx-auto hidden h-[46px] w-[240px] md:block">
           {/* Sombra en el piso */}
           <div className="absolute inset-x-[8%] top-5 h-[18px] rounded-[50%] bg-black/50 blur-md" />
           {/* Anillo exterior */}
