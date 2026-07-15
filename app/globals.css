@@ -857,8 +857,8 @@ body {
   .expand-panels .expand-panel {
     transition: flex 0.9s cubic-bezier(0.33, 1, 0.68, 1);
   }
-  .expand-panels:hover .expand-panel { flex: 0.55; }
-  .expand-panels .expand-panel:hover { flex: 3; }
+  .expand-panels:hover .expand-panel { flex: 0.8; }
+  .expand-panels .expand-panel:hover { flex: 1.9; }
   .expand-panels .expand-panel:hover .expand-panel-detail {
     opacity: 1;
     max-height: 200px;
