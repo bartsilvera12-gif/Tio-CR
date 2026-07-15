@@ -107,13 +107,7 @@ function Billboard() {
       <div className="pointer-events-none absolute -inset-16 -z-10 bg-[radial-gradient(circle,rgba(0,201,247,0.1),transparent_70%)] blur-3xl" />
 
       {/* Estructura vertical con perspectiva 3D (estática) */}
-      <div
-        className="relative"
-        style={{
-          transform: 'rotateY(14deg) rotateX(6deg) rotateZ(-2deg)',
-          transformStyle: 'preserve-3d',
-        }}
-      >
+      <div className="billboard-3d relative">
         {/* ---- Reflectores ---- */}
         <div className="relative z-20 -mb-[6px] h-[38px]">
           {spots.map((left, i) => (
@@ -133,7 +127,7 @@ function Billboard() {
         </div>
 
         {/* ---- Pantalla con marco ---- */}
-        <div className="relative aspect-[16/9]">
+        <div className="relative aspect-[2/1] md:aspect-[16/9]">
           {/* Sombra atrás del bezel */}
           <div className="absolute -inset-2 rounded-[10px] bg-black/40 blur-lg" />
 
@@ -166,10 +160,10 @@ function Billboard() {
         </div>
 
         {/* ---- Poste vertical ---- */}
-        <div className="relative mx-auto h-[56px] w-[12px] rounded-b-md md:h-[100px] md:w-[14px] bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 shadow-[0_2px_10px_rgba(0,0,0,0.5)]" />
+        <div className="relative mx-auto h-[40px] w-[10px] rounded-b-md md:h-[100px] md:w-[14px] bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 shadow-[0_2px_10px_rgba(0,0,0,0.5)]" />
 
         {/* ---- Base: 3 anillos blancos concéntricos ---- */}
-        <div className="relative mx-auto hidden h-[46px] w-[240px] md:block">
+        <div className="relative mx-auto h-[46px] w-[240px] origin-top scale-[0.55] md:scale-100">
           {/* Sombra en el piso */}
           <div className="absolute inset-x-[8%] top-5 h-[18px] rounded-[50%] bg-black/50 blur-md" />
           {/* Anillo exterior */}

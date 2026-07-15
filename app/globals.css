@@ -928,3 +928,14 @@ body {
 /* Utilidad: ocultar scrollbar en carruseles táctiles */
 .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Cartel del intro: rotación 3D suave en mobile, completa en desktop */
+.billboard-3d {
+  transform: rotateY(5deg) rotateX(2deg);
+  transform-style: preserve-3d;
+}
+@media (min-width: 768px) {
+  .billboard-3d {
+    transform: rotateY(14deg) rotateX(6deg) rotateZ(-2deg);
+  }
+}
