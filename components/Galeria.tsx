@@ -106,6 +106,8 @@ function Panel({
         {
           background: '#061428',
           '--pos': cartel.pos,
+          // Franja navy sólida arriba y abajo — pisa cualquier seam de layer/subpixel
+          boxShadow: 'inset 0 3px 0 #061428, inset 0 -3px 0 #061428',
         } as React.CSSProperties
       }
     >
