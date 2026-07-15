@@ -148,9 +148,31 @@ function Billboard() {
                 '0 20px 50px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.16), inset 0 -1px 0 rgba(0,0,0,0.3)',
             }}
           >
+            {/* Esquineros tipo HUD en el bezel */}
+            {[
+              'left-1 top-1 border-l-2 border-t-2',
+              'right-1 top-1 border-r-2 border-t-2',
+              'left-1 bottom-1 border-l-2 border-b-2',
+              'right-1 bottom-1 border-r-2 border-b-2',
+            ].map((pos) => (
+              <div
+                key={pos}
+                className={`pointer-events-none absolute z-10 h-3.5 w-3.5 border-brand-cyan/70 ${pos}`}
+              />
+            ))}
+
+            {/* LED de estado */}
+            <div className="pointer-events-none absolute right-3 top-[3px] z-10 h-[4px] w-[4px] animate-pulse rounded-full bg-brand-cyan shadow-[0_0_6px_rgba(0,201,247,0.9)]" />
+
             {/* Pantalla: frame del video institucional (captura estática —
                 mismo look que el video en pausa, cero costo de decode) */}
-            <div className="relative h-full w-full overflow-hidden rounded-[5px] bg-[#050e1f]">
+            <div
+              className="relative h-full w-full overflow-hidden rounded-[5px] bg-[#050e1f]"
+              style={{
+                boxShadow:
+                  'inset 0 0 0 1px rgba(0,201,247,0.35), inset 0 0 18px rgba(0,201,247,0.12)',
+              }}
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/intro-poster.webp"
@@ -159,9 +181,20 @@ function Billboard() {
                 loading="lazy"
                 decoding="async"
               />
+              {/* Scanlines LED sutiles */}
+              <div
+                className="pointer-events-none absolute inset-0 opacity-[0.16]"
+                style={{
+                  background:
+                    'repeating-linear-gradient(0deg, rgba(0,0,0,0.55) 0px, rgba(0,0,0,0.55) 1px, transparent 1px, transparent 4px)',
+                }}
+              />
               {/* Tinte cian LED sutil */}
               <div className="pointer-events-none absolute inset-0 bg-brand-cyan/[0.03]" />
             </div>
+
+            {/* Tira LED inferior del bezel */}
+            <div className="pointer-events-none absolute inset-x-6 bottom-[3px] z-10 h-[2px] rounded-full bg-gradient-to-r from-transparent via-brand-cyan/80 to-transparent shadow-[0_0_8px_rgba(0,201,247,0.6)]" />
           </div>
         </div>
 
