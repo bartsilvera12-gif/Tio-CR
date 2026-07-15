@@ -198,19 +198,52 @@ function Billboard() {
           </div>
         </div>
 
-        {/* ---- Poste vertical ---- */}
-        <div className="relative mx-auto h-[56px] w-[12px] rounded-b-md md:h-[100px] md:w-[14px] bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 shadow-[0_2px_10px_rgba(0,0,0,0.5)]" />
+        {/* ---- Mástil tecnológico: columna segmentada + tira LED ---- */}
+        <div className="relative mx-auto h-[56px] w-[18px] md:h-[100px] md:w-[22px]">
+          {/* Columna metálica con seams horizontales */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(90deg, #1E293B 0%, #475569 45%, #64748B 50%, #475569 55%, #1E293B 100%), repeating-linear-gradient(180deg, transparent 0px, transparent 14px, rgba(0,0,0,0.45) 14px, rgba(0,0,0,0.45) 16px)',
+              backgroundBlendMode: 'overlay',
+              clipPath: 'polygon(15% 0, 85% 0, 100% 100%, 0 100%)',
+              boxShadow: '0 2px 10px rgba(0,0,0,0.5)',
+            }}
+          />
+          {/* Tira LED central del mástil */}
+          <div className="absolute left-1/2 top-[12%] h-[76%] w-[2px] -translate-x-1/2 rounded-full bg-gradient-to-b from-brand-cyan/80 via-brand-cyan/30 to-transparent shadow-[0_0_6px_rgba(0,201,247,0.55)]" />
+          {/* Caja de conexión */}
+          <div className="absolute left-1/2 top-[38%] hidden h-[14px] w-[10px] -translate-x-1/2 rounded-[2px] border border-white/15 bg-slate-800 md:block" />
+        </div>
 
-        {/* ---- Base: 3 anillos blancos concéntricos ---- */}
-        <div className="relative mx-auto hidden h-[46px] w-[240px] md:block">
+        {/* ---- Base tecnológica: placa angular con bulones y filete LED ---- */}
+        <div className="relative mx-auto hidden h-[40px] w-[240px] md:block">
           {/* Sombra en el piso */}
-          <div className="absolute inset-x-[8%] top-5 h-[18px] rounded-[50%] bg-black/50 blur-md" />
-          {/* Anillo exterior */}
-          <div className="absolute inset-x-0 top-1 h-[30px] rounded-[50%] border-[3px] border-white/45" />
-          {/* Anillo medio */}
-          <div className="absolute inset-x-[18%] top-[7px] h-[19px] rounded-[50%] border-2 border-white/35" />
-          {/* Anillo interior */}
-          <div className="absolute inset-x-[34%] top-[12px] h-[10px] rounded-[50%] border-2 border-white/25" />
+          <div className="absolute inset-x-[10%] top-[18px] h-[16px] rounded-[50%] bg-black/50 blur-md" />
+          {/* Placa superior (trapecio) */}
+          <div
+            className="absolute inset-x-[22%] top-0 h-[10px]"
+            style={{
+              background: 'linear-gradient(180deg, #475569 0%, #1E293B 100%)',
+              clipPath: 'polygon(8% 0, 92% 0, 100% 100%, 0 100%)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.25)',
+            }}
+          />
+          {/* Placa inferior (trapecio más ancho) */}
+          <div
+            className="absolute inset-x-[10%] top-[9px] h-[12px]"
+            style={{
+              background: 'linear-gradient(180deg, #334155 0%, #0F172A 100%)',
+              clipPath: 'polygon(5% 0, 95% 0, 100% 100%, 0 100%)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.18)',
+            }}
+          />
+          {/* Filete LED en el borde de la placa inferior */}
+          <div className="absolute inset-x-[16%] top-[20px] h-[2px] rounded-full bg-gradient-to-r from-transparent via-brand-cyan/70 to-transparent shadow-[0_0_8px_rgba(0,201,247,0.5)]" />
+          {/* Bulones */}
+          <div className="absolute left-[16%] top-[13px] h-[4px] w-[4px] rounded-[1px] bg-slate-400/70" />
+          <div className="absolute right-[16%] top-[13px] h-[4px] w-[4px] rounded-[1px] bg-slate-400/70" />
         </div>
       </div>
     </div>
