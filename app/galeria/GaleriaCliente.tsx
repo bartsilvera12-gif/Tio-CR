@@ -115,7 +115,7 @@ export default function GaleriaCliente() {
               <button
                 key={`${p.cartel.key}-${p.idx}`}
                 onClick={() => setLightbox(p)}
-                className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-brand-navyDeep text-left transition-shadow duration-500 hover:shadow-[0_28px_60px_-18px_rgba(0,201,247,0.5)]"
+                className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-brand-navyDeep text-left transition-shadow duration-500 hover:shadow-[0_28px_60px_-18px_rgba(255,255,255,0.5)]"
                 style={{ animationDelay: `${(i % 12) * 40}ms` }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -129,7 +129,7 @@ export default function GaleriaCliente() {
                   className="h-full w-full scale-[1.06] object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.16]"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent transition-opacity duration-500 group-hover:opacity-100" />
-                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(ellipse_at_top,rgba(0,201,247,0.32),transparent_60%)] mix-blend-overlay" />
+                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.32),transparent_60%)] mix-blend-overlay" />
 
                 <div className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-2">
                   <div>
@@ -235,7 +235,7 @@ function FilterChip({
       href={href}
       className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-300 ${
         active
-          ? 'border-brand-cyan bg-brand-cyan/20 text-brand-cyan shadow-[0_4px_18px_-6px_rgba(0,201,247,0.5)]'
+          ? 'border-brand-cyan bg-brand-cyan/20 text-brand-cyan shadow-[0_4px_18px_-6px_rgba(255,255,255,0.5)]'
           : 'border-white/15 bg-white/[0.03] text-white/80 hover:-translate-y-0.5 hover:border-brand-cyan/60 hover:bg-brand-cyan/10 hover:text-brand-cyan'
       }`}
     >
