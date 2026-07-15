@@ -123,11 +123,11 @@ export default function CoberturaMap() {
             >
               <path
                 d="M0 0 C -7 -11 -15 -18 -15 -29 A 15 15 0 1 1 15 -29 C 15 -18 7 -11 0 0 Z"
-                fill="#061428"
-                stroke="#00E5FF"
-                strokeWidth="2.5"
+                fill="#F5B942"
+                stroke="#FFFFFF"
+                strokeWidth="2"
               />
-              <circle cx="0" cy="-29" r="6" fill="#00E5FF" />
+              <circle cx="0" cy="-29" r="5.5" fill="#0A1F3D" />
             </g>
           </g>
         ))}

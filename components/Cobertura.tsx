@@ -21,8 +21,8 @@ export default function Cobertura() {
       <div className="container relative">
         <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <span className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-black">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-black" />
+            <span className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#0A1F3D]">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-[#0A1F3D]" />
               Cobertura
             </span>
 
@@ -37,12 +37,12 @@ export default function Cobertura() {
                 by="word"
                 step={80}
                 delay={500}
-                unitClassName="text-black"
+                unitClassName="text-[#0A1F3D]"
               />
             </h2>
 
             {/* Barra de acento negra que crece */}
-            <div className="mt-5 h-[3px] w-24 origin-left rounded-full bg-gradient-to-r from-black to-transparent accent-bar" />
+            <div className="mt-5 h-[3px] w-24 origin-left rounded-full bg-gradient-to-r from-[#0A1F3D] to-transparent accent-bar" />
 
             <Reveal direction="left-clean" delay={200}>
               <p className="mt-6 text-lg text-white/85">
