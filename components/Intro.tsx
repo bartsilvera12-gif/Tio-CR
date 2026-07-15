@@ -19,13 +19,7 @@ export default function Intro() {
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <Reveal direction="cinematic">
             <div className="flex justify-center lg:justify-start">
-              <div className="w-full max-w-[500px]">
-                <img
-                  src="/logo-hero.webp"
-                  alt="TIO CR"
-                  className="h-auto w-full drop-shadow-[0_12px_40px_rgba(0,201,247,0.2)]"
-                />
-              </div>
+              <Billboard />
             </div>
           </Reveal>
 
@@ -96,5 +90,95 @@ export default function Intro() {
         </div>
       </div>
     </section>
+  )
+}
+
+/** Cartel publicitario 3D estático — el logo como pantalla, sin animaciones */
+function Billboard() {
+  // 4 posiciones (0-100%) para los reflectores
+  const spots = [17, 39, 61, 83]
+
+  return (
+    <div
+      className="relative w-full max-w-[600px]"
+      style={{ perspective: '1400px' }}
+    >
+      {/* Halo cian muy sutil */}
+      <div className="pointer-events-none absolute -inset-16 -z-10 bg-[radial-gradient(circle,rgba(0,201,247,0.1),transparent_70%)] blur-3xl" />
+
+      {/* Estructura vertical con perspectiva 3D (estática) */}
+      <div
+        className="relative"
+        style={{
+          transform: 'rotateY(14deg) rotateX(6deg) rotateZ(-2deg)',
+          transformStyle: 'preserve-3d',
+        }}
+      >
+        {/* ---- Reflectores ---- */}
+        <div className="relative z-20 -mb-[6px] h-[38px]">
+          {spots.map((left, i) => (
+            <div
+              key={i}
+              className="absolute bottom-0 -translate-x-1/2"
+              style={{ left: `${left}%` }}
+            >
+              {/* Cabeza del reflector */}
+              <div className="relative z-10 h-[16px] w-[52px] rounded-[4px] bg-gradient-to-b from-slate-500 via-slate-700 to-slate-900 shadow-[0_3px_8px_rgba(0,0,0,0.7)]">
+                <div className="absolute inset-x-1 bottom-[2px] h-[4px] rounded-sm bg-sky-200/80" />
+              </div>
+              {/* Brazo */}
+              <div className="mx-auto h-[22px] w-[4px] bg-gradient-to-b from-slate-600 to-slate-800" />
+            </div>
+          ))}
+        </div>
+
+        {/* ---- Pantalla con marco ---- */}
+        <div className="relative aspect-[16/9]">
+          {/* Sombra atrás del bezel */}
+          <div className="absolute -inset-2 rounded-[26px] bg-black/40 blur-lg" />
+
+          {/* Bezel */}
+          <div
+            className="relative h-full w-full overflow-hidden rounded-[22px] p-[10px]"
+            style={{
+              background:
+                'linear-gradient(150deg, rgba(51,65,85,0.45) 0%, rgba(15,23,42,0.55) 100%)',
+              border: '1px solid rgba(255,255,255,0.18)',
+              boxShadow:
+                '0 20px 50px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.16), inset 0 -1px 0 rgba(0,0,0,0.3)',
+            }}
+          >
+            {/* Pantalla: logo estático sobre fondo navy */}
+            <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[14px] bg-[#050e1f]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo-hero.webp"
+                alt="TIO CR"
+                className="w-[82%]"
+                loading="lazy"
+                decoding="async"
+              />
+              {/* Tinte cian LED sutil */}
+              <div className="pointer-events-none absolute inset-0 bg-brand-cyan/[0.03]" />
+            </div>
+          </div>
+        </div>
+
+        {/* ---- Poste vertical ---- */}
+        <div className="relative mx-auto h-[100px] w-[14px] rounded-b-md bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 shadow-[0_2px_10px_rgba(0,0,0,0.5)]" />
+
+        {/* ---- Base: 3 anillos blancos concéntricos ---- */}
+        <div className="relative mx-auto h-[46px] w-[240px]">
+          {/* Sombra en el piso */}
+          <div className="absolute inset-x-[8%] top-5 h-[18px] rounded-[50%] bg-black/50 blur-md" />
+          {/* Anillo exterior */}
+          <div className="absolute inset-x-0 top-1 h-[30px] rounded-[50%] border-[3px] border-white/45" />
+          {/* Anillo medio */}
+          <div className="absolute inset-x-[18%] top-[7px] h-[19px] rounded-[50%] border-2 border-white/35" />
+          {/* Anillo interior */}
+          <div className="absolute inset-x-[34%] top-[12px] h-[10px] rounded-[50%] border-2 border-white/25" />
+        </div>
+      </div>
+    </div>
   )
 }
