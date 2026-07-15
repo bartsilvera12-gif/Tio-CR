@@ -118,7 +118,6 @@ function Panel({
         loading="lazy"
         decoding="async"
         className="expand-panel-img absolute inset-0 block h-full w-full object-cover"
-        style={{ transform: 'scale(1.04)' }}
       />
 
       {/* Franjas navy sólidas — SIEMPRE encima de todo, matan la banda gris */}
