@@ -75,7 +75,6 @@ body {
 
 /* Anillos de la base pulsando (expanden y desvanecen) */
 @keyframes ringPulse {
-  0% { transform: scale(0.85); opacity: 0.7; }
   70% { transform: scale(1.12); opacity: 0; }
   100% { transform: scale(0.85); opacity: 0; }
 }
@@ -117,7 +116,6 @@ body {
 
 /* Barra de acento que respira bajo el título */
 @keyframes accentGrow {
-  0%, 100% { width: 72px; opacity: 0.7; }
   50% { width: 110px; opacity: 1; }
 }
 .intro-accent-bar {
@@ -537,7 +535,6 @@ body {
     animation: ctaShimmer 4s ease-in-out infinite;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.7;
   }
   .btn-cta > * { position: relative; z-index: 1; }
   .btn-cta .cta-arrow {
@@ -880,7 +877,6 @@ body {
     opacity: 1;
     max-height: 200px;
   }
-  .expand-panels .expand-panel:hover .expand-panel-overlay { opacity: 0.7; }
 }
 
 @media (max-width: 767px) {

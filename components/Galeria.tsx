@@ -106,8 +106,6 @@ function Panel({
         {
           background: '#061428',
           '--pos': cartel.pos,
-          // Franja navy sólida arriba y abajo — pisa cualquier seam de layer/subpixel
-          boxShadow: 'inset 0 3px 0 #061428, inset 0 -3px 0 #061428',
         } as React.CSSProperties
       }
     >
@@ -120,7 +118,19 @@ function Panel({
         loading="lazy"
         decoding="async"
         className="expand-panel-img absolute inset-0 block h-full w-full object-cover"
-        style={{ marginTop: '-1px', marginBottom: '-1px', height: 'calc(100% + 2px)' }}
+        style={{ transform: 'scale(1.04)' }}
+      />
+
+      {/* Franjas navy sólidas — SIEMPRE encima de todo, matan la banda gris */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[6px]"
+        style={{ background: '#061428' }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[6px]"
+        style={{ background: '#061428' }}
       />
 
       {/* Overlay oscuro con "vignette horizontal": mata los bordes gris
