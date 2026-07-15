@@ -8,7 +8,12 @@ export default function Cobertura() {
     <section
       id="cobertura"
       className="section relative overflow-hidden text-white"
-      style={{ backgroundColor: '#888E9E' }}
+      style={{
+        backgroundColor: '#888E9E',
+        backgroundImage: 'url(/fondo-cobertura.webp)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
     >
       <div className="container relative">
         <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
