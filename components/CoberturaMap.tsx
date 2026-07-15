@@ -88,6 +88,12 @@ export default function CoberturaMap() {
             <stop offset="0" stopColor="#1E4B8A" />
             <stop offset="1" stopColor="#0A1F3D" />
           </linearGradient>
+          {/* Halo blanco para los pines — gradiente nativo, funciona en Safari/iOS */}
+          <radialGradient id="pinGlow">
+            <stop offset="0" stopColor="#FFFFFF" stopOpacity="0.5" />
+            <stop offset="0.55" stopColor="#FFFFFF" stopOpacity="0.18" />
+            <stop offset="1" stopColor="#FFFFFF" stopOpacity="0" />
+          </radialGradient>
         </defs>
 
         {departments.map((d: { name: string; d: string }) => (
@@ -124,6 +130,7 @@ export default function CoberturaMap() {
               onMouseEnter={() => showTooltip(p)}
               onMouseLeave={scheduleClose}
             >
+              <circle cx="0" cy="-22" r="30" fill="url(#pinGlow)" />
               <path
                 d="M0 0 C -7 -11 -15 -18 -15 -29 A 15 15 0 1 1 15 -29 C 15 -18 7 -11 0 0 Z"
                 fill="#000000"
