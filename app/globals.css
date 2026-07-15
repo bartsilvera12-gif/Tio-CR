@@ -841,3 +841,40 @@ body {
 .btn-header-pill:hover .btn-header-pill__label {
   letter-spacing: 0.08em;
 }
+
+/* ============================================================
+   EXPAND PANELS — 3 paneles horizontales expandibles (OPL style)
+   ============================================================
+   En reposo cada panel ocupa 1/3. Al hover del contenedor, todos
+   se achican; el hovereado crece a flex:3. La imagen usa una CSS
+   var --pos para el object-position en reposo (crop cerca del
+   cartel) y se centra al expandir. Sin JS. */
+.expand-panel-img {
+  object-position: var(--pos, center);
+  transition: object-position 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.expand-panel-detail {
+  opacity: 0;
+  transition: opacity 0.4s ease 0.15s;
+}
+.expand-panel-overlay {
+  transition: opacity 0.5s ease;
+}
+
+@media (min-width: 768px) {
+  .expand-panels .expand-panel {
+    transition:
+      flex 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.5s ease;
+  }
+  .expand-panels:hover .expand-panel { flex: 0.55; }
+  .expand-panels .expand-panel:hover { flex: 3; }
+  .expand-panels .expand-panel:hover .expand-panel-img { object-position: center; }
+  .expand-panels .expand-panel:hover .expand-panel-detail { opacity: 1; }
+  .expand-panels .expand-panel:hover .expand-panel-overlay { opacity: 0.75; }
+}
+
+/* En mobile no hay expansión: el detalle no aporta y ocupa espacio */
+@media (max-width: 767px) {
+  .expand-panel-detail { display: none; }
+}
