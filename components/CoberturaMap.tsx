@@ -95,7 +95,7 @@ export default function CoberturaMap() {
             key={d.name}
             d={d.d}
             fill="url(#mapFill)"
-            stroke="#7DB0E8"
+            stroke="#E8EDF5"
             strokeOpacity="0.45"
             strokeWidth="1.4"
             strokeLinejoin="round"
@@ -105,7 +105,7 @@ export default function CoberturaMap() {
         <polyline
           points={pins.map((p) => `${p.x},${p.y}`).join(' ')}
           fill="none"
-          stroke="#0A1F3D"
+          stroke="#DDE4EE"
           strokeWidth="2.5"
           strokeOpacity="0.45"
           strokeDasharray="3 14"
