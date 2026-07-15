@@ -110,7 +110,7 @@ function Billboard() {
       <div
         className="relative"
         style={{
-          transform: 'rotateY(14deg) rotateX(6deg) rotateZ(-2deg)',
+          transform: 'rotateY(8deg) rotateX(3deg)',
           transformStyle: 'preserve-3d',
         }}
       >
@@ -123,8 +123,8 @@ function Billboard() {
               style={{ left: `${left}%` }}
             >
               {/* Cabeza del reflector */}
-              <div className="relative z-10 h-[16px] w-[52px] rounded-[4px] bg-gradient-to-b from-slate-300 via-slate-600 to-slate-800 shadow-[0_3px_8px_rgba(0,0,0,0.7)]">
-                <div className="absolute inset-x-1 bottom-[2px] h-[4px] rounded-sm bg-sky-200/80" />
+              <div className="relative z-10 h-[11px] w-[44px] rounded-[2px] bg-gradient-to-b from-slate-400 via-slate-700 to-slate-900 shadow-[0_3px_8px_rgba(0,0,0,0.7)]">
+                <div className="absolute inset-x-1 bottom-[1px] h-[3px] rounded-sm bg-sky-100/70" />
               </div>
               {/* Brazo */}
               <div className="mx-auto h-[22px] w-[4px] bg-gradient-to-b from-slate-400 to-slate-700" />
@@ -173,17 +173,25 @@ function Billboard() {
                   'inset 0 0 0 1px rgba(0,201,247,0.35), inset 0 0 18px rgba(0,201,247,0.12)',
               }}
             >
+              {/* Fondo de pantalla oscuro con viñeta */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'radial-gradient(ellipse at 50% 42%, #10233C 0%, #081222 62%, #04080F 100%)',
+                }}
+              />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/intro-poster.webp"
+                src="/logo-hero.webp"
                 alt="TIO CR — Marketing y Servicios Publicitarios"
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute left-1/2 top-1/2 w-[72%] -translate-x-1/2 -translate-y-1/2"
                 loading="lazy"
                 decoding="async"
               />
               {/* Scanlines LED sutiles */}
               <div
-                className="pointer-events-none absolute inset-0 opacity-[0.16]"
+                className="pointer-events-none absolute inset-0 opacity-[0.1]"
                 style={{
                   background:
                     'repeating-linear-gradient(0deg, rgba(0,0,0,0.55) 0px, rgba(0,0,0,0.55) 1px, transparent 1px, transparent 4px)',
