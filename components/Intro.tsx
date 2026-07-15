@@ -46,7 +46,7 @@ export default function Intro() {
             <div className="mt-10 flex flex-wrap gap-4">
               <a
                 href="#contacto"
-                className="btn-idle-glow group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-brand-cyan px-7 py-3.5 text-sm font-bold uppercase tracking-widest text-brand-navyDeep transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_40px_-8px_rgba(47,123,255,0.65)] active:scale-95"
+                className="btn-idle-glow group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-brand-cyan px-7 py-3.5 text-sm font-bold uppercase tracking-widest text-brand-navyDeep transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_40px_-8px_rgba(10,31,61,0.65)] active:scale-95"
               >
                 <span className="relative z-10">Solicitar presupuesto</span>
                 <svg
@@ -104,7 +104,7 @@ function Billboard() {
       style={{ perspective: '1400px' }}
     >
       {/* Halo cian muy sutil */}
-      <div className="pointer-events-none absolute -inset-16 -z-10 bg-[radial-gradient(circle,rgba(47,123,255,0.1),transparent_70%)] blur-3xl" />
+      <div className="pointer-events-none absolute -inset-16 -z-10 bg-[radial-gradient(circle,rgba(10,31,61,0.1),transparent_70%)] blur-3xl" />
 
       {/* Estructura vertical con perspectiva 3D (estática) */}
       <div

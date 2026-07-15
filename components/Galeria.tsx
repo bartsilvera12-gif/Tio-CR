@@ -107,7 +107,7 @@ function GalleryCard({
 }) {
   return (
     <div
-      className="group relative h-full w-full overflow-hidden rounded-2xl transition-shadow duration-500 hover:shadow-[0_28px_60px_-18px_rgba(47,123,255,0.45)]"
+      className="group relative h-full w-full overflow-hidden rounded-2xl transition-shadow duration-500 hover:shadow-[0_28px_60px_-18px_rgba(10,31,61,0.45)]"
       style={{
         background: '#061428',
         boxShadow: '0 18px 44px -18px rgba(0,0,0,0.6)',
@@ -128,7 +128,7 @@ function GalleryCard({
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-95 transition-opacity duration-500 group-hover:opacity-100" />
 
       {/* Glow cian al hover */}
-      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(ellipse_at_top,rgba(47,123,255,0.35),transparent_60%)] mix-blend-overlay" />
+      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(ellipse_at_top,rgba(10,31,61,0.35),transparent_60%)] mix-blend-overlay" />
 
       {/* Etiqueta de ciudad */}
       <div className="absolute inset-x-4 bottom-4 flex items-end justify-between">

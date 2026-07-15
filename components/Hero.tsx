@@ -22,7 +22,7 @@ export default function Hero() {
         {/* Overlay oscuro + degradado: transparente → negro → navy (funde con la próxima sección) */}
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black via-black via-[20%] to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(47,123,255,0.12),transparent_65%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(10,31,61,0.12),transparent_65%)]" />
       </div>
 
       {/* Solo el logo, sin texto — wrapper anima fade-in, img anima hover */}
