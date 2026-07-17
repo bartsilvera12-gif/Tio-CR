@@ -31,6 +31,7 @@ export default function Hero() {
           src="/logo-hero.webp"
           alt="TIOCR - Marketing y Servicios Publicitarios"
           className="w-[min(90vw,860px)] cursor-pointer transition-transform duration-500 ease-out hover:scale-[1.02]"
+          style={{ filter: 'brightness(0) invert(1) drop-shadow(0 2px 20px rgba(0,0,0,0.55))' }}
         />
       </div>
 
