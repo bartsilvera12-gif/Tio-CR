@@ -37,6 +37,10 @@ export default function Propuesta() {
         backgroundPosition: 'center',
       }}
     >
+      {/* Fade desde el navy anterior (Galería) */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-32 bg-gradient-to-b from-brand-navy to-transparent" />
+      {/* Fade hacia el navyDeep siguiente (Contacto) */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-32 bg-gradient-to-t from-brand-navyDeep to-transparent" />
       <div className="container relative">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-2.5 rounded-full border-2 border-brand-cyan/70 bg-brand-navyDeep px-6 py-2.5 text-base font-bold uppercase tracking-[0.25em] text-brand-cyan shadow-[0_8px_28px_-6px_rgba(0,201,247,0.55),inset_0_1px_0_rgba(255,255,255,0.12)]">
