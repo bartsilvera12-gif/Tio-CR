@@ -62,6 +62,8 @@ export default function Contacto() {
 
   return (
     <section id="contacto" className="section relative overflow-hidden bg-brand-navyDeep text-white">
+      {/* Fade desde la sección Propuesta */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-24 bg-gradient-to-b from-brand-navyDeep to-transparent" />
       <GlowBlob
         className="left-[32%] top-[25%] h-[340px] w-[520px]"
         opacity={0.1}
