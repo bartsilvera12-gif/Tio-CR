@@ -15,8 +15,6 @@ export default function Cobertura() {
         backgroundPosition: 'center',
       }}
     >
-      {/* Fade desde el fondo oscuro anterior (Refugios) */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-16 bg-gradient-to-b from-[#0a0a0f]/70 to-transparent" />
       {/* Grano de película sobre el fondo gris */}
       <div
         aria-hidden
