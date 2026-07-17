@@ -23,7 +23,7 @@ export default function Galeria() {
       className="section relative overflow-hidden bg-brand-navy text-white"
     >
       {/* Fade desde el gris anterior (Cobertura) */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-32 bg-gradient-to-b from-[#888E9E] to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-16 bg-gradient-to-b from-[#888E9E]/70 to-transparent" />
       <GlowBlob
         className="right-[4%] top-[35%] h-[360px] w-[480px]"
         opacity={0.09}
