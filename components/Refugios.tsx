@@ -89,9 +89,9 @@ export default function Refugios() {
       id="servicios"
       className="relative overflow-hidden bg-[#080C12]"
       style={{
-        backgroundImage: 'url(/fondo-colectivo.webp)',
+        backgroundImage: 'url(/fondo-servicios.webp)',
         backgroundSize: 'cover',
-        backgroundPosition: 'center bottom',
+        backgroundPosition: 'center',
       }}
     >
       {/* Suavizado del borde superior de la banda */}
