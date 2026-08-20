@@ -179,15 +179,11 @@ export default function Refugios() {
 
                     {/* ---- Cara trasera (hover): detalles ---- */}
                     <div
-                      className="card-face card-face-back relative flex h-full flex-col justify-center overflow-hidden rounded-2xl p-3 sm:p-6 text-white"
+                      className="card-face card-face-back relative flex h-full flex-col justify-center overflow-hidden rounded-2xl bg-black p-3 sm:p-6 text-white"
                       style={{
-                        background:
-                          'linear-gradient(150deg, rgba(38,41,48,0.94) 0%, rgba(16,18,22,0.97) 100%)',
                         border: '1px solid rgba(255,255,255,0.16)',
                         boxShadow:
-                          'inset 0 1px 0 rgba(255,255,255,0.14), 0 22px 50px -18px rgba(6,20,40,0.45)',
-                        backdropFilter: 'blur(22px) saturate(150%)',
-                        WebkitBackdropFilter: 'blur(22px) saturate(150%)',
+                          'inset 0 1px 0 rgba(255,255,255,0.14), 0 22px 50px -18px rgba(0,0,0,0.6)',
                       }}
                     >
                       <div className="mb-2 flex items-center gap-2 sm:mb-3 sm:gap-3">
