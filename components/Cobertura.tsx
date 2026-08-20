@@ -47,14 +47,14 @@ export default function Cobertura() {
                 accesos y centros urbanos.
               </p>
             </Reveal>
-            <div className="mt-8 flex flex-wrap gap-2">
-              {rutas.map((r, i) => {
+            <div className="mt-8 grid max-w-md grid-cols-4 gap-2">
+              {rutas.map((r) => {
                 const slug = r.toLowerCase().replace(/\s+/g, '-')
                 return (
                   <a
                     key={r}
                     href={`/galeria?ruta=${slug}`}
-                    className="rounded-full border border-[#35f4fe] bg-[#35f4fe] px-4 py-2 text-sm font-semibold text-white"
+                    className="rounded-full border border-[#35f4fe] bg-[#35f4fe] px-4 py-2 text-center text-sm font-semibold text-white"
                   >
                     {r}
                   </a>
