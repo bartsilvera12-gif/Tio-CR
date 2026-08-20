@@ -74,28 +74,44 @@ export default function CoberturaMap() {
 
   return (
     <div ref={rootRef} className="relative w-full max-w-[560px]">
-      {/* Halo suave detrás del mapa */}
-      <div className="pointer-events-none absolute inset-[10%] -z-10 rounded-full bg-[radial-gradient(circle,rgba(10,31,61,0.18),transparent_70%)] blur-2xl" />
+      {/* Halo cian suave detrás del mapa (efecto floating) */}
+      <div className="pointer-events-none absolute inset-[8%] -z-10 rounded-full bg-[radial-gradient(circle,rgba(53,244,254,0.22),transparent_65%)] blur-2xl" />
 
       <svg
         viewBox={`0 0 ${W} ${H}`}
         className="w-full overflow-visible"
         role="img"
         aria-label="Mapa de cobertura de Paraguay"
+        style={{ filter: 'drop-shadow(0 10px 24px rgba(10,31,61,0.35))' }}
       >
         <defs>
           <linearGradient id="mapFill" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stopColor="#A0A6B4" />
             <stop offset="1" stopColor="#6C7180" />
           </linearGradient>
+          {/* Costado del extrusion — degradado oscuro para simular la "pared" */}
+          <linearGradient id="mapSide" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#5A5F6B" />
+            <stop offset="1" stopColor="#2E323B" />
+          </linearGradient>
           {/* Halo blanco para los pines — gradiente nativo, funciona en Safari/iOS */}
           <radialGradient id="pinGlow">
-            <stop offset="0" stopColor="#FFFFFF" stopOpacity="0.5" />
-            <stop offset="0.55" stopColor="#FFFFFF" stopOpacity="0.18" />
-            <stop offset="1" stopColor="#FFFFFF" stopOpacity="0" />
+            <stop offset="0" stopColor="#35F4FE" stopOpacity="0.55" />
+            <stop offset="0.55" stopColor="#35F4FE" stopOpacity="0.18" />
+            <stop offset="1" stopColor="#35F4FE" stopOpacity="0" />
           </radialGradient>
         </defs>
 
+        {/* Extrusión 3D: 8 capas apiladas del mismo path desplazadas en Y */}
+        {[8, 7, 6, 5, 4, 3, 2, 1].map((dy) => (
+          <g key={dy} transform={`translate(0 ${dy})`}>
+            {departments.map((d: { name: string; d: string }) => (
+              <path key={d.name} d={d.d} fill="url(#mapSide)" />
+            ))}
+          </g>
+        ))}
+
+        {/* Tapa superior */}
         {departments.map((d: { name: string; d: string }) => (
           <path
             key={d.name}
@@ -103,8 +119,8 @@ export default function CoberturaMap() {
             d={d.d}
             fill="url(#mapFill)"
             stroke="#E8EDF5"
-            strokeOpacity="0.45"
-            strokeWidth="1.4"
+            strokeOpacity="0.55"
+            strokeWidth="1.2"
             strokeLinejoin="round"
           >
             <title>{d.name}</title>
