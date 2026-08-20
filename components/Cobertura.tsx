@@ -9,27 +9,13 @@ export default function Cobertura() {
       id="cobertura"
       className="section relative overflow-hidden text-white"
       style={{
-        backgroundColor: '#888E9E',
-        backgroundImage: 'url(/fondo-cobertura.webp)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundColor: '#FFFFFF',
       }}
     >
       {/* Fade desde el fondo oscuro anterior (Refugios) */}
       <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-24 bg-gradient-to-b from-[#0a0a0f] to-transparent" />
-      {/* Fade hacia el navy siguiente (Galería) — vive dentro del padding-bottom */}
+      {/* Fade hacia el navy siguiente (Galería) */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-32 bg-gradient-to-t from-brand-navy to-transparent" />
-      {/* Grano de película sobre el fondo gris */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage: 'url(/grain.webp)',
-          backgroundRepeat: 'repeat',
-          mixBlendMode: 'overlay',
-          opacity: 0.28,
-        }}
-      />
       <div className="container relative">
         <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
@@ -38,7 +24,7 @@ export default function Cobertura() {
               Cobertura
             </span>
 
-            <h2 className="mt-4 pb-2 font-display text-[2rem] font-bold leading-[1.15] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.5rem]">
+            <h2 className="mt-4 pb-2 font-display text-[2rem] font-bold leading-[1.15] tracking-tight text-[#35f4fe] sm:text-4xl md:text-5xl lg:text-[3.5rem]">
               <SplitTextReveal
                 text="Presentes en las rutas que"
                 by="word"
@@ -57,7 +43,7 @@ export default function Cobertura() {
             <div className="mt-5 h-[3px] w-24 origin-left rounded-full bg-gradient-to-r from-[#0A1F3D] to-transparent accent-bar" />
 
             <Reveal direction="left-clean" delay={200}>
-              <p className="mt-6 text-lg text-white/85">
+              <p className="mt-6 text-lg text-[#0A1F3D]/80">
                 Operamos en las principales arterias del país — desde el sur
                 hasta la frontera norte — con ubicaciones estratégicas en
                 accesos y centros urbanos.
@@ -70,7 +56,7 @@ export default function Cobertura() {
                   <a
                     key={r}
                     href={`/galeria?ruta=${slug}`}
-                    className="rounded-full border border-[#0A1F3D] bg-[#0A1F3D]/10 px-4 py-2 text-sm font-semibold text-[#0A1F3D]"
+                    className="rounded-full border border-[#35f4fe] bg-[#35f4fe]/10 px-4 py-2 text-sm font-semibold text-[#35f4fe]"
                   >
                     {r}
                   </a>
@@ -93,7 +79,7 @@ export default function Cobertura() {
                     <div className="stat-number font-display text-3xl font-bold text-[#0A1F3D] transition-transform duration-500 group-hover:scale-110">
                       {s.n}
                     </div>
-                    <div className="mt-1 whitespace-nowrap text-[10px] font-semibold uppercase tracking-wider text-white/75 transition-colors group-hover:text-white/95">
+                    <div className="mt-1 whitespace-nowrap text-[10px] font-semibold uppercase tracking-wider text-[#0A1F3D]/70 transition-colors group-hover:text-[#0A1F3D]">
                       {s.label}
                     </div>
                   </div>

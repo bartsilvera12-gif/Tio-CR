@@ -133,11 +133,11 @@ export default function CoberturaMap() {
               <circle cx="0" cy="-22" r="30" fill="url(#pinGlow)" />
               <path
                 d="M0 0 C -7 -11 -15 -18 -15 -29 A 15 15 0 1 1 15 -29 C 15 -18 7 -11 0 0 Z"
-                fill="#000000"
-                stroke="#FFFFFF"
+                fill="#35f4fe"
+                stroke="#0A1F3D"
                 strokeWidth="2"
               />
-              <circle cx="0" cy="-29" r="5.5" fill="#FFFFFF" />
+              <circle cx="0" cy="-29" r="5.5" fill="#0A1F3D" />
             </g>
           </g>
         ))}
