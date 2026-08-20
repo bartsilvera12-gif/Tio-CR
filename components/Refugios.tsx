@@ -130,12 +130,12 @@ export default function Refugios() {
                       className="card-face flex h-full flex-col items-center justify-center gap-2.5 overflow-hidden rounded-2xl p-3 text-center sm:min-h-[250px] sm:gap-5 sm:p-6"
                       style={{
                         background:
-                          'linear-gradient(150deg, rgba(38,41,48,0.94) 0%, rgba(16,18,22,0.97) 100%)',
+                          'linear-gradient(150deg, rgba(28,30,36,0.62) 0%, rgba(10,12,16,0.7) 100%)',
                         border: '1px solid rgba(255,255,255,0.16)',
                         boxShadow:
-                          'inset 0 1px 0 rgba(255,255,255,0.1), 0 22px 50px -18px rgba(6,20,40,0.5)',
-                        backdropFilter: 'blur(22px) saturate(150%)',
-                        WebkitBackdropFilter: 'blur(22px) saturate(150%)',
+                          'inset 0 1px 0 rgba(255,255,255,0.1), 0 22px 50px -18px rgba(0,0,0,0.55)',
+                        backdropFilter: 'blur(18px) saturate(150%)',
+                        WebkitBackdropFilter: 'blur(18px) saturate(150%)',
                       }}
                     >
                       <div
@@ -179,11 +179,14 @@ export default function Refugios() {
 
                     {/* ---- Cara trasera (hover): detalles ---- */}
                     <div
-                      className="card-face card-face-back relative flex h-full flex-col justify-center overflow-hidden rounded-2xl bg-black p-3 sm:p-6 text-white"
+                      className="card-face card-face-back relative flex h-full flex-col justify-center overflow-hidden rounded-2xl p-3 sm:p-6 text-white"
                       style={{
+                        background: 'rgba(0,0,0,0.68)',
                         border: '1px solid rgba(255,255,255,0.16)',
                         boxShadow:
                           'inset 0 1px 0 rgba(255,255,255,0.14), 0 22px 50px -18px rgba(0,0,0,0.6)',
+                        backdropFilter: 'blur(18px) saturate(150%)',
+                        WebkitBackdropFilter: 'blur(18px) saturate(150%)',
                       }}
                     >
                       <div className="mb-2 flex items-center gap-2 sm:mb-3 sm:gap-3">
