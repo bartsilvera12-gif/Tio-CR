@@ -4,11 +4,11 @@ export default function Propuesta() {
   return (
     <section
       id="propuesta"
-      className="relative overflow-hidden py-16 text-white md:py-32"
+      className="relative flex min-h-[85vh] flex-col justify-center overflow-hidden py-16 text-white md:min-h-[90vh] md:py-32"
       style={{
         backgroundImage: 'url(/fondo-propuesta.webp)',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'center bottom',
       }}
     >
       {/* Fade desde el navy anterior (Galería) */}
