@@ -54,10 +54,10 @@ export default function Header() {
           className="group flex items-center transition-transform duration-300 hover:scale-105 active:scale-95"
         >
           <img
-            src="/logo-white.webp"
+            src="/logo-tiocr-only.webp"
             alt="TIOCR"
             className="h-8 md:h-10"
-            style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.35))' }}
+            style={{ filter: 'brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.35))' }}
           />
         </a>
 
