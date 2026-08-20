@@ -74,7 +74,7 @@ export default function Cobertura() {
                 ].map((s) => (
                   <div
                     key={s.label}
-                    className="stat-card glass group rounded-xl px-3 py-4 text-center transition-all duration-300 hover:!border-brand-cyan hover:!bg-white/10 hover:shadow-[0_12px_36px_-12px_rgba(10,31,61,0.5)]"
+                    className="stat-card group rounded-xl border border-[#0A1F3D]/25 bg-white px-3 py-4 text-center shadow-[0_6px_18px_-8px_rgba(10,31,61,0.25)] transition-all duration-300 hover:border-[#35f4fe] hover:shadow-[0_12px_36px_-12px_rgba(53,244,254,0.6)]"
                   >
                     <div className="stat-number font-display text-3xl font-bold text-[#0A1F3D] transition-transform duration-500 group-hover:scale-110">
                       {s.n}
