@@ -86,18 +86,18 @@ export default function CoberturaMap() {
       >
         <defs>
           <linearGradient id="mapFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#A0A6B4" />
-            <stop offset="1" stopColor="#6C7180" />
+            <stop offset="0" stopColor="#7B8CA6" />
+            <stop offset="1" stopColor="#3E4A62" />
           </linearGradient>
-          {/* Costado del extrusion — degradado oscuro para simular la "pared" */}
+          {/* Costado del extrusion — degradado oscuro azulado */}
           <linearGradient id="mapSide" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#5A5F6B" />
-            <stop offset="1" stopColor="#2E323B" />
+            <stop offset="0" stopColor="#3D4A62" />
+            <stop offset="1" stopColor="#1B2233" />
           </linearGradient>
-          {/* Halo blanco para los pines — gradiente nativo, funciona en Safari/iOS */}
+          {/* Halo cian para los pines — gradiente nativo */}
           <radialGradient id="pinGlow">
-            <stop offset="0" stopColor="#35F4FE" stopOpacity="0.55" />
-            <stop offset="0.55" stopColor="#35F4FE" stopOpacity="0.18" />
+            <stop offset="0" stopColor="#35F4FE" stopOpacity="0.85" />
+            <stop offset="0.4" stopColor="#35F4FE" stopOpacity="0.35" />
             <stop offset="1" stopColor="#35F4FE" stopOpacity="0" />
           </radialGradient>
         </defs>
@@ -146,14 +146,12 @@ export default function CoberturaMap() {
               onMouseEnter={() => showTooltip(p)}
               onMouseLeave={scheduleClose}
             >
-              <circle cx="0" cy="-22" r="30" fill="url(#pinGlow)" />
+              <circle cx="0" cy="-22" r="34" fill="url(#pinGlow)" />
               <path
                 d="M0 0 C -7 -11 -15 -18 -15 -29 A 15 15 0 1 1 15 -29 C 15 -18 7 -11 0 0 Z"
                 fill="#35f4fe"
-                stroke="#0A1F3D"
-                strokeWidth="2"
               />
-              <circle cx="0" cy="-29" r="5.5" fill="#0A1F3D" />
+              <circle cx="0" cy="-29" r="5.5" fill="#FFFFFF" />
             </g>
           </g>
         ))}
