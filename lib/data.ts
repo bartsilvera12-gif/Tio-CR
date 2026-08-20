@@ -59,5 +59,5 @@ export const contacto = {
   whatsapp2Display: '+595 971 201 799',
   phone: '021205568',
   phoneDisplay: '021 205 568',
-  email: 'carlosraulpy@gmail.com',
+  email: 'cartelesparaguay@gmail.com',
 }
