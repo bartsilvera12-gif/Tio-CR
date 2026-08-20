@@ -107,7 +107,7 @@ export default function Refugios() {
             className="mt-4 font-display text-4xl font-bold tracking-tight text-white md:text-5xl"
             style={{ textShadow: '0 2px 24px rgba(0,0,0,0.6)' }}
           >
-            Todo lo que necesitás para estar en la calle.
+            Todo lo que necesitás para la visibilidad de tu marca.
           </h2>
         </Reveal>
 
