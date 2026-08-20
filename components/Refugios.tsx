@@ -126,9 +126,61 @@ export default function Refugios() {
                 {/* Zona de hover estable (no rota) */}
                 <div className="card-spin-zone group h-full">
                   <div className="card-flip3d">
-                    {/* ---- Cara frontal: vidrio azul ---- */}
+                    {/* ---- Cara frontal (default): ícono grande + título + CTA ---- */}
                     <div
-                      className="card-face relative flex h-full flex-col justify-center overflow-hidden rounded-2xl p-3 sm:min-h-[250px] sm:p-6 text-white"
+                      className="card-face flex h-full flex-col items-center justify-center gap-2.5 overflow-hidden rounded-2xl p-3 text-center sm:min-h-[250px] sm:gap-5 sm:p-6"
+                      style={{
+                        background:
+                          'linear-gradient(150deg, rgba(38,41,48,0.94) 0%, rgba(16,18,22,0.97) 100%)',
+                        border: '1px solid rgba(255,255,255,0.16)',
+                        boxShadow:
+                          'inset 0 1px 0 rgba(255,255,255,0.1), 0 22px 50px -18px rgba(6,20,40,0.5)',
+                        backdropFilter: 'blur(22px) saturate(150%)',
+                        WebkitBackdropFilter: 'blur(22px) saturate(150%)',
+                      }}
+                    >
+                      <div
+                        className="relative inline-flex h-11 w-11 items-center justify-center rounded-full sm:h-20 sm:w-20"
+                        style={{
+                          background:
+                            'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.14))',
+                          border: '1px solid rgba(255,255,255,0.2)',
+                          boxShadow: '0 10px 30px -10px rgba(0,201,247,0.45)',
+                        }}
+                      >
+                        <span className="sm:hidden">
+                          <DualIcon icono={s.icono} size={24} id={`grad-fm-${s.icono}`} />
+                        </span>
+                        <span className="hidden sm:inline">
+                          <DualIcon icono={s.icono} size={46} id={`grad-f-${s.icono}`} />
+                        </span>
+                      </div>
+
+                      <h3 className="relative font-display text-[0.9rem] font-bold text-white sm:text-[1.35rem]">
+                        {s.titulo}
+                      </h3>
+
+                      <a href="#contacto" className="btn-cta !px-4 !py-2 !text-[11px] uppercase tracking-widest sm:!px-7 sm:!py-3 sm:!text-sm">
+                        <span>Consultar</span>
+                        <svg
+                          className="cta-arrow"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                      </a>
+                    </div>
+
+                    {/* ---- Cara trasera (hover): detalles ---- */}
+                    <div
+                      className="card-face card-face-back relative flex h-full flex-col justify-center overflow-hidden rounded-2xl p-3 sm:p-6 text-white"
                       style={{
                         background:
                           'linear-gradient(150deg, rgba(38,41,48,0.94) 0%, rgba(16,18,22,0.97) 100%)',
@@ -139,7 +191,6 @@ export default function Refugios() {
                         WebkitBackdropFilter: 'blur(22px) saturate(150%)',
                       }}
                     >
-                      {/* Header: ícono + título lado a lado */}
                       <div className="mb-2 flex items-center gap-2 sm:mb-3 sm:gap-3">
                         <div
                           className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full sm:h-12 sm:w-12"
@@ -150,7 +201,7 @@ export default function Refugios() {
                             boxShadow: '0 8px 24px -8px rgba(0,201,247,0.35)',
                           }}
                         >
-                          <DualIcon icono={s.icono} size={26} id={`grad-f-${s.icono}`} />
+                          <DualIcon icono={s.icono} size={26} id={`grad-b-${s.icono}`} />
                         </div>
                         <h3 className="font-display text-[0.85rem] font-bold leading-tight text-white sm:text-[1.2rem]">
                           {s.titulo}
@@ -179,60 +230,6 @@ export default function Refugios() {
                           </li>
                         ))}
                       </ul>
-                    </div>
-
-                    {/* ---- Cara trasera ---- */}
-                    <div
-                      className="card-face card-face-back flex flex-col items-center justify-center gap-2.5 overflow-hidden rounded-2xl p-3 text-center sm:gap-5 sm:p-6"
-                      style={{
-                        background:
-                          'linear-gradient(150deg, rgba(38,41,48,0.94) 0%, rgba(16,18,22,0.97) 100%)',
-                        border: '1px solid rgba(255,255,255,0.16)',
-                        boxShadow:
-                          'inset 0 1px 0 rgba(255,255,255,0.1), 0 22px 50px -18px rgba(6,20,40,0.5)',
-                        backdropFilter: 'blur(22px) saturate(150%)',
-                        WebkitBackdropFilter: 'blur(22px) saturate(150%)',
-                      }}
-                    >
-                      {/* Loguito grande en círculo */}
-                      <div
-                        className="relative inline-flex h-11 w-11 items-center justify-center rounded-full sm:h-20 sm:w-20"
-                        style={{
-                          background:
-                            'linear-gradient(160deg, rgba(255,255,255,0.14), rgba(0,201,247,0.14))',
-                          border: '1px solid rgba(255,255,255,0.2)',
-                          boxShadow: '0 10px 30px -10px rgba(0,201,247,0.45)',
-                        }}
-                      >
-                        <span className="sm:hidden">
-                          <DualIcon icono={s.icono} size={24} id={`grad-bm-${s.icono}`} />
-                        </span>
-                        <span className="hidden sm:inline">
-                          <DualIcon icono={s.icono} size={46} id={`grad-b-${s.icono}`} />
-                        </span>
-                      </div>
-
-                      <h3 className="relative font-display text-[0.9rem] font-bold text-white sm:text-[1.35rem]">
-                        {s.titulo}
-                      </h3>
-
-                      {/* CTA con el mismo formato que Solicitar presupuesto */}
-                      <a href="#contacto" className="btn-cta !px-4 !py-2 !text-[11px] uppercase tracking-widest sm:!px-7 sm:!py-3 sm:!text-sm">
-                        <span>Consultar</span>
-                        <svg
-                          className="cta-arrow"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M5 12h14M13 6l6 6-6 6" />
-                        </svg>
-                      </a>
                     </div>
                   </div>
                 </div>
