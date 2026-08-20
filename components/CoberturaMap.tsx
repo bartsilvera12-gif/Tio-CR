@@ -201,12 +201,6 @@ export default function CoberturaMap() {
         </div>
       )}
 
-      {/* Caption */}
-      <p className="mt-4 flex items-center justify-center gap-2.5 text-sm text-[#0A1F3D]/70">
-        <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-[#0A1F3D]" />
-        Tocá un punto para ver el cartel disponible
-      </p>
-
       {/* Modal (portal para escapar de transforms) */}
       {mounted &&
         selected &&
