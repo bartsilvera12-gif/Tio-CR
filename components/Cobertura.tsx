@@ -47,7 +47,27 @@ export default function Cobertura() {
                 accesos y centros urbanos.
               </p>
             </Reveal>
-            <div className="mt-8 grid max-w-md grid-cols-4 gap-2">
+            <div className="mt-10 flex items-center gap-3">
+              <span className="font-display text-base font-bold uppercase tracking-[0.22em] text-[#0A1F3D]">
+                Mirá dónde estamos
+              </span>
+              <span aria-hidden className="h-px flex-1 max-w-[80px] bg-gradient-to-r from-[#0A1F3D]/60 to-transparent" />
+              <svg
+                className="animate-nudge-right text-[#0A1F3D]"
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </div>
+
+            <div className="mt-4 grid max-w-md grid-cols-4 gap-2">
               {rutas.map((r) => {
                 const slug = r.toLowerCase().replace(/\s+/g, '-')
                 return (
@@ -64,28 +84,8 @@ export default function Cobertura() {
           </div>
 
           <Reveal delay={80} direction="fade">
-            <div className="flex flex-col items-center lg:items-end">
-              <div className="mb-4 flex items-center gap-3">
-                <span className="font-display text-lg font-bold uppercase tracking-widest text-[#35f4fe]">
-                  Mirá dónde estamos
-                </span>
-                <svg
-                  className="animate-bounce text-[#35f4fe]"
-                  width="26"
-                  height="26"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M12 5v14M6 13l6 6 6-6" />
-                </svg>
-              </div>
-              <div className="flex w-full justify-center lg:justify-end">
-                <CoberturaMap />
-              </div>
+            <div className="flex justify-center lg:justify-end">
+              <CoberturaMap />
             </div>
           </Reveal>
         </div>
