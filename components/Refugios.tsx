@@ -1,6 +1,5 @@
 import { servicios } from '@/lib/data'
 import Reveal from './Reveal'
-import ParadaScene from './ParadaScene'
 import { SpotlightCard } from './ui/spotlight-card'
 
 const iconos: Record<string, React.ReactNode> = {
@@ -237,10 +236,6 @@ export default function Refugios() {
             ))}
           </div>
 
-          {/* DERECHA — escena interactiva: la parada se eleva al hover */}
-          <Reveal direction="right-clean" delay={140}>
-            <ParadaScene />
-          </Reveal>
           </div>
         </SpotlightCard>
       </div>
