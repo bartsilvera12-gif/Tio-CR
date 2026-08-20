@@ -56,7 +56,7 @@ export default function Cobertura() {
                   <a
                     key={r}
                     href={`/galeria?ruta=${slug}`}
-                    className="rounded-full border border-[#35f4fe] bg-[#35f4fe]/10 px-4 py-2 text-sm font-semibold text-[#35f4fe]"
+                    className="rounded-full border border-[#35f4fe] bg-[#35f4fe] px-4 py-2 text-sm font-semibold text-white"
                   >
                     {r}
                   </a>
