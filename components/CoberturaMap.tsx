@@ -148,10 +148,11 @@ export default function CoberturaMap() {
             >
               <circle cx="0" cy="-22" r="34" fill="url(#pinGlow)" />
               <path
-                d="M0 0 C -7 -11 -15 -18 -15 -29 A 15 15 0 1 1 15 -29 C 15 -18 7 -11 0 0 Z"
+                d="M0 0 C -7 -11 -15 -18 -15 -29 A 15 15 0 1 1 15 -29 C 15 -18 7 -11 0 0 Z M0 -34 A 5 5 0 1 0 0 -24 A 5 5 0 1 0 0 -34 Z"
                 fill="#35f4fe"
+                fillRule="evenodd"
               />
-              <circle cx="0" cy="-29" r="5.5" fill="#FFFFFF" />
+              {/* punto interno hueco: se calaría con evenodd; deja ver el mapa detrás */}
             </g>
           </g>
         ))}
