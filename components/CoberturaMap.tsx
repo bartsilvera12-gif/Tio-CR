@@ -85,8 +85,8 @@ export default function CoberturaMap() {
       >
         <defs>
           <linearGradient id="mapFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#1E4B8A" />
-            <stop offset="1" stopColor="#0A1F3D" />
+            <stop offset="0" stopColor="#A0A6B4" />
+            <stop offset="1" stopColor="#6C7180" />
           </linearGradient>
           {/* Halo blanco para los pines — gradiente nativo, funciona en Safari/iOS */}
           <radialGradient id="pinGlow">
