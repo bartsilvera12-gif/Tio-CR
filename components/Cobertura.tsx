@@ -47,29 +47,6 @@ export default function Cobertura() {
                 accesos y centros urbanos.
               </p>
             </Reveal>
-            <div className="relative mt-8">
-              <div className="relative grid grid-cols-2 gap-3 sm:grid-cols-4">
-                {[
-                  { n: '22', label: 'Carteles' },
-                  { n: '9', label: 'Deptos.' },
-                  { n: '8', label: 'Rutas PY' },
-                  { n: '12×6', label: 'Metros' },
-                ].map((s) => (
-                  <div
-                    key={s.label}
-                    className="stat-card group rounded-xl border border-[#0A1F3D]/25 bg-white px-3 py-4 text-center shadow-[0_6px_18px_-8px_rgba(10,31,61,0.25)] transition-all duration-300 hover:border-[#35f4fe] hover:shadow-[0_12px_36px_-12px_rgba(53,244,254,0.6)]"
-                  >
-                    <div className="stat-number font-display text-3xl font-bold text-[#0A1F3D] transition-transform duration-500 group-hover:scale-110">
-                      {s.n}
-                    </div>
-                    <div className="mt-1 whitespace-nowrap text-[10px] font-semibold uppercase tracking-wider text-[#0A1F3D]/70 transition-colors group-hover:text-[#0A1F3D]">
-                      {s.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
             <div className="mt-8 grid max-w-md grid-cols-4 gap-2">
               {rutas.map((r) => {
                 const slug = r.toLowerCase().replace(/\s+/g, '-')
