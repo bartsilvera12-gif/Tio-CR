@@ -53,7 +53,12 @@ export default function Header() {
           href="/"
           className="group flex items-center transition-transform duration-300 hover:scale-105 active:scale-95"
         >
-          <img src="/logo.webp" alt="TIOCR" className="h-8 md:h-10" />
+          <img
+            src="/logo.webp"
+            alt="TIOCR"
+            className="h-8 md:h-10"
+            style={{ filter: 'brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.35))' }}
+          />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">

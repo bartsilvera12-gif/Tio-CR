@@ -762,12 +762,12 @@ body {
   width: 280px;
   height: 54px;
   border-radius: 100px;
-  background: linear-gradient(180deg, #FFFFFF 0%, #EDF1F7 55%, #D8DEE8 100%);
+  background: linear-gradient(180deg, #22DAFF 0%, #00C9F7 55%, #00A8D1 100%);
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.25),
     0 2px 5px rgba(0, 0, 0, 0.15),
     0 9px 9px rgba(0, 0, 0, 0.12),
-    0 20px 12px rgba(0, 0, 0, 0.08);
+    0 20px 12px rgba(0, 168, 209, 0.25);
   cursor: pointer;
   text-decoration: none;
   overflow: hidden;
@@ -825,8 +825,8 @@ body {
   font-family: var(--font-made-tommy), system-ui, sans-serif;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #062036;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.35);
+  color: #FFFFFF;
+  text-shadow: 0 1px 0 rgba(0, 40, 60, 0.25);
   white-space: nowrap;
   transition: letter-spacing 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
