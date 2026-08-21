@@ -2,7 +2,7 @@
 
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
-import { carteles, type Cartel } from '@/lib/carteles'
+import { carteles as cartelesSeed, type Cartel } from '@/lib/carteles'
 import GlowBlob from '@/components/GlowBlob'
 
 const routeSlug = (r: string) => r.toLowerCase().replace(/^ruta\s+/, '').replace(/\s+/g, '-')
@@ -12,9 +12,6 @@ const thumb = (src: string) => src.replace(/\.webp$/, '-sm.webp')
 
 const PAGE_SIZE = 24
 
-/** Rutas únicas presentes en los carteles, en orden numérico */
-const uniqueRoutes = Array.from(new Set(carteles.map((c) => c.route))).sort()
-
 type Photo = { src: string; cartel: Cartel; idx: number }
 
 export default function GaleriaCliente() {
@@ -22,11 +19,31 @@ export default function GaleriaCliente() {
   const rutaParam = params.get('ruta')
   const [lightbox, setLightbox] = useState<Photo | null>(null)
   const [limit, setLimit] = useState(PAGE_SIZE)
+  const [carteles, setCarteles] = useState<Cartel[]>(cartelesSeed)
+
+  // Traer el manifest editable desde el server; si falla, usa el seed hardcodeado
+  useEffect(() => {
+    let cancelled = false
+    fetch('/gallery-manifest.json', { cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (!cancelled && data && Array.isArray(data.carteles) && data.carteles.length) {
+          setCarteles(data.carteles)
+        }
+      })
+      .catch(() => { /* fallback: seed hardcodeado */ })
+    return () => { cancelled = true }
+  }, [])
+
+  const uniqueRoutes = useMemo(
+    () => Array.from(new Set(carteles.map((c) => c.route))).sort(),
+    [carteles]
+  )
 
   const filtered = useMemo(() => {
     if (!rutaParam) return carteles
     return carteles.filter((c) => routeSlug(c.route) === rutaParam)
-  }, [rutaParam])
+  }, [rutaParam, carteles])
 
   // Reset de paginación al cambiar el filtro de ruta
   useEffect(() => setLimit(PAGE_SIZE), [rutaParam])

@@ -1,0 +1,5 @@
+# Sirve imágenes pero NO ejecuta PHP en esta carpeta (seguridad)
+<FilesMatch "\.(php|phtml|phar|pl|py|cgi)$">
+  Require all denied
+</FilesMatch>
+Options -Indexes
