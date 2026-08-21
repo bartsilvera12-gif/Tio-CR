@@ -127,7 +127,7 @@ export default function Refugios() {
                   <div className="card-flip3d">
                     {/* ---- Cara frontal (default): ícono grande + título + CTA ---- */}
                     <div
-                      className="card-face flex h-full flex-col items-center justify-center gap-2.5 overflow-hidden rounded-2xl p-3 text-center sm:min-h-[250px] sm:gap-5 sm:p-6"
+                      className="card-face flex h-full min-h-[260px] flex-col items-center justify-center gap-2.5 overflow-hidden rounded-2xl p-3 text-center sm:min-h-[280px] sm:gap-5 sm:p-6"
                       style={{
                         background:
                           'linear-gradient(150deg, rgba(28,30,36,0.62) 0%, rgba(10,12,16,0.7) 100%)',

@@ -52,19 +52,21 @@ export default function Cobertura() {
                 Mirá dónde estamos
               </span>
               <span aria-hidden className="h-px flex-1 max-w-[80px] bg-gradient-to-r from-[#0A1F3D]/60 to-transparent" />
-              <svg
-                className="animate-nudge-right text-[#0A1F3D]"
-                width="26"
-                height="26"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
+              <span className="inline-flex rotate-90 lg:rotate-0">
+                <svg
+                  className="animate-nudge-right text-[#0A1F3D]"
+                  width="26"
+                  height="26"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
             </div>
 
             <div className="mt-4 grid max-w-md grid-cols-4 gap-2">
