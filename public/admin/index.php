@@ -92,8 +92,8 @@
   }
   .img .x:hover { background: rgba(239,68,68,.9); color: white; }
   .drop {
-    border: 2px dashed #35f4fe66; border-radius: 8px; padding: 22px; text-align: center; color: #94a3b8;
-    cursor: pointer; font-size: 13px; margin-top: 10px;
+    display: block; border: 2px dashed #35f4fe66; border-radius: 8px; padding: 22px;
+    text-align: center; color: #94a3b8; cursor: pointer; font-size: 13px; margin-top: 18px;
   }
   .drop.dragover { border-color: #35f4fe; background: rgba(53,244,254,.06); color: #eef2f7; }
   .drop input { display: none; }
